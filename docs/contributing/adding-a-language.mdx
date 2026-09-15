@@ -274,7 +274,6 @@ Use `languages/fga/` as an integration example.
     ```bash
     make -C cli/src/semgrep/semgrep_interfaces
     ```
-
   </Step>
   <Step>
     In `src/parsing/Check_pattern.ml`, add the language to
@@ -284,74 +283,66 @@ Use `languages/fga/` as an integration example.
   <Step>
     In `src/printing/Pretty_print_AST.ml`, add the language to the appropriate functions:
 
-- print_bool
-- if_stmt
-- while_stmt
-- do_while
-- for_stmt
-- def_stmt
-- return
-- break
-- continue
-- literal
-
-          </Step>
-        <Step>
-
-  Create `languages/mylang/generic/Parse_mylang_tree_sitter.ml` using the
-  generated `languages/mylang/tree-sitter/semgrep-mylang/lib/Boilerplate.ml`
-  as a starting point. Add a corresponding `.mli`.
-
-            `Boilerplate.ml` provides `map_*` functions that traverse the CST and
-            construct `Tree_sitter_run.Raw_tree` values. Adapt them to construct
-            `AST_generic` nodes instead.
-
-            Follow `languages/fga/generic/Parse_fga_tree_sitter.ml` to define `parse`
-            and `parse_pattern`, using `Parse_tree_sitter_helpers` for parser wrapping
-            and token locations. Keep this hand-written converter separate from
-            `Boilerplate.ml`, which regeneration overwrites.
-
-            This file should contain something similar to:
-            ```ocaml
-            module H = Parse_tree_sitter_helpers
-
-            let parse file =
-            H.wrap_parser
-            (fun () ->
-            Parallel.backtrace_when_exn := false
-            Parallel.invoke Tree_sitter_X.Parse.file file ()
-            )
-            ```
-
-          </Step>
-
-        <Step>
-
-  Add the OCaml library definitions, using
-  `languages/fga/generic/dune` as an example, and link the converter from
-  `src/parsing/dune`. The generated parser already lives under
-  `languages/mylang/tree-sitter/semgrep-mylang/`; no submodule is needed.
-
-      </Step>
-
+    - print_bool
+    - if_stmt
+    - while_stmt
+    - do_while
+    - for_stmt
+    - def_stmt
+    - return
+    - break
+    - continue
+    - literal
+  </Step>
   <Step>
-  Route target and pattern parsing to the converter in
-  `src/parsing/Parse_target.ml` and `src/parsing/Parse_pattern.ml`.
-</Step>
-<Step>
-  Add a case to `dump_tree_sitter_cst` in
-  `src/parsing/tests/Test_parsing.ml`, following Ruby's use of
-  `Tree_sitter_ruby.Parse.file` and `Tree_sitter_ruby.Boilerplate.dump_tree`.
-  Add `tests/parsing/mylang/hello-world.ext`, then build and inspect its CST:
+    Create `languages/mylang/generic/Parse_mylang_tree_sitter.ml` using the
+    generated `languages/mylang/tree-sitter/semgrep-mylang/lib/Boilerplate.ml`
+    as a starting point. Add a corresponding `.mli`.
 
-            ```bash
-            make core
-            bin/semgrep-core -lang mylang -dump_tree_sitter_cst tests/parsing/mylang/hello-world.ext
-            ```
+    `Boilerplate.ml` provides `map_*` functions that traverse the CST and
+    construct `Tree_sitter_run.Raw_tree` values. Adapt them to construct
+    `AST_generic` nodes instead.
 
-          </Step>
+    Follow `languages/fga/generic/Parse_fga_tree_sitter.ml` to define `parse`
+    and `parse_pattern`, using `Parse_tree_sitter_helpers` for parser wrapping
+    and token locations. Keep this hand-written converter separate from
+    `Boilerplate.ml`, which regeneration overwrites.
 
-      </Steps>
+    This file should contain something similar to:
+
+    ```ocaml
+    module H = Parse_tree_sitter_helpers
+
+    let parse file =
+    H.wrap_parser
+    (fun () ->
+    Parallel.backtrace_when_exn := false
+    Parallel.invoke Tree_sitter_X.Parse.file file ()
+    )
+    ```
+  </Step>
+  <Step>
+    Add the OCaml library definitions, using
+    `languages/fga/generic/dune` as an example, and link the converter from
+    `src/parsing/dune`. The generated parser already lives under
+    `languages/mylang/tree-sitter/semgrep-mylang/`; no submodule is needed.
+  </Step>
+  <Step>
+    Route target and pattern parsing to the converter in
+    `src/parsing/Parse_target.ml` and `src/parsing/Parse_pattern.ml`.
+  </Step>
+  <Step>
+    Add a case to `dump_tree_sitter_cst` in
+    `src/parsing/tests/Test_parsing.ml`, following Ruby's use of
+    `Tree_sitter_ruby.Parse.file` and `Tree_sitter_ruby.Boilerplate.dump_tree`.
+    Add `tests/parsing/mylang/hello-world.ext`, then build and inspect its CST:
+
+    ```bash
+    make core
+    bin/semgrep-core -lang mylang -dump_tree_sitter_cst tests/parsing/mylang/hello-world.ext
+    ```
+  </Step>
+</Steps>
 
 Implement the translator from the tree-sitter CST into Semgrep's Generic AST
 for both target code and patterns, including metavariables and ellipses.
