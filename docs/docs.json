@@ -26,7 +26,8 @@
         "tab": "Home",
         "pages": [
           "index"
-        ]
+        ],
+        "icon": "house"
       },
       {
         "tab": "Scan & secure",
@@ -286,8 +287,8 @@
                     "group": "Triage and fix vulnerabilities",
                     "root": "semgrep-supply-chain/triage-and-fix/overview",
                     "pages": [
-                        "semgrep-supply-chain/upgrade-guidance",
-                        "semgrep-supply-chain/autofix"
+                      "semgrep-supply-chain/upgrade-guidance",
+                      "semgrep-supply-chain/autofix"
                     ]
                   },
                   {
@@ -423,7 +424,8 @@
               "semgrep-appsec-platform/json-and-sarif"
             ]
           }
-        ]
+        ],
+        "icon": "shield-halved"
       },
       {
         "tab": "Scan at code generation",
@@ -463,7 +465,8 @@
               "semgrep-guardian/enterprise-deployment"
             ]
           }
-        ]
+        ],
+        "icon": "robot"
       },
       {
         "tab": "Write rules",
@@ -508,7 +511,7 @@
                   "writing-rules/generic-pattern-matching",
                   "writing-rules/metavariable-analysis",
                   {
-                    "group": "Experiments 🧪",
+                    "group": "Experiments \ud83e\uddea",
                     "pages": [
                       "writing-rules/experiments/introduction",
                       "writing-rules/experiments/pattern-syntax",
@@ -543,102 +546,8 @@
               "semgrep-secrets/validators"
             ]
           }
-        ]
-      },
-      {
-        "tab": "Learning guides",
-        "groups": [
-          {
-            "group": "Application Security",
-            "pages": [
-              "learn",
-              {
-                "group": "Security Foundations",
-                "root": "learn/security-foundations/overview",
-                "pages": [
-                  "learn/security-foundations/sast/overview",
-                  "learn/security-foundations/supply-chain-security",
-                  "learn/security-foundations/security-testing-workflow"
-                ]
-              },
-              {
-                "group": "Vulnerabilities",
-                "root": "learn/vulnerabilities/overview",
-                "pages": [
-                  "learn/vulnerabilities/code-injection",
-                  {
-                    "group": "Command Injection",
-                    "root": "learn/vulnerabilities/command-injection",
-                    "pages": [
-                      "learn/vulnerabilities/command-injection/argo-injection",
-                      "learn/vulnerabilities/command-injection/github-actions-injection"
-                    ]
-                  },
-                  "learn/vulnerabilities/cross-site-scripting",
-                  "learn/vulnerabilities/insecure-deserialization",
-                  "learn/vulnerabilities/idor",
-                  "learn/vulnerabilities/open-redirect",
-                  "learn/vulnerabilities/server-side-request-forgery",
-                  "learn/vulnerabilities/sql-injection",
-                  "learn/vulnerabilities/xml-security"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Secure Coding",
-            "pages": [
-              "cheat-sheets/overview",
-              {
-                "group": "Go",
-                "root": "category/go",
-                "pages": [
-                  "cheat-sheets/go-command-injection",
-                  "cheat-sheets/go-xss"
-                ]
-              },
-              {
-                "group": "Java",
-                "root": "category/java",
-                "pages": [
-                  "cheat-sheets/java-code-injection",
-                  "cheat-sheets/java-command-injection",
-                  "cheat-sheets/java-jsp-xss",
-                  "cheat-sheets/java-xxe"
-                ]
-              },
-              {
-                "group": "JavaScript",
-                "root": "category/javascript",
-                "pages": [
-                  "cheat-sheets/javascript-code-injection",
-                  "cheat-sheets/javascript-command-injection",
-                  "cheat-sheets/express-xss"
-                ]
-              },
-              {
-                "group": "Python",
-                "root": "category/python",
-                "pages": [
-                  "cheat-sheets/python-code-injection",
-                  "cheat-sheets/python-command-injection",
-                  "cheat-sheets/django-xss",
-                  "cheat-sheets/flask-xss",
-                  "learn/vulnerabilities/insecure-deserialization/python"
-                ]
-              },
-              {
-                "group": "Ruby",
-                "root": "category/ruby",
-                "pages": [
-                  "cheat-sheets/ruby-code-injection",
-                  "cheat-sheets/ruby-command-injection",
-                  "cheat-sheets/rails-xss"
-                ]
-              }
-            ]
-          }
-        ]
+        ],
+        "icon": "pen-to-square"
       },
       {
         "tab": "API",
@@ -685,7 +594,8 @@
               }
             ]
           }
-        ]
+        ],
+        "icon": "code"
       },
       {
         "tab": "Help",
@@ -837,6 +747,102 @@
             ]
           },
           {
+            "item": "Learning guides",
+            "icon": "graduation-cap",
+            "groups": [
+              {
+                "group": "Application Security",
+                "pages": [
+                  "learn",
+                  {
+                    "group": "Security Foundations",
+                    "root": "learn/security-foundations/overview",
+                    "pages": [
+                      "learn/security-foundations/sast/overview",
+                      "learn/security-foundations/supply-chain-security",
+                      "learn/security-foundations/security-testing-workflow"
+                    ]
+                  },
+                  {
+                    "group": "Vulnerabilities",
+                    "root": "learn/vulnerabilities/overview",
+                    "pages": [
+                      "learn/vulnerabilities/code-injection",
+                      {
+                        "group": "Command Injection",
+                        "root": "learn/vulnerabilities/command-injection",
+                        "pages": [
+                          "learn/vulnerabilities/command-injection/argo-injection",
+                          "learn/vulnerabilities/command-injection/github-actions-injection"
+                        ]
+                      },
+                      "learn/vulnerabilities/cross-site-scripting",
+                      "learn/vulnerabilities/insecure-deserialization",
+                      "learn/vulnerabilities/idor",
+                      "learn/vulnerabilities/open-redirect",
+                      "learn/vulnerabilities/server-side-request-forgery",
+                      "learn/vulnerabilities/sql-injection",
+                      "learn/vulnerabilities/xml-security"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Secure Coding",
+                "pages": [
+                  "cheat-sheets/overview",
+                  {
+                    "group": "Go",
+                    "root": "category/go",
+                    "pages": [
+                      "cheat-sheets/go-command-injection",
+                      "cheat-sheets/go-xss"
+                    ]
+                  },
+                  {
+                    "group": "Java",
+                    "root": "category/java",
+                    "pages": [
+                      "cheat-sheets/java-code-injection",
+                      "cheat-sheets/java-command-injection",
+                      "cheat-sheets/java-jsp-xss",
+                      "cheat-sheets/java-xxe"
+                    ]
+                  },
+                  {
+                    "group": "JavaScript",
+                    "root": "category/javascript",
+                    "pages": [
+                      "cheat-sheets/javascript-code-injection",
+                      "cheat-sheets/javascript-command-injection",
+                      "cheat-sheets/express-xss"
+                    ]
+                  },
+                  {
+                    "group": "Python",
+                    "root": "category/python",
+                    "pages": [
+                      "cheat-sheets/python-code-injection",
+                      "cheat-sheets/python-command-injection",
+                      "cheat-sheets/django-xss",
+                      "cheat-sheets/flask-xss",
+                      "learn/vulnerabilities/insecure-deserialization/python"
+                    ]
+                  },
+                  {
+                    "group": "Ruby",
+                    "root": "category/ruby",
+                    "pages": [
+                      "cheat-sheets/ruby-code-injection",
+                      "cheat-sheets/ruby-command-injection",
+                      "cheat-sheets/rails-xss"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "item": "Support",
             "icon": "headset",
             "groups": [
@@ -890,7 +896,8 @@
               }
             ]
           }
-        ]
+        ],
+        "icon": "circle-question"
       },
       {
         "tab": "Explore",
@@ -1011,7 +1018,8 @@
             "icon": "github",
             "href": "https://github.com/semgrep/semgrep-docs"
           }
-        ]
+        ],
+        "icon": "compass"
       },
       {
         "tab": "What's New",
