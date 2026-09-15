@@ -29,7 +29,7 @@
         ]
       },
       {
-        "tab": "Scan with Semgrep",
+        "tab": "Scan & secure",
         "groups": [
           {
             "group": "Get started",
