@@ -36,6 +36,8 @@ Cloudinary
 codebase's
 CommonJS
 config
+[Cc]ooldown
+[Cc]ooldowns
 cron
 CVEs
 Cyber
@@ -117,6 +119,7 @@ Postgres
 [Pp]ipenv
 PR
 PRs
+[Pp]roxied
 [Pp]seudoanonymization
 [Pp]seudoanonymize
 [Pp]seudoanonymized
