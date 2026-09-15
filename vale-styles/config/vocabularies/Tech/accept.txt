@@ -177,6 +177,7 @@ subpages
 [Ss]ubteams
 superceded
 
+Tree-sitter
 [Tt]imeframe
 tokenizes
 [Tt]ooltip
