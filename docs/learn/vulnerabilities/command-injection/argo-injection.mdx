@@ -10,7 +10,7 @@ In this article, you’ll learn to avoid using input parameters directly inside 
 
 Argo Workflows is a Kubernetes-native workflow engine designed to define and run complex jobs. It exists to simplify running multi-step workloads, such as data processing or CI/CD pipelines, directly inside Kubernetes. Developers can define workflows in YAML, and Argo executes the steps as pods.
 
-The features that makes Argo so flexible, the use of parameters and templates, is also what creates security risks. Parameters in templates are written with curly brace placeholders (called mustache templates) like `{{inputs.parameters.message}}`. During execution they are replaced by the actual input values. 
+The feature that makes Argo so flexible, the use of parameters and templates, is also what creates security risks. Parameters in templates are written with curly brace placeholders (called mustache templates) like `{{inputs.parameters.message}}`. During execution they are replaced by the actual input values. 
 
 ## Common Injection Attacks in Argo Workflows
 
@@ -104,7 +104,7 @@ spec:
   archiveLogs: true
 ```
 
-Just like the example above, the vulnerability  is that the `message` parameter is substituted directly into a node script. If this workflow were run with an attacker-supplied parameter, it could execute unintended commands.
+Just like the example above, the vulnerability is that the `message` parameter is substituted directly into a Node.js script. If this workflow were run with an attacker-supplied parameter, it could execute unintended commands.
 
 To detect such cases systematically, with [Semgrep](https://semgrep.dev/), you can use the free and [open source rule](https://github.com/semgrep/semgrep-rules/blob/develop/yaml/argo/security/argo-workflow-parameter-command-injection.yaml) `argo-workflow-parameter-command-injection`. It flags instances where parameters are inserted directly into shell scripts or code sources. Semgrep scans YAML definitions and reports if a parameter placeholder is used in a risky location, such as inside `script.source` or `container.args` fields.
 

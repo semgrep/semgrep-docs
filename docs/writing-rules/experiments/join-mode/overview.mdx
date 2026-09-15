@@ -237,7 +237,7 @@ The `on` key is required in join mode. This is where the join conditions are lis
 | -------- | ------- | ----------- |
 | `==`   |  `secret-env-var.$VALUE == log-statement.$FORMATVAR` | Matches when the contents of both sides are exactly equal. |
 | `!=`   | `url-allowlist.$URL != get-request.$URL` | Matches when the contents of both sides are not equal. |
-| `<`    | `template-var.path < unsafe-template.$PATH` | Matches when the right-hand side is a substring of the left-hand side.
+| `<`    | `template-var.path < unsafe-template.$PATH` | Matches when the right-hand side is a substring of the left-hand side. |
 | `>`    | `unsafe-template.$PATH > template-var.path` | Matches when the left-hand side is a substring of the right-hand side. |
 
 ## Limitations

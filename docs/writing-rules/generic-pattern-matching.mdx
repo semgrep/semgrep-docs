@@ -202,7 +202,7 @@ Unfortunately, the following pattern does not match the whole line. In generic m
 password = $PASSWORD
 ```
 
-This pattern matches the input file but does not assign the value `p` to `$PASSWORD` instead of the full value `p@$$w0rd`.
+This pattern matches the input file but assigns the value `p` to `$PASSWORD` instead of the full value `p@$$w0rd`.
 
 To match an arbitrary sequence of items and capture their value in the example:
 
@@ -212,7 +212,7 @@ To match an arbitrary sequence of items and capture their value in the example:
     password = $...PASSWORD
     ```
 
- This still leads Semgrep to capture too much information. The value assigned to `$...PASSWORD` are now `p@$$w0rd` and<br />
+ This still leads Semgrep to capture too much information. The value assigned to `$...PASSWORD` is now `p@$$w0rd` and<br />
     `server = example.com`. In generic mode, an ellipsis extends until the end of the current block or up to 10 lines below, whichever comes first. To prevent this behavior, continue with the next step.
 
 2. In the Semgrep rule, specify the following key:
@@ -315,7 +315,7 @@ ran 1 rules on 1 files: 6 findings
 ```
 
 ## Semgrep Registry rules for generic pattern matching
-You can peruse [existing generic rules](https://semgrep.dev/r?lang=generic&sev=ERROR,WARNING,INFO&tag=dgryski.semgrep-go,hazanasec.semgrep-rules,ajinabraham.njsscan,best-practice,security,java-spring,go-stdlib,ruby-stdlib,java-stdlib,js-node,nodejsscan,owasp,dlint,react,performance,compatibility,portability,correctness,maintainability,security,mongodb,experimental,caching,robots-denied,missing-noreferrer,missing-noopener) in the Semgrep registry. In general, short patterns on structured data performs the best.
+You can peruse [existing generic rules](https://semgrep.dev/r?lang=generic&sev=ERROR,WARNING,INFO&tag=dgryski.semgrep-go,hazanasec.semgrep-rules,ajinabraham.njsscan,best-practice,security,java-spring,go-stdlib,ruby-stdlib,java-stdlib,js-node,nodejsscan,owasp,dlint,react,performance,compatibility,portability,correctness,maintainability,security,mongodb,experimental,caching,robots-denied,missing-noreferrer,missing-noopener) in the Semgrep registry. In general, short patterns on structured data perform the best.
 
 ## Cheat sheet
 Some examples of what matches and what doesn't match on the `generic` tab of the Semgrep cheat sheet below:

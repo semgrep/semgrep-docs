@@ -4,7 +4,7 @@ title: "Insecure Deserialization"
 
 Need an object later? Convert it to text and save it in a file. This magic is built into most programming languages and it’s called serialization. However, a single line of code for restoring the state of an object could grant attackers full access to your server.
 
-If your application takes serialized data from a file, a cookie, or a network request, and restores it into an object, then you're potentially at risk. Deserialization was designed to reconstruct complex objects, but when used on untrusted input, it can reconstruct more than just data.  **Insecure deserialization** lets attackers provide specially crafted data that executes code, reads files, or cause the application to crash.
+If your application takes serialized data from a file, a cookie, or a network request, and restores it into an object, then you're potentially at risk. Deserialization was designed to reconstruct complex objects, but when used on untrusted input, it can reconstruct more than just data. **Insecure deserialization** lets attackers provide specially crafted data that executes code, reads files, or causes the application to crash.
 
 In this article, we explain what serialization and deserialization are, why these features exist, and why you should think twice about how you use this capability. We walk through common attack techniques and show what insecure deserialization looks like in code. Finally, we give you clear guidance to reduce your exposure and detect these issues early.
 
@@ -29,7 +29,7 @@ class SASTool:
         return f"SASTool(name='{self.name}', language='{self.language}', is_best={self.is_best})"
 ```
 
-To create a bytestream in Python, one commonly used library is `pickle` .
+To create a bytestream in Python, one commonly used library is `pickle`.
 
 ```python
 # Create our favorite SAST tool
@@ -45,7 +45,7 @@ restored_tool = pickle.loads(pickle_data)
 print("Restored object:", restored_tool)
 ```
 
-Running this, will yield the following output.
+Running this will yield the following output.
 
 ```text
 Original object: SASTool(name='Semgrep', language='Multi-language', is_best=True)
@@ -226,7 +226,7 @@ Semgrep can detect deserialization risks in your code and in libraries you use. 
 
 ## Conclusion
 
-Insecure deserialization happens when applications trust input that was never meant to be trusted. The feature was designed to restore objects. But when misused, they allow attackers to take full control of the system.
+Insecure deserialization happens when applications trust input that was never meant to be trusted. The feature was designed to restore objects. But when misused, it allows attackers to take full control of the system.
 
 A single deserialization call might look harmless, but as we've seen, it can open the door to far more than just data. By understanding the risks, choosing safer alternatives, and using tools like Semgrep to catch unsafe patterns early, you can keep this powerful feature from becoming a security liability.
 

@@ -182,7 +182,7 @@ Only users assigned the `admin` role in Semgrep can activate suggested memories.
 
 By default, Semgrep Multimodal uses OpenAI and Amazon Bedrock with Semgrep's API keys.
 
-Semgrep evaluates available models from multiple providers and selects the most performant option for each Multimodal feature, based on the providers enabled for your organization. For optimal results, keep both OpenAI and Amazon Bedrock enabled. Enabling additional model providers can further improve performance.
+Semgrep evaluates available models from multiple providers and selects the most performant option for each Multimodal feature, based on the providers enabled for your organization. Keep both OpenAI and Amazon Bedrock enabled. [Autofix](/semgrep-code/triage-remediation/autofix) requires Amazon Bedrock. If Bedrock is disabled, Autofix does not run. Enabling additional model providers can further improve performance for other Multimodal features.
 
 You can also use your own API keys or accounts for the following providers:
 
@@ -229,7 +229,7 @@ Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to 
 Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
 </Step>
 <Step>
-Select **Amazon Bedrock** then **Your AWS account**
+Select **Amazon Bedrock** then **Your AWS account**.
 </Step>
 <Step>
 Provide your AWS IAM role details.
@@ -326,7 +326,7 @@ To use xAI with Semgrep Multimodal, you must retrieve the endpoint URL and API k
 Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
 </Step>
 <Step>
-Click the <Icon icon="gear" iconType="solid"/>  **icon** next to **AI provider**.
+Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
 </Step>
 <Step>
 Select **xAI**.

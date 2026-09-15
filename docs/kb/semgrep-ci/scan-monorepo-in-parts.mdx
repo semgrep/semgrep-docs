@@ -2,7 +2,7 @@
 title: "Scanning a monorepo in parts"
 ---
 
-With default CI configurations, monorepos will be scanned as a single project in Semgrep. However, monorepos very often contain a large amount of code and the code is usually divided into to different components or modules.
+With default CI configurations, monorepos will be scanned as a single project in Semgrep. However, monorepos very often contain a large amount of code and the code is usually divided into different components or modules.
 
 As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
@@ -53,7 +53,7 @@ You must only change `SEMGREP_REPO_DISPLAY_NAME`. Ensure that `SEMGREP_REPO_NAME
 </Note>
 
 
-The `--subdir` flag takes a single folder as input. If you want to scan multiple folders as part of one scan, you will have to use `--include` and `--exclude` ([see CLI reference](/cli-reference)) to tell Semgrep what paths to include. This performs file targeting across the whole monorepo. but only analyzes the included files.
+The `--subdir` flag takes a single folder as input. If you want to scan multiple folders as part of one scan, you will have to use `--include` and `--exclude` ([see CLI reference](/cli-reference)) to tell Semgrep what paths to include. This performs file targeting across the whole monorepo, but only analyzes the included files.
 
 Unlike `--subdir`, `--include` and `--exclude` don't automatically direct results to a corresponding project, so you always have to set `SEMGREP_REPO_DISPLAY_NAME`.
 

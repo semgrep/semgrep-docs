@@ -93,7 +93,7 @@ Semgrep minimally requires the variable SEMGREP_APP_TOKEN in order to report res
   Set SEMGREP_APP_TOKEN in the variable group, following the steps for secret variables. The variable is mapped into the env in the provided config.
   </Step>
   <Step>
-  Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at Environment variables for creating hyperlinks in Semgrep AppSec Platform.These variables are not sensitive and do not need to be secret variables.
+  Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at Environment variables for creating hyperlinks in Semgrep AppSec Platform. These variables are not sensitive and do not need to be secret variables.
   - SEMGREP_REPO_NAME
   - SEMGREP_REPO_URL
   - SEMGREP_BRANCH
@@ -101,7 +101,7 @@ Semgrep minimally requires the variable SEMGREP_APP_TOKEN in order to report res
   - SEMGREP_JOB_URL
   </Step>
   <Step>
-  Set variables for diff-aware scanning. The provided config sets SEMGREP_PR_ID to the system variable System.PullRequest.PullRequestId and SEMGREP_BASELINE_REF to origin/master within the script section of the config. The value of SEMGREP_BASELINE_REF is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly. as main or master.
+  Set variables for diff-aware scanning. The provided config sets SEMGREP_PR_ID to the system variable System.PullRequest.PullRequestId and SEMGREP_BASELINE_REF to origin/master within the script section of the config. The value of SEMGREP_BASELINE_REF is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly, such as main or master.
 
   - If you prefer not to implement diff-aware scanning, you can skip setting these variables and remove the elif section of the script step.
   </Step>
@@ -175,7 +175,7 @@ Semgrep minimally requires the variable SEMGREP_APP_TOKEN in order to report res
   Set SEMGREP_APP_TOKEN in the variable group, following the steps for secret variables. The variable is mapped into the env in the provided config.
   </Step>
   <Step>
-  Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at Environment variables for creating hyperlinks in Semgrep AppSec Platform.These variables are not sensitive and do not need to be secret variables.
+  Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at Environment variables for creating hyperlinks in Semgrep AppSec Platform. These variables are not sensitive and do not need to be secret variables.
   - SEMGREP_REPO_NAME
   - SEMGREP_REPO_URL
   - SEMGREP_BRANCH
@@ -183,7 +183,7 @@ Semgrep minimally requires the variable SEMGREP_APP_TOKEN in order to report res
   - SEMGREP_JOB_URL
   </Step>
   <Step>
-  Set variables for diff-aware scanning. The provided config sets SEMGREP_PR_ID to the system variable System.PullRequest.PullRequestId and SEMGREP_BASELINE_REF to origin/master within the script section of the config. The value of SEMGREP_BASELINE_REF is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly. as main or master.
+  Set variables for diff-aware scanning. The provided config sets SEMGREP_PR_ID to the system variable System.PullRequest.PullRequestId and SEMGREP_BASELINE_REF to origin/master within the script section of the config. The value of SEMGREP_BASELINE_REF is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly, such as main or master.
   - If you prefer not to implement diff-aware scanning, you can skip setting these variables and remove the elif section of the script step.
   </Step>
   <Step>

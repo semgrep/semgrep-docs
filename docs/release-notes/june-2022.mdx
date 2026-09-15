@@ -37,7 +37,7 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 - Semgrep now supports the R language as an experimental language. Thanks to Zythosec for contributions! ([Issue #2360](https://github.com/semgrep/semgrep/issues/2360))
 - Bash: Semgrep now supports subshell syntax. This can be used, for example, in commands in parentheses. ([Issue #5629](https://github.com/semgrep/semgrep/issues/5629))
 - Java: You can now use a metavariable in a package directive, for example, `package $X`, which is useful to bind the package name and use it in the error message. ([Issue #5420](https://github.com/semgrep/semgrep/issues/5420))
-- Building the foundation for an improved Visual Studio Code user experience, Semgrep now has an experimental Language Server Protocol (LSP) daemon mode. A client program (such as Visual Studio Code) would typically run the  LSP daemon. If you feel like an adventurer, all you need to do to start it is to run `semgrep lsp --config p/r2c`. Stay tuned for more LSP goodness!
+- Building the foundation for an improved Visual Studio Code user experience, Semgrep now has an experimental Language Server Protocol (LSP) daemon mode. A client program (such as Visual Studio Code) would typically run the LSP daemon. If you feel like an adventurer, all you need to do to start it is to run `semgrep lsp --config p/r2c`. Stay tuned for more LSP goodness!
 - Semgrep in CI:
   - Starting to run Semgrep CI in your pipelines was easier in GitHub and GitLab than for any other CI provider. With this release, the process has been simplified for many other CI providers! Previously, for any provider except for GitHub and GitLab, you would have to commit a lengthy configuration file to enable Semgrep in CI to start working in your pipeline. Now, the autodetection of the CI environment supports Azure Pipelines, Bitbucket, Buildkite, CircleCI, Jenkins, and Travis CI in addition to GitHub and GitLab. Now you do not need to commit big configuration files again for these providers!
   - You can now disable version checks with an environment variable by setting `SEMGREP_ENABLE_VERSION_CHECK=0`.
@@ -59,7 +59,7 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 
 ### Changes
 
-- PHP: Semgrep PHP support now reached GA General Availability (GA) maturity! Thanks a lot to Sjoerd Langkemper for most of the heavy work!
+- PHP: Semgrep PHP support now reached General Availability (GA) maturity! Thanks a lot to Sjoerd Langkemper for most of the heavy work!
 - Gitlab SAST output is now v14.1.2 compliant.
 - The following deprecated `semgrep scan` options are now removed:
   `--json-stats`, `--json-time`, `--debugging-json`, `--save-test-output-tar`, `--synthesize-patterns`,

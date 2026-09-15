@@ -25,7 +25,7 @@ By default, Semgrep displays your **Priority** findings. Priority findings are d
 - Are categorized as **Security** findings. You can identify findings categorized under **Security** using the <Icon icon="shield-halved" iconType="solid"/> badge.
 - Are flagged with a severity level of **critical** or **high**
 - Are flagged with a confidence level of **high**
-- Are flagged by Semgrep Multimodal as likely being a **true positive** or has *not* been analyzed by Multimodal yet
+- Are flagged by Semgrep Multimodal as likely being a **true positive** or have *not* been analyzed by Multimodal yet
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Code. Both the **Priority** findings view and the **All** findings view display high-level information about your findings.
 
@@ -46,7 +46,7 @@ Semgrep admins can create a custom priority definition to change the findings sh
 Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 </Step>
 <Step>
-In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**. Ensure that you're viewing the **Priority**.
+In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**. Ensure that you're viewing the **Priority** tab.
 </Step>
 <Step>
 Using the provided filters, set your parameters for priority findings.
@@ -104,7 +104,7 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Rule** | Filter by rules included in your Policies page. You can select more than one rule or ruleset for filtering. |
 | **<Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry." cta="See full definition." href="/semgrep-code/glossary#ruleset">Ruleset</Tooltip>** | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
 | **Pro findings only** | Filter for findings identified using Semgrep Pro rules. Also includes findings originating from cross-file or cross-function analysis. |
-| **Code lifecycle** | Filter for findings based on whether they are **Production** findings or **Pre-production** findings. **Production** findings are those identified on primary branches, while **Pre-production** findings are those identified on pull request or merge requests. |
+| **Code lifecycle** | Filter for findings based on whether they are **Production** findings or **Pre-production** findings. **Production** findings are those identified on primary branches, while **Pre-production** findings are those identified on pull requests or merge requests. |
 | **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** | Filter for findings based on the tags associated with the project. |
 | **Teams** | Filter for findings in projects owned by the selected teams. |
 | **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
@@ -193,7 +193,7 @@ The following fields are exclusive to **Supply Chain** scans:
 
 | Field  | Description |
 | :--- | :--- |
-| Dependency  | The name of the dependency where the findings was found. | 
+| Dependency  | The name of the dependency where the finding was found. | 
 | Reachability | The reachability status of the finding, such as **Reachable**, **No Reachability Analysis**, or **Unreachable**.    | 
 | Transitivity | States whether the finding originates from a direct or transitive dependency. | 
 | CVE  | The CVE number that the finding is assigned to. | 

@@ -46,7 +46,7 @@ The following updates were made to Semgrep in May 2025.
 - Semgrep can now scan `composer.lock` files for the licenses of PHP dependencies. Through this feature, you can configure Semgrep to block or leave a comment on pull requests or merge requests, depending on the license of the dependency that the PR or MR is adding. This feature is enabled by default and runs on full and diff-aware Supply Chain scans.
 - Policies: Added **No reachability analysis** as a policy condition.
 - Improved handling of `tsconfig.json` in instances where multiple, separately rooted source directories with their own `tsconfig.json` configurations were previously treated as a single project. These directories are now treated as their own TypeScript project, which should result in better name/module resolution.
-- Improved handling of `include`,`exclude` and `files` properties in `tsconfig.json`. Projects that use more than one `tsconfig` file in a given directory, which apply to different sets of files under that directory, should see improvements in name/module resolution.
+- Improved handling of `include`, `exclude` and `files` properties in `tsconfig.json`. Projects that use more than one `tsconfig` file in a given directory, which apply to different sets of files under that directory, should see improvements in name/module resolution.
 - Python: Added support for `uv` package manager.
 
 ### Changed
@@ -71,7 +71,7 @@ The following updates were made to Semgrep in May 2025.
 
 - The Assistant Memories feature is now in **public beta**:
   - Managing memories in Semgrep AppSec Platform now occurs under **Rules & Policies**, not **Settings**.
-  - Semgrep AppSec Platform displays data on the scope and impact of memories, including the number of findings affected and which findings affected
+  - Semgrep AppSec Platform displays data on the scope and impact of memories, including the number of findings affected and which findings are affected
   - Assistant now provides **suggested memories**, which are those that Assistant has generated based on your past triage actions. You can view these memories at any time in Semgrep AppSec Platform by navigating to **Rules & Policies > Assistant Memories > Suggested**. For each suggestion, you can choose one of the following actions:
     - Activate the suggested memory to inform Assistant's future advice.
     - Edit the memory, then activate it.
