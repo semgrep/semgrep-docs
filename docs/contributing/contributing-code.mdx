@@ -3,21 +3,23 @@ title: "Contributing code"
 ---
 
 Semgrep welcomes contributions from anyone. If you have an idea for a feature
-or notice a bug please [open an issue](https://github.com/semgrep/semgrep/issues/new/choose).
-Creating an issue first is preferable to moving directly to a pull request so
-that we can ensure you're on the right track without any wasted effort. This
-is also a great way to contribute to Semgrep even if you're not making changes
-yourself.
+or notice a bug, [open an issue](https://github.com/semgrep/semgrep/issues/new/choose).
+Open an issue before a pull request so maintainers can confirm the approach.
+You can also contribute by opening an issue without submitting code.
 
-This README gives an overview of the repository. For further information on building, you will be directed to [semgrep-core contributing](/contributing/semgrep-core-contributing) and/or [semgrep-cli contributing](/contributing/semgrep-contributing) in [Making a Change](#making-a-change).
+This page gives an overview of the repository. For build instructions, see
+[semgrep-core contributing](/contributing/semgrep-core-contributing) or
+[semgrep-cli contributing](/contributing/semgrep-contributing) in
+[Making a change](#making-a-change).
 
 ## File structure
 
-Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, `pfff` and `tree-sitter-lang` using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
+Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, `pfff` and `tree-sitter-lang` using [Tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
 
-You may also be interested in `perf`, which contains our code for running repositories against specific rulesets.
+You may also be interested in `perf`, which contains code for running
+repositories against specific rulesets.
 
-There are many other files, but the below diagram broadly displays the file structure.
+The following diagram shows the file structure.
 
 ```text
 .
@@ -43,7 +45,9 @@ Most of Semgrep's logic is in `cli/src` and `src`.
 
 ## Code relationship
 
-The `semgrep-core` binary stands alone. Once built, it is possible to run `semgrep-core` on a semgrep rule for a given language with a file/directory and receive matches.
+The `semgrep-core` binary stands alone. Once built, you can run
+`semgrep-core` on a Semgrep rule for a given language with a file or
+directory and receive matches.
 
 For example, say you create the config file `unsafe-exec.yaml` and the program `unsafe-exec.py`:
 
@@ -60,14 +64,14 @@ rules:
 exec("ls");
 ```
 
-If you run `semgrep-core -config unsafe-exec.yaml unsafe-exec.py -lang python`, it will output
+If you run `semgrep-core -config unsafe-exec.yaml unsafe-exec.py -lang python`, it outputs
 
 ```text
 unsafe-exec.py:1 with rule unsafe-exec
  exec("ls");
 ```
 
-If you run `semgrep --config unsafe-exec.yaml unsafe-exec.py`, it will output
+If you run `semgrep --config unsafe-exec.yaml unsafe-exec.py`, it outputs
 
 ```text
 running 1 rules...
@@ -81,25 +85,29 @@ The matched code is the same, but with `semgrep-cli` the output is more polished
 
 `semgrep-cli` invokes the `semgrep-core` binary as a subprocess, with a flag to request JSON output. It reads the `semgrep-core` output and transforms it appropriately.
 
-Currently, depending on the flags used, `spacegrep` is invoked both independently by `semgrep-cli` as a subprocess and by `semgrep-core` as a subfolder. Therefore, `semgrep-cli` requires the `spacegrep` binary, but building `semgrep-core` will build `spacegrep` as well.
+Depending on the flags used, `spacegrep` is invoked both independently by
+`semgrep-cli` as a subprocess and by `semgrep-core` as a subfolder.
+`semgrep-cli` requires the `spacegrep` binary, but building `semgrep-core`
+also builds `spacegrep`.
 
 ## Making a change
 
-Semgrep runs on Python versions >= 3.8. If you don't have one of these versions installed, please do so before proceeding.
+Semgrep runs on Python versions >= 3.8. Install one of these versions before
+proceeding.
 
 Because the Python and OCaml development paths are relatively independent, the instructions are divided into Python ([semgrep-cli contributing](/contributing/semgrep-contributing)) and OCaml ([semgrep-core contributing](/contributing/semgrep-core-contributing)).
 
-To fully build Semgrep from source, start at [semgrep-core contributing](/contributing/semgrep-core-contributing). It will direct you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate.
+To fully build Semgrep from source, start at [semgrep-core contributing](/contributing/semgrep-core-contributing). It directs you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate.
 
 Depending on what change you want to make, it might be simpler to build only `semgrep-cli` or only `semgrep-core`. For example, if you only want to modify Python code, you can skip installing OCaml by downloading binaries for the OCaml parts. Similarly, if you only want to modify OCaml code, you can work on `semgrep-core`/`spacegrep` directly.
 
 If you only want to build `semgrep-cli`, go straight to [semgrep-cli contributing](/contributing/semgrep-contributing). Otherwise, follow the instructions in [semgrep-core contributing](/contributing/semgrep-core-contributing).
 
-Below is a guide for what functionality each of `semgrep-cli` and `semgrep-core` controls.
+The following guide describes what each of `semgrep-cli` and `semgrep-core` controls.
 
 ### Only `semgrep-cli`
 
-The python code for Semgrep performs pre and post-processing work. You likely need to touch only `semgrep-cli` if you want to affect
+The Python code for Semgrep performs pre-processing and post-processing work. You likely need to touch only `semgrep-cli` if you want to affect
 
 - How output is formatted
 - What files are scanned for each language
@@ -120,27 +128,27 @@ Go to [semgrep-core contributing](/contributing/semgrep-core-contributing)
 
 ### Both `semgrep` and `semgrep-core`
 
-There are some features that cross through both OCaml and Python code. You will likely need to touch both `semgrep-cli` and `semgrep-core` if you want to
+There are some features that cross through both OCaml and Python code. You likely need to touch both `semgrep-cli` and `semgrep-core` if you want to
 
-- Fix a Rule-defined fix error
-- Add a new language
+- Address a Rule-defined fix error
+- Add support for a new language
 - Change error reporting
 
-Go to [semgrep-core contributing](/contributing/semgrep-core-contributing). It will direct you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate.
+Go to [semgrep-core contributing](/contributing/semgrep-core-contributing). It directs you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate.
 
 ## Development workflow
 
-Before each commit Semgrep will run [`pre-commit`](https://pre-commit.com/) to
-ensure files are well-formatted and check for basic linting bugs. If you don't
-have `pre-commit` installed the following command will do so for you:
+Before each commit, Semgrep runs [`pre-commit`](https://pre-commit.com/) to
+format files and check for basic linting issues. If you don't have
+`pre-commit` installed, run the following command:
 
 ```bash
 python -m pip install pre-commit
 ```
 
-Our `pre-commit` configuration uses Docker images. Please ensure you have
-[Docker installed](https://docs.docker.com/get-docker/) before running
-`pre-commit`. Install the `pre-commit` hooks with the following command:
+The `pre-commit` configuration uses Docker images. Install
+[Docker](https://docs.docker.com/get-docker/) before running `pre-commit`.
+Install the `pre-commit` hooks with the following command:
 
 ```bash
 pre-commit install
@@ -158,20 +166,20 @@ you would expect. Pull requests require approval of at least one maintainer and
 
 ### Explaining code
 
-It's important for code to be easy to maintain. This allows all of us to
-spend more time on new features rather than spending it on studying
-legacy code. As a general rule of thumb, assume that all context that
-is not written down will be lost and forgotten. Useful context includes:
+It's important for code to be easy to maintain. This allows contributors to
+spend more time on new features rather than studying legacy code. As a
+general rule of thumb, assume that unwritten context is lost and forgotten.
+Useful context includes:
 
 - Why does this code exist?
 - What or who uses this code?
 - What does this code achieve?
 - Could this code be replaced by an off-the-shelf component? Why not?
 - Does it implement a formal specification or a well-known pattern? Where can
-  we learn more about it?
+  readers learn more about it?
 
-We ask that **each source file start with one comment** that
-concisely answers these questions.
+Start **each source file with one comment** that concisely answers these
+questions.
 
 Here's a short example:
 
@@ -238,19 +246,18 @@ used for changelog management.
 
 ### Troubleshooting pre-commit
 
-On M1 macs some `pre-commit` tests may fail.
+On M1 Macs, some `pre-commit` tests may fail.
 
-If those checks are running in docker containers (such as `hadolint`) and exit with code 137, this means they are running into a memory limit.
-This is because for running x86_64 images on an M1 mac, docker will utilize an emulation with qemu that can cause higher memory consumption.
-To fix this, change the memory limit in Docker Desktop in the Resources section of the Preferences, 8.00GB should be sufficient.
+If those checks are running in Docker containers (such as `hadolint`) and exit with code 137, they are hitting a memory limit.
+Running x86_64 images on an M1 Mac uses QEMU emulation, which can increase memory consumption.
+To fix this, raise the memory limit in Docker Desktop under **Preferences > Resources**. 8&nbsp;GB should be sufficient.
 
-### Working with git submodules
+### Working with Git submodules
 
-A submodule is a reference to a specific commit in another git
+A submodule is a reference to a specific commit in another Git
 repository. This results in a subfolder containing a checkout of that
 repository at that particular commit. Submodules have a reputation of
-being tricky to use. To minimize problems, make sure to follow these
-guidelines:
+being tricky to use. To minimize problems, follow these guidelines:
 
 - When checking out a new branch or commit, update the submodules
   using the command `git submodule update --init --recursive`.
@@ -270,7 +277,7 @@ gitup() {
   lagging behind** the main branch. This ensures that the submodule
   includes all the latest changes made by others.<br/><br/>
   ii. Make sure PR B is merged **before** PR A.
-  This ensures that other developers will pick up the changes on B
+  This ensures that other developers pick up the changes on B
   when making their own changes.<br/><br/>
   iii. After merging PR A, check that submodule B is still up-to-date
   with respect to its main branch, especially if PR B was merged
@@ -280,7 +287,7 @@ gitup() {
     commits.
   - If squashing commits in B, you must know that the original commit
     referenced by A becomes orphaned when the branch is deleted but
-    remains cached by git for a while. This is usually sufficient to
-    not require A to point to the newly-squashed commit. _If this turns
-    out to be problematic in practice, we may have to disallow
+    remains cached by Git for a while. This is usually sufficient to
+    not require A to point to the newly squashed commit. _If this turns
+    out to be problematic in practice, Semgrep may disallow
     commit squashing in the future._

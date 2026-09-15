@@ -3,25 +3,21 @@ title: "How to add support for a new language"
 sidebarTitle: "Add support for a new language"
 ---
 
-This guide adds a language using tree-sitter. Grammar pins, Semgrep wrappers,
-generated parsers, and language integration live in the Semgrep repository.
-The upstream grammar remains in its own repository; its pinned sources are
-fetched during grammar development.
+Add a language using Tree-sitter. Grammar pins, Semgrep wrappers, generated
+parsers, and language integration live in the Semgrep repository. The
+upstream grammar remains in its own repository. Fetch its pinned sources
+during grammar development.
 
 ## Placeholder values
 
-The examples use `mylang` for the registry key, grammar name, and generated
-parser destination. Replace it with your language's name and replace `.ext`
-with its file extension (for example, `ruby` and `.rb`). Run commands from the
-Semgrep repository root:
+The examples below use `mylang` for the registry key, grammar name, and
+generated parser destination. Replace it with your language's name and
+replace `.ext` with its file extension (for example, `ruby` and `.rb`).
+Run commands from the Semgrep repository root.
 
-```bash
-ots=libs/ocaml-tree-sitter-semgrep
-```
+## Semgrep repository overview
 
-## `semgrep` repository overview
-
-The relevant parts of the repository are:
+The repository includes:
 
 ```text
 .
@@ -45,14 +41,14 @@ The relevant parts of the repository are:
 
 `test-grammar` builds and tests the wrapper and OCaml parser. `regen-grammar`
 copies generated files into `languages/`. Commit these files with the language
-integration; no separate parser repository or publishing step is needed.
+integration. There is no separate parser repository or publishing step.
 
 ## Summary
 
 <Steps>
   <Step>Register the upstream grammar.</Step>
   <Step>
-    Create the wrapper, generator setup, and tests under `$ots/lang/`.
+    Create the wrapper, generator setup, and tests under `libs/ocaml-tree-sitter-semgrep/lang/`.
   </Step>
   <Step>Extend `semgrep-mylang/grammar.js` with pattern syntax.</Step>
   <Step>Test and generate the OCaml parser.</Step>
@@ -66,13 +62,13 @@ integration; no separate parser repository or publishing step is needed.
 
 ## Before adding a language
 
-Grammar development also requires Node.js, Cargo, clang/clang++, and Git LFS on
+Grammar development requires Node.js, Cargo, clang/clang++, and Git LFS on
 `PATH`. Grammar targets build the generator and provision the selected
-tree-sitter CLI automatically.
+Tree-sitter CLI automatically.
 
 ## 1. Register the upstream grammar
 
-Add an entry to `$ots/lang/upstream-grammars.json`:
+Add an entry to `libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json`:
 
 ```json
 "mylang": {
@@ -84,65 +80,68 @@ Add an entry to `$ots/lang/upstream-grammars.json`:
 ```
 
 The top-level key (`mylang`) identifies the grammar and its `semgrep-mylang`
-wrapper. Each entry has these fields:
+wrapper. Each entry has the following fields:
 
 | Field         | Required | Meaning                                                                                                                                                                          |
 | ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `url`         | Yes      | Upstream Git repository to fetch.                                                                                                                                                |
-| `commit`      | Yes      | Upstream revision to check out; use a full immutable commit SHA for reproducibility.                                                                                             |
-| `tree_sitter` | Yes      | Tree-sitter CLI version used to build this grammar, for example, `0.26.3`; choose one compatible with the upstream grammar.                                                      |
-| `regen`       | Yes      | Generated parser destinations, for example, `["typescript", "tsx"]`; each needs its own `make regen-grammar-<dest>` command. An empty list means no Semgrep parser is generated. |
-| `clone`       | No       | Local clone suffix; defaults to the key. For example, `gomod` uses `"clone": "go-mod"` to fetch into `tree-sitter-go-mod/`.                                                      |
-| `depends_on`  | No       | Other registry keys whose sources must be fetched first. Defaults to an empty list.                                                                                              |
+| `commit`      | Yes      | Upstream revision to check out. Use a full immutable commit SHA for reproducibility.                                                                                             |
+| `tree_sitter` | Yes      | Tree-sitter CLI version used to build this grammar, for example, `0.26.3`. Choose one compatible with the upstream grammar.                                                      |
+| `regen`       | Yes      | Generated parser destinations, for example, `["typescript", "tsx"]`. Each destination needs its own `make regen-grammar-<dest>` command. An empty list means Semgrep does not generate a parser. |
+| `clone`       | No       | Local clone suffix. The default is the key. For example, `gomod` uses `"clone": "go-mod"` to fetch into `tree-sitter-go-mod/`.                                                    |
+| `depends_on`  | No       | Other registry keys whose sources must be fetched first. The default is an empty list.                                                                                           |
 
 `tree_sitter` selects the CLI independently of the shared runtime version in
-`$ots/core/tree-sitter-version`. Destinations in `regen` must be unique across
+`libs/ocaml-tree-sitter-semgrep/core/tree-sitter-version`. Destinations in `regen` must be unique across
 the registry. `clone` changes only the fetched directory name, not the wrapper
 name or regeneration destinations.
 
-Dependencies are fetched recursively at their own pinned commits before the
-requested grammar. Every dependency must exist in the registry, and cycles
-are invalid. For example, TypeScript declares:
+The fetch command recursively fetches dependencies at their own pinned
+commits before the requested grammar. Every dependency must exist in the
+registry. Cycles are invalid. For example, TypeScript declares:
 
 ```json
 "depends_on": ["javascript"]
 ```
 
 Fetching TypeScript therefore fetches JavaScript first. This does not
-automatically test or regenerate consumers when a dependency changes: after
-updating `c`, also run `make test-grammar-cpp` and `make regen-grammar-cpp`.
+automatically test or regenerate consumers when a dependency changes.
+After updating `c`, also run `make test-grammar-cpp` and
+`make regen-grammar-cpp`.
 
 ```bash
-python3 "$ots/scripts/grammar_registry.py" validate
-python3 "$ots/scripts/grammar_registry.py" fetch mylang
+python3 libs/ocaml-tree-sitter-semgrep/scripts/grammar_registry.py validate
+python3 libs/ocaml-tree-sitter-semgrep/scripts/grammar_registry.py fetch mylang
 ```
 
-Sources are fetched into `$ots/lang/semgrep-grammars/src/tree-sitter-mylang/`.
-Keep this clone gitignored.
+The fetch command writes sources to
+`libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/tree-sitter-mylang/`. Do not commit this
+clone.
 
 A key can produce several destinations: `typescript` has
 `"regen": ["typescript", "tsx"]`. The examples below assume one root
-`grammar.js` and one destination; use the TypeScript or PHP wrappers as
+`grammar.js` and one destination. Use the TypeScript or PHP wrappers as
 references for other layouts.
 
 ## 2. Set up the wrapper and generator
 
-Create the directories and shared build links:
+From the Semgrep repository root, create the directories and shared
+build links:
 
 ```bash
-mkdir -p "$ots/lang/semgrep-grammars/src/semgrep-mylang/test/corpus"
-mkdir -p "$ots/lang/mylang/test/ok"
-ln -s ../Makefile.common "$ots/lang/semgrep-grammars/src/semgrep-mylang/Makefile"
-ln -s ../prep.common "$ots/lang/semgrep-grammars/src/semgrep-mylang/prep"
-ln -s ../src/semgrep-mylang "$ots/lang/semgrep-grammars/lang/mylang"
-ln -s ../Makefile.common "$ots/lang/mylang/Makefile"
+mkdir -p libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/test/corpus
+mkdir -p libs/ocaml-tree-sitter-semgrep/lang/mylang/test/ok
+ln -s ../Makefile.common libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/Makefile
+ln -s ../prep.common libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/prep
+ln -s ../src/semgrep-mylang libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/lang/mylang
+ln -s ../Makefile.common libs/ocaml-tree-sitter-semgrep/lang/mylang/Makefile
 ```
 
-Add representative programs to `$ots/lang/mylang/test/ok/`, for example,
-`hello-world.ext`. These test the generated OCaml parser separately from the
-wrapper's tree-sitter corpus.
+Add representative programs to `libs/ocaml-tree-sitter-semgrep/lang/mylang/test/ok/`, for example,
+`hello-world.ext`. These files test the generated OCaml parser separately
+from the wrapper's Tree-sitter corpus.
 
-Here is Ruby's generator setup, omitting build outputs:
+The following example shows Ruby's generator setup, omitting build outputs:
 
 ```text
 libs/ocaml-tree-sitter-semgrep/lang/ruby/
@@ -161,7 +160,7 @@ libs/ocaml-tree-sitter-semgrep/lang/ruby/
 
 ### The `fyi.list` file
 
-Create `$ots/lang/mylang/fyi.list` to list the source and license files that
+Create `libs/ocaml-tree-sitter-semgrep/lang/mylang/fyi.list` to list the source and license files that
 explain where the generated parser came from. These are reference copies for
 reviewing grammar changes, not build inputs.
 
@@ -172,9 +171,9 @@ Include:
 - Additional source files used by those grammars, such as imported JavaScript modules, scanner sources, and scanner headers.
 - Grammar sources and licenses from dependencies, if the grammar extends another language.
 
-Write one file path per line, relative to `$ots/lang/`, not to the directory
-containing `fyi.list`. Blank lines and full-line `#` comments are allowed;
-list individual files, not directories or globs. For a simple grammar:
+Write one file path per line, relative to `libs/ocaml-tree-sitter-semgrep/lang/`, not to the directory
+containing `fyi.list`. Blank lines and full-line `#` comments are allowed.
+List individual files, not directories or globs. For a simple grammar:
 
 ```text
 # Upstream sources
@@ -186,7 +185,7 @@ semgrep-grammars/src/semgrep-mylang/grammar.js
 ```
 
 For example, the first line resolves to
-`$ots/lang/semgrep-grammars/src/tree-sitter-mylang/LICENSE`. Use the actual
+`libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/tree-sitter-mylang/LICENSE`. Use the actual
 license filename and clone directory name (including any registry `clone`
 override). Every listed file must exist when regenerating.
 
@@ -197,8 +196,8 @@ semgrep-grammars/src/tree-sitter-mylang/src/scanner.c
 ```
 
 Include any headers it uses and adjust the extension if it is a C++ scanner.
-For dependency and dialect examples, see `$ots/lang/cpp/fyi.list` and
-`$ots/lang/typescript/fyi.list`.
+For dependency and dialect examples, see `libs/ocaml-tree-sitter-semgrep/lang/cpp/fyi.list` and
+`libs/ocaml-tree-sitter-semgrep/lang/typescript/fyi.list`.
 
 Do not list generated outputs such as `parser.c` or OCaml parser files.
 `make regen-grammar-mylang` copies the listed files into
@@ -207,7 +206,7 @@ paths, and writes Git provenance to `fyi/versions` automatically.
 
 ## 3. Extend the grammar with Semgrep syntax
 
-Create `$ots/lang/semgrep-grammars/src/semgrep-mylang/grammar.js`:
+Create `libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/grammar.js`:
 
 ```javascript
 const base = require("tree-sitter-mylang/grammar");
@@ -218,9 +217,9 @@ module.exports = grammar(base, {
 });
 ```
 
-This initially inherits the upstream grammar unchanged. Extend its rules to
-accept metavariables and ellipses. For a grammar with an `expression` rule,
-an ellipsis alternative can look like:
+This wrapper initially inherits the upstream grammar unchanged. Extend its
+rules to accept metavariables and ellipses. For a grammar with an
+`expression` rule, an ellipsis alternative can look like:
 
 ```javascript
 expression: ($, previous) => choice(previous, $.ellipsis),
@@ -228,9 +227,9 @@ ellipsis: $ => '...',
 ```
 
 Add input and expected syntax trees under the wrapper's `test/corpus/`.
-Use `$ots/lang/semgrep-grammars/src/semgrep-fga/` as a small example.
-The shared `prep` script imports the upstream scanner and corpus; use a custom
-script for additional headers or a different upstream layout.
+Use `libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-fga/` as an example.
+The shared `prep` script imports the upstream scanner and corpus. Use a
+custom script for additional headers or a different upstream layout.
 
 ## 4. Test and generate the parser
 
@@ -240,7 +239,8 @@ mkdir -p languages/mylang/tree-sitter/semgrep-mylang/
 make regen-grammar-mylang
 ```
 
-Regeneration requires the destination directory to exist. It writes this layout:
+Create the destination directory first. `make regen-grammar-mylang` writes
+the following layout:
 
 ```text
 languages/mylang/tree-sitter/semgrep-mylang/
@@ -258,13 +258,13 @@ git lfs track 'languages/mylang/tree-sitter/semgrep-mylang/lib/parser.c'
 
 Change the wrapper and regenerate instead of editing generated files by hand.
 
-See [updating a grammar](/contributing/updating-a-grammar) for CST checks and
-updates to dependent grammars.
+See [How to upgrade the grammar for a language](/contributing/updating-a-grammar)
+for CST checks and updates to dependent grammars.
 
 ## 5. Integrate the parser in Semgrep
 
-Now that you have generated the parser for `mylang`, connect it to Semgrep.
-Use `languages/fga/` as an integration example.
+Connect the generated `mylang` parser to Semgrep. Use `languages/fga/` as
+an integration example.
 
 <Steps>
   <Step>
@@ -281,18 +281,19 @@ Use `languages/fga/` as an integration example.
     in the language, or `false` otherwise.
   </Step>
   <Step>
-    In `src/printing/Pretty_print_AST.ml`, add the language to the appropriate functions:
+    In `src/printing/Pretty_print_AST.ml`, add the language to the
+    appropriate functions:
 
-    - print_bool
-    - if_stmt
-    - while_stmt
-    - do_while
-    - for_stmt
-    - def_stmt
-    - return
-    - break
-    - continue
-    - literal
+    - `print_bool`
+    - `if_stmt`
+    - `while_stmt`
+    - `do_while`
+    - `for_stmt`
+    - `def_stmt`
+    - `return`
+    - `break`
+    - `continue`
+    - `literal`
   </Step>
   <Step>
     Create `languages/mylang/generic/Parse_mylang_tree_sitter.ml` using the
@@ -305,10 +306,10 @@ Use `languages/fga/` as an integration example.
 
     Follow `languages/fga/generic/Parse_fga_tree_sitter.ml` to define `parse`
     and `parse_pattern`, using `Parse_tree_sitter_helpers` for parser wrapping
-    and token locations. Keep this hand-written converter separate from
-    `Boilerplate.ml`, which regeneration overwrites.
+    and token locations. Keep this handwritten converter separate from
+    `Boilerplate.ml`. Regeneration overwrites `Boilerplate.ml`.
 
-    This file should contain something similar to:
+    Include something similar to the following:
 
     ```ocaml
     module H = Parse_tree_sitter_helpers
@@ -325,7 +326,7 @@ Use `languages/fga/` as an integration example.
     Add the OCaml library definitions, using
     `languages/fga/generic/dune` as an example, and link the converter from
     `src/parsing/dune`. The generated parser already lives under
-    `languages/mylang/tree-sitter/semgrep-mylang/`; no submodule is needed.
+    `languages/mylang/tree-sitter/semgrep-mylang/`. Do not add a submodule.
   </Step>
   <Step>
     Route target and pattern parsing to the converter in
@@ -344,11 +345,11 @@ Use `languages/fga/` as an integration example.
   </Step>
 </Steps>
 
-Implement the translator from the tree-sitter CST into Semgrep's Generic AST
+Implement the translator from the Tree-sitter CST into Semgrep's Generic AST
 for both target code and patterns, including metavariables and ellipses.
 You can translate directly, as FGA does, or first translate into a
 language-specific AST and then into Generic AST. The generated boilerplate
-supplies the traversal structure; you must implement the language semantics.
+supplies the traversal structure. Implement the language semantics.
 
 ## 6. Add parsing and rule matching tests
 
@@ -378,7 +379,7 @@ For example, after building Ruby's grammar:
 
 ```bash
 make test-grammar-ruby
-make -C "$ots/lang/ruby" stat
+make -C libs/ocaml-tree-sitter-semgrep/lang/ruby stat
 ```
 
 The `stat` target downloads projects from `projects.txt` and reports parsing
@@ -389,21 +390,20 @@ success for file extensions listed in `extensions.txt`.
 - C/C++ compilation errors: check that `prep` imports the scanner and required headers.
 - Missing JavaScript modules: check `require()` paths and registry `depends_on` entries.
 - Syntax errors: inspect the corpus output for `ERROR` nodes and reduce the failing input.
-- OCaml generation or reparsing errors: preserve a minimal reproducer and investigate the generator.
+- OCaml generation or re-parsing errors: preserve a minimal reproducer and investigate the generator.
 
 Report upstream grammar bugs with minimal examples.
 
-## Legal concerns
+## Licenses and attribution
 
-Be thankful for the authors of the original code, keep clearly visible
-license notices, and make it easy to get back to the original projects:
+Preserve attribution for the original authors. Keep license notices
+visible, and make it easy to find the original projects:
 
-- Make sure to preserve the `LICENSE` files. List them in
-  `$ots/lang/mylang/fyi.list`.
-- For sample input in `test/`, consider Public Domain ("The
-  Unlicense") files or write your own, for simplicity.
-  [GitHub Search](https://github.com/search/advanced)
-  allows you to filter projects by license and by programming language.
+- Preserve the `LICENSE` files. List them in `libs/ocaml-tree-sitter-semgrep/lang/mylang/fyi.list`.
+- For sample input in `test/`, use public-domain files under the
+  [Unlicense](https://unlicense.org/) or write your own.
+  You can filter projects by license and programming language with
+  [GitHub Search](https://github.com/search/advanced).
 
 ## See also
 
