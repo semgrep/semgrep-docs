@@ -8,7 +8,6 @@ sidebarTitle: "Week of September 7, 2026"
 
 ### Changed
 
-- The **Reporting** page and analytics no longer include findings from archived projects.
 - When Semgrep cannot open an [Autofix](/semgrep-code/triage-remediation/autofix) pull request, the Autofix actions stay visible in the findings menu and explain why.
 - Improved scan configuration generation. Scans now start even sooner.
 
@@ -38,7 +37,6 @@ sidebarTitle: "Week of September 7, 2026"
 
 ### Added
 
-- Semgrep Supply Chain now scans Bazel workspaces that manage their Java dependencies with `rules_jvm_external`, without a separate step to generate a Maven dependency tree. Semgrep detects these workspaces during a normal scan when a pinned `maven_install.json` lockfile is present with a `MODULE.bazel` file, or a legacy `WORKSPACE` or `WORKSPACE.bazel` file. This is the first step toward native Bazel support. Workspaces that use `rules_python`, `rules_go`, or `rules_js` are not yet covered, and reachability analysis is not yet Bazel-aware.
 - Added Supply Chain incident triggers to the **Logs** tab for [remediation policies](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy). Entries triggered by an incident show **From Supply Chain incident**. Demo and dry runs are not recorded.
 
 ### Fixed
