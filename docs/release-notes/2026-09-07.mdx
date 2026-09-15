@@ -9,13 +9,13 @@ sidebarTitle: "Week of September 7, 2026"
 ### Changed
 
 - The **Reporting** page and analytics no longer include findings from archived projects.
-- When Semgrep cannot open an [Autofix](/semgrep-code/triage-remediation/autofix) pull request, the Autofix actions stay visible in the findings menu and explain why, such as missing [source code manager permissions](/semgrep-appsec-platform/scm-code-access) or an ineligible finding.
-- Improved scan configuration generation. Scans now start sooner.
+- When Semgrep cannot open an [Autofix](/semgrep-code/triage-remediation/autofix) pull request, the Autofix actions stay visible in the findings menu and explain why.
+- Improved scan configuration generation. Scans now start even sooner.
 
 ### Fixed
 
 - Fixed an issue where **Select all** in [bulk triage](/semgrep-code/triage-remediation) ignored the active team or project filter, so [Jira](/semgrep-appsec-platform/jira) tickets were created for every finding rather than the filtered set.
-- Fixed an issue where [Suggested fix](/semgrep-multimodal/overview#suggested-fix) showed **Want code? Generate draft Autofix PR** when [Autofix](/semgrep-code/triage-remediation/autofix) was unavailable, so the action did nothing.
+- Fixed an issue where Suggested fix showed a prompt to open an Autofix pull request when Autofix was unavailable.
 - Fixed an issue where a [source code manager connection](/deployment/connect-scm) could be deleted without a user or API request when a deployment had two connections to different hosts that shared an identifier.
 - Fixed an issue where an organization that had already migrated to [Unified Policies](/semgrep-appsec-platform/unified-policies/overview) could be migrated again, reverting policy changes made since the migration.
 - Fixed an issue where Semgrep did not retry a pull request comment after a failed post.
@@ -54,7 +54,6 @@ sidebarTitle: "Week of September 7, 2026"
 ### Added
 
 - Organizations on the [minimal data retention policy](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional) can now run all nine pre-built [Agentic Workflows](/workflows/overview). Semgrep does not log code or prompts for observability on these deployments. Workflows outside the pre-built set must declare support for minimal data retention before they can run on these deployments.
-- Added a newer run banner to superseded pull request jobs on **Workflow jobs**. The banner shows the status and start time of the latest run for the same pull request and links to it, and it appears while the newer run is still in progress.
 
 ### Changed
 
