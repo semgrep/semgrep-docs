@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1190 1746" width="1190" height="1746" role="img" aria-labelledby="ugp-title ugp-desc">
+  <title id="ugp-title">Semgrep Upgrade Guidance</title>
+  <desc id="ugp-desc">Single top-down flow. Semgrep detects a finding in a third-party dependency. If no fixed version is available, no patch is available. Otherwise Semgrep compares versions and labels the finding safe to upgrade or breaking changes. An AppSec engineer reviews it and decides whether to fix it by opening a Semgrep pull request; declining leads to triage by another route. A pull request can be opened either way, and any breaking changes are noted in its description. The flow then branches on breaking changes: without them the pull request merges as is, and with them a developer updates the affected code before it merges. Both routes end with the finding fixed. At every decision, yes continues down the main path and no exits to the right.</desc>
+
+  <!-- Semgrep brand palette. Borderless fills, three hues:
+       mint ramp for the main flow, purple for every decision, orange for unresolved ends.
+       Green 01 #232928 body text   Green 03 #314944 actor labels   Green 04 #587970 connectors
+       Mint 01 #AFEAD8 resolved     Mint 02 #DEEDE8 entry           Mint 03 #EAF0EF steps
+       Purple 03 #E7E4FB decisions  Orange 03 #FFD3AE not resolved -->
+
+  <defs>
+    <marker id="ugp-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#587970"/>
+    </marker>
+    <style>
+      .ug-box   { fill: #EAF0EF; }
+      .ug-pill  { fill: #E7E4FB; }
+      .ug-start { fill: #DEEDE8; }
+      .ug-open  { fill: #FFD3AE; }
+      .ug-done  { fill: #AFEAD8; }
+      .ug-edge  { fill: none; stroke: #587970; stroke-width: 1.75;
+                  stroke-linecap: round; stroke-linejoin: round; }
+      text      { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+                  font-size: 19px; fill: #232928; text-anchor: middle; }
+      .ug-lbl   { font-size: 17px; font-weight: 600; }
+      .ug-act   { font-size: 15px; font-weight: 600; fill: #314944; letter-spacing: 0.6px; }
+      .b        { font-weight: 600; }
+    </style>
+  </defs>
+
+  <rect width="1190" height="1746" fill="#FCFCFC"/>
+
+  <!-- ============ Connectors ============ -->
+  <path class="ug-edge" d="M 400 203 V 240" marker-end="url(#ugp-arrow)"/>
+
+  <path class="ug-edge" d="M 590 286 H 755" marker-end="url(#ugp-arrow)"/>
+  <text class="ug-lbl" x="672" y="266">No</text>
+
+  <path class="ug-edge" d="M 400 332 V 390" marker-end="url(#ugp-arrow)"/>
+  <text class="ug-lbl" x="430" y="368" text-anchor="start">Yes</text>
+
+  <path class="ug-edge" d="M 400 570 V 630" marker-end="url(#ugp-arrow)"/>
+  <path class="ug-edge" d="M 400 760 V 800" marker-end="url(#ugp-arrow)"/>
+
+  <path class="ug-edge" d="M 590 846 H 755" marker-end="url(#ugp-arrow)"/>
+  <text class="ug-lbl" x="672" y="826">No</text>
+
+  <path class="ug-edge" d="M 400 892 V 950" marker-end="url(#ugp-arrow)"/>
+  <text class="ug-lbl" x="430" y="928" text-anchor="start">Yes</text>
+
+  <path class="ug-edge" d="M 400 1106 V 1146" marker-end="url(#ugp-arrow)"/>
+
+  <path class="ug-edge" d="M 590 1192 H 755" marker-end="url(#ugp-arrow)"/>
+  <text class="ug-lbl" x="672" y="1172">No</text>
+
+  <path class="ug-edge" d="M 400 1238 V 1296" marker-end="url(#ugp-arrow)"/>
+  <text class="ug-lbl" x="430" y="1274" text-anchor="start">Yes</text>
+
+  <path class="ug-edge" d="M 400 1452 V 1516" marker-end="url(#ugp-arrow)"/>
+
+  <!-- ============ Nodes ============ -->
+
+  <ellipse class="ug-start" cx="400" cy="115" rx="200" ry="88"/>
+  <text x="400" y="95" class="b">Semgrep detects a finding</text>
+  <text x="400" y="121">A vulnerability in a</text>
+  <text x="400" y="147">third-party dependency.</text>
+
+  <rect class="ug-pill" x="210" y="240" width="380" height="92" rx="46"/>
+  <text x="400" y="293">Is a fixed version available?</text>
+
+  <ellipse class="ug-open" cx="950" cy="286" rx="195" ry="95"/>
+  <text x="950" y="266" class="b">No patch available</text>
+  <text x="950" y="292">The dependency does not</text>
+  <text x="950" y="318">have a fixed version.</text>
+
+  <rect class="ug-box" x="200" y="390" width="400" height="180" rx="8"/>
+  <text x="400" y="428" class="ug-act">Semgrep</text>
+  <text x="400" y="462">Compares the current and fixed</text>
+  <text x="400" y="488">versions, and how your code uses</text>
+  <text x="400" y="514">what changed. Labels the finding</text>
+  <text x="400" y="540">safe to upgrade or breaking changes.</text>
+
+  <rect class="ug-box" x="200" y="630" width="400" height="130" rx="8"/>
+  <text x="400" y="666" class="ug-act">AppSec engineer</text>
+  <text x="400" y="702">Reviews the finding, Semgrep&#8217;s</text>
+  <text x="400" y="728">analysis, and the label.</text>
+
+  <rect class="ug-pill" x="210" y="800" width="380" height="92" rx="46"/>
+  <text x="400" y="853">Fix by opening a Semgrep PR?</text>
+
+  <ellipse class="ug-open" cx="950" cy="846" rx="195" ry="95"/>
+  <text x="950" y="826" class="b">Triaged another way</text>
+  <text x="950" y="852">The finding is not fixed</text>
+  <text x="950" y="878">by upgrading.</text>
+
+  <rect class="ug-box" x="200" y="950" width="400" height="156" rx="8"/>
+  <text x="400" y="986" class="ug-act">Semgrep</text>
+  <text x="400" y="1022">Opens a PR upgrading the</text>
+  <text x="400" y="1048">dependency&#8217;s version. Breaking</text>
+  <text x="400" y="1074">changes are noted in the PR.</text>
+
+  <rect class="ug-pill" x="210" y="1146" width="380" height="92" rx="46"/>
+  <text x="400" y="1199">Breaking changes?</text>
+
+  <ellipse class="ug-done" cx="950" cy="1192" rx="195" ry="95"/>
+  <text x="950" y="1186" class="b">Fixed by the upgrade alone</text>
+  <text x="950" y="1212">The PR merges as is.</text>
+
+  <rect class="ug-box" x="200" y="1296" width="400" height="156" rx="8"/>
+  <text x="400" y="1332" class="ug-act">Developer</text>
+  <text x="400" y="1368">Updates the affected code,</text>
+  <text x="400" y="1394">using the context Semgrep</text>
+  <text x="400" y="1420">added to the PR.</text>
+
+  <ellipse class="ug-done" cx="400" cy="1611" rx="200" ry="95"/>
+  <text x="400" y="1585" class="b">Fixed with code updates</text>
+  <text x="400" y="1611">The PR merges with the</text>
+  <text x="400" y="1637">developer&#8217;s changes.</text>
+</svg>

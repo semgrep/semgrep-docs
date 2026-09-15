@@ -22,7 +22,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
     ```
 
 - metavariable-comparison: Added support for bitwise operators `~`, `&`, `|`, and `^`.
-- taint-mode: The latest update to `pattern-propagators` in Semgrep OSS Engine introduces two optional fields `requires` and `label`, that work identically to their counterparts in `pattern-sources` and  `pattern-sinks`. These fields are part of the experimental taint labels feature for taint analysis.
+- taint-mode: The latest update to `pattern-propagators` in Semgrep OSS Engine introduces two optional fields `requires` and `label`, that work identically to their counterparts in `pattern-sources` and `pattern-sinks`. These fields are part of the experimental taint labels feature for taint analysis.
 
     For instance, we can define:
 
@@ -53,7 +53,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
     <Frame caption="Figure 2. New Semgrep CLI output.">
     ![release-notes-march2023-cli-output-new.png](/images/release-notes-march2023-cli-output-new-7c36d723713940843c69e5cca9045402.png)
     </Frame>
-- The latest update to`semgrep/semgrep` Docker images removes the custom entry point that was previously used to invoke Semgrep. As a result, you must now explicitly call `semgrep` when running the image. This change was already made approximately a year ago. In this update, the backward compatibility layer and a deprecation notice have been removed.
+- The latest update to `semgrep/semgrep` Docker images removes the custom entry point that was previously used to invoke Semgrep. As a result, you must now explicitly call `semgrep` when running the image. This change was already made approximately a year ago. In this update, the backward compatibility layer and a deprecation notice have been removed.
 
     Previously, you could scan your code using the `semgrep/semgrep` image by running the following command:
     ```bash
@@ -77,7 +77,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
     ```
 
     As a result, `sink(ok1 if tainted else ok2)`, `sink(not_a_propagator(tainted))`, and
-    `sink(some_array[tainted])`, are not be reported as findings.
+    `sink(some_array[tainted])`, are not reported as findings.
 
 
 - The `-gitlab-sast` and `-gitlab-secrets` output formats have been upgraded. The output is now valid with the GitLab v15 schema, while staying valid with the GitLab v14 schema as well. Code findings now include the confidence of the rule.
@@ -130,7 +130,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
     - Unreachable — this type of exposure means that the finding has detected a vulnerable dependency but the vulnerable code is not used in your codebase.
     - Undetermined — Reachability analysis has not been performed on this finding, therefore its exposure is undetermined.
 - Historical rules (also known as parity rules) are now enabled by default for new personal and organizational accounts. Existing organizations can reach out to [support@semgrep.com](mailto:support@semgrep.com) to enable parity rules by default.
-- Semgrep Supply Chain scans now understand `maven_dep_tree.txt` files that are made of multiple smaller `maven_dep_tree.txt` files concatenated with`cat`. To make use of this functionality, create a script or command using the `cat` command as a step in your CI pipeline.
+- Semgrep Supply Chain scans now understand `maven_dep_tree.txt` files that are made of multiple smaller `maven_dep_tree.txt` files concatenated with `cat`. To make use of this functionality, create a script or command using the `cat` command as a step in your CI pipeline.
 
 ## Documentation
 

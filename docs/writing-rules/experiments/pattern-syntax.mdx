@@ -4,7 +4,7 @@ title: "Pattern syntax (experimental)"
 
 Patterns are the expressions Semgrep uses to match code when it scans for vulnerabilities. This article describes the new syntax for Semgrep pattern operators. See [Pattern syntax](/writing-rules/pattern-syntax) for information on the existing pattern syntax.
 
-There is often a one-to-one translation from the existing syntax to the experimental syntax. These changes are marked with <Icon icon="diamond" iconType="solid"/>. However, some changes are quite different. These changes are marked with <Icon icon="exclamation" iconType="solid"/>
+There is often a one-to-one translation from the existing syntax to the experimental syntax. These changes are marked with <Icon icon="diamond" iconType="solid"/>. However, some changes are quite different. These changes are marked with <Icon icon="exclamation" iconType="solid"/>.
 
 <Warning>
 **WARNING**
@@ -15,7 +15,7 @@ There is often a one-to-one translation from the existing syntax to the experime
 
 ## <Icon icon="exclamation" iconType="solid"/> `pattern`
 
-The `pattern` operator looks for code matching its expression in the existing syntax. However, `pattern` is no longer required when using the experimental syntax. For example, you can use `...` wherever `pattern: "...``` appears. For example, you can omit `pattern` and write the following:
+The `pattern` operator looks for code matching its expression in the existing syntax. However, `pattern` is no longer required when using the experimental syntax. For example, you can use `...` wherever `pattern: "..."` appears. For example, you can omit `pattern` and write the following:
 
 ```yaml
 any:
@@ -259,7 +259,7 @@ rules:
 
 ## <Icon icon="exclamation" iconType="solid"/> Taint mode
 
-The new syntax supports taint mode, and such roles no longer require `mode: taint` in the rule. Instead, everything must be nested under a top-level `taint` key.
+The new syntax supports taint mode, and such rules no longer require `mode: taint` in the rule. Instead, everything must be nested under a top-level `taint` key.
 
 ```yaml
 rules:

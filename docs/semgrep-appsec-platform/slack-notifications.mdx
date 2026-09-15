@@ -139,7 +139,7 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
   This channel is now ready to receive Semgrep Secrets notifications. To configure when notifications are sent, create a [**Semgrep Secrets policy**](/semgrep-secrets/policies#slack-notification-policies). 
   </Step>
   <Step>
-  Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to   The Semgrep Slack integration is set up on a per-workspace basis.
+  Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to 5. The Semgrep Slack integration is set up on a per-workspace basis.
   </Step>
 </Steps>
 
@@ -350,7 +350,7 @@ The following table describes the purpose for each permission required to use th
 | **[users:read](https://api.slack.com/scopes/users:read)** | View profile details about people in a workspace. | Enables Semgrep Slack app to correctly address users in messages. |
 | **[users:write](https://api.slack.com/scopes/users:write)** | Set presence for Semgrep. | Used by the Semgrep Slack app to interact with the workspace and enables users to add the Semgrep Slack app to relevant channels. |
 | **[workflow.steps:execute](https://api.slack.com/scopes/workflow.steps:execute)** | Add steps that people can use in Workflow Builder. | Enables Semgrep to make use of modals and drop-down boxes when a user creates or updates their notifications. |
-| **[groups:read](https://api.slack.com/scopes/groups:read)** | View basic information about private channels that your Slack app has been added to. | Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications configuration if the channel that receives findings is updated. This ensures that you are able to receive findings ever renaming a channel. |
+| **[groups:read](https://api.slack.com/scopes/groups:read)** | View basic information about private channels that your Slack app has been added to. | Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications configuration if the channel that receives findings is updated. This ensures that you are able to receive findings even after renaming a channel. |
 | **[team:read](https://api.slack.com/scopes/team:read)** | View the name, email domain, and icon for workspaces your slack app is connected to. | Semgrep Slack app uses <code>team_name_changed</code> to update its notifications configuration if the team name is updated. This ensures that you are able to receive findings notifications even after renaming your team. |
 | **[channels:read](https://api.slack.com/scopes/channels:read)** | View basic information about public channels in a workspace. | Enables Semgrep Slack app to monitor if channels that receive Semgrep findings have been deleted or archived. |
 

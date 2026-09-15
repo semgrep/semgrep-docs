@@ -49,7 +49,7 @@ Ban `mark_safe()`. Alternatively, if needed, use in combination with `format_htm
 
 ### 1.B. Using the **SafeString** class directly
 
-The `SafeString` class is how Django determines which variables should be escaped and which should not. Elements passed to `mark_safe()` are returned as a `SafeString`. Invoking `SafeString` directly will bypass HTML escaping which could create a XSS vulnerabliity.
+The `SafeString` class is how Django determines which variables should be escaped and which should not. Elements passed to `mark_safe()` are returned as a `SafeString`. Invoking `SafeString` directly will bypass HTML escaping which could create a XSS vulnerability.
 
 Example: 
 ```python
@@ -264,7 +264,7 @@ Example:
 
 #### Mitigation:
 
-"Ban `| safeseq`. Alternatively, use `mark_safe()` in Python if necessary. 
+Ban `| safeseq`. Alternatively, use `mark_safe()` in Python if necessary. 
 
 #### Semgrep rule
 
@@ -293,7 +293,7 @@ Ban `{% autoescape off %}`. Alternatively, use `mark_safe()` in Python if necess
 [`python.django.security.audit.xss.template-autoescape-off.template-autoescape-off`](https://semgrep.dev/r/python.django.security.audit.xss.template-autoescape-off.template-autoescape-off)
 
 
-## 4. Templates: Variable in dangerous location"
+## 4. Templates: Variable in dangerous location
 
 ### 4.A. Unquoted variable in HTML attribute
 

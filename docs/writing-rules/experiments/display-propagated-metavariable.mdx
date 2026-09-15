@@ -33,7 +33,7 @@ Creating a buffer using size
 
 This is caused by the value of `$X` within the code, which is `size`. However, the underlying value of `size` is `512`. The goal of the rule message is to access this underlying value in our message.
 
-To retrieve the correct value in the case described above, use `value($X)` in the rule message (for example (`Creating a buffer using value($X)`). Semgrep replaces the `value($X)` with the underlying propagated value of the metavariable `$X` if it computes one (otherwise, Semgrep uses the matched value).
+To retrieve the correct value in the case described above, use `value($X)` in the rule message (for example, `Creating a buffer using value($X)`). Semgrep replaces the `value($X)` with the underlying propagated value of the metavariable `$X` if it computes one (otherwise, Semgrep uses the matched value).
 
 <Note>
 **INFO**

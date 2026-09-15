@@ -14,7 +14,6 @@ The following updates were made to Semgrep in November 2025.
 - Added a new **Validate** button and improved **connection status visibility** for CNAPP integrations. You can now see the validation state, last successful sync time, and clearer error conditions directly in Semgrep AppSec Platform.
 - You can now update and delete customizable and saved views using the API. The endpoint returns a 404 if the view does not exist.
 - Added support for filtering projects by status, including `setup`, `uninitialized`, and `archived`, in the Projects API endpoints, enabling more precise control when retrieving project lists.
-- Added support for filtering projects by status, including `setup`, `uninitialized`, and `archived`, in the Projects API endpoints, enabling more precise control when retrieving project lists.
 - Added missing fields `commit` and `enabled_products` to the `GetScan` v2 API response to achieve parity with v1 and ensure you receive complete scan metadata.
 - Added support for updating a project's **primary branch** through the Public API v2, enabling parity with the v1 Projects API endpoint.
 - Added support to the Public API for mutating project tags, enabling automated workflows to add, remove, or update tags on projects.
@@ -84,7 +83,7 @@ The following updates were made to Semgrep in November 2025.
 ### Fixed
 
 - Removed outdated warning text from the Assistant autofix.
-- Fixed an issue where agreeing with an autotriage verdict incorrectly marked findings as ignored. Findings are now only auto-ignored when user assigns it as a **False Positive**.
+- Fixed an issue where agreeing with an autotriage verdict incorrectly marked findings as ignored. Findings are now only auto-ignored when the user marks them as **False Positive**.
 
 
 ## 📝 Documentation and knowledge base

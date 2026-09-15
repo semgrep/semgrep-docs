@@ -237,7 +237,7 @@ Ban `<%- ... %>`. Alternatively, only use it if necessary. Review each usage car
 
 Unquoted template variables rendered into HTML attributes is a potential XSS vector because an attacker could inject JavaScript handlers which do not require HTML characters. An example handler might look like: `onmouseover=alert(1)`. HTML escaping will not mitigate this. The variable must be quoted to avoid this.
 
-Eexample:
+Example:
 ```html
 <div class={{ classes }}></div>
 ```

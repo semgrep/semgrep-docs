@@ -125,7 +125,7 @@ make config
 
 ### Develop `semgrep-core`
 
-If you are developing `semgrep-core`, Use `Makefile` in the repository root for `core` and `core-test` targets; the code is primarily in `src/`.
+If you are developing `semgrep-core`, use `Makefile` in the repository root for `core` and `core-test` targets; the code is primarily in `src/`.
 
 The following assumes you are in the repository root.
 
@@ -257,7 +257,7 @@ Note that `parse_times` is given for each rule, but a file should only be parsed
 
 #### Negative values in the metrics
 
-When a time is not measured, by default it has the value -1. It is common to a have a normal runtime, but -1 for the parse time or match time; this indicates an error in parsing.
+When a time is not measured, by default it has the value -1. It is common to have a normal runtime, but -1 for the parse time or match time; this indicates an error in parsing.
 
 #### Tips for exploring Semgrep results
 
@@ -309,7 +309,7 @@ Parse_python.parse                       :      0.828 sec          1 count
 This is especially useful when you don't call directly semgrep-core, but
 instead use the python wrapper semgrep.
 
-Note that since semgrep 0.82, you can pass the `--dump-command-for-core` (or the shorter `-d`) to `semgrep` to get the command the python wrapper will use to call semgrep-core (this is an hidden option, which is why you will not see it in `semgrep --help`). For example:
+Note that since semgrep 0.82, you can pass the `--dump-command-for-core` (or the shorter `-d`) to `semgrep` to get the command the python wrapper will use to call semgrep-core (this is a hidden option, which is why you will not see it in `semgrep --help`). For example:
 
 ```bash
 semgrep --dump-command-for-core --config bench/zulip/input/rules/zulip/rules.zulip.semgrep.yml.yaml bench/zulip/input/zulip/
@@ -414,7 +414,7 @@ Depending on the language, `Parse_pattern.ml` and `Parse_target.ml` will invoke 
 
 `semgrep-core` does not match based on the Java AST. It has a generic AST, defined in `AST_generic.ml` (in `libs/ast_generic/`), which all language-specific ASTs are converted to.
 
-The functions for this conversion are in either `languages/[LANG]/generic/`. They are named with the appropriate language in a consistent convention.
+The functions for this conversion are in `languages/[LANG]/generic/`. They are named with the appropriate language in a consistent convention.
 
 ### Matching
 
@@ -610,7 +610,7 @@ At the end, confirm the match with
 sc -f [your_pattern].sgrep [your_target].py -lang py
 ```
 
-## Fix an Rule-defined fix error
+## Address a Rule-defined fix error
 
 Rule-defined fix runs through both `semgrep-core` and `semgrep`, but the most common error raised by Rule-defined fix you can encounter is a kind of incorrect range. This happens because `semgrep-core` determines the range of a match based on the locations of the tokens stored in the AST. When the range is incorrect, that usually means a token is missing. You can see token location information with
 

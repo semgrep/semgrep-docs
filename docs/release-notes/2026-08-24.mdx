@@ -1,0 +1,58 @@
+---
+title: "Week of August 24, 2026"
+description: "Updates made to Semgrep during the week of August 24-30, 2026."
+sidebarTitle: "Week of August 24, 2026"
+---
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- [Developer exception requests](/semgrep-appsec-platform/developer-exception-requests) are now in public beta. Admins can set developer triage permissions between no triage and full triage by adding **Require exception requests** to any policy. For blocking findings, an exception request must be approved before the finding is ignored and the developer is unblocked.
+- Semgrep Registry now asks for confirmation before adding rules to a detection policy. The confirmation shows how many rules are added, which policy they go to, and that the change takes effect immediately.
+- You can now add more than one webhook action to a single remediation policy automation.
+- When creating an Agent (CI) or Web API token, you can now choose a read-only permission so the token can read data without making changes.
+
+### Changed
+
+- **Usage** and **Billing** are now separate tabs in Semgrep AppSec Platform **Settings**. All users can view credit usage, and customers who bought one product through self-serve checkout can buy additional products.
+- Findings API requests that look up AI tags now respond faster.
+- Bulk triage is more reliable when multiple bulk triage requests run at the same time.
+- Improved Semgrep Registry endpoint performance. Explicit rule and ruleset scans now begin faster.
+
+
+### Fixed
+
+- Fixed an issue where agreeing with an Autotriage verdict left the finding **Details** page in an intermediate state until the page was refreshed.
+- Fixed an issue where users without triage permission were offered the option to ignore a finding when giving Autotriage feedback.
+- Fixed an issue where direct links to findings failed to load when the associated rule had been deleted.
+- Fixed an issue where Autofix could not commit a patch to Bitbucket Data Center for files in nested directories.
+- Fixed an issue where merge request webhooks from self-managed GitLab instances failed when the request did not include an SCM identifier.
+- Fixed an issue where Azure DevOps pull request webhooks from high-volume organizations could be dropped before processing completed.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- On a project's **Details > Scans** page, the scan type filter now includes **Incident** alongside **Full** and **Diff**. An incident scan checks an entire project using only the rules for one Supply Chain incident.
+- Added `is_partial_scan` to the public scans API response and request filter. The field indicates whether a scan ran only part of the rule set.
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- You can now search **Workflow issues** by title or description, including partial matches. Select the magnifier in the filter bar to search.
+
+## 📝 Documentation and knowledge base
+
+### Added
+
+- Added Semgrep Agentic Workflows endpoints to the public v2 API reference.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of August 24-30, 2026:
+
+<CardGroup>
+  <Card title="1.175.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.175.0" horizontal />
+</CardGroup>

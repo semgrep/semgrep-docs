@@ -15,7 +15,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 * Julia: Added support for metavariable type.
 * PromQL (Prometheus Query Language): Initial language support. Thank you to [Michael Hoffman](https://github.com/MichaHoffmann) for his contribution! ([#8281](https://github.com/semgrep/semgrep/pull/8281))
 
-* PromQL: Added `parse_promql_duration` function to convert a PromQL duration into milliseconds([#8381](https://github.com/semgrep/semgrep/pull/8381)). This makes it possible to write comparisons such as:
+* PromQL: Added `parse_promql_duration` function to convert a PromQL duration into milliseconds ([#8381](https://github.com/semgrep/semgrep/pull/8381)). This makes it possible to write comparisons such as:
     ```yaml
     - metavariable-comparison:
         metavariable: $RANGE
@@ -72,7 +72,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
       severity: WARNING
       languages: [rust]
     ```
-* Rust: Added the ability to taint macro calls through its arguments, in macro calls with multiple arguments. (#[8209](https://github.com/semgrep/semgrep/pull/8209))
+* Rust: Added the ability to taint macro calls through its arguments, in macro calls with multiple arguments. ([#8209](https://github.com/semgrep/semgrep/pull/8209))
 * Matching: Added the ability to use metavariables in parameters to match more sophisticated kinds of parameters. In particular, metavariables should now be able to match `self` parameters, such as in Rust. For example:
     ```rust
     fn $F($X, ...) { ... }
@@ -163,7 +163,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Added
 
 - Added **open findings** column to the **Policies** page. This column displays the count of open findings for each rule in your Policies. With this column, you can quickly see which rules are producing the most or least amount of findings.
-- Added **fix rate** column to the **Policies** page. This column displays a percentage of resolved fixes associated with the rule, or  "-" if there are no findings for that rule.
+- Added **fix rate** column to the **Policies** page. This column displays a percentage of resolved fixes associated with the rule, or "-" if there are no findings for that rule.
 - Added **Label** as its own column in the **Policies** page.
 - Added icons for **Severity** and **Source** columns in the **Policies** page. The following icons can be seen in the **Source** columns:
     - <Icon icon="pen-nib" iconType="solid"/> Custom rules

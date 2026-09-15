@@ -37,7 +37,7 @@ The following updates were made to Semgrep in April 2025.
 - [SBOM export through the Semgrep API](/api-reference/v1/supplychainservice/create-a-new-sbom-export-job) is now generally available.
 - [Malicious dependency detection](/semgrep-supply-chain/malicious-dependencies) is now in **public beta**. Semgrep enables you to block pull requests (PRs) or merge requests (MRs) introducing these dependencies. You can also filter for malicious dependency findings, which assists in identifying and removing these dependencies.
 - Added support for PR comments warning users that they may be adding malicious dependencies. {/* 20447 */}
-- **Upgrade guidance** and **click to fix** are now in **private beta** for users with Python projects hosted by GitHub.com and with Semgrep Assistant enabled. With upgrade guidance and click to fix, Supply Chain analyzes your project to surface breaking changes that you must fix as part of a version upgrade. Semgrep AppSec Platform provides you with a one-click option that opens a pull request to:<br/>
+- **Upgrade Guidance** and **click to fix** are now in **private beta** for users with Python projects hosted by GitHub.com and with Semgrep Assistant enabled. With Upgrade Guidance and click to fix, Supply Chain analyzes your project to surface breaking changes that you must fix as part of a version upgrade. Semgrep AppSec Platform provides you with a one-click option that opens a pull request to:<br/>
     i. Upgrade the dependency to a safe version.<br/>
     ii. Lets the developer know if the upgrade is safe or if there are breaking changes and what those changes are.
 - **Transitive reachability** is now in **private beta**. For JavaScript projects, Semgrep reachability now extends to transitive dependencies.
@@ -56,7 +56,7 @@ The following updates were made to Semgrep in April 2025.
 - Semgrep Assistant now attempts to create a memory during triage if possible. If Semgrep creates a memory, you'll see a dialog appear, indicating that this has happened, along with a link to the list of your organization's memories for review.
 - Assistant Memories v2 is now in **private beta**:
   - Managing memories in Semgrep AppSec Platform now occurs under **Policies**, not **Settings**.
-  - Semgrep AppSec Platform displays data on the scope and impact of memories, including the number of findings affected and which findings affected
+  - Semgrep AppSec Platform displays data on the scope and impact of memories, including the number of findings affected and which findings are affected
   - Assistant now provides **suggested memories**, which are those that Assistant has generated based on your past triage actions. You can view these memories at any time in Semgrep AppSec Platform by navigating to **Rules & Policies > Assistant Memories > Suggested**. For each suggestion, you can choose one of the following actions:
     - Activate the suggested memory to inform Assistant's future advice.
     - Edit the memory, then activate it.

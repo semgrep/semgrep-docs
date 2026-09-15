@@ -41,7 +41,7 @@ Semgrep admins can create a custom priority definition to change the findings sh
 Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 </Step>
 <Step>
-In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**. Ensure that you're viewing the **Priority**.
+In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**. Ensure that you're viewing the **Priority** tab.
 </Step>
 <Step>
 Using the provided filters, set your parameters for priority findings.
@@ -105,7 +105,7 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | :--- | :--- |
 | **<Tooltip tip="Status indicating whether a secret poses an immediate threat. States include Confirmed valid, Confirmed invalid, Validation error, and No validator." cta="See full definition." href="/semgrep-secrets/glossary#validation-state">Validation state</Tooltip>** | Filter by [whether the secret is operative on the related service](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
 | **<Tooltip tip="Sensitive information such as API keys, credentials, SSH keys, or certificates. If secrets are stored in source code, they can be leaked and misused." cta="See full definition." href="/semgrep-secrets/glossary#secret">Secret</Tooltip>** type| Filter by the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**. |
-| **<Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories." cta="See full definition." href="/semgrep-code/glossary#repository">Repository</Tooltip>** visibility | Filter by whether the repository's [visibility](#repository-visibility) status. |
+| **<Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories." cta="See full definition." href="/semgrep-code/glossary#repository">Repository</Tooltip>** visibility | Filter by the repository's [visibility](#repository-visibility) status. |
 | **Historical findings**   | Filter for findings that are valid, leaked secrets in previous Git commits. |
 | **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** tags| Filter for findings based on the tags associated with the project. |
 | **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
@@ -207,7 +207,7 @@ The following fields are exclusive to **Supply Chain** scans:
 
 | Field | Description |
 | :--- | :--- |
-| Dependency  | The name of the dependency where the findings was found. | 
+| Dependency  | The name of the dependency where the finding was found. | 
 | Reachability | The reachability status of the finding, such as **Reachable**, **No Reachability Analysis**, or **Unreachable**.    | 
 | Transitivity | States whether the finding originates from a direct or transitive dependency. | 
 | CVE  | The CVE number that the finding is assigned to. | 

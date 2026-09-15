@@ -36,7 +36,7 @@ The Semgrep pattern `if $X < 5` is invalid, and needs to be changed to a complet
 While this is the most common reason for pattern parse errors, other things to verify include:
 
 - Making sure the correct language is indicated in the rule.
-- Making sure that any metavariables you use are in all uppercase and does not start with a number. Valid metavariable names include `$X`, `$NAME`, and `$_VAR_2`. Invalid metavariable names include `$name`, `$1stvar` and `$VAR-WITH-DASHES`.
+- Making sure that any metavariables you use are in all uppercase and do not start with a number. Valid metavariable names include `$X`, `$NAME`, and `$_VAR_2`. Invalid metavariable names include `$name`, `$1stvar` and `$VAR-WITH-DASHES`.
 
 ## If your rule doesn't match where it should
 

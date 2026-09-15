@@ -31,7 +31,7 @@ When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detect
 
 For non-historical secrets, a finding is considered fixed once it no longer appears in the code. However, this does *not* mean the underlying risk is resolved. If the secret has leaked, take the necessary remediation steps even if Semgrep marks the finding as **fixed**.
 
-Findings for historical secrets always remain **Open**, because the secrets are identified after they've been removed from the code and Semgrep cannot determine whether it has been rotated or remediated. After you’ve addressed the issue, you can manually change the status to **Ignored**.
+Findings for historical secrets always remain **Open**, because the secrets are identified after they've been removed from the code and Semgrep cannot determine whether they have been rotated or remediated. After you’ve addressed the issue, you can manually change the status to **Ignored**.
 
 ### Review provisionally ignored findings
 
@@ -47,7 +47,7 @@ You can find and perform bulk operations through filtering; [all filter operatio
 | ---- | ----- |
 | Viewing valid findings | Under **Validation**, click **⚠️Confirmed valid**. |
 | View findings in a specific project or branch |1. Under **Projects**, select a repository from the drop-down menu. <br /> 2. Under **Branches**, select a branch from the drop-down menu. |
-| View findings of a specific type of secret, such as **personal token** or **password**. | Under **Type**, select a type of secret.
+| View findings of a specific type of secret, such as **personal token** or **password**. | Under **Type**, select a type of secret. |
 | View findings of a specific severity | Under **Severity**, select a value. |
 
 You can triage findings in bulk by performing the following steps:

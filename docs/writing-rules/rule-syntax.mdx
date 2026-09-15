@@ -184,7 +184,7 @@ db_query("SELECT * FROM ...", verify=True, env="prod")
 
 The order in which the child patterns are declared in a `patterns` operator does not affect the final result. A `patterns` operator is always evaluated in the same way:
 
-1. Semgrep evaluates all _positive_ patterns, including [`pattern-inside`](#pattern-inside)s, [`pattern`](#pattern)s, [`pattern-regex`](#pattern-regex)es, and [`pattern-either`](#pattern-either)s. Each range matched by one of these patterns is intersected with the ranges matched by the other operators. The result is a set of _positive_ ranges. The positive ranges carry _metavariable bindings_. For example, in one range,`$X` can be bound to the function call `foo()`, and in another range `$X` can be bound to the expression `a + b`.
+1. Semgrep evaluates all _positive_ patterns, including [`pattern-inside`](#pattern-inside)s, [`pattern`](#pattern)s, [`pattern-regex`](#pattern-regex)es, and [`pattern-either`](#pattern-either)s. Each range matched by one of these patterns is intersected with the ranges matched by the other operators. The result is a set of _positive_ ranges. The positive ranges carry _metavariable bindings_. For example, in one range, `$X` can be bound to the function call `foo()`, and in another range `$X` can be bound to the expression `a + b`.
 2. Semgrep evaluates all _negative_ patterns, including [`pattern-not-inside`](#pattern-not-inside)s, [`pattern-not`](#pattern-not)s, and [`pattern-not-regex`](#pattern-not-regex)es. This provides a set of _negative ranges_ which are used to filter the positive ranges. This results in a strict subset of the positive ranges computed in the previous step.
 3. Semgrep evaluates all _conditionals_, including [`metavariable-regex`](#metavariable-regex)es, [`metavariable-pattern`](#metavariable-pattern)s, and [`metavariable-comparison`](#metavariable-comparison)s. These conditional operators can only examine the metavariables bound in the positive ranges in step 1 and have been filtered through the negative patterns in step 2. Note that metavariables bound by negative patterns are _not_ available here.
 4. Semgrep applies all [`focus-metavariable`](#focus-metavariable)s by computing the intersection of each positive range with the range of the metavariable on which you want to focus. Again, the only metavariables available to focus on are those bound by positive patterns.
@@ -488,6 +488,7 @@ rules:
     languages:
       - python
     severity: HIGH
+```
 
 The following example matches all of the function calls in the same code sample, returning a false positive on the `module.secure` call:
 
@@ -1116,10 +1117,10 @@ Enable, disable, or modify the following matching features:
 | `implicit_return` | `true` | Return statement patterns (for example `return $E`) match expressions that may be evaluated last in a function as if there was a return keyword in front of those expressions. Only applies to certain expression-based languages, such as Ruby and Julia. |
 | `interfile` | `false` | Set this value to `true` for Semgrep to run this rule with cross-function and cross-file analysis. It is **required** for rules that use cross-function, cross-file analysis. |
 | `symmetric_eq` | `false` | Treat equal operations as symmetric (for example: `a == b` is equal to `b == a`). |
-| `taint_assume_safe_functions` | `false` | Experimental option which are be subject to future changes. Used in taint analysis. Assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. Can replace **not-conflicting** sanitizers added in v0.69.0 in the future. |
-| `taint_assume_safe_indexes` | `false` | Used in taint analysis. Assume that an array-access expression is safe even if the index expression is tainted. Otherwise, Semgrep assumes that, for example, `a[i]` is tainted if `i is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling it is preferred for audit rules. Currently, it is disabled by default to maintain backward compatibility, but this may change in the near future after further evaluation. |
+| `taint_assume_safe_functions` | `false` | Experimental option which is subject to future changes. Used in taint analysis. Assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. Can replace **not-conflicting** sanitizers added in v0.69.0 in the future. |
+| `taint_assume_safe_indexes` | `false` | Used in taint analysis. Assume that an array-access expression is safe even if the index expression is tainted. Otherwise, Semgrep assumes that, for example, `a[i]` is tainted if `i` is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling it is preferred for audit rules. Currently, it is disabled by default to maintain backward compatibility, but this may change in the near future after further evaluation. |
 | `vardef_assign` | `true` | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
-| `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
+| `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`). |
 
 The complete list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/semgrep/semgrep/blob/develop/interfaces/Rule_options.atd) module. Please note that options not included in the table above are considered experimental and may change or be removed without notice.
 
