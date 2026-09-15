@@ -3,14 +3,14 @@ title: "How to upgrade the grammar for a language"
 sidebarTitle: "Upgrade the grammar for a language"
 ---
 
-Tree-sitter grammar pins, Semgrep wrappers, and generated parsers are in
-the Semgrep repository. Run all commands from its root, which contains
-`libs/`, `languages/`, and `src/`.
+Grammar pins, Semgrep wrappers, and generated parsers live in the Semgrep
+repository. Run all commands from its root, which contains `libs/`,
+`languages/`, and `src/`.
 
 ## Summary
 
 <Steps>
-  <Step>Update the grammar's commit and, if needed, tree-sitter version in the registry.</Step>
+  <Step>Update the grammar's commit and, if needed, Tree-sitter version in the registry.</Step>
   <Step>Adjust the Semgrep wrapper and add regression tests.</Step>
   <Step>Test the grammar with `make test-grammar-<LANG>`.</Step>
   <Step>Regenerate each parser in the entry's `regen` list with, for example, `make regen-grammar-<LANG>`.</Step>
@@ -28,8 +28,8 @@ The examples below update Python. For wrapper-only changes, skip the first step.
 ## 1. Update the registry
 
 Edit `libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json`. Replace
-`commit` with the upstream commit SHA; change `tree_sitter` if needed.
-For example, Python's entry has this shape:
+`commit` with the upstream commit SHA. Change `tree_sitter` if needed.
+The following example shows Python's entry:
 
 ```json
 "python": {
@@ -40,7 +40,7 @@ For example, Python's entry has this shape:
 }
 ```
 
-`tree_sitter` selects the grammar's CLI version, independently of the shared
+`tree_sitter` selects the grammar's CLI version independently of the shared
 runtime version in `libs/ocaml-tree-sitter-semgrep/core/tree-sitter-version`.
 
 ## 2. Update the wrapper and regression tests
@@ -50,8 +50,9 @@ Adjust the Semgrep syntax extensions if needed. For Python, edit
 and add regression cases to
 `libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-python/test/corpus/semgrep.txt`.
 
-Ensure `libs/ocaml-tree-sitter-semgrep/lang/python/fyi.list` includes the
-grammar sources. Its paths are relative to `libs/ocaml-tree-sitter-semgrep/lang/`:
+Include the grammar sources in
+`libs/ocaml-tree-sitter-semgrep/lang/python/fyi.list`. Paths in that file
+are relative to `libs/ocaml-tree-sitter-semgrep/lang/`:
 
 ```text
 semgrep-grammars/src/tree-sitter-python/LICENSE
@@ -61,13 +62,14 @@ semgrep-grammars/src/semgrep-python/grammar.js
 
 ## 3. Test the grammar
 
-Test the wrapper's tree-sitter corpus and generated OCaml parser:
+Test the wrapper's Tree-sitter corpus and generated OCaml parser:
 
 ```bash
 make test-grammar-python
 ```
 
-This fetches the pinned upstream sources and rebuilds the wrapper.
+`make test-grammar-python` fetches the pinned upstream sources and rebuilds
+the wrapper.
 
 ## 4. Regenerate the parser
 
@@ -77,11 +79,12 @@ Run `make regen-grammar-<dest>` for every destination in the entry's `regen` lis
 make regen-grammar-python
 ```
 
-This updates `languages/python/tree-sitter/semgrep-python/`, including
-generated `lib/`, `bin/`, `config/`, and `fyi/` files. Change the wrapper and
-regenerate instead of editing generated files by hand.
+`make regen-grammar-python` updates
+`languages/python/tree-sitter/semgrep-python/`, including generated `lib/`,
+`bin/`, `config/`, and `fyi/` files. Change the wrapper and regenerate
+instead of editing generated files by hand.
 
-A registry key can have multiple destinations: `typescript` produces both
+A registry key can produce multiple destinations: `typescript` produces both
 `typescript` and `tsx`. Test the key, then regenerate each destination:
 
 ```bash
