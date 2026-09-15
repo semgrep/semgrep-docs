@@ -21,10 +21,7 @@ paths:
             tags:
                 - AiFixJobsService
             summary: Create fix job
-            description: |-
-                This feature is currently in Public Beta.
-
-                Create an automated SAST fix job for the given issue. This triggers an AI-powered workflow that analyzes the vulnerability, generates a fix, and opens a pull request in the repository.
+            description: Create an automated SAST fix job for the given issue. This triggers an AI-powered workflow that analyzes the vulnerability, generates a fix, and opens a pull request in the repository.
             operationId: AiFixJobsService_CreateFixJob
             parameters:
                 - name: deploymentId
@@ -161,8 +158,6 @@ paths:
                 - AutofixService
             summary: Create autofix
             description: |-
-                This feature is currently in Public Beta.
-
                 Triggers an Autofix workflow for the given issue. The workflow runs asynchronously; it analyzes the issue, generates a fix, and opens a pull request in the underlying repository. Supports SAST, AI SAST, and SCA issue types — the issue's type is resolved server-side and dispatched to the corresponding Autofix path.
 
                 A `success: true` response means the Autofix job has been **accepted for processing**, not that a pull request has been opened. The PR is created by an asynchronous workflow that runs after this endpoint returns.
@@ -1983,6 +1978,40 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/deployments/{deploymentId}/issue-exports:
+        post:
+            tags:
+                - PublicIssuesService
+            summary: Export issues as CSV
+            description: Create an asynchronous CSV export of Semgrep Agentic Workflows issues. Exports are limited to 10,000 rows. Download URLs expire 15 minutes after generation finishes.
+            operationId: PublicIssuesService_ExportIssues
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.issues.api.ExportIssuesRequest'
+                required: true
+            responses:
+                "202":
+                    description: Accepted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.ExportIssuesResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/issues/{deploymentId}/issue/{issueId}/activity:
         get:
             tags:
@@ -2062,7 +2091,7 @@ paths:
             tags:
                 - PublicIssuesService
             summary: Triage issue
-            description: Set the triage state and reason for a Semgrep Agentic Workflows issue.
+            description: Set the triage state, reason, and optional note for a Semgrep Agentic Workflows issue.
             operationId: PublicIssuesService_TriageIssue
             parameters:
                 - name: deploymentId
@@ -2096,13 +2125,46 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/issues/{deploymentId}/search:
+    /api/deployments/{deploymentId}/issue-exports/{exportId}:
+        get:
+            tags:
+                - PublicIssuesService
+            summary: Get issue export
+            description: Get the status and result of a CSV export.
+            operationId: PublicIssuesService_GetIssueExport
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: exportId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.GetIssueExportResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/issues/{deploymentId}/list:
         post:
             tags:
                 - PublicIssuesService
-            summary: Search issues
-            description: Search Semgrep Agentic Workflows issues with filtering, sorting, and cursor pagination.
-            operationId: PublicIssuesService_SearchIssues
+            summary: List issues
+            description: List Semgrep Agentic Workflows issues with filtering, sorting, and cursor pagination.
+            operationId: PublicIssuesService_ListIssues
             parameters:
                 - name: deploymentId
                   in: path
@@ -2113,7 +2175,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/protos.issues.api.SearchIssuesRequest'
+                            $ref: '#/components/schemas/protos.issues.api.ListIssuesRequest'
                 required: true
             responses:
                 "200":
@@ -2121,7 +2183,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/protos.issues.api.SearchIssuesResponse'
+                                $ref: '#/components/schemas/protos.issues.api.ListIssuesResponse'
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
@@ -8489,6 +8551,16 @@ components:
                     $ref: '#/components/schemas/protos.ai.v1.WorkflowReportSummary'
                 metadata:
                     $ref: '#/components/schemas/protos.ai.v1.WorkflowJobMetadata'
+                hasPrTarget:
+                    type: boolean
+                    description: True when the run targets a pull request (it has a PR target record).
+                hasBranchTarget:
+                    type: boolean
+                    description: |-
+                        True for a non-experimental repo run with a known, persisted branch
+                         identity. Poll GetWorkflowJobSupersession when either target flag is set.
+                         Missing/stale links, public repos without a repo ID, tags, and ambiguous
+                         refs are ineligible.
         protos.ai.v1.GitHubAppInfo:
             type: object
             properties:
@@ -11394,6 +11466,48 @@ components:
             properties:
                 count:
                     type: string
+        protos.issues.api.ExportIssuesRequest:
+            type: object
+            properties:
+                deploymentId:
+                    type: string
+                filters:
+                    $ref: '#/components/schemas/protos.issues.api.IssueFilters'
+                sortField:
+                    enum:
+                        - ISSUE_SORT_FIELD_SEVERITY
+                        - ISSUE_SORT_FIELD_LAST_DETECTED_AT
+                        - ISSUE_SORT_FIELD_CREATED_AT
+                        - ISSUE_SORT_FIELD_FILE_PATH
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | ISSUE_SORT_FIELD_SEVERITY |  |
+                        | ISSUE_SORT_FIELD_LAST_DETECTED_AT |  |
+                        | ISSUE_SORT_FIELD_CREATED_AT |  |
+                        | ISSUE_SORT_FIELD_FILE_PATH |  |
+
+                    format: enum
+                sortDirection:
+                    enum:
+                        - SORT_DIRECTION_ASC
+                        - SORT_DIRECTION_DESC
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | SORT_DIRECTION_ASC |  |
+                        | SORT_DIRECTION_DESC |  |
+
+                    format: enum
+        protos.issues.api.ExportIssuesResponse:
+            type: object
+            properties:
+                issueExport:
+                    $ref: '#/components/schemas/protos.issues.api.IssueExport'
         protos.issues.api.GetIssueActivityHistoryResponse:
             type: object
             properties:
@@ -11403,6 +11517,11 @@ components:
                         $ref: '#/components/schemas/protos.issues.api.IssueActivity'
                 cursor:
                     type: string
+        protos.issues.api.GetIssueExportResponse:
+            type: object
+            properties:
+                issueExport:
+                    $ref: '#/components/schemas/protos.issues.api.IssueExport'
         protos.issues.api.GetIssueResponse:
             type: object
             properties:
@@ -11592,6 +11711,44 @@ components:
                     type: string
                     format: date-time
             description: A change made to an issue.
+        protos.issues.api.IssueExport:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: Opaque export ID, valid for one hour. Pass it unchanged to GetIssueExport.
+                state:
+                    enum:
+                        - ISSUE_EXPORT_STATE_PENDING
+                        - ISSUE_EXPORT_STATE_READY
+                        - ISSUE_EXPORT_STATE_FAILED
+                    type: string
+                    description: |+
+                        Pending means queued or running. Ready and failed are terminal states.
+
+                        | value | description |
+                        |-------|---------------|
+                        | ISSUE_EXPORT_STATE_PENDING |  |
+                        | ISSUE_EXPORT_STATE_READY |  |
+                        | ISSUE_EXPORT_STATE_FAILED |  |
+
+                    format: enum
+                downloadUrl:
+                    type: string
+                    description: CSV download URL, present when ready with at least one exported row. Valid for 15 minutes after generation.
+                expiresAt:
+                    type: string
+                    description: Expiration time of the download URL.
+                    format: date-time
+                exportedCount:
+                    type: string
+                    description: Number of exported data rows, available when ready.
+                truncated:
+                    type: boolean
+                    description: True when the export limit omitted additional matching issues.
+                failureReason:
+                    type: string
+                    description: Explanation when the export failed.
         protos.issues.api.IssueFilters:
             title: Issue filters
             type: object
@@ -11751,8 +11908,8 @@ components:
                     type: array
                     items:
                         type: string
-            description: Filters for narrowing issue search results. Fields are combined with AND; multiple values within a field are combined with OR.
-        protos.issues.api.SearchIssuesRequest:
+            description: Filters for narrowing listed issues. Fields are combined with AND; multiple values within a field are combined with OR.
+        protos.issues.api.ListIssuesRequest:
             type: object
             properties:
                 deploymentId:
@@ -11794,7 +11951,7 @@ components:
                     format: int64
                 cursor:
                     type: string
-        protos.issues.api.SearchIssuesResponse:
+        protos.issues.api.ListIssuesResponse:
             type: object
             properties:
                 issues:
@@ -11859,6 +12016,9 @@ components:
                         | TRIAGE_REASON_NO_TIME |  |
 
                     format: enum
+                note:
+                    type: string
+                    description: Optional context recorded with the triage activity.
         protos.issues.api.TriageIssueResponse:
             type: object
             properties:
@@ -15341,6 +15501,10 @@ components:
                     example: false
                     type: boolean
                     description: Whether new users are automatically assigned to this team.
+                scimManaged:
+                    example: false
+                    type: boolean
+                    description: Whether this team is managed by your SCIM directory. Teams that SCIM manages can't be renamed, deleted, or have their members changed in Semgrep.
                 authorizedScopes:
                     example: ["TEAM_SCOPE_DIRECT_MEMBER", "TEAM_SCOPE_MANAGE"]
                     enum:
@@ -19531,6 +19695,12 @@ components:
                     type: boolean
                 writePullRequest:
                     type: boolean
+                readChecks:
+                    type: boolean
+                    description: Whether the token can read provider checks or commit statuses.
+                writeChecks:
+                    type: boolean
+                    description: Whether the token can create or update provider checks or commit statuses.
         protos.scm.v1.ScmWebhookSubscription:
             type: object
             properties:
@@ -20857,7 +21027,7 @@ tags:
       x-displayName: Projects
       x-group: Projects
     - name: PublicIssuesService
-      description: Search, inspect, and triage issues generated by Semgrep Agentic Workflows. This API does not include issues from other Semgrep products.
+      description: List, search, inspect, triage, and export issues generated by Semgrep Agentic Workflows. This API does not include issues from other Semgrep products.
       x-displayName: Issues (Semgrep Agentic Workflows)
       x-group: Issues (Semgrep Agentic Workflows)
     - name: ReportsService
