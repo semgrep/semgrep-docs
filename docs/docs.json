@@ -425,7 +425,7 @@
         ]
       },
       {
-        "tab": "Scan AI-written code",
+        "tab": "Scan at code generation",
         "groups": [
           {
             "group": "Semgrep Guardian",
