@@ -58,12 +58,14 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 ## Connect to Semgrep Registry through a proxy
 
-Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
+Set the following environment variables to route Semgrep network traffic through a proxy:
 
 ```bash
 export HTTP_PROXY="HTTP_PROXY_URL"
 
 export HTTPS_PROXY="HTTPS_PROXY_URL"
+
+export ALL_PROXY="ALL_PROXY_URL"
 ```
 
 For example:
@@ -73,6 +75,12 @@ export HTTP_PROXY="http://10.10.1.10:3128"
 
 export HTTPS_PROXY="http://10.10.1.10:1080"
 ```
+
+Semgrep handles unusable proxy values as follows:
+
+- An empty value is ignored. Semgrep prints a warning and the scan continues without a proxy.
+- An invalid value stops the scan. The error message redacts credentials in the URL.
+- A proxy URL without a scheme, such as `example.com:3128`, is given a scheme.
 
 ## Exit codes
 
