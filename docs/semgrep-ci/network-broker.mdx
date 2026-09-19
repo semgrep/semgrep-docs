@@ -171,6 +171,83 @@ Add your public key to the Semgrep AppSec Platform:
 </Step>
 </Steps>
 
+### Provide the private key through the environment
+
+Semgrep Network Broker versions 0.46.0 and later can also read the private key from the environment. This is an alternative to setting `privateKey` in `config.yaml`, useful if you prefer to keep the key in your platform's secret store. Set one of the following variables when you start the broker:
+
+- `SEMGREP_NETWORK_BROKER_PRIVATE_KEY`: the private key, as printed by `genkey`.
+- `SEMGREP_NETWORK_BROKER_PRIVATE_KEY_PATH`: the path to a file containing the private key, such as a mounted Docker or Kubernetes secret. A trailing newline in the file is ignored.
+
+<Tabs>
+<Tab title="Docker with an environment variable">
+
+Pass the key when you [start the broker](#start-the-broker):
+
+```bash
+sudo docker run -d -it --rm -v $(pwd):/emt \
+  -e SEMGREP_NETWORK_BROKER_PRIVATE_KEY="YOUR_PRIVATE_KEY" \
+  ghcr.io/semgrep/semgrep-network-broker:VERSION_NUMBER -c /emt/config.yaml
+```
+
+</Tab>
+<Tab title="Docker with a mounted file">
+
+Save the private key to a file named `privateKey` in the same directory as `config.yaml`. The directory is already mounted at `/emt` when you [start the broker](#start-the-broker), so pass the path inside the container:
+
+```bash
+sudo docker run -d -it --rm -v $(pwd):/emt \
+  -e SEMGREP_NETWORK_BROKER_PRIVATE_KEY_PATH=/emt/privateKey \
+  ghcr.io/semgrep/semgrep-network-broker:VERSION_NUMBER -c /emt/config.yaml
+```
+
+</Tab>
+<Tab title="Kubernetes">
+
+Create a secret holding the private key:
+
+```bash
+kubectl create secret generic broker-private-key --from-literal=privateKey=YOUR_PRIVATE_KEY
+```
+
+Then reference the secret from the broker Deployment. Either set the variable directly in the container's `env`:
+
+```yaml
+env:
+  - name: SEMGREP_NETWORK_BROKER_PRIVATE_KEY
+    valueFrom:
+      secretKeyRef:
+        name: broker-private-key
+        key: privateKey
+```
+
+Or mount the secret as a file and point the broker at it. `env` and `volumeMounts` belong in the container spec, and `volumes` in the pod spec:
+
+```yaml
+env:
+  - name: SEMGREP_NETWORK_BROKER_PRIVATE_KEY_PATH
+    value: /secret/privateKey
+volumeMounts:
+  - mountPath: /secret
+    name: broker-private-key-volume
+    readOnly: true
+volumes:
+  - name: broker-private-key-volume
+    secret:
+      secretName: broker-private-key
+```
+
+See the [sample Kubernetes manifest](https://github.com/semgrep/semgrep-network-broker/blob/develop/kubernetes.yaml) for a complete Deployment.
+
+</Tab>
+</Tabs>
+
+Note the following behavior:
+
+- If the environment supplies a key, the broker uses it even when a config file also sets `privateKey`, and logs a warning that the config file value was overridden.
+- If both variables are set, `SEMGREP_NETWORK_BROKER_PRIVATE_KEY` is used.
+- If `SEMGREP_NETWORK_BROKER_PRIVATE_KEY_PATH` points to a missing or empty file, the broker exits with an error.
+- The private key must be exactly 44 characters, which decodes to 32 bytes. Otherwise the broker exits with an error that names where the key came from.
+
 ### Update the config with your SCM information
 
 Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL for Azure DevOps, GitHub, GitLab, or Bitbucket Data Center.
