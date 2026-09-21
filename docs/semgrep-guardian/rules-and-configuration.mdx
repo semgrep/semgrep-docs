@@ -1,0 +1,38 @@
+---
+title: "Semgrep Guardian rules and configuration"
+description: "Which rules Semgrep Guardian scans with, and why this differs between the Claude Code remote plugin and other integrations."
+sidebarTitle: Rules and configuration
+---
+
+Which rules Guardian scans with depends on how it runs scans, and this differs by integration. Check which row applies to you before assuming your Policies are in effect.
+
+| Setup | Scans run by | Rules used |
+| :--- | :--- | :--- |
+| **Claude Code, remote plugin** (default, recommended) | Guardian hooks | Fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset |
+| **Claude Code, local plugin** | Guardian hooks, local CLI | Rules enabled in your organization's Policies |
+| **All other coding agents** (Cursor, Codex, GitHub Copilot, VS Code, Devin, Kiro, other MCP clients) | `semgrep_scan` through the Semgrep MCP server | Rules enabled in your organization's Policies |
+
+<Warning>
+**If you use the recommended Claude Code remote plugin, your Policies do not apply.**
+
+Guardian's hooks run a fixed ruleset rather than reading your Policies configuration. If you have tuned your Policies and expect those rules to run in Claude Code, they will not, and Guardian may appear to miss findings that a CI or platform scan reports.
+
+If you require custom rules, see Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack) for assistance.
+</Warning>
+
+## What Guardian scans for
+
+Guardian scans generated files using Semgrep Code, Supply Chain, and Secrets, so findings can cover:
+
+* Code vulnerabilities detected by [Semgrep Code](/semgrep-code/overview)
+* Vulnerable dependencies detected by [Semgrep Supply Chain](/semgrep-supply-chain/overview)
+* Committed credentials detected by [Semgrep Secrets](/semgrep-secrets/conceptual-overview)
+
+## Guardian does not replace CI scans
+
+Guardian runs as your agent writes code; your CI and platform scans run on push, pull request, or a schedule and always enforce your Policies. Continue running Semgrep in CI. See [Set up and deploy scans](/deployment/checklist).
+
+## Related pages
+
+* [Choose your setup](/semgrep-guardian/choose-your-setup)
+* [Authentication](/semgrep-guardian/authentication)
