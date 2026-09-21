@@ -173,7 +173,9 @@ Add your public key to the Semgrep AppSec Platform:
 
 ### Provide the private key through the environment
 
-Semgrep Network Broker versions 0.46.0 and later can also read the private key from the environment. This is an alternative to setting `privateKey` in `config.yaml`, useful if you prefer to keep the key in your platform's secret store. Set one of the following variables when you start the broker:
+In Semgrep Network Broker v0.46.0 and later, you can pass the private key with an environment variable instead of `privateKey` in `config.yaml`. Use this when the key lives in a secret manager.
+
+Set one of the following variables when you start the broker:
 
 - `SEMGREP_NETWORK_BROKER_PRIVATE_KEY`: the private key, as printed by `genkey`.
 - `SEMGREP_NETWORK_BROKER_PRIVATE_KEY_PATH`: the path to a file containing the private key, such as a mounted Docker or Kubernetes secret. A trailing newline in the file is ignored.
