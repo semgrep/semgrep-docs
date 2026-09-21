@@ -209,7 +209,7 @@ sudo docker run -d -it --rm -v $(pwd):/emt \
 </Tab>
 <Tab title="Kubernetes">
 
-Create a Kubernetes Secret to store the private key. Add that secret to the broker Deployment in one of these ways.
+Create a Kubernetes Secret to store the private key:
 
 ```bash
 kubectl create secret generic broker-private-key --from-literal=privateKey=YOUR_PRIVATE_KEY
@@ -219,10 +219,9 @@ kubectl create secret generic broker-private-key --from-literal=privateKey=YOUR_
 This command contains your private key. Do **not** share your private key with anyone, including Semgrep.
 </Warning>
 
-Then reference the secret from the broker Deployment.
+Then reference the secret from the broker's Kubernetes Deployment, such as the one in the [sample Kubernetes manifest](https://github.com/semgrep/semgrep-network-broker/blob/develop/kubernetes.yaml). You can either inject the secret as an environment variable or mount it as a file.
 
-2. Mount the secret as a file. Put `env` and `volumeMounts` in the container spec, and `volumes` in the pod spec:
-
+**Option 1: Inject the secret as an environment variable.** Put `env` in the container spec:
 
 ```yaml
 env:
@@ -233,7 +232,7 @@ env:
         key: privateKey
 ```
 
-Or mount the secret as a file and point the broker at it. `env` and `volumeMounts` belong in the container spec, and `volumes` in the pod spec:
+**Option 2: Mount the secret as a file** and point the broker at it. `env` and `volumeMounts` belong in the container spec, and `volumes` in the pod spec:
 
 ```yaml
 env:
@@ -248,8 +247,6 @@ volumes:
     secret:
       secretName: broker-private-key
 ```
-
-See the [sample Kubernetes manifest](https://github.com/semgrep/semgrep-network-broker/blob/develop/kubernetes.yaml) for a complete Deployment.
 
 </Tab>
 </Tabs>
