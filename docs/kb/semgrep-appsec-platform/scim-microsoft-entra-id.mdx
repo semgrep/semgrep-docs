@@ -237,8 +237,9 @@ Click **Assign**.
 
 Create one group per role suffix (`[team:manager]`, `[team:member]`, `[team:readonly]`). Semgrep maps them to the same team.
 
-- Assign a user to only one role-suffixed group per Semgrep team.
-- When changing a member's team permission level, remove them from the first role-suffixed group before adding them to a different one.
+- You can assign a user to multiple role-suffixed groups for the same team. Semgrep assigns the highest-privilege team role among those groups (**Manager**, then **Member**, then **Read-only**).
+- To lower a user's team role, remove them from the higher-privilege group.
+- Changing the role suffix in a group name, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
 - Apply rename and delete operations to all role-suffixed groups for that team.
 
 ### Add or remove team members
@@ -272,7 +273,7 @@ On the same **Members** page, select the user and click **Remove** in the top me
 
 ### Rename a SCIM-managed team
 
-If you have multiple role-suffixed groups for one team, update the name consistently across all of them.
+If you have multiple role-suffixed groups for one team, update the team name consistently across all of them. Changing the role suffix, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
 
 <Steps>
 <Step>
@@ -322,8 +323,9 @@ For shared SCIM limitations, see [Limitations](/deployment/scim#limitations). En
 - Each SCIM application manages one Semgrep deployment. Multiple deployments can share an SSO connection, but each deployment needs its own SCIM application.
 - Assign users to the SSO connection before the SCIM app. In a multi-app setup, Entra ID admins can assign directory users to the SCIM app even if they're not assigned to the corresponding SSO connection. Those users can't sign in through SSO.
 - Disable social auth when using SCIM. If social auth (GitHub or GitLab) remains enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
-- Removing a user from only one role-suffixed group removes them from the Semgrep team, even if they remain in other role-type groups for that team in Entra ID.
+- If a user belongs to multiple role-suffixed groups for the same team, Semgrep assigns the highest-privilege team role among those groups. The user remains on the team until you remove them from all of those groups.
 - Renaming or deleting only one role-suffixed group renames or deletes the Semgrep team and leaves other role-type groups in Entra ID unmapped. Always update all role types together.
+- Changing the role suffix in a group name, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
 
 ## See also
 

@@ -149,6 +149,8 @@ To create a Semgrep team from an IdP group, add `[team]` or `[team:<role>]` to t
 | `Team 1 [team:member]` | Team 1 | **Member** |
 | `Team 1 [team:readonly]` | Team 1 | **Read-only** |
 
+If a user belongs to multiple role-suffixed groups for the same team, Semgrep assigns the highest-privilege team role among those groups (**Manager**, then **Member**, then **Read-only**).
+
 Name the group with `[team]` or `[team:<role>]` before you assign or push it. A group without that suffix is treated as a deployment role group. Renaming a group that's already assigned doesn't trigger team creation. Create a new group with the naming convention, then assign it.
 
 Don't assign deployment roles to team groups in the Directory Setup Portal. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta#manage-teams) or [SCIM provisioning with Microsoft Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#manage-teams) for provider-specific team management steps.
