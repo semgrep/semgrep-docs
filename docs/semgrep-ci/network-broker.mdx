@@ -64,7 +64,29 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 ### Create the config file
 
 <Tabs>
-<Tab title="v0.25.0 and later">
+<Tab title="v0.47.0 and later">
+
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
+
+```yaml
+  inbound:
+    wireguard:
+      localAddress: SEMGREP_LOCAL_ADDRESS
+      privateKey: YOUR_PRIVATE_KEY
+      peers:
+        - endpoint: wireguard.semgrep.dev:51820
+    allowlist: []
+    scms:
+      - type: gitlab
+        baseUrl: YOUR_BASE_URL
+```
+
+`scms` is a list with one entry for each SCM instance. Each entry sets its own `type`, so you can add several instances of the same SCM. See [Allowlist multiple source code managers with one configuration file](#allowlist-multiple-source-code-managers-with-one-configuration-file).
+
+The SCM-specific keys shown in the other tabs, such as `gitlab`, still work in v0.47.0 and later.
+
+</Tab>
+<Tab title="v0.25.0 to v0.46.0">
 
 Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
 
@@ -124,6 +146,8 @@ semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
 ```
 
 Note that arrays are replaced, while maps are merged.
+
+The `scms` list in v0.47.0 and later is an exception. The broker identifies each entry by its `type` and `baseUrl`. It merges entries that share both field by field, and the later file wins. It keeps entries that differ in either field side by side.
 
 ### Generate a keypair
 
@@ -261,6 +285,8 @@ Note the following behavior:
 ### Update the config with your SCM information
 
 Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL for Azure DevOps, GitHub, GitLab, or Bitbucket Data Center.
+
+If you use `scms` in v0.47.0 and later, set the entry's `type` to the key shown in the tab for your SCM, which is `azuredevops`, `bitbucket`, `github`, or `gitlab`. Set its `baseUrl` to the base URL shown in the same tab.
 
 <Tabs>
 <Tab title="Azure DevOps">
@@ -445,6 +471,8 @@ inbound:
 </Tab>
 </Tabs>
 
+If you use `scms` in v0.47.0 and later, add `allowCodeAccess: true` to each entry that needs code access. The setting applies only to the entry that sets it.
+
 Semgrep Network Broker supports repository cloning when `allowCodeAccess` is `true`, beginning with Network Broker `v0.36.0` (for GitHub, beginning with `v0.32.0`). 
 
 For earlier Network Broker versions, the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
@@ -493,7 +521,36 @@ Do not attempt to run multiple instances of Semgrep Network Broker to increase a
 
 ## Allowlist multiple source code managers with one configuration file
 
-It is possible to allow access to multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
+It is possible to allow access to multiple source code managers (SCM) within a single configuration file.
+
+<Tabs>
+<Tab title="v0.47.0 and later">
+
+Add one entry to `scms` for each SCM instance. You can add several instances of the same type, such as two GitHub Enterprise Server instances:
+
+```yaml
+inbound:
+  scms:
+    - type: github
+      baseUrl: https://GITHUB_BASE_URL/api/v3
+    - type: github
+      baseUrl: https://SECOND_GITHUB_BASE_URL/api/v3
+      allowCodeAccess: true
+    - type: gitlab
+      baseUrl: https://GITLAB_BASE_URL/api/v4
+```
+
+Each entry requires `type` and `baseUrl`. It also accepts `token` and `allowCodeAccess`, which apply only to that entry. The broker allows the same endpoints for each entry that it allows for the matching [SCM-specific key](/semgrep-ci/network-broker#update-the-config-with-your-scm-information).
+
+You can combine `scms` with SCM-specific keys, such as `github`, as long as they name different instances. The broker exits with an error at startup in the following cases:
+
+- An SCM-specific key and an `scms` entry have the same type and base URL.
+- Two GitHub, GitLab, or Bitbucket entries of the same type share a host, and at least one of them sets `allowCodeAccess: true`. The broker allows repository cloning for these SCMs by host, so it can't keep the clone access and tokens of the two instances apart. Give each instance its own host, or leave `allowCodeAccess` unset on every instance on that host.
+
+</Tab>
+<Tab title="v0.46.0 and earlier">
+
+One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
 
 ```yaml
 inbound:
@@ -525,5 +582,8 @@ inbound:
     ...
 ```
 See the [broker README](https://github.com/semgrep/semgrep-network-broker?tab=readme-ov-file) for more details on required endpoints.
+
+</Tab>
+</Tabs>
 
 If you are seeing authorization issues but are confident the token provided in your Network Broker configuration has the correct permissions, review all entries in the allowlist to be sure that they specify the correct token.
