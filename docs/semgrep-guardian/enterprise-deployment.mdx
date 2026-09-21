@@ -12,6 +12,8 @@ For individual developer setup, see the [Quickstart](/semgrep-guardian/quickstar
 
 Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet rollouts.
 
+If individual logins are not an option for your fleet, you can roll out Guardian with a read-only token instead. This approach requires Semgrep Enterprise. For more information, see [Roll out with a read-only token](#roll-out-with-a-read-only-token-semgrep-enterprise-only).
+
 ## Prerequisites
 
 - You have a Semgrep account and organization.
@@ -199,17 +201,46 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
   </Tab>
 </Tabs>
 
+<Note>
+These templates only enable the plugin. If you roll out with a read-only token, add `SEMGREP_APP_TOKEN` and `SEMGREP_GUARDIAN_EMAIL` to the same managed settings payload. For the values, see [Roll out with a read-only token](#roll-out-with-a-read-only-token-semgrep-enterprise-only). For the `env` key that contains environment variables, see [Claude Code settings](https://code.claude.com/docs/en/settings).
+</Note>
+
 ## Deployment recommendations
 
 * Test the rollout on a single machine before pushing to the whole fleet.
 * After deploying, confirm that Guardian loaded by running `claude mcp get plugin:semgrep:guardian` and confirming it reports as connected.
 * Users still need to log in to Semgrep once Guardian is installed. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
-## Shared read-only tokens (Enterprise only)
+## Roll out with a read-only token (Semgrep Enterprise only)
 
-Admins can create read-only tokens from within the Semgrep app. Sign in and go to [**Settings > Tokens**](https://semgrep.dev/orgs/-/settings/tokens/api), then set the token scope to read-only. See [Access tokens](/deployment/tokens#create-an-api-token) for more information.
+Read-only API tokens are a supported authorization option for Guardian rollouts. Use one when each developer cannot complete an individual browser login, such as on a managed fleet where you provision credentials through your MDM platform.
 
-Note that with a shared token, Semgrep cannot attribute activity to an individual developer, so per-user metrics are limited.
+To roll out Guardian with a read-only token, follow these steps:
+
+<Steps>
+  <Step title="Create a read-only token">
+    Sign in to Semgrep and go to [**Settings > Tokens**](https://semgrep.dev/orgs/-/settings/tokens/api), then set the token scope to read-only. For more information, see [Access tokens](/deployment/tokens#create-an-api-token).
+  </Step>
+  <Step title="Confirm that the token is read-only">
+    Run a command that requires write access and confirm that it fails:
+
+    <pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">READ_ONLY_TOKEN</span> semgrep ci</code></pre>
+
+    A read-only token cannot send findings to Semgrep AppSec Platform, so this command must fail. If it succeeds, the token grants more than read access. Return to the previous step and create a token with the read-only scope.
+  </Step>
+  <Step title="Set the environment variables on each developer machine">
+    Configure both of the following environment variables:
+
+    | Variable | Value |
+    | :--- | :--- |
+    | `SEMGREP_APP_TOKEN` | The read-only token you created. |
+    | `SEMGREP_GUARDIAN_EMAIL` | The email address of the developer assigned to the machine. Semgrep uses this address to attribute Guardian activity to an individual user. |
+
+    You share one read-only token across your fleet, so omitting `SEMGREP_GUARDIAN_EMAIL` prevents Semgrep from attributing activity to an individual developer, which limits per-user metrics.
+
+    Many MDM platforms provide a payload variable that resolves to the assigned user's email address, which lets you deploy a single profile across the fleet. Check your MDM provider's documentation for the variable it supports.
+  </Step>
+</Steps>
 
 [Contact Semgrep](/support) if you have questions about which approach fits your organization.
 
