@@ -1,0 +1,48 @@
+---
+title: "Semgrep Guardian quickstart"
+description: "Set up Semgrep Guardian with Claude Code to scan AI-generated code and catch security issues before they ship."
+sidebarTitle: Quickstart
+---
+
+**Claude Code is the recommended Semgrep Guardian setup.** It uses Semgrep's hosted remote server and authenticates through OAuth, so you do not need a local Semgrep CLI.
+
+If you use a different coding agent, see [Choose your setup](/semgrep-guardian/choose-your-setup).
+
+## Prerequisites
+
+* A Semgrep account
+* Claude Code installed (`claude` command)
+
+<Info>
+  **For Windows machines:** [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) is required. Native Windows is unsupported.
+</Info>
+
+## Set up Guardian
+
+<Steps>
+<Step title="Install the plugin">
+Install the Guardian plugin from the Claude Marketplace:
+
+```bash
+claude plugin install semgrep@claude-plugins-official
+```
+</Step>
+<Step title="Sign in to Semgrep">
+Start a new Claude Code session:
+
+```bash
+claude
+```
+
+You are prompted to log in to Semgrep through your browser. This is a one-time login; Semgrep refreshes access tokens automatically, so you rarely need to sign in again.
+</Step>
+</Steps>
+
+This integration uses Claude Code [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins). By default it uses Semgrep's hosted remote server, so you don't need to install the Semgrep CLI locally.
+
+## Next steps
+
+* [Claude Code setup](/semgrep-guardian/ide-setup/claude-code) for the local plugin option and more detail
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration) for which rules Guardian scans with
+* [Authentication](/semgrep-guardian/authentication) for credential details and how to switch accounts
+* [Deploy across your organization](/semgrep-guardian/enterprise-deployment) for fleet-wide rollout

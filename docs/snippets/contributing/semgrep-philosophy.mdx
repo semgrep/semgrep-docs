@@ -7,7 +7,7 @@ As you think about contributing to Semgrep CE, consider these design principles 
 “If a developer has to convince their manager to spend a few million dollars on advanced security tools each time they change jobs, the future is bleak.” — see our [introductory blog post](https://semgrep.dev/blog/2020/introducing-semgrep-and-r2c/) for more. It’s important to us (and the community) that Semgrep, Inc. is able to develop a sustainable business around Semgrep to support its development, but we strongly believe the tooling itself must always be free.
 
 1. **Open-source software**<br/>
-Semgrep is [LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) and powered not just by [Semgrep, Inc.](https://semgrep.dev/) but also by community of brilliant external contributors. We welcome feedback and contributions and strive to be a welcoming community for new developers.
+Semgrep is [LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) and powered not just by [Semgrep, Inc.](https://semgrep.dev/) but also by a community of brilliant external contributors. We welcome feedback and contributions and strive to be a welcoming community for new developers.
 
 1. **Fast**<br/>
 High sloc/sec scanning speed and low startup cost. We’ll never be as fast as ripgrep but we want to get as close as we can.
@@ -48,7 +48,7 @@ Semgrep CE's goal is to catch what a senior engineer would catch in code review:
 As a corollary: if you design your codebase so that code in a file is safe today, it's still safe after a colleague makes a change twenty function calls away in another file.
 
 1. **Designed to run while code is being written**<br/>
-Semgrep is optimized for running in the IDE, Git commit hooks, or CI—not for at the tail-end of a release process.
+Semgrep is optimized for running in the IDE, Git commit hooks, or CI—not at the tail-end of a release process.
 
 1. **A platform for program analysis**<br/>
 We will expose stable internals so that researchers and engineers can develop novel program analysis work off of APIs like Semgrep’s generic AST.

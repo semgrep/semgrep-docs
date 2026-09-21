@@ -1,0 +1,7 @@
+# The OpenAPI specs are fetched from semgrep.dev and post-processed by
+# .github/workflows/update-openapi-specs.yml — nothing here is hand-edited.
+# Marking them generated collapses them by default in the sync PRs (the diff is
+# still one click away, which those PRs ask reviewers to check) and keeps ~25k
+# lines of vendored YAML out of the repo's language statistics.
+docs/public_v1.openapi.yaml linguist-generated=true
+docs/public_v2.openapi.yaml linguist-generated=true

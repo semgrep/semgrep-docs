@@ -3,6 +3,8 @@ title: "View findings in Semgrep AppSec Platform"
 sidebarTitle: "View findings"
 ---
 
+import priorityFilters from "/snippets/priority-filters.mdx"
+
 Semgrep Supply Chain generates a **finding** when a rule matches a piece of code in your codebase. You can view these findings in Semgrep AppSec Platform's [**Supply Chain** page](https://semgrep.dev/orgs/-/supply-chain).
 
 <Info>
@@ -32,10 +34,12 @@ By default, Semgrep displays **Priority** findings, which are defined as finding
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Supply Chain. Both the **Priority** findings view and the **All** findings view display high-level information about your findings.
 
+<priorityFilters />
+
 <Note>
 **LOCAL SCANS**
 
-Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
+Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
 </Note>
 
 ### Custom **Priority** tab
@@ -98,7 +102,7 @@ The **Status** filter allows you to search for findings in the selected statuses
 * **To fix**: Findings that you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work.
 * **Provisionally ignored**: Unreachable findings.
 * **Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user. You can filter findings with a status of **Ignored** further by reason: **False positive**, **Acceptable risk**, **No time to fix**, or **No triage reason**.
-* **Closed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.
+* **Fixed**: Findings that were detected in a previous scan but are no longer detected in the most recent scan of that same branch, usually because the dependency was updated or, for reachable findings, the code that exercised the vulnerability changed.
 
 ### Additional filters
 
@@ -109,7 +113,7 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Severity** | The severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the source of the rule, such as [GitHub Advisory Database](https://github.com/advisories).  |
 | [**Reachability**](#reachability) | The finding's exposure, or whether it is reachable. |
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
-| **Upgrade guidance (beta)** | The impact of a dependency upgrade on your project as determined by Semgrep Multimodal. |
+| **Upgrade Guidance (beta)** | The impact of a dependency upgrade on your project as determined by Semgrep Multimodal. |
 | **Dependencies** | The name of the dependency involved. |
 | **<Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view." cta="See full definition and Advisories." href="/semgrep-supply-chain/glossary#advisory">Advisory</Tooltip>** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
 | **Malicious dependency** | Whether the finding is for a malicious dependency. |
@@ -130,7 +134,7 @@ The [Exploit prediction scoring system (EPSS) probability](https://www.first.org
 The finding's exposure to potential attacks, or whether it is reachable.
 
 * **Reachable**: A finding is reachable if there's a vulnerable function call or vulnerable package in use. The finding should be addressed as soon as possible.
-  * **Malicious dependency**: A finding that indicates the use of a dangerous package, or dangerous version of a package, that are designed to compromise systems.
+  * **Malicious dependency**: A finding that indicates the use of a dangerous package, or dangerous version of a package, that is designed to compromise systems.
   * **Reachable in code**: A finding is reachable in code if there's a code pattern in the codebase that matches the vulnerability definition.
   * **Always reachable**: A finding is always reachable if it's something Semgrep recommends fixing, regardless of what's in the code.
 * **Needs review**: A finding that requires manual triage and review. Follow the instructions provided.
@@ -146,7 +150,7 @@ The transitivity of the finding:
 * **Transitive**: Your project's dependency depends on a vulnerable dependency.
 * **Undetermined**: Semgrep had no transitivity information for the dependency as it relates to your project.
 
-#### Upgrade guidance (beta)
+#### Upgrade Guidance (beta)
 
 The impact of a dependency upgrade on your project as determined by Semgrep Multimodal:
 
@@ -173,7 +177,7 @@ You can export findings to a **CSV** file. Semgrep can export the **10,000 most 
 
 Semgrep filters do not apply to exports. The 10,000 most recent findings are exported to the CSV file regardless of the filters you apply on the **Findings page**.
 
-To export more than 10,000 findings, you must use the [<Icon icon="external-link" iconType="solid"/> Semgrep API's List code, supply chain, or AI-powered scan findings](https://docs.semgrep.dev/api-reference/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings) endpoint.
+To export more than 10,000 findings, you must use the [<Icon icon="external-link" iconType="solid"/> Semgrep API's List code, supply chain, or AI-powered detection findings](https://docs.semgrep.dev/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-detection-findings) endpoint.
 
 <Accordion title={"Click to view a description of fields included in the CSV."}>
 | Field  | Description |

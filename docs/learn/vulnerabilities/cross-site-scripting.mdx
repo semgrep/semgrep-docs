@@ -28,7 +28,7 @@ The security community generally groups cross-site scripting into three categori
 
 ### DOM-based Cross-Site Scripting
 
-**DOM-based cross-site scripting** is slightly different. Instead of relying on the server to send malicious code, it abuses the client-side JavaScript logic itself. If the script on a page takes data directly from the URL or another source and inserts it into the page without validation, it can lead to execution of unexpected code. A simple example would be client-side code that does `document.body.innerHTML = location.hash;` without any checks since this is a user-controlled part of the URL (ie. https://semgrep.dev/#payload-here).
+**DOM-based cross-site scripting** is slightly different. Instead of relying on the server to send malicious code, it abuses the client-side JavaScript logic itself. If the script on a page takes data directly from the URL or another source and inserts it into the page without validation, it can lead to execution of unexpected code. A simple example would be client-side code that does `document.body.innerHTML = location.hash;` without any checks since this is a user-controlled part of the URL (i.e. https://semgrep.dev/#payload-here).
 
 
 ## Detecting XSS Vulnerabilities in Your Code

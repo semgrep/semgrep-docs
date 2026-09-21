@@ -28,7 +28,7 @@ The XML DTD is defined at the top of an XML document using the `DOCTYPE` keyword
 ]>
 ```
 
-When this DTD is loaded from another source instead of defined in the document itself, it is called an external DTD. To use an external DTD, use the `SYSTEM`  keyword and provide a URL or filename to the DTD.
+When this DTD is loaded from another source instead of defined in the document itself, it is called an external DTD. To use an external DTD, use the `SYSTEM` keyword and provide a URL or filename to the DTD.
 
 ```xml
 <!DOCTYPE semgrep SYSTEM "URL-or-filename.dtd">
@@ -55,11 +55,11 @@ Similarly to external DTDs, entities can also be externally loaded using the `SY
 <!DOCTYPE foo [ <!ENTITY best_sast_tool SYSTEM "http://semgrep.dev/xml-entity-definition" > ]>
 ```
 
-The XML specification includes more than just DTDs and external entities for including external data. Other features like XInclude, the `schemaLocation` attribute, the `xsl:include` element,  the `document()` function, and `import` or `include` statements can all be used to reference external resources. You can find an overview of these and more in our [XML Cheat Sheet](/cheat-sheets/java-xxe).
+The XML specification includes more than just DTDs and external entities for including external data. Other features like XInclude, the `schemaLocation` attribute, the `xsl:include` element, the `document()` function, and `import` or `include` statements can all be used to reference external resources. You can find an overview of these and more in our [XML Cheat Sheet](/cheat-sheets/java-xxe).
 
 ## Common XML Attacks
 
-XML was designed to store and transmit data. When an application receives an XML file, or reads one from the filesystem, it needs to parse the XML data. To achieve this many libraries are available that implement the XML specifications as described above. However, if the XML data is untrusted, there are several features in the specifications that can be manipulated to achieve malicious behaviour.
+XML was designed to store and transmit data. When an application receives an XML file, or reads one from the filesystem, it needs to parse the XML data. To achieve this many libraries are available that implement the XML specifications as described above. However, if the XML data is untrusted, there are several features in the specifications that can be manipulated to achieve malicious behavior.
 
 ### XML Injection
 
@@ -87,7 +87,7 @@ If the code simply trusts the `admin` field, the attacker could escalate privile
 
 ### Exponential Entity Expansion (XEE)
 
-**EXpontential Entity Expansion (XEE)** happens when the mechanism for recursively defining XML entities with other entities is manipulated into expanding several layers of nested entities. This type of attack is also known as an XML bomb or billion laughs attack. As an example, here is the [XML bomb payload](https://github.com/semgrep/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml) we used in our research project on GitHub.
+**EXponential Entity Expansion (XEE)** happens when the mechanism for recursively defining XML entities with other entities is manipulated into expanding several layers of nested entities. This type of attack is also known as an XML bomb or billion laughs attack. As an example, here is the [XML bomb payload](https://github.com/semgrep/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml) we used in our research project on GitHub.
 
 ```xml
 <?xml version="1.0"?>
@@ -111,7 +111,7 @@ Parsing a document like that with several layers of nested entities can lead to 
 
 ### XML External Entity (XXE) Injection
 
-**XML eXternal Entity (XXE)** happens when one of the 9 mechanisms to include external content is manipulated into parsing read content from an unintended location. This can lead to the disclosure of confidential data if the identifier supplied by the attacker is something like `file:///etc/passwd` . In other cases, XXE payloads can be used to upload code files that can later be triggered in remote code execution attacks, like in [this CVE](https://www.horizon3.ai/red-team-blog-cve-2022-28219/#:~:text=Then%20send%20the%20request%20to%20trigger%20the%20XXE%20and%20file%20upload%3A) where the identifier referenced a java code archive. In PHP, the right identifier by itself can even cause arbitrary code execution when the `expect` module is loaded. In that case, a pseudo-uri like `expect://cmd` will execute `cmd` and return the output of the command.
+**XML eXternal Entity (XXE)** happens when one of the 9 mechanisms to include external content is manipulated into parsing read content from an unintended location. This can lead to the disclosure of confidential data if the identifier supplied by the attacker is something like `file:///etc/passwd`. In other cases, XXE payloads can be used to upload code files that can later be triggered in remote code execution attacks, like in [this CVE](https://www.horizon3.ai/red-team-blog-cve-2022-28219/#:~:text=Then%20send%20the%20request%20to%20trigger%20the%20XXE%20and%20file%20upload%3A) where the identifier referenced a java code archive. In PHP, the right identifier by itself can even cause arbitrary code execution when the `expect` module is loaded. In that case, a pseudo-uri like `expect://cmd` will execute `cmd` and return the output of the command.
 
 ## Detecting XML Security Vulnerabilities in Your Code
 
@@ -125,7 +125,7 @@ Document doc = builder.parse("input.xml");
 
 At first glance, this looks harmless. But in many XML libraries, this setup will **process external entities by default**. If `input.xml` is attacker-controlled, the parser could make network requests or expose files.
 
-Tools like **Semgrep** can help detect these patterns. Rules for XXE look for places in code where XML parsing from untrusted sources occurs without security features enabled.  For XML Injection, detection is more about how the application uses parsed data. If the code blindly trusts XML input without validating it against a strict schema, that’s a sign of risk.
+Tools like **Semgrep** can help detect these patterns. Rules for XXE look for places in code where XML parsing from untrusted sources occurs without security features enabled. For XML Injection, detection is more about how the application uses parsed data. If the code blindly trusts XML input without validating it against a strict schema, that’s a sign of risk.
 
 ## Recommendations and Mitigations
 
@@ -149,7 +149,7 @@ If you can't disable DTDs completely, the next best thing is to disable external
 
 ### Disabling external schema/stylesheet processing
 
-To prevent attacks related to schema and stylesheet processing, you can also configure your parser to disable the processing of external schemas and stylesheets. The specific method depends on the library, but it's a critical security control to include in your parser's configuration. In Java, the `setAttribute` method can be used to set `XMLConstants.ACCESS_EXTERNAL_SCHEMA`  and `XMLConstants.ACCESS_EXTERNAL_STYLESHEET` to an empty string to disable these features. The feature, however, is not implemented effectively for all parsers, consult our cheat sheet to ensure you configure your specific parser securely!
+To prevent attacks related to schema and stylesheet processing, you can also configure your parser to disable the processing of external schemas and stylesheets. The specific method depends on the library, but it's a critical security control to include in your parser's configuration. In Java, the `setAttribute` method can be used to set `XMLConstants.ACCESS_EXTERNAL_SCHEMA` and `XMLConstants.ACCESS_EXTERNAL_STYLESHEET` to an empty string to disable these features. The feature, however, is not implemented effectively for all parsers, consult our cheat sheet to ensure you configure your specific parser securely!
 
 ## Conclusion
 

@@ -1,6 +1,7 @@
 
 [Aa]liengrep
-allowlist
+[Aa]llowlist
+[Aa]llowlists
 [Aa]ntipattern
 [Aa]ntipatterns
 APIs
@@ -12,6 +13,7 @@ autodetect
 autodetected
 autodetects
 [Aa]utofix
+[Aa]utotriage
 automation
 automations
 Azure DevOps
@@ -76,6 +78,7 @@ IntelliJ IDEA Ultimate
 Jenkinsfile
 Jira
 JSON
+[Kk]eypair
 
 Laravel
 LLM
@@ -115,6 +118,7 @@ pfff
 PhpStorm
 Postgres
 [Pp]ipenv
+[Pp]roxied
 PR
 PRs
 [Pp]seudoanonymization
@@ -153,6 +157,8 @@ Semgrep Pro
 Semgrep Pro Engine
 Semgrep Pro rules
 Semgrep Supply Chain
+Semgrep Agentic Workflows
+Agentic
 Sendgrid
 [Ss]everities
 Servlets

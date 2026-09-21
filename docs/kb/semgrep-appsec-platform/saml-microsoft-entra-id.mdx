@@ -4,8 +4,6 @@ title: "SAML SSO with Microsoft Entra ID"
 
 This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Microsoft Entra ID.
 
-This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Microsoft Entra ID.
-
 <Note> 
 **PREREQUISITES**
 
@@ -115,7 +113,7 @@ Setting up SAML SSO using Microsoft Entra ID consists of the following general s
         <Step>
         In the **Basic SAML Configuration** section, click **Edit**. Provide the **Entity ID** and **Reply URL**. You can retrieve these values from Semgrep AppSec Platform by performing the following steps:<br/>
             &emsp;&emsp;i. Sign in to Semgrep AppSec Platform.<br/>
-            &emsp;&emsp;ii. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
+            &emsp;&emsp;ii. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.<br/>
             &emsp;&emsp;iii. Click **Add SSO configuration** and select **SAML2 SSO**.<br/>
             &emsp;&emsp;iv. Copy the **Audience URL (SP Entity ID)** value from Semgrep AppSec Platform. Return to **Basic SAML Configuration**. Click **Add identifier** to paste this value as the **Identifier (Entity ID)**.<br/>
             &emsp;&emsp;v. Copy the **SSO URL** value from Semgrep AppSec Platform. Return to **Basic SAML Configuration**. Click **Add reply URL** to paste this value as the **Reply URL (Assertion Consumer Service URL)**.
@@ -148,7 +146,7 @@ Setting up SAML SSO using Microsoft Entra ID consists of the following general s
         <Step>
         Navigate to Semgrep AppSec Platform, and provide the values required by the SAML2 form:<br/>
             &emsp;&emsp;i. Provide the **Display name** and the **Email domain** you are using for the integration.<br/>
-            &emsp;&emsp;ii. Copy the **Login URL** value from Microsoft Entra ID and paste it in into Semgrep AppSec Platform's **IDP SSO URL** field.<br/>
+            &emsp;&emsp;ii. Copy the **Login URL** value from Microsoft Entra ID and paste it into Semgrep AppSec Platform's **IDP SSO URL** field.<br/>
             &emsp;&emsp;iii. Copy and paste the **Microsoft Entra ID Identifier** value into Semgrep AppSec Platform's **IdP Issuer ID** field.<br/>
             &emsp;&emsp;iv. In Entra ID's **SAML-based Sign-on** page, click **Download** to obtain the **Certificate (Base64)**.<br/>
             &emsp;&emsp;v. In Semgrep AppSec Platform, under **Upload/Paste certificate**, click **Browse** and then select the certificate you downloaded.
@@ -169,4 +167,4 @@ Setting up SAML SSO using Microsoft Entra ID consists of the following general s
 
 ## Add users to your new enterprise app
 
-To add users to the application in so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
+To add users to the application so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).

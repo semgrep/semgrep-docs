@@ -24,7 +24,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # Runs as the semgrep-docs-release App rather than GITHUB_TOKEN for two
+      # reasons: App-authored PRs trigger Docs CI (GITHUB_TOKEN-authored ones do
+      # not), and the team-reviewers request below needs org-level member read,
+      # which the repo-scoped GITHUB_TOKEN does not carry. Same app and pinned
+      # action version as update-help-command.yml.
+      - name: Authenticate as semgrep-docs-release
+        id: generate-token
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1.12.0
+        with:
+          app-id: ${{ vars.SEMGREP_DOCS_RELEASE_APP_ID }}
+          private-key: ${{ secrets.SEMGREP_DOCS_RELEASE_PRIVATE_KEY }}
+
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Fetch latest specs from semgrep.dev
         run: |
@@ -35,18 +49,30 @@ jobs:
             https://semgrep.dev/api/v2/openapi.yaml \
             --output docs/public_v2.openapi.yaml
 
-      # Mintlify ignores ReDoc's x-displayName tag extension and labels nav
-      # groups with the raw tag name unless x-group is set. Mirror the pretty
-      # names until semgrep-app emits x-group natively (safe to remove then).
-      - name: Mirror x-displayName tag names into x-group
-        run: |
-          for spec in docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml; do
-            if grep -q "x-group:" "$spec"; then
-              echo "$spec already has x-group (upstream emits it now); skipping"
-            else
-              perl -i -pe 's/^(\s*)x-displayName:(.*)$/$1x-displayName:$2\n$1x-group:$2/' "$spec"
-            fi
-          done
+      - uses: astral-sh/setup-uv@ae62891fec2bb8e7d6c99fc78c9fec3a63790f8d # v10.0.0
+
+      # Upstream ships ReDoc vendor extensions that Mintlify does not read, so
+      # nav group labels (x-displayName) and beta/experimental badges
+      # (x-badges) render as nothing. Mirror them into x-group and x-mint.
+      # Safe to drop once semgrep-app emits the Mintlify keys natively.
+      - name: Mirror ReDoc extensions into Mintlify equivalents
+        run: uv run scripts/mirror_openapi.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
+      # Mintlify ignores the `tags:` array and derives nav order from the order
+      # paths appear in, so upstream's URL-alphabetical emission order decides
+      # the sidebar. Re-sort into display-name order. Must run after the mirror
+      # step above, which supplies the x-group names this sorts on.
+      - name: Sort API navigation into alphabetical order
+        run: uv run scripts/sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
+      # Upstream emits no `servers:` block, and Mintlify has no docs.json
+      # override for OpenAPI-generated pages, so without this the playground
+      # renders https://api.example.com and cannot send requests. Runs last:
+      # the two steps above parse `paths:` and `tags:`, and neither needs to
+      # see the block this adds. Safe to drop once semgrep-app emits `servers`
+      # natively -- this step no-ops rather than overwriting it.
+      - name: Add the API base URL Mintlify's playground needs
+        run: uv run scripts/add_openapi_servers.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -56,18 +82,28 @@ jobs:
         working-directory: docs
         run: npx --yes mintlify@latest validate
 
-      # Note: PRs opened with the default GITHUB_TOKEN do not trigger other
-      # workflows (Docs CI). Reviewers can close/reopen the PR to run CI, or
-      # provide a bot PAT via the DOCS_BOT_TOKEN secret to remove that step.
       - name: Open PR if specs changed
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          token: ${{ secrets.DOCS_BOT_TOKEN || github.token }}
+          token: ${{ steps.generate-token.outputs.token }}
+          # Commit via the GitHub API so GitHub signs the commit — the repo's
+          # "Require Signed Commits" ruleset rejects unsigned CLI commits.
+          sign-commits: true
           add-paths: |
             docs/public_v1.openapi.yaml
             docs/public_v2.openapi.yaml
           branch: chore/update-openapi-specs
           delete-branch: true
+          # Re-issued on every run, not just when the PR is first opened. That
+          # is a no-op while a request is still pending, so the daily cron does
+          # not spam -- but it does re-request anyone who already reviewed if a
+          # later run pushes another spec change.
+          # tech-writers reviews the rendered docs; appex owns the specs
+          # upstream in semgrep-app. Both need at least read on this repo or
+          # GitHub rejects the request.
+          team-reviewers: |
+            tech-writers
+            appex
           commit-message: "chore: sync OpenAPI specs from semgrep.dev"
           title: "chore: sync OpenAPI specs from semgrep.dev"
           body: |

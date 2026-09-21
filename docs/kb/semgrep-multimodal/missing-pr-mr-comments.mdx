@@ -1,11 +1,7 @@
 ---
-title: "Missing PR or MR comments from Semgrep Multimodal."
+title: "Missing PR or MR comments from Semgrep Multimodal"
 ---
 
-Semgrep Multimodal messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
+Semgrep Multimodal messages appear in PR or MR comments only for rules in remediation policies configured to leave comments. Ensure that you have [configured your remediation policy](/semgrep-appsec-platform/unified-policies/get-started#manage-remediation-policies) with either the **Block merge and comment on PR/MR** or **Comment on PR/MR** action.
 
-- You have set rules to Comment or Block mode.
-<Frame>
-  ![Policies modes](/images/kb/semgrep-multmodal/missing-pr-mr-comments/image.png)
-</Frame>
-- You have turned on the **Triage via code review comments** toggle in Semgrep AppSec Platform by going to **Settings > General > Code**.
+If comments still aren't appearing, review [Why is my repository not receiving PR or MR comments?](/kb/semgrep-appsec-platform/missing-pr-comments), including whether the **Noise filter for Code PR/MR comments** setting has categorized the finding as a likely false positive.

@@ -1,0 +1,9 @@
+---
+title: Why am I seeing a "No SCMs with code access found" error when enabling code snippets in AI prompts?
+---
+
+If you have successfully connected your GitLab instance to Semgrep, but see the **No SCMs with code access found** error when [enabling **Semgrep Multimodal** in Semgrep AppSec Platform](https://semgrep.dev/orgs/-/settings/general/global), it might be an issue with the PAT you provided when connecting GitLab to Semgrep.
+
+Generally, group membership for the user creating the GitLab PAT provided to Semgrep isn't required. However, Semgrep does use group membership to confirm that the token provides access to that group, and missing this information can cause some Semgrep checks to fail.
+
+To correct this issue, provide an updated PAT to Semgrep that's created by a **Maintainer**, **Owner**, or **Admin** who is **also a member of the group** you added to Semgrep. Ensure that the PAT is created by that user with the required `API` scope.

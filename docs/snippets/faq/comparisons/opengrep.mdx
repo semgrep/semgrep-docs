@@ -1,89 +1,96 @@
-To resolve confusion within security and developer communities when trying to choose between Semgrep and Opengrep, this page highlights some of the key distinctions to help with decision-making.
+Semgrep CE and Opengrep are both free, single-file engines that run the same rule syntax and cover the same core use case of scanning a code base on demand or in a single CI job. Opengrep is an open source command-line scanning engine, forked from Semgrep Community Edition (CE) at v1.100.0 and licensed under LGPL 2.1, the same license as the Semgrep CE engine. Opengrep is not affiliated with or endorsed by Semgrep, Inc. and is backed by a different consortium of security companies. While Opengrep reaches slightly further into a file with cross-function taint analysis and offers more engine controls and packaging options, Semgrep CE ships with community rules and IDE extensions, and upgrades in place to Semgrep AppSec Platform.
 
-<AccordionGroup>
-  <Accordion title="What is Semgrep Community Edition?">
+For cross-file analysis, dependency scanning, secrets detection, triage, reporting, or deployment across a repository fleet, those are handled by the Semgrep Code and Semgrep AppSec Platform, which are free for up to 10 contributors and 10 private repositories and do not exist as an upgrade path for Opengrep. Semgrep CE vs Opengrep are both open source SAST engines, while the Semgrep Appsec platform provides far more extensive features as a security program.
 
-[Semgrep Community Edition](https://semgrep.dev/products/community-edition) (CE) is the collective name for the [open source Semgrep engine](https://github.com/semgrep/semgrep), previously known as Semgrep OSS, and the collection of rules published and maintained by the Semgrep community and Semgrep, Inc. 
+## Capability comparison
 
-  </Accordion>
-  <Accordion title="What is Opengrep?">
+Both engines run natively on Windows without WSL or a container, and both use OCaml 5 for multicore execution. Their command-line interfaces remain similar, though individual arguments have diverged.
 
-Opengrep is a fork of Semgrep CE.
+|  | Opengrep | Semgrep CE | Semgrep AppSec Platform |
+| --- | --- | --- | --- |
+| Cost | Free | Free | Free for up to 10 contributors and 10 private repositories, then from $30 per contributor per month |
+| License | LGPL 2.1 engine | LGPL 2.1 engine, Semgrep Rules License rules | Proprietary |
+| Analysis scope | Single file, cross-function taint (`--taint-intrafile`) | Single file, single-function taint | Cross-file and cross-function taint, semantic analysis |
+| Rules | Bring your own | Community rules from the Semgrep Registry | Community and Pro rules, maintained by Security Research |
+| Language support | Semgrep CE languages plus Crystal, Visual Basic, Apex | Community supported | Generally available, newer language versions |
+| Engine controls | Per-rule timeouts, size-scaled timeouts, `--force-exclude`, custom ignore annotations, per-rule `max-match-per-file` | Standard | Standard |
+| Output | JSON, SARIF with metavariable values and fingerprints | JSON, SARIF | JSON, SARIF, platform dashboard |
+| Packaging | Self-contained binaries, Cosign-signed | Python-based | Python-based, plus scans hosted on Semgrep infrastructure |
+| IDE | Command line only | VS Code, IntelliJ, `pre-commit` | Same, with config synced from the platform |
+| AI coding agents | No | No | Guardian scans agent-written code in the IDE |
+| Dependency scanning | No | No | Reachability, malicious package detection, SBOM, license policy |
+| Secrets scanning | No | No | 630+ types with validation |
+| AI triage and remediation | No | No | Multimodal detection, Autotriage, Autofix, Memories |
+| Triage and reporting | No | No | Policies, dashboards, PR/MR comments, Jira, Slack |
+| Deployment | CI job per repository, written by you | CI job per repository, written by you | Managed Scans, SCM connections, SSO, teams |
+| Upgrade path | None | Semgrep AppSec Platform, same rules and config | Teams and Enterprise tiers |
+| Best for | Open-source-only requirements and custom rule authors | Individuals and small projects | Security programs across many repositories |
 
-  </Accordion>
-  <Accordion title="How are Semgrep and Opengrep licenses different?">
+### Opengrep capabilities
 
-- The Semgrep Community Edition engine is [licensed under LGPL 2.1](https://github.com/semgrep/semgrep/blob/develop/LICENSE).
-- The Opengrep engine is [licensed under LGPL 2.1](https://github.com/opengrep/opengrep/blob/main/LICENSE).
+`--taint-intrafile` tracks taint across functions inside a single file. The equivalent in the Semgrep line is `--pro-intrafile`, a Semgrep Code capability, so Opengrep distributes this analysis depth under LGPL 2.1. Opengrep adds parsers for Crystal and Visual Basic, which Semgrep does not support, and for Apex, which is Beta in Semgrep Code and absent from CE. Its engine controls cover per-rule timeouts, timeouts that scale with file size, `--force-exclude`, custom ignore annotations, and per-rule `max-match-per-file`. Releases are self-contained binaries with no Python runtime dependency, signed with Cosign.
 
-The LGPL 2.1 license is an open source license that means any copies of the Semgrep or Opengrep engine must include a copy of the full license text and the original copyright notice and must make available the source code when a derivative work is distributed. Any such derivative works must be licensed under the same or later version of the LGPL.
+### Semgrep CE capabilities
 
-  </Accordion>
-  <Accordion title="Is Semgrep CE open source?">
+CE ships with the community rules in the Semgrep Registry; the VS Code and IntelliJ extensions; and `pre-commit` support. Opengrep publishes no ruleset of its own, so sourcing rules, keeping them current, and covering new vulnerability classes is the user’s responsibility.
 
-Yes, Semgrep CE is open source. This license for the engine has remained unchanged since Semgrep, Inc. began development in early 2020.
+CE is also the entry point to Semgrep AppSec Platform. The same rules, configuration, and CLI carry over, and the free tier for up to 10 contributors and 10 private repositories enables cross-file analysis (using Semgrep Pro Engine), Pro rules, dependency scanning, and AI triage without a migration.
 
-Semgrep maintains a collection of rules written by the community and Semgrep, Inc., and they are licensed under the [Semgrep Rules License](https://semgrep.dev/legal/rules-license/). This license limits their use to internal, non-competing, and non-SaaS contexts, and explicitly limits certain commercial usage. This applies to all rules authored by Semgrep and those contributed to our public repositories.
+## What Semgrep AppSec Platform adds
 
-  </Accordion>
-  <Accordion title="What changed with Semgrep’s licensing in December 2024?">
+### Cross-file analysis
 
-The license for Semgrep's CE engine remains unchanged: LGPL 2.1.
+Semgrep Code performs cross-file (interfile) and cross-function (intrafile) constant propagation and taint analysis, plus framework-specific and language-specific semantic analysis. A vulnerability whose source is in one file and whose sink is in another is found through cross-file analysis. Tracing a value across files also resolves findings that a single-file engine reports without seeing an upstream sanitizer: Semgrep CE doesn’t track data beyond a single function or file and may find more false positives compared to running cross-file analysis. Pro rules are written to use cross-file analysis, and produce more precise results than the overlapping Community rules they supersede. See [Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro) and [Rule upgrades and supersession](/kb/rules/pro-vs-community-secrets-vs-code-rules).
 
-It was shared in [Important updates to Semgrep OSS](https://semgrep.dev/blog/2024/important-updates-to-semgrep-oss/) that licensing for Semgrep-maintained rules would change from Commons Clause with LGPL 2.1 to the Semgrep Rules License. This change limits certain commercial usage of the rules authored by Semgrep and contributed to our public repositories.
+### Maintained rules
 
-  </Accordion>
-  <Accordion title="Are Semgrep and Opengrep actively maintained projects?">
+The Semgrep Registry holds two sets: Community rules are public, contributed by anyone, and use features available in the Semgrep CE engine. Pro rules are authored by Semgrep’s Security Research team and use the Semgrep Pro engine, including cross-file analysis. That team covers new CVEs and weakness patterns as they emerge.
 
-Yes, both projects are actively adding new features and bug fixes.
+### Language depth
 
-  </Accordion>
-  <Accordion title="How do the command-line interfaces differ between Opengrep and Semgrep?">
+Every language in Semgrep CE is **Community supported**: single-function analysis with community rules. The same languages under Semgrep Code are generally available, with cross-file and cross-function dataflow analysis and Pro rules: 710+ for Python, 250+ for JavaScript, 230+ for TypeScript, 190+ for Java, 170+ for C#. Language versions differ. CE supports up to C# 7.0, Semgrep Code up to C# 13.
 
-The command-line interfaces (CLI) for both projects have similar command usage.
+<Note>
+  **LANGUAGE SUPPORT**
 
-Individual arguments to these commands may have diverged over time.
+  See [<Icon icon="file-lines" iconType="regular" /> Supported languages](/supported-languages) for Semgrep Code, and [<Icon icon="file-lines" iconType="regular" /> Supported languages for Semgrep CE](/semgrep-ce-languages) for the side-by-side table.
+</Note>
 
-  </Accordion>
-  <Accordion title="Does Semgrep CE support the same features as Opengrep?">
+### Scanning beyond SAST
 
-In many cases, the answer is yes.
+Semgrep AppSec Platform is a suite, and configuration is preserved across the CLI, CI, the IDE, and the web app:
 
-Semgrep has a large community of users, including major enterprises and service providers that depend on reliability from Semgrep CE. When introducing new features, it is important to see benchmarks that give confidence that regressions or a degradation of performance can be avoided when rolling out new capabilities.
+* **Semgrep Supply Chain** performs reachability analysis on open source dependencies, detects malicious packages, enforces license policy, provides dependency search, and exports SBOMs.
+* **Semgrep Secrets** detects 630+ credential and key types, with entropy analysis, semantic analysis, historical scanning, and validation that confirms whether a leaked secret is still active.
+* **[Semgrep Guardian](/semgrep-guardian/overview)** runs Code, Supply Chain, and Secrets inside AI coding agents. It bundles the Semgrep MCP server, hooks, and skills into one install, scans every file an agent writes, and prompts the agent to regenerate until the scan returns clean. It supports Claude Code, Cursor, Codex, GitHub Copilot, VS Code, Windsurf, Kiro, and any MCP client.
+* **[Semgrep Multimodal](/semgrep-multimodal/overview)** is a capability layer across those products. It combines AI reasoning with rule-based analysis for detection, triage, and remediation. Autotriage reduces backlogs by roughly 60% on first use and reaches a 95% user agreement rate at steady state, measured across more than 6 million findings; post-processing analysis [reduces noise by 20%](/semgrep-pro-vs-oss) in the developer workflow. Autofix produces fix PRs, and **Memories** carry triage decisions forward so the same class of finding is not re-triaged in every repository.
 
-Please [contact Semgrep](/support) if there is a feature missing or if you have any questions.
+### Program operations
 
-  </Accordion>
-  <Accordion title="Does Semgrep CE support Windows?">
+Semgrep AppSec Platform supplies [Managed Scans](/deployment/managed-scanning/overview) across thousands of repositories, [SCM connections](/deployment/connect-scm) for GitHub, GitLab, Bitbucket, and Azure DevOps, [SSO](/deployment/sso), [project](/deployment/manage-projects) and [team](/deployment/teams/overview) management, [Policies](/semgrep-code/policies) that route findings to monitor, comment, or block mode, [PR and MR comments](/category/pr-or-mr-comments) with triage commands, [Jira tickets](/semgrep-appsec-platform/jira), Slack and webhook [notifications](/semgrep-appsec-platform/notifications), and a [dashboard](/semgrep-appsec-platform/dashboard).
 
-Yes, Semgrep can be used natively cross-platform, including Windows. Previously, it was necessary to install Windows Subsystem for Linux (WSL) or run Semgrep inside a container or VM. That is no longer the case. The Semgrep command-line interface (CLI) can run directly from a Windows prompt or PowerShell environment. Semgrep CE can also be used with plugins for VS Code, IntelliJ, or Cursor.
+### Community engines with an LLM
 
-See [Five considerations when building cross-platform tools for Windows and macOS](https://semgrep.dev/blog/2025/five-considerations-when-building-cross-platform-tools-for-windows-and-macos) for more information about Windows support.
+Detection accuracy depends on rules. A scan finds a vulnerability class because a rule encodes its source, sink, sanitizers, and framework, and taint analysis traces the flow deterministically. A model applied to a repository without that encoding approximates those flows, returns different results between runs, and has no coverage of vulnerability classes discovered after its training data. Semgrep Multimodal runs both layers: Pro Engine taint analysis establishes where user input reaches sensitive operations, Pro rules supply coverage, and the model reasons over those flows about authorization, intent, and business logic.
 
-  </Accordion>
-  <Accordion title="Does Semgrep CE support multicore?">
+## Maintenance and performance
 
-Yes, the Semgrep CE engine is implemented with **Multicore OCaml**, which supports shared-memory parallel processing through the mechanism known as multicore. This allows the Semgrep engine to leverage multiple threads with shared memory in order to more efficiently use processing resources.
+Both projects ship features and fixes regularly. Semgrep publishes no head-to-head speed comparison with Opengrep. Performance depends on codebase, ruleset, and configuration, and optimizing one use case often costs another. Measure on your own repositories. Semgrep's solutions and support teams can help structure an evaluation or proof of value.
 
-See [Boosting security scan performance for monorepos with multicore parallel processing](https://semgrep.dev/blog/2025/boosting-security-scan-performance-for-monorepos-with-multicore-parallel-processing/) for additional information.
+## Which to choose
 
-  </Accordion>
-  <Accordion title="Is Semgrep CE or Opengrep faster?">
+**Choose Opengrep** for an open source engine end to end, where the user writes and maintains their own rules, and needs its packaging and engine controls (self-contained binaries, per-rule timeouts, Crystal or Visual Basic parsers).
 
-Performance and speed claims rely heavily upon a number of factors and often come with trade-offs. You may be able to optimize one particular use case at the expense of performance in another. Semgrep's solutions and support teams can help with evaluation and a proof of value for your specific use cases.
+**Choose Semgrep CE** for a free engine that ships with rules and IDE integrations, and to have a direct upgrade path that carries rules and configuration onto a broader platform.
 
-See [Benchmarking Semgrep Community Edition performance improvements](https://semgrep.dev/blog/2025/benchmarking-semgrep-performance-improvements/) for more about how Semgrep CE thinks about performance.
+**Choose Semgrep AppSec Platform** to run a security program. It provides cross-file analysis, maintained Pro rules, dependency and secrets scanning, AI-assisted detection, triage, and remediation, and the deployment, policy, and reporting layer around them. The free tier covers Semgrep Code and Supply Chain for up to 10 contributors and 10 private repositories with nothing to self-host. Past roughly 10 developers or a handful of repositories, the cost of a community engine shifts from the license to platform work: per-repository CI, custom dashboards, and manual triage.
 
-  </Accordion>
-  <Accordion title="What is the difference between Semgrep CE and Semgrep Pro?">
+To compare on your own code, run two engines over the same repository and compare in both directions: what one finds that the other misses, and what one reports that the other rules out.
 
-Semgrep CE is the open source version of the [Semgrep Pro](https://semgrep.dev/products/pro-engine) engine. 
+## Licensing and vendor use
 
-Visit [Pricing](https://semgrep.dev/pricing) for a comparison of various features.
+The Semgrep CE engine has been LGPL 2.1 since development began in early 2020, and Opengrep carries the same license.
 
-### Does Semgrep support interfile taint analysis?
+Rules licensing differs. As announced in [<Icon icon="external-link" iconType="solid" /> Important updates to Semgrep OSS](https://semgrep.dev/blog/2024/important-updates-to-semgrep-oss/) in December 2024, Semgrep-maintained rules in the [<Icon icon="external-link" iconType="solid" /> `semgrep-rules` repository](https://github.com/semgrep/semgrep-rules), both Community and Pro, moved from Commons Clause with LGPL 2.1 to the [<Icon icon="external-link" iconType="solid" /> Semgrep Rules License v1.0](https://semgrep.dev/legal/rules-license), which is not an open source license. Individuals, security consultants, and companies may use the rules internally. Vendors may not use them in competing products or SaaS offerings. Rules from third-party repositories in the Registry keep their source licenses. Opengrep's maintainers cite the move of features behind a commercial license as their reason for forking.
 
-Semgrep Community Edition does not support inter-file taint analysis, since this is a feature of Semgrep Pro. This includes all the many variations of data flow across supported languages and environments, including class inheritance, nested functions, type inference, constant propagation, typed metavariables, alias variables, loop mutations, and much more.
-
-  </Accordion>
-</AccordionGroup>
+To build code scanning into a product you sell, read the [Semgrep Rules License](/licensing) and [How are Semgrep and its rules licensed?](/faq/overview), then contact [<Icon icon="envelope" iconType="regular" /> partnerships@semgrep.com](mailto:partnerships@semgrep.com).

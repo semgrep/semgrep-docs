@@ -40,12 +40,12 @@ To view the original release information, see [the changelog of this release on 
 ### Additions
 
 - C: Semgrep now recognizes the sizeof() operator as valid C code. ([#4037](https://github.com/semgrep/semgrep/issues/4037))
-- C: Semgrep recognizes declaration and function patterns in C code..
+- C: Semgrep recognizes declaration and function patterns in C code.
 - Java: As of this update, Semgrep supports the @interface annotation type pattern. ([#4030](https://github.com/semgrep/semgrep/issues/4030))
 
 ### Fixes
 
-- Previously, minified files have been excluded from Semgrep scans (see[the changelog for version 0.66.0](https://github.com/semgrep/semgrep/blob/develop/CHANGELOG.md#0660---09-22-2021)). As of this update, this change has been reverted and minified files are included in Semgrep scans.
+- Previously, minified files have been excluded from Semgrep scans (see [the changelog for version 0.66.0](https://github.com/semgrep/semgrep/blob/develop/CHANGELOG.md#0660---09-22-2021)). As of this update, this change has been reverted and minified files are included in Semgrep scans.
 - Java: Before this update, Semgrep returned incorrect findings for classes with import. With this update, the equality of metavariables bounded to imported classes was fixed and the problem no longer occurs. ([#3748](https://github.com/semgrep/semgrep/issues/3748))
 - Python: The issue with matching tuples and parenthesized expressions has been fixed. ([#3832](https://github.com/semgrep/semgrep/issues/3832))
 - C: With this update, the issue with the typedef reserved keyword inference has been fixed. ([#4054](https://github.com/semgrep/semgrep/pull/4054))
