@@ -189,6 +189,10 @@ sudo docker run -d -it --rm -v $(pwd):/emt \
   ghcr.io/semgrep/semgrep-network-broker:VERSION_NUMBER -c /emt/config.yaml
 ```
 
+<Warning title="KEY SHARING">
+This command contains your private key. Do **not** share your private key with anyone, including Semgrep.
+</Warning>
+
 </Tab>
 <Tab title="Docker with a mounted file">
 
@@ -208,6 +212,10 @@ Create a secret holding the private key:
 ```bash
 kubectl create secret generic broker-private-key --from-literal=privateKey=YOUR_PRIVATE_KEY
 ```
+
+<Warning title="KEY SHARING">
+This command contains your private key. Do **not** share your private key with anyone, including Semgrep.
+</Warning>
 
 Then reference the secret from the broker Deployment. Either set the variable directly in the container's `env`:
 
