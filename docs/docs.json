@@ -292,8 +292,8 @@
                     "group": "Triage and fix vulnerabilities",
                     "root": "semgrep-supply-chain/triage-and-fix/overview",
                     "pages": [
-                        "semgrep-supply-chain/upgrade-guidance",
-                        "semgrep-supply-chain/autofix"
+                      "semgrep-supply-chain/upgrade-guidance",
+                      "semgrep-supply-chain/autofix"
                     ]
                   },
                   {
@@ -1075,7 +1075,6 @@
                       "source": "public_v2.openapi.yaml",
                       "directory": "api-reference/v2"
                     },
-                    "root": "api-reference/v2/services/scans",
                     "pages": [
                       "GET /api/v2/deployments/{deploymentId}/scans/{scanId}",
                       "POST /api/v2/deployments/{deploymentId}/projects/{projectId}/scans/list",

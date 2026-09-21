@@ -1,0 +1,16 @@
+---
+title: "Jobs"
+description: "Scan runs, workflow job runs, and retries."
+---
+
+import JobsEndpoints from "/snippets/api/v2/jobs-endpoints.mdx"
+
+A job is one run of Semgrep work against a project: a scan, or an Agentic Workflows job. These endpoints report on those runs, retry the ones that failed, and cover how workflow jobs are triggered and scheduled. The issues a job produces live in [Workflow issues](/api-reference/v2/services/workflow-issues).
+
+## Endpoints
+
+<JobsEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).
