@@ -198,7 +198,7 @@ This command contains your private key. Do **not** share your private key with a
 </Tab>
 <Tab title="Docker with a mounted file">
 
-Save the private key to a file named `privateKey` in the same directory as `config.yaml`. The directory is already mounted at `/emt` when you [start the broker](#start-the-broker), so pass the path inside the container:
+Save the private key to a file named `privateKey` in the same directory as `config.yaml`. This command mounts that directory at `/emt`. Pass the path inside the container:
 
 ```bash
 sudo docker run -d -it --rm -v $(pwd):/emt \
@@ -209,7 +209,7 @@ sudo docker run -d -it --rm -v $(pwd):/emt \
 </Tab>
 <Tab title="Kubernetes">
 
-Create a secret holding the private key:
+Create a Kubernetes Secret to store the private key. Add that secret to the broker Deployment in one of these ways.
 
 ```bash
 kubectl create secret generic broker-private-key --from-literal=privateKey=YOUR_PRIVATE_KEY
@@ -219,7 +219,10 @@ kubectl create secret generic broker-private-key --from-literal=privateKey=YOUR_
 This command contains your private key. Do **not** share your private key with anyone, including Semgrep.
 </Warning>
 
-Then reference the secret from the broker Deployment. Either set the variable directly in the container's `env`:
+Then reference the secret from the broker Deployment.
+
+2. Mount the secret as a file. Put `env` and `volumeMounts` in the container spec, and `volumes` in the pod spec:
+
 
 ```yaml
 env:
@@ -253,10 +256,10 @@ See the [sample Kubernetes manifest](https://github.com/semgrep/semgrep-network-
 
 Note the following behavior:
 
-- If the environment supplies a key, the broker uses it even when a config file also sets `privateKey`, and logs a warning that the config file value was overridden.
-- If both variables are set, `SEMGREP_NETWORK_BROKER_PRIVATE_KEY` is used.
+- If you set either variable, the broker uses that key, ignores `privateKey` in the config file, and logs a warning that it overrode the config file value.
+- If you set both variables, the broker uses `SEMGREP_NETWORK_BROKER_PRIVATE_KEY`.
 - If `SEMGREP_NETWORK_BROKER_PRIVATE_KEY_PATH` points to a missing or empty file, the broker exits with an error.
-- The private key must be exactly 44 characters, which decodes to 32 bytes. Otherwise the broker exits with an error that names where the key came from.
+- The private key must be exactly 44 characters, which decodes to 32 bytes. Otherwise, the broker exits with an error that names the source of the key.
 
 ### Update the config with your SCM information
 
