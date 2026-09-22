@@ -1544,27 +1544,6 @@ components:
           description: When true, weekly full scans are enabled.
           type: boolean
       type: object
-    protos.openapi.v1.GetBootstrapSmsVpcResponse:
-      properties:
-        AWSTemplateFormatVersion:
-          description: The AWSTemplateFormatVersion that the template conforms to
-          type: string
-        Description:
-          description: Template description
-          type: string
-        Metadata:
-          description: Template metadata including version and last updated date
-          type: object
-        Outputs:
-          description: Output values of the stack
-          type: object
-        Parameters:
-          description: Template parameters
-          type: object
-        Resources:
-          description: Declaration of AWS resources
-          type: object
-      type: object
     protos.openapi.v1.GetProjectResponse:
       description: Successfully retrieved details for the project.
       properties:
@@ -2213,11 +2192,6 @@ components:
         full_scan:
           $ref: '#/components/schemas/protos.openapi.v1.FullScan'
       title: Managed Scan Config
-      type: object
-    protos.openapi.v1.PingResponse:
-      description: OK
-      properties: {}
-      title: Ping Response
       type: object
     protos.openapi.v1.Project:
       description: A project in your organization that uses Semgrep.
@@ -3855,6 +3829,10 @@ components:
 
             | SCM_TYPE_HARNESS | Harness |
 
+            | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+
+            | SCM_TYPE_CODE_STORAGE | Code Storage |
+
 
             '
           enum:
@@ -3867,6 +3845,8 @@ components:
           - SCM_TYPE_AZURE_DEVOPS
           - SCM_TYPE_UNKNOWN
           - SCM_TYPE_HARNESS
+          - SCM_TYPE_CURSOR_ORIGIN
+          - SCM_TYPE_CODE_STORAGE
           format: enum
           type: string
         url:
@@ -5335,58 +5315,6 @@ paths:
       - color: red
         name: Experimental
         position: after
-  /api/v1/bootstrap-sms-vpc:
-    get:
-      description: 'VPC support for Managed Scans is in private beta.
-
-
-        Returns the Managed Scans VPC Bootstrap CloudFormation template in JSON format
-        for setting up cross-account infrastructure.
-
-
-        This template creates IAM roles and policies needed for Semgrep Managed Scanning
-        (SMS) VPC infrastructure automation,
-
-        including the semgrep-sms-vpc-automation role and EC2 Image Builder distribution
-        roles for gVisor container runtime.
-
-
-        See the original AWS cloudformation template format at https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html
-
-        '
-      operationId: MiscService_GetBootstrapSmsVpc
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/protos.openapi.v1.GetBootstrapSmsVpcResponse'
-          description: OK
-      summary: '[Beta] Get Managed Scans VPC bootstrap CloudFormation template'
-      tags:
-      - MiscService
-      x-badges:
-      - color: red
-        name: Experimental
-        position: after
-  /api/v1/ping:
-    get:
-      description: Use to ping the server and assert liveness.
-      operationId: MiscService_Ping
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/protos.openapi.v1.PingResponse'
-          description: OK
-      summary: Ping
-      tags:
-      - MiscService
-      x-badges:
-      - color: red
-        name: Experimental
-        position: after
 tags:
 - description: Deployments encapsulate your organization's security organization,
     with multiple projects, policies, and integrations. As the root object of the
@@ -5399,10 +5327,6 @@ tags:
   name: FindingsService
   x-displayName: Code, Supply Chain, and AI-powered detection
   x-group: Code, Supply Chain, and AI-powered detection
-- description: Utility endpoints.
-  name: MiscService
-  x-displayName: Other
-  x-group: Other
 - description: '**Deprecated.** View and manage the Policies of your organization.
 
 

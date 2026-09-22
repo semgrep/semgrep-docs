@@ -21,10 +21,7 @@ paths:
             tags:
                 - AiFixJobsService
             summary: Create fix job
-            description: |-
-                This feature is currently in Public Beta.
-
-                Create an automated SAST fix job for the given issue. This triggers an AI-powered workflow that analyzes the vulnerability, generates a fix, and opens a pull request in the repository.
+            description: Create an automated SAST fix job for the given issue. This triggers an AI-powered workflow that analyzes the vulnerability, generates a fix, and opens a pull request in the repository.
             operationId: AiFixJobsService_CreateFixJob
             parameters:
                 - name: deploymentId
@@ -161,8 +158,6 @@ paths:
                 - AutofixService
             summary: Create autofix
             description: |-
-                This feature is currently in Public Beta.
-
                 Triggers an Autofix workflow for the given issue. The workflow runs asynchronously; it analyzes the issue, generates a fix, and opens a pull request in the underlying repository. Supports SAST, AI SAST, and SCA issue types — the issue's type is resolved server-side and dispatched to the corresponding Autofix path.
 
                 A `success: true` response means the Autofix job has been **accepted for processing**, not that a pull request has been opened. The PR is created by an asynchronous workflow that runs after this endpoint returns.
@@ -1009,34 +1004,6 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/auth/sso/deployments/{deploymentId}/providers:
-        get:
-            tags:
-                - DeploymentSsoProvidersService
-            summary: List deployment SSO providers
-            description: List all SSO providers for a deployment
-            operationId: DeploymentSsoProvidersService_ListDeploymentSsoProviders
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.auth.v1.ListDeploymentSsoProvidersResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/tags/{repositoryTag}:
         put:
             tags:
@@ -1475,28 +1442,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/protos.ticketing.v2.UnlinkTicketResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/agent/features:
-        get:
-            tags:
-                - FeatureRolloutsService
-            summary: List available feature rollouts
-            description: List all available feature rollouts
-            operationId: FeatureRolloutsService_ListAvailableFeatureRollouts
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.feature_rollout.v1.ListAvailableFeatureRolloutsResponse'
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
@@ -1983,6 +1928,40 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/deployments/{deploymentId}/issue-exports:
+        post:
+            tags:
+                - PublicIssuesService
+            summary: Export issues as CSV
+            description: Create an asynchronous CSV export of Semgrep Agentic Workflows issues. Exports are limited to 10,000 rows. Download URLs expire 15 minutes after generation finishes.
+            operationId: PublicIssuesService_ExportIssues
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.issues.api.ExportIssuesRequest'
+                required: true
+            responses:
+                "202":
+                    description: Accepted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.ExportIssuesResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/issues/{deploymentId}/issue/{issueId}/activity:
         get:
             tags:
@@ -2062,7 +2041,7 @@ paths:
             tags:
                 - PublicIssuesService
             summary: Triage issue
-            description: Set the triage state and reason for a Semgrep Agentic Workflows issue.
+            description: Set the triage state, reason, and optional note for a Semgrep Agentic Workflows issue.
             operationId: PublicIssuesService_TriageIssue
             parameters:
                 - name: deploymentId
@@ -2096,13 +2075,46 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/issues/{deploymentId}/search:
+    /api/deployments/{deploymentId}/issue-exports/{exportId}:
+        get:
+            tags:
+                - PublicIssuesService
+            summary: Get issue export
+            description: Get the status and result of a CSV export.
+            operationId: PublicIssuesService_GetIssueExport
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: exportId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.GetIssueExportResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/issues/{deploymentId}/list:
         post:
             tags:
                 - PublicIssuesService
-            summary: Search issues
-            description: Search Semgrep Agentic Workflows issues with filtering, sorting, and cursor pagination.
-            operationId: PublicIssuesService_SearchIssues
+            summary: List issues
+            description: List Semgrep Agentic Workflows issues with filtering, sorting, and cursor pagination.
+            operationId: PublicIssuesService_ListIssues
             parameters:
                 - name: deploymentId
                   in: path
@@ -2113,7 +2125,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/protos.issues.api.SearchIssuesRequest'
+                            $ref: '#/components/schemas/protos.issues.api.ListIssuesRequest'
                 required: true
             responses:
                 "200":
@@ -2121,7 +2133,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/protos.issues.api.SearchIssuesResponse'
+                                $ref: '#/components/schemas/protos.issues.api.ListIssuesResponse'
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
@@ -2941,171 +2953,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/protos.notification_webhooks.v1.TestNotificationWebhookResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/notifications/in-app/deployments/{deploymentId}:
-        get:
-            tags:
-                - NotificationsService
-            summary: List unread notifications
-            description: Returns a paginated list of unread notifications for a particular viewer
-            operationId: NotificationsService_GetNotifications
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-                - name: cursor
-                  in: query
-                  description: 'NOTE: TBD on the specifications of cursors & `optional` in Request protos.'
-                  schema:
-                    type: string
-                - name: limit
-                  in: query
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.notifications.v1.GetNotificationsResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/notifications/in-app/deployments/{deploymentId}/mark_as_seen:
-        put:
-            tags:
-                - NotificationsService
-            summary: Mark notifications as seen
-            description: Marks a list of notifications as seen
-            operationId: NotificationsService_MarkNotificationsAsSeen
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.notifications.v1.MarkNotificationsAsSeenRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.notifications.v1.MarkNotificationsAsSeenResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/onboarding/deployments/{deploymentId}/checklist:
-        get:
-            tags:
-                - ChecklistService
-            summary: Get onboarding checklist status
-            description: Get the completion status of each task in a deployment's onboarding checklist.
-            operationId: ChecklistService_GetChecklistStatus
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.onboarding.v1.GetChecklistStatusResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-        patch:
-            tags:
-                - ChecklistService
-            summary: Update onboarding checklist
-            description: Update the completion status of tasks in a deployment's onboarding checklist.
-            operationId: ChecklistService_PatchChecklist
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.onboarding.v1.PatchChecklistRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.onboarding.v1.PatchChecklistResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/onboarding/deployments/{deploymentId}/invite_members:
-        post:
-            tags:
-                - ChecklistService
-            summary: Invite members
-            description: Invite users to a deployment as part of the onboarding checklist.
-            operationId: ChecklistService_InviteMembers
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.onboarding.v1.InviteMembersRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.onboarding.v1.InviteMembersResponse'
             security:
                 - SemgrepJWT: []
             x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
@@ -5732,6 +5579,44 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/deployments/{deploymentId}/cursor-installations/{requestId}/receipt:
+        post:
+            tags:
+                - ScmAppsService
+            summary: Complete Cursor Origin installation
+            description: Verify an installation receipt and connect the approved Cursor Origin codebase.
+            operationId: ScmAppsService_CompleteCursorInstallation
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: requestId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.scm.v1.CompleteCursorInstallationRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.scm.v1.CompleteCursorInstallationResponse'
+            security:
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/app_request_complete:
         put:
             tags:
@@ -5963,6 +5848,39 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/protos.scm.v1.RotateScmAppWebhookSecretResponse'
+            security:
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/deployments/{deploymentId}/cursor-installations:
+        post:
+            tags:
+                - ScmAppsService
+            summary: Start Cursor Origin installation
+            description: Create an installation request for the Semgrep app or a configured private app.
+            operationId: ScmAppsService_CreateCursorInstallation
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.scm.v1.CreateCursorInstallationRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.scm.v1.CreateCursorInstallationResponse'
             security:
                 - SemgrepJWT: []
             x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
@@ -6872,115 +6790,6 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/support/cases:
-        post:
-            tags:
-                - SupportService
-            summary: Create support case
-            description: File a new support case.
-            operationId: SupportService_CreateSupportCase
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.support.v1.CreateSupportCaseRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.support.v1.CreateSupportCaseResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/support/cases/{orgid}:
-        get:
-            tags:
-                - SupportService
-            summary: List support cases
-            description: List the support cases filed by an organization.
-            operationId: SupportService_ListSupportCases
-            parameters:
-                - name: orgid
-                  in: path
-                  required: true
-                  schema:
-                    type: integer
-                    format: int32
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.support.v1.ListSupportCasesResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/survey/name/{surveyName}:
-        get:
-            tags:
-                - SurveysService
-            summary: Get a company survey response
-            description: Retrieves company survey response by survey name
-            operationId: SurveysService_GetSurveyResponse
-            parameters:
-                - name: surveyName
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.survey.v1.GetSurveyResponseResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/survey/submit:
-        post:
-            tags:
-                - SurveysService
-            summary: Submit company survey response
-            description: Responds to company survey
-            operationId: SurveysService_CreateSurveyResponse
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.survey.v1.CreateSurveyResponseRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.survey.v1.CreateSurveyResponseResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/tasks/v2/{taskTokenJwt}:
         get:
             tags:
@@ -7462,169 +7271,6 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/auth/users/current:
-        get:
-            tags:
-                - UsersService
-            summary: Get user
-            description: Get basic information about a User, like role, email, and auth details
-            operationId: UsersService_GetUser
-            parameters:
-                - name: userId
-                  in: query
-                  description: |-
-                    The user ID to fetch settings for.
-                     NOTE: As of June 2025, it must be equal to the requester's ID.
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.auth.v1.GetUserResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/auth/users/current/settings:
-        get:
-            tags:
-                - UsersService
-            summary: Get user settings
-            description: Get basic settings & onboarding info for a user, like contact preferences and product tour state.
-            operationId: UsersService_GetUserSettings
-            parameters:
-                - name: userId
-                  in: query
-                  description: |-
-                    The user ID to fetch settings for.
-                     NOTE: As of June 2025, it must be equal to the requester's ID.
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.auth.v1.GetUserSettingsResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-        patch:
-            tags:
-                - UsersService
-            summary: Update user settings
-            description: Update user settings and preferences for the current user
-            operationId: UsersService_PatchUserSettings
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.auth.v1.PatchUserSettingsRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.auth.v1.PatchUserSettingsResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/auth/authorized_resources:
-        get:
-            tags:
-                - UsersService
-            summary: List authorized resources
-            description: List all orgnizations/deployments that are available to a user
-            operationId: UsersService_ListUserAuthorizedResources
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.auth.v1.ListUserAuthorizedResourcesResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/auth/users/current/deployments/joinable:
-        get:
-            tags:
-                - UsersService
-            summary: List joinable organizations
-            description: List all organizations/deployments that a user can join
-            operationId: UsersService_ListUserJoinableOrgs
-            parameters:
-                - name: userId
-                  in: query
-                  description: |-
-                    The user ID to list organizations for.
-                     NOTE: As of June 2025, it must be equal to the requester's ID.
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.auth.v1.ListUserJoinableOrgsResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/auth/users/current/deployments:
-        get:
-            tags:
-                - UsersService
-            summary: List user organizations
-            description: List all organizations/deployments that a user is a member of
-            operationId: UsersService_ListUserOrgs
-            parameters:
-                - name: userId
-                  in: query
-                  description: |-
-                    The user ID to list organizations for.
-                     NOTE: As of June 2025, it must be equal to the requester's ID.
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.auth.v1.ListUserOrgsResponse'
-            security:
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/versions/{deploymentId}/project-info/{product}:
         get:
             tags:
@@ -7855,44 +7501,6 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/health-check:
-        get:
-            tags:
-                - MiscService
-            summary: Check container health
-            description: Check if container is healthy
-            operationId: MiscService_HealthCheck
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.misc.v1.HealthCheckResponse'
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/readiness-check:
-        get:
-            tags:
-                - MiscService
-            summary: Check container readiness
-            description: Check if container started up correctly
-            operationId: MiscService_ReadinessCheck
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.misc.v1.ReadinessCheckResponse'
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/identity:
         get:
             tags:
@@ -7910,66 +7518,6 @@ paths:
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/agent/ip:
-        get:
-            tags:
-                - MiscService
-            summary: Get IP
-            description: Returns the current IP address
-            operationId: MiscService_GetIp
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.misc.v1.GetIpResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/agent/tenant:
-        get:
-            tags:
-                - MiscService
-            summary: Get tenant
-            description: Returns the current tenant name for the server (e.g. default)
-            operationId: MiscService_GetTenant
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.misc.v1.GetTenantResponse'
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
-    /api/agent/ping:
-        get:
-            tags:
-                - MiscService
-            summary: Ping
-            description: Responds with pong
-            operationId: MiscService_GetPing
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.misc.v1.GetPingResponse'
             x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
             x-mint:
                 metadata:
@@ -8489,6 +8037,16 @@ components:
                     $ref: '#/components/schemas/protos.ai.v1.WorkflowReportSummary'
                 metadata:
                     $ref: '#/components/schemas/protos.ai.v1.WorkflowJobMetadata'
+                hasPrTarget:
+                    type: boolean
+                    description: True when the run targets a pull request (it has a PR target record).
+                hasBranchTarget:
+                    type: boolean
+                    description: |-
+                        True for a non-experimental repo run with a known, persisted branch
+                         identity. Poll GetWorkflowJobSupersession when either target flag is set.
+                         Missing/stale links, public repos without a repo ID, tags, and ambiguous
+                         refs are ineligible.
         protos.ai.v1.GitHubAppInfo:
             type: object
             properties:
@@ -9428,467 +8986,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.ai.v1.WorkflowTaskAttempt'
-        protos.auth.v1.DeploymentIdentity:
-            type: object
-            properties:
-                sourceId:
-                    type: integer
-                    format: int32
-                name:
-                    type: string
-                sourceType:
-                    enum:
-                        - simple
-                        - semgrep
-                        - sso
-                        - github
-                        - gitlab
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | simple |  |
-                        | semgrep |  |
-                        | sso |  |
-                        | github |  |
-                        | gitlab |  |
-
-                    format: enum
-                deploymentId:
-                    type: integer
-                    format: int64
-                scmName:
-                    type: string
-        protos.auth.v1.DeploymentSsoProvider:
-            type: object
-            properties:
-                id:
-                    type: string
-                deploymentId:
-                    type: string
-                provider:
-                    $ref: '#/components/schemas/protos.auth.v1.SsoProvider'
-                enabled:
-                    type: boolean
-                sourceId:
-                    type: string
-                userCount:
-                    type: string
-        protos.auth.v1.GetUserResponse:
-            type: object
-            properties:
-                user:
-                    $ref: '#/components/schemas/protos.auth.v1.User'
-        protos.auth.v1.GetUserSettingsResponse:
-            type: object
-            properties:
-                settings:
-                    $ref: '#/components/schemas/protos.auth.v1.UserSettings'
-        protos.auth.v1.ListDeploymentSsoProvidersResponse:
-            type: object
-            properties:
-                providers:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.DeploymentSsoProvider'
-        protos.auth.v1.ListUserAuthorizedResourcesResponse:
-            type: object
-            properties:
-                current:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.DeploymentIdentity'
-                joinable:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.DeploymentIdentity'
-                scm:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.DeploymentIdentity'
-        protos.auth.v1.ListUserJoinableOrgsResponse:
-            type: object
-            properties:
-                userId:
-                    type: string
-                orgs:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.deployment.v1.Deployment'
-        protos.auth.v1.ListUserOrgsResponse:
-            type: object
-            properties:
-                userId:
-                    type: string
-                orgs:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.deployment.v1.Deployment'
-        protos.auth.v1.OpenIdProviderData:
-            type: object
-            properties:
-                clientId:
-                    type: string
-                clientSecret:
-                    type: string
-                wellKnownUrl:
-                    type: string
-                authUri:
-                    type: string
-                tokenUri:
-                    type: string
-                userinfoUri:
-                    type: string
-        protos.auth.v1.PatchUserSettingsRequest:
-            type: object
-            properties:
-                userId:
-                    type: string
-                    description: |-
-                        NOTE: Field number is nonsequential because it was added later. But it's first because it's a path param.
-                         The user ID to fetch settings for.
-                         NOTE: As of June 2025, it must be equal to the requester's ID.
-                primaryEmail:
-                    type: string
-                    description: the user's currently selected email address
-                hasAcceptedToc:
-                    type: boolean
-                    description: if the user has accepted the terms of service
-                subscribe:
-                    type: boolean
-                    description: if the user is subscribed to emails
-                contactAboutExperiments:
-                    type: boolean
-                    description: if the user would like to be contacted about product experiments
-                usedCliLogin:
-                    type: boolean
-                    description: if the user has used the CLI to login
-                hasCompletedFindingsTour:
-                    type: boolean
-                    description: if the user has completed the findings product tour, deprecated (see findings_tour_state)
-                hasCompletedSupplyChainTour:
-                    type: boolean
-                    description: if the user has completed the supply chain product tour, deprecated (see supply_chain_tour_state)
-                findingsTourState:
-                    enum:
-                        - TOUR_STATE_INCOMPLETE
-                        - TOUR_STATE_COMPLETE
-                        - TOUR_STATE_SKIPPED
-                    type: string
-                    description: |+
-                        the completion state of the findings product tour
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_STATE_INCOMPLETE |  |
-                        | TOUR_STATE_COMPLETE |  |
-                        | TOUR_STATE_SKIPPED |  |
-
-                    format: enum
-                supplyChainTourState:
-                    enum:
-                        - TOUR_STATE_INCOMPLETE
-                        - TOUR_STATE_COMPLETE
-                        - TOUR_STATE_SKIPPED
-                    type: string
-                    description: |+
-                        the completion state of the supply chain product tour
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_STATE_INCOMPLETE |  |
-                        | TOUR_STATE_COMPLETE |  |
-                        | TOUR_STATE_SKIPPED |  |
-
-                    format: enum
-                supplyChainFindingsTourState:
-                    enum:
-                        - TOUR_STATE_INCOMPLETE
-                        - TOUR_STATE_COMPLETE
-                        - TOUR_STATE_SKIPPED
-                    type: string
-                    description: |+
-                        the completion state of the supply chain product tour
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_STATE_INCOMPLETE |  |
-                        | TOUR_STATE_COMPLETE |  |
-                        | TOUR_STATE_SKIPPED |  |
-
-                    format: enum
-                eventSource:
-                    enum:
-                        - Welcome
-                        - Findings
-                        - ExistingScaUserVulnsTour
-                        - NewScaUserVulnsTour
-                        - AccountSettingsPanel
-                        - Vulns
-                        - useOnboardingTaskData
-                        - AiScanTour
-                        - AutofixIntro
-                        - ScaAutofixIntro
-                        - MultimodalBanner
-                        - CombinedFindings
-                        - WorkflowsActivationBanner
-                    type: string
-                    description: |+
-                        capture the event source, which may be passed as a query param (e.g. ?event_source=Welcome)
-
-                        | value | description |
-                        |-------|---------------|
-                        | Welcome |  |
-                        | Findings |  |
-                        | ExistingScaUserVulnsTour |  |
-                        | NewScaUserVulnsTour |  |
-                        | AccountSettingsPanel |  |
-                        | Vulns |  |
-                        | useOnboardingTaskData |  |
-                        | AiScanTour |  |
-                        | AutofixIntro |  |
-                        | ScaAutofixIntro |  |
-                        | MultimodalBanner |  |
-                        | CombinedFindings |  |
-                        | WorkflowsActivationBanner |  |
-
-                    format: enum
-                tourStates:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.TourStateEntry'
-                    description: scalable structure for tour states
-        protos.auth.v1.PatchUserSettingsResponse:
-            type: object
-            properties:
-                user:
-                    $ref: '#/components/schemas/protos.auth.v1.User'
-        protos.auth.v1.Saml2ProviderData:
-            type: object
-            properties:
-                idpIssuer:
-                    type: string
-                idpSsoUrl:
-                    type: string
-                x509cert:
-                    type: string
-                unspecifiedAuthnContext:
-                    type: boolean
-                spEntityId:
-                    type: string
-        protos.auth.v1.SimpleProviderData:
-            type: object
-            properties: {}
-        protos.auth.v1.SsoProvider:
-            type: object
-            properties:
-                id:
-                    type: string
-                name:
-                    type: string
-                type:
-                    enum:
-                        - SSO_TYPE_GITHUB
-                        - SSO_TYPE_OPENID
-                        - SSO_TYPE_SAML2
-                        - SSO_TYPE_GITLAB
-                        - SSO_TYPE_GOOGLE
-                        - SSO_TYPE_SIMPLE
-                        - SSO_TYPE_WORKOS
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | SSO_TYPE_GITHUB |  |
-                        | SSO_TYPE_OPENID |  |
-                        | SSO_TYPE_SAML2 |  |
-                        | SSO_TYPE_GITLAB |  |
-                        | SSO_TYPE_GOOGLE |  |
-                        | SSO_TYPE_SIMPLE |  |
-                        | SSO_TYPE_WORKOS |  |
-
-                    format: enum
-                displayName:
-                    type: string
-                emailDomain:
-                    type: string
-                baseUrl:
-                    type: string
-                openidData:
-                    $ref: '#/components/schemas/protos.auth.v1.OpenIdProviderData'
-                saml2Data:
-                    $ref: '#/components/schemas/protos.auth.v1.Saml2ProviderData'
-                simpleData:
-                    $ref: '#/components/schemas/protos.auth.v1.SimpleProviderData'
-        protos.auth.v1.TourStateEntry:
-            type: object
-            properties:
-                id:
-                    enum:
-                        - TOUR_ID_AI_SCAN
-                        - TOUR_ID_AUTOFIX_INTRO
-                        - TOUR_ID_SCA_AUTOFIX_INTRO
-                        - TOUR_ID_MULTIMODAL_BANNER
-                        - TOUR_ID_COMBINED_FINDINGS
-                        - TOUR_ID_WORKFLOWS_ACTIVATION
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_ID_AI_SCAN |  |
-                        | TOUR_ID_AUTOFIX_INTRO |  |
-                        | TOUR_ID_SCA_AUTOFIX_INTRO |  |
-                        | TOUR_ID_MULTIMODAL_BANNER |  |
-                        | TOUR_ID_COMBINED_FINDINGS |  |
-                        | TOUR_ID_WORKFLOWS_ACTIVATION |  |
-
-                    format: enum
-                state:
-                    enum:
-                        - TOUR_STATE_INCOMPLETE
-                        - TOUR_STATE_COMPLETE
-                        - TOUR_STATE_SKIPPED
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_STATE_INCOMPLETE |  |
-                        | TOUR_STATE_COMPLETE |  |
-                        | TOUR_STATE_SKIPPED |  |
-
-                    format: enum
-            description: Associates a tour with its completion state
-        protos.auth.v1.User:
-            type: object
-            properties:
-                id:
-                    type: string
-                name:
-                    type: string
-                email:
-                    type: string
-                login:
-                    type: string
-                authDetails:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.UserAuthDetails'
-                orgRole:
-                    type: string
-                deletedAt:
-                    type: string
-                    format: date-time
-        protos.auth.v1.UserAuthDetails:
-            type: object
-            properties:
-                providerId:
-                    type: string
-                providerType:
-                    type: string
-                sourceId:
-                    type: string
-                current:
-                    type: boolean
-                expiresAt:
-                    type: string
-                    format: date-time
-                authProviderId:
-                    type: string
-        protos.auth.v1.UserEmail:
-            type: object
-            properties:
-                email:
-                    type: string
-                primary:
-                    type: boolean
-                verified:
-                    type: boolean
-        protos.auth.v1.UserSettings:
-            type: object
-            properties:
-                primaryEmail:
-                    type: string
-                    description: the user's currently selected email address
-                hasAcceptedToc:
-                    type: boolean
-                    description: if the user has accepted the terms of service
-                subscribe:
-                    type: boolean
-                    description: if the user is subscribed to emails
-                contactAboutExperiments:
-                    type: boolean
-                    description: if the user would like to be contacted about product experiments
-                availableEmails:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.UserEmail'
-                    description: other emails that the user has
-                profilePhotoUrl:
-                    type: string
-                    description: the user's profile photo url
-                hasCompletedFindingsTour:
-                    type: boolean
-                    description: if the user has completed the findings product tour, deprecated (see findings_tour_state)
-                hasCompletedSupplyChainTour:
-                    type: boolean
-                    description: if the user has completed the supply chain product tour, deprecated (see supply_chain_tour_state)
-                findingsTourState:
-                    enum:
-                        - TOUR_STATE_INCOMPLETE
-                        - TOUR_STATE_COMPLETE
-                        - TOUR_STATE_SKIPPED
-                    type: string
-                    description: |+
-                        the completion state of the findings product tour
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_STATE_INCOMPLETE |  |
-                        | TOUR_STATE_COMPLETE |  |
-                        | TOUR_STATE_SKIPPED |  |
-
-                    format: enum
-                supplyChainTourState:
-                    enum:
-                        - TOUR_STATE_INCOMPLETE
-                        - TOUR_STATE_COMPLETE
-                        - TOUR_STATE_SKIPPED
-                    type: string
-                    description: |+
-                        the completion state of the supply chain product tour
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_STATE_INCOMPLETE |  |
-                        | TOUR_STATE_COMPLETE |  |
-                        | TOUR_STATE_SKIPPED |  |
-
-                    format: enum
-                supplyChainFindingsTourState:
-                    enum:
-                        - TOUR_STATE_INCOMPLETE
-                        - TOUR_STATE_COMPLETE
-                        - TOUR_STATE_SKIPPED
-                    type: string
-                    description: |+
-                        the completion state of the supply chain product tour (using the new findings UI)
-
-                        | value | description |
-                        |-------|---------------|
-                        | TOUR_STATE_INCOMPLETE |  |
-                        | TOUR_STATE_COMPLETE |  |
-                        | TOUR_STATE_SKIPPED |  |
-
-                    format: enum
-                tourStates:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.auth.v1.TourStateEntry'
-                    description: scalable structure for tour states
         protos.automations.v1.Action:
             type: object
             properties:
@@ -11284,25 +10381,6 @@ components:
                     type: string
                 keyVersion:
                     type: string
-        protos.feature_rollout.v1.FeatureRollout:
-            type: object
-            properties:
-                id:
-                    type: string
-                name:
-                    type: string
-                rolled_out:
-                    type: boolean
-                rolled_out_at:
-                    type: string
-                    format: date-time
-        protos.feature_rollout.v1.ListAvailableFeatureRolloutsResponse:
-            type: object
-            properties:
-                features:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.feature_rollout.v1.FeatureRollout'
         protos.ignores.v1.CreateDeploymentProductIgnoresRequest:
             type: object
             properties:
@@ -11394,6 +10472,48 @@ components:
             properties:
                 count:
                     type: string
+        protos.issues.api.ExportIssuesRequest:
+            type: object
+            properties:
+                deploymentId:
+                    type: string
+                filters:
+                    $ref: '#/components/schemas/protos.issues.api.IssueFilters'
+                sortField:
+                    enum:
+                        - ISSUE_SORT_FIELD_SEVERITY
+                        - ISSUE_SORT_FIELD_LAST_DETECTED_AT
+                        - ISSUE_SORT_FIELD_CREATED_AT
+                        - ISSUE_SORT_FIELD_FILE_PATH
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | ISSUE_SORT_FIELD_SEVERITY |  |
+                        | ISSUE_SORT_FIELD_LAST_DETECTED_AT |  |
+                        | ISSUE_SORT_FIELD_CREATED_AT |  |
+                        | ISSUE_SORT_FIELD_FILE_PATH |  |
+
+                    format: enum
+                sortDirection:
+                    enum:
+                        - SORT_DIRECTION_ASC
+                        - SORT_DIRECTION_DESC
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | SORT_DIRECTION_ASC |  |
+                        | SORT_DIRECTION_DESC |  |
+
+                    format: enum
+        protos.issues.api.ExportIssuesResponse:
+            type: object
+            properties:
+                issueExport:
+                    $ref: '#/components/schemas/protos.issues.api.IssueExport'
         protos.issues.api.GetIssueActivityHistoryResponse:
             type: object
             properties:
@@ -11403,6 +10523,11 @@ components:
                         $ref: '#/components/schemas/protos.issues.api.IssueActivity'
                 cursor:
                     type: string
+        protos.issues.api.GetIssueExportResponse:
+            type: object
+            properties:
+                issueExport:
+                    $ref: '#/components/schemas/protos.issues.api.IssueExport'
         protos.issues.api.GetIssueResponse:
             type: object
             properties:
@@ -11592,6 +10717,44 @@ components:
                     type: string
                     format: date-time
             description: A change made to an issue.
+        protos.issues.api.IssueExport:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: Opaque export ID, valid for one hour. Pass it unchanged to GetIssueExport.
+                state:
+                    enum:
+                        - ISSUE_EXPORT_STATE_PENDING
+                        - ISSUE_EXPORT_STATE_READY
+                        - ISSUE_EXPORT_STATE_FAILED
+                    type: string
+                    description: |+
+                        Pending means queued or running. Ready and failed are terminal states.
+
+                        | value | description |
+                        |-------|---------------|
+                        | ISSUE_EXPORT_STATE_PENDING |  |
+                        | ISSUE_EXPORT_STATE_READY |  |
+                        | ISSUE_EXPORT_STATE_FAILED |  |
+
+                    format: enum
+                downloadUrl:
+                    type: string
+                    description: CSV download URL, present when ready with at least one exported row. Valid for 15 minutes after generation.
+                expiresAt:
+                    type: string
+                    description: Expiration time of the download URL.
+                    format: date-time
+                exportedCount:
+                    type: string
+                    description: Number of exported data rows, available when ready.
+                truncated:
+                    type: boolean
+                    description: True when the export limit omitted additional matching issues.
+                failureReason:
+                    type: string
+                    description: Explanation when the export failed.
         protos.issues.api.IssueFilters:
             title: Issue filters
             type: object
@@ -11751,8 +10914,8 @@ components:
                     type: array
                     items:
                         type: string
-            description: Filters for narrowing issue search results. Fields are combined with AND; multiple values within a field are combined with OR.
-        protos.issues.api.SearchIssuesRequest:
+            description: Filters for narrowing listed issues. Fields are combined with AND; multiple values within a field are combined with OR.
+        protos.issues.api.ListIssuesRequest:
             type: object
             properties:
                 deploymentId:
@@ -11794,7 +10957,7 @@ components:
                     format: int64
                 cursor:
                     type: string
-        protos.issues.api.SearchIssuesResponse:
+        protos.issues.api.ListIssuesResponse:
             type: object
             properties:
                 issues:
@@ -11859,6 +11022,9 @@ components:
                         | TRIAGE_REASON_NO_TIME |  |
 
                     format: enum
+                note:
+                    type: string
+                    description: Optional context recorded with the triage activity.
         protos.issues.api.TriageIssueResponse:
             type: object
             properties:
@@ -12797,6 +11963,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |4+
 
@@ -12811,6 +11979,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
                 primaryRef:
@@ -14519,39 +13689,6 @@ components:
                         Deployment ID associated with the API token. Populated for API tokens;
                          absent for other identity types.
                     format: int64
-        protos.misc.v1.GetIpResponse:
-            type: object
-            properties:
-                ip:
-                    type: string
-                cf:
-                    type: string
-        protos.misc.v1.GetPingResponse:
-            type: object
-            properties:
-                message:
-                    type: string
-        protos.misc.v1.GetTenantResponse:
-            type: object
-            properties:
-                tenant:
-                    type: string
-        protos.misc.v1.HealthCheckResponse:
-            type: object
-            properties:
-                status:
-                    type: string
-                healthy:
-                    type: boolean
-                gitSha:
-                    type: string
-        protos.misc.v1.ReadinessCheckResponse:
-            type: object
-            properties:
-                status:
-                    type: string
-                ready:
-                    type: boolean
         protos.notification_rules.v1.CreateNotificationRuleRequest:
             type: object
             properties:
@@ -14795,16 +13932,6 @@ components:
             properties:
                 success:
                     type: boolean
-        protos.notifications.v1.GetNotificationsResponse:
-            type: object
-            properties:
-                notifications:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.notifications.v1.Notification'
-                cursor:
-                    type: string
-            description: 'NOTE: As mentioned on the RPC, this is non-conforming.'
         protos.notifications.v1.GetWizCredentialResponse:
             type: object
             properties:
@@ -14817,71 +13944,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.notifications.v1.WizCredential'
-        protos.notifications.v1.MarkNotificationsAsSeenRequest:
-            type: object
-            properties:
-                deploymentId:
-                    type: string
-                notificationIds:
-                    type: array
-                    items:
-                        type: string
-        protos.notifications.v1.MarkNotificationsAsSeenResponse:
-            type: object
-            properties:
-                notifications:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.notifications.v1.Notification'
-        protos.notifications.v1.Notification:
-            type: object
-            properties:
-                id:
-                    type: string
-                title:
-                    type: string
-                description:
-                    type: string
-                severity:
-                    enum:
-                        - SEVERITY_INFO
-                        - SEVERITY_WARNING
-                        - SEVERITY_ERROR
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | SEVERITY_INFO |  |
-                        | SEVERITY_WARNING |  |
-                        | SEVERITY_ERROR |  |
-
-                    format: enum
-                status:
-                    enum:
-                        - STATUS_DELIVERED
-                        - STATUS_SEEN
-                        - STATUS_ARCHIVED
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | STATUS_DELIVERED |  |
-                        | STATUS_SEEN |  |
-                        | STATUS_ARCHIVED |  |
-
-                    format: enum
-                adminOnly:
-                    type: boolean
-                createdAt:
-                    type: string
-                link:
-                    type: string
-                isExternalLink:
-                    type: boolean
-                linkText:
-                    type: string
         protos.notifications.v1.UpdateWizCredentialRequest:
             type: object
             properties:
@@ -14945,111 +14007,6 @@ components:
                     type: string
                 tokenUrl:
                     type: string
-        protos.onboarding.v1.GetChecklistStatusResponse:
-            type: object
-            properties:
-                taskStatus:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.onboarding.v1.OnboardingTask'
-        protos.onboarding.v1.InviteMembersRequest:
-            type: object
-            properties:
-                deploymentId:
-                    type: string
-                emails:
-                    type: array
-                    items:
-                        type: string
-        protos.onboarding.v1.InviteMembersResponse:
-            type: object
-            properties:
-                message:
-                    type: string
-        protos.onboarding.v1.OnboardingTask:
-            type: object
-            properties:
-                type:
-                    enum:
-                        - TASK_TYPE_COMPLETE_TOUR
-                        - TASK_TYPE_SCAN_CODE
-                        - TASK_TYPE_TRIAGE_FIRST_PARTY
-                        - TASK_TYPE_TRIAGE_DEPENDENCY
-                        - TASK_TYPE_SET_UP_RECURRING_SCAN
-                        - TASK_TYPE_CONFIGURE_IGNORES
-                        - TASK_TYPE_JOIN_SLACK
-                        - TASK_TYPE_CUSTOMIZE_RULES
-                        - TASK_TYPE_ENABLE_INTEGRATION
-                        - TASK_TYPE_ADD_TEAM_MEMBER
-                        - TASK_TYPE_WRITE_CUSTOM_RULE
-                        - TASK_TYPE_SETUP_SCM_PROVIDER
-                        - TASK_TYPE_ENABLE_ASSISTANT
-                        - TASK_TYPE_ENABLE_SEMGREP_MULTIMODAL
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | TASK_TYPE_COMPLETE_TOUR |  |
-                        | TASK_TYPE_SCAN_CODE |  |
-                        | TASK_TYPE_TRIAGE_FIRST_PARTY |  |
-                        | TASK_TYPE_TRIAGE_DEPENDENCY |  |
-                        | TASK_TYPE_SET_UP_RECURRING_SCAN |  |
-                        | TASK_TYPE_CONFIGURE_IGNORES |  |
-                        | TASK_TYPE_JOIN_SLACK |  |
-                        | TASK_TYPE_CUSTOMIZE_RULES |  |
-                        | TASK_TYPE_ENABLE_INTEGRATION |  |
-                        | TASK_TYPE_ADD_TEAM_MEMBER |  |
-                        | TASK_TYPE_WRITE_CUSTOM_RULE |  |
-                        | TASK_TYPE_SETUP_SCM_PROVIDER |  |
-                        | TASK_TYPE_ENABLE_ASSISTANT |  |
-                        | TASK_TYPE_ENABLE_SEMGREP_MULTIMODAL |  |
-
-                    format: enum
-                state:
-                    enum:
-                        - TASK_STATE_COMPLETE
-                        - TASK_STATE_INCOMPLETE
-                        - TASK_STATE_LOCKED
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | TASK_STATE_COMPLETE |  |
-                        | TASK_STATE_INCOMPLETE |  |
-                        | TASK_STATE_LOCKED |  |
-
-                    format: enum
-                level:
-                    enum:
-                        - TASK_LEVEL_ORG
-                        - TASK_LEVEL_USER
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | TASK_LEVEL_ORG |  |
-                        | TASK_LEVEL_USER |  |
-
-                    format: enum
-        protos.onboarding.v1.PatchChecklistRequest:
-            type: object
-            properties:
-                deploymentId:
-                    type: string
-                taskStatus:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.onboarding.v1.OnboardingTask'
-        protos.onboarding.v1.PatchChecklistResponse:
-            type: object
-            properties:
-                taskStatus:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.onboarding.v1.OnboardingTask'
         protos.permissions.common.v1.Group:
             type: object
             properties:
@@ -15341,6 +14298,10 @@ components:
                     example: false
                     type: boolean
                     description: Whether new users are automatically assigned to this team.
+                scimManaged:
+                    example: false
+                    type: boolean
+                    description: Whether this team is managed by your SCIM directory. Teams that SCIM manages can't be renamed, deleted, or have their members changed in Semgrep.
                 authorizedScopes:
                     example: ["TEAM_SCOPE_DIRECT_MEMBER", "TEAM_SCOPE_MANAGE"]
                     enum:
@@ -16546,6 +15507,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |+
                         filter repos based on ScmType
@@ -16561,6 +15524,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
                 tagId:
@@ -16735,6 +15700,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |+
                         The SCM type
@@ -16750,6 +15717,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
                 repositoryScmLinkId:
@@ -16973,6 +15942,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |+
                         The source code manager (SCM) this project's repository lives on.
@@ -16988,6 +15959,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
         protos.projects.v2.ProjectsFilter:
@@ -17970,6 +16943,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |4+
 
@@ -17984,6 +16959,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
         protos.ruleboard.v1.UpdateRuleboardOverviewRequest:
@@ -19163,6 +18140,20 @@ components:
             properties:
                 app:
                     $ref: '#/components/schemas/protos.scm.v1.ScmApp'
+        protos.scm.v1.CompleteCursorInstallationRequest:
+            type: object
+            properties:
+                deploymentId:
+                    type: string
+                requestId:
+                    type: string
+                installationReceipt:
+                    type: string
+        protos.scm.v1.CompleteCursorInstallationResponse:
+            type: object
+            properties:
+                config:
+                    $ref: '#/components/schemas/protos.scm.v1.ScmConfig'
         protos.scm.v1.CompleteScmAppRequestRequest:
             type: object
             properties:
@@ -19198,6 +18189,23 @@ components:
                 publicCertificatePem:
                     type: string
                     description: Public certificate (PEM) the customer uploads to their Entra app registration.
+        protos.scm.v1.CreateCursorInstallationRequest:
+            type: object
+            properties:
+                deploymentId:
+                    type: string
+                configId:
+                    type: string
+                    description: |-
+                        Omit for a new shared Semgrep app connection. Supply an existing Cursor
+                         Origin connection to install or update access for its shared or private app.
+        protos.scm.v1.CreateCursorInstallationResponse:
+            type: object
+            properties:
+                requestId:
+                    type: string
+                installationUrl:
+                    type: string
         protos.scm.v1.CreateScmAppRequestRequest:
             type: object
             properties:
@@ -19243,6 +18251,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |4+
 
@@ -19257,6 +18267,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
                 namespace:
@@ -19275,6 +18287,15 @@ components:
                     type: boolean
                 autoScanSettings:
                     $ref: '#/components/schemas/protos.scm.v1.AutoScanSettings'
+                providerAppId:
+                    type: string
+                    description: Cursor Origin App identifier. Required for Cursor Origin configs.
+                privateKey:
+                    type: string
+                    description: Cursor Origin private key or Code Storage organization API private key. Stored encrypted.
+                providerInstallationId:
+                    type: string
+                    description: Optional Cursor Origin installation identifier. Namespace discovery is used when omitted.
         protos.scm.v1.CreateScmConfigResponse:
             type: object
             properties:
@@ -19351,6 +18372,12 @@ components:
                     type: boolean
                 autoScanSettings:
                     $ref: '#/components/schemas/protos.scm.v1.AutoScanSettings'
+                providerAppId:
+                    type: string
+                privateKey:
+                    type: string
+                providerInstallationId:
+                    type: string
         protos.scm.v1.PatchScmConfigResponse:
             type: object
             properties:
@@ -19386,6 +18413,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |4+
 
@@ -19400,6 +18429,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
                 baseUrl:
@@ -19430,6 +18461,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |+
                         the type of the source code manager that this config is for
@@ -19445,6 +18478,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
                 namespace:
@@ -19500,6 +18535,15 @@ components:
                     description: |-
                         True when the config has an access token (e.g. a GitHub PAT). Independent
                          of `app`: a private app installation may also have an access token.
+                providerAppId:
+                    type: string
+                    description: Non-secret Cursor Origin App identifier.
+                providerInstallationId:
+                    type: string
+                    description: Optional Cursor Origin App installation identifier.
+                usesSharedApp:
+                    type: boolean
+                    description: True when Semgrep manages the app credentials instead of the customer.
                 scmId:
                     type: string
         protos.scm.v1.ScmStatus:
@@ -19531,6 +18575,12 @@ components:
                     type: boolean
                 writePullRequest:
                     type: boolean
+                readChecks:
+                    type: boolean
+                    description: Whether the token can read provider checks or commit statuses.
+                writeChecks:
+                    type: boolean
+                    description: Whether the token can create or update provider checks or commit statuses.
         protos.scm.v1.ScmWebhookSubscription:
             type: object
             properties:
@@ -19613,6 +18663,8 @@ components:
                         - SCM_TYPE_AZURE_DEVOPS
                         - SCM_TYPE_UNKNOWN
                         - SCM_TYPE_HARNESS
+                        - SCM_TYPE_CURSOR_ORIGIN
+                        - SCM_TYPE_CODE_STORAGE
                     type: string
                     description: |4+
 
@@ -19627,6 +18679,8 @@ components:
                         | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
                         | SCM_TYPE_UNKNOWN |  |
                         | SCM_TYPE_HARNESS | Harness |
+                        | SCM_TYPE_CURSOR_ORIGIN | Cursor Origin |
+                        | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
                 statusOk:
@@ -20095,112 +19149,6 @@ components:
             properties:
                 packageManagerConfig:
                     $ref: '#/components/schemas/protos.sms.v2.PackageManagerConfig'
-        protos.support.v1.CreateSupportCaseRequest:
-            type: object
-            properties:
-                subject:
-                    type: string
-                description:
-                    type: string
-                type:
-                    enum:
-                        - TYPE_FEATURE_REQUEST
-                        - TYPE_BUG_FIX
-                        - TYPE_QUESTION
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | TYPE_FEATURE_REQUEST |  |
-                        | TYPE_BUG_FIX |  |
-                        | TYPE_QUESTION |  |
-
-                    format: enum
-                email:
-                    type: string
-                priority:
-                    enum:
-                        - PRIORITY_URGENT
-                        - PRIORITY_HIGH
-                        - PRIORITY_MEDIUM
-                        - PRIORITY_LOW
-                    type: string
-                    description: |4+
-
-                        | value | description |
-                        |-------|---------------|
-                        | PRIORITY_URGENT |  |
-                        | PRIORITY_HIGH |  |
-                        | PRIORITY_MEDIUM |  |
-                        | PRIORITY_LOW |  |
-
-                    format: enum
-                organizationId:
-                    type: string
-                deploymentId:
-                    type: string
-        protos.support.v1.CreateSupportCaseResponse:
-            type: object
-            properties: {}
-        protos.support.v1.ListSupportCasesResponse:
-            type: object
-            properties:
-                supportCases:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.support.v1.SupportCase'
-        protos.support.v1.SupportCase:
-            type: object
-            properties:
-                priority:
-                    type: string
-                status:
-                    type: string
-                caseType:
-                    type: string
-                subject:
-                    type: string
-                description:
-                    type: string
-                createdAt:
-                    type: string
-                caseOwner:
-                    type: string
-                caseNumber:
-                    type: string
-        protos.survey.v1.CreateSurveyResponseRequest:
-            type: object
-            properties:
-                surveyName:
-                    type: string
-                data:
-                    type: object
-        protos.survey.v1.CreateSurveyResponseResponse:
-            type: object
-            properties:
-                response:
-                    $ref: '#/components/schemas/protos.survey.v1.SurveyResponse'
-        protos.survey.v1.GetSurveyResponseResponse:
-            type: object
-            properties:
-                response:
-                    $ref: '#/components/schemas/protos.survey.v1.SurveyResponse'
-        protos.survey.v1.SurveyResponse:
-            type: object
-            properties:
-                surveyName:
-                    type: string
-                data:
-                    type: object
-                id:
-                    type: integer
-                    format: int32
-                userId:
-                    type: integer
-                    format: int32
-                submittedAt:
-                    type: string
         protos.tasks.v1.GetTaskResultResponse:
             type: object
             properties:
@@ -20765,10 +19713,6 @@ tags:
       description: Feedback for the quality of autotriage, guidance or autofix
       x-displayName: Autotriage Feedback
       x-group: Autotriage Feedback
-    - name: ChecklistService
-      description: Manage onboarding checklist
-      x-displayName: Onboarding Checklist
-      x-group: Onboarding Checklist
     - name: DeploymentProductsService
       description: Manage deployment product configurations.
       x-displayName: Deployment Products
@@ -20777,10 +19721,6 @@ tags:
       description: Manage deployment and its resources.
       x-displayName: Deployment
       x-group: Deployment
-    - name: DeploymentSsoProvidersService
-      description: Manage Deployment SSO Providers
-      x-displayName: Deployment SSO Providers
-      x-group: Deployment SSO Providers
     - name: DeploymentTagService
       description: Assign tags to a deployment.
       x-displayName: Deployment Tags
@@ -20797,10 +19737,6 @@ tags:
       description: APIs that power the External Ticketing experience.
       x-displayName: External Ticketing
       x-group: External Ticketing
-    - name: FeatureRolloutsService
-      description: View feature flags rolled out to all deployments
-      x-displayName: Feature Rollouts
-      x-group: Feature Rollouts
     - name: IgnoresService
       description: API for managing global ignores. See https://semgrep.dev/docs/ignoring-files-folders-code
       x-displayName: Global Ignores
@@ -20833,10 +19769,6 @@ tags:
       description: Manage webhook endpoints for deployment notifications.
       x-displayName: Notification Webhooks
       x-group: Notification Webhooks
-    - name: NotificationsService
-      description: Notifications show in-app toasts to users.
-      x-displayName: Notifications
-      x-group: Notifications
     - name: PoliciesService
       description: |-
         **Deprecated.** View and manage the Policies of your organization.
@@ -20857,7 +19789,7 @@ tags:
       x-displayName: Projects
       x-group: Projects
     - name: PublicIssuesService
-      description: Search, inspect, and triage issues generated by Semgrep Agentic Workflows. This API does not include issues from other Semgrep products.
+      description: List, search, inspect, triage, and export issues generated by Semgrep Agentic Workflows. This API does not include issues from other Semgrep products.
       x-displayName: Issues (Semgrep Agentic Workflows)
       x-group: Issues (Semgrep Agentic Workflows)
     - name: ReportsService
@@ -20911,14 +19843,6 @@ tags:
       description: The Supply Chain is all of the dependencies of code, rather than the code itself. This service gives information about the supply chain.
       x-displayName: Supply Chain
       x-group: Supply Chain
-    - name: SupportService
-      description: Create and List Support Cases
-      x-displayName: Support
-      x-group: Support
-    - name: SurveysService
-      description: Retrieve and submit company surveys
-      x-displayName: Surveys
-      x-group: Surveys
     - name: TasksService
       description: Many tasks are done asynchronously; this service deals with managing async tasks.
       x-displayName: Tasks
@@ -20931,10 +19855,6 @@ tags:
       description: Tokens are used for programmatic access to the Semgrep Cloud Platform APIs.
       x-displayName: Tokens
       x-group: Tokens
-    - name: UsersService
-      description: Manage user accounts, settings, and organization memberships
-      x-displayName: Users
-      x-group: Users
     - name: VersionsService
       description: Semgrep version information
       x-displayName: Versions
