@@ -147,7 +147,7 @@ semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
 
 Note that arrays are replaced, while maps are merged.
 
-The `scms` list in v0.47.0 and later is an exception. The broker identifies each entry by its `type` and `baseUrl`. It merges entries that share both field by field, and the later file wins. It keeps entries that differ in either field side by side.
+The `scms` list in v0.47.0 and later is an exception. The broker matches entries that have the same `type` and `baseUrl` and combines them into one entry. It keeps a key that only one file sets, such as `token`. If both files set the same key, it uses the value from the later file. Entries with a different `type` or `baseUrl` are both kept. A later file does not replace the list.
 
 ### Generate a keypair
 
@@ -286,7 +286,7 @@ Note the following behavior:
 
 Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL for Azure DevOps, GitHub, GitLab, or Bitbucket Data Center.
 
-If you use `scms` in v0.47.0 and later, set the entry's `type` to the key shown in the tab for your SCM, which is `azuredevops`, `bitbucket`, `github`, or `gitlab`. Set its `baseUrl` to the base URL shown in the same tab.
+If you use the `scms` key with an SCM list, available in v0.47.0 and later, set each entry's `type` to the key shown in the tab for your SCM: either `azuredevops`, `bitbucket`, `github`, or `gitlab`. Set its `baseUrl` to the base URL value shown in that same tab.
 
 <Tabs>
 <Tab title="Azure DevOps">
@@ -471,7 +471,7 @@ inbound:
 </Tab>
 </Tabs>
 
-If you use `scms` in v0.47.0 and later, add `allowCodeAccess: true` to each entry that needs code access. The setting applies only to the entry that sets it.
+If you use the `scms` key with an SCM list, available in v0.47.0 and later, add `allowCodeAccess: true` to each entry that needs code access. The setting applies only to the entry that sets it.
 
 Semgrep Network Broker supports repository cloning when `allowCodeAccess` is `true`, beginning with Network Broker `v0.36.0` (for GitHub, beginning with `v0.32.0`). 
 
@@ -542,10 +542,10 @@ inbound:
 
 Each entry requires `type` and `baseUrl`. It also accepts `token` and `allowCodeAccess`, which apply only to that entry. The broker allows the same endpoints for each entry that it allows for the matching [SCM-specific key](/semgrep-ci/network-broker#update-the-config-with-your-scm-information).
 
-You can combine `scms` with SCM-specific keys, such as `github`, as long as they name different instances. The broker exits with an error at startup in the following cases:
+You can use both `scms` and SCM-specific keys, such as `github`, as long as the same instance is not named twice. The broker exits with an error at startup in the following cases:
 
 - An SCM-specific key and an `scms` entry have the same type and base URL.
-- Two GitHub, GitLab, or Bitbucket entries of the same type share a host, and at least one of them sets `allowCodeAccess: true`. The broker allows repository cloning for these SCMs by host, so it can't keep the clone access and tokens of the two instances apart. Give each instance its own host, or leave `allowCodeAccess` unset on every instance on that host.
+- For GitHub, GitLab, and Bitbucket: if two entries of the same type share a host and at least one of them sets `allowCodeAccess: true`. The broker allows repository cloning for these SCMs by host, so it can't have different code access settings for the same host. Give each instance its own host, or leave `allowCodeAccess` unset on every instance on that host.
 
 </Tab>
 <Tab title="v0.46.0 and earlier">
