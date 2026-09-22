@@ -413,7 +413,7 @@ Depending on the language, `Parse_pattern.ml` and `Parse_target.ml` invoke parse
 
 ### Converting to the generic AST
 
-`semgrep-core` does not match based on the Java AST. It has a generic AST, defined in `AST_generic.ml` (in `libs/ast_generic/`), which all language-specific ASTs are converted to.
+`semgrep-core` does not match based on the Java AST. It has a generic AST, defined in `AST_generic.ml` (in `src/ast_generic/`), which all language-specific ASTs are converted to.
 
 The functions for this conversion are in `languages/[LANG]/generic/`. They are named with the appropriate language in a consistent convention.
 

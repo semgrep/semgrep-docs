@@ -131,10 +131,9 @@ build links:
 ```bash
 mkdir -p libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/test/corpus
 mkdir -p libs/ocaml-tree-sitter-semgrep/lang/mylang/test/ok
-ln -s ../Makefile.common libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/Makefile
-ln -s ../prep.common libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/prep
-ln -s ../src/semgrep-mylang libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/lang/mylang
-ln -s ../Makefile.common libs/ocaml-tree-sitter-semgrep/lang/mylang/Makefile
+ln -s libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/Makefile.common libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/Makefile
+ln -s libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/prep.common libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-mylang/prep
+ln -s libs/ocaml-tree-sitter-semgrep/lang/Makefile.common libs/ocaml-tree-sitter-semgrep/lang/mylang/Makefile
 ```
 
 Add representative programs to `libs/ocaml-tree-sitter-semgrep/lang/mylang/test/ok/`, for example,
