@@ -76,7 +76,7 @@ Before you set up SCIM, confirm you have the following:
 Start in Semgrep AppSec Platform, then complete setup in your identity provider using the IdP-specific guide.
 
 <Warning>
-Once a SCIM directory is activated for a deployment, user and team management is locked in Semgrep AppSec Platform. Make user and team changes through your identity provider.
+Once a SCIM directory is activated for a deployment, user management is locked in Semgrep AppSec Platform. Only teams created through SCIM are locked. Make those user and team changes through your identity provider.
 </Warning>
 
 <Steps>
@@ -168,7 +168,7 @@ While this feature is in beta, the following limitations apply:
 
 - SCIM isn't available for single-tenant deployments.
 - Semgrep tested and documented only the Okta and Microsoft Entra ID provisioning workflows. These are the only supported workflows. Other IdPs may work but are not documented or officially supported.
-- Once SCIM is active, you can't manage SSO users or teams through Semgrep AppSec Platform.
+- Once SCIM is active, you can't manage SSO users or SCIM-created teams through Semgrep AppSec Platform. You can still manage teams that weren't created through SCIM.
 - If you assign an existing Semgrep user to the directory, also assign them to a role group for the deployment role you want them to have. Otherwise, Semgrep assigns the default **Member** role.
 - SCIM updates aren't instantaneous. Okta changes can take up to a minute; Entra ID uses a 40-minute provisioning cycle by default unless you **Provision on demand**.
 - Sub-teams and team-managed projects can't be controlled through SCIM.

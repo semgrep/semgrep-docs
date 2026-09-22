@@ -180,7 +180,7 @@ Create one push group per role suffix (`[team:manager]`, `[team:member]`, `[team
 
 - You can assign a user to multiple role-suffixed push groups for the same team. Semgrep assigns the highest-privilege team role among those groups (**Manager**, then **Member**, then **Read-only**).
 - To lower a user's team role, remove them from the higher-privilege group.
-- Changing the role suffix in a group name, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
+- Don't rename the role suffix in a group name. Changing the suffix, such as `[team:manager]` to `[team:readonly]`, isn't supported. It doesn't update members' team roles and can cause unintended behavior.
 - Apply rename and delete operations to all role-suffixed groups for that team.
 
 ### Add or remove team members
@@ -214,7 +214,7 @@ Click the **x** icon next to the user you want to remove.
 
 ### Rename a SCIM-managed team
 
-If you have multiple role-suffixed push groups for one team, update the team name consistently across all of them. Changing the role suffix, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
+If you have multiple role-suffixed push groups for one team, update the team name consistently across all of them. Don't rename the role suffix. Changing the suffix, such as `[team:manager]` to `[team:readonly]`, isn't supported. It doesn't update members' team roles and can cause unintended behavior.
 
 <Steps>
 <Step>
@@ -230,17 +230,20 @@ Change the name, then click **Save**.
 
 ### Delete a SCIM-managed team
 
-Unlinking a push group and deleting it in the target app also deletes the corresponding Semgrep team.
+Semgrep doesn't delete the team until you unlink and delete all role-suffixed push groups that back it. Deleting only one of those groups removes or demotes that group's members. Team deletion can take longer than a minute, especially for large teams.
 
 <Steps>
 <Step>
-Under the **Push Groups** tab, find the group you want to remove.
+Under the **Push Groups** tab, find a role-suffixed group for the team you want to remove.
 </Step>
 <Step>
 Click the **Active** drop-down, then select **Unlink Push Group**.
 </Step>
 <Step>
-Select **Delete the group in the target app** (recommended) to avoid orphaning the team in Semgrep.
+Select **Delete the group in the target app**.
+</Step>
+<Step>
+Repeat for every remaining role-suffixed push group for that team.
 </Step>
 </Steps>
 
@@ -260,8 +263,9 @@ For shared SCIM limitations, see [Limitations](/deployment/scim#limitations). Ok
 - Assign users to the SSO connection before the SCIM app. In a multi-app setup, Okta admins can assign directory users to the SCIM app even if they're not assigned to the corresponding SSO connection. Those users can't sign in through SSO.
 - Disable social auth when using SCIM. If social auth (GitHub or GitLab) remains enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
 - If a user belongs to multiple role-suffixed push groups for the same team, Semgrep assigns the highest-privilege team role among those groups. The user remains on the team until you remove them from all of those groups.
-- Renaming or deleting only one role-suffixed push group renames or deletes the Semgrep team and leaves other role-type groups in Okta unmapped. Always update all role types together.
-- Changing the role suffix in a group name, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
+- Renaming only one role-suffixed push group renames the Semgrep team and leaves other role-type groups in Okta unmapped. Always update all role types together.
+- Semgrep doesn't delete a team until all role-suffixed push groups that back it are deleted. Deleting one group removes or demotes that group's members. Team deletion can take longer than a minute, especially for large teams.
+- Don't rename the role suffix in a group name. Changing the suffix, such as `[team:manager]` to `[team:readonly]`, isn't supported. It doesn't update members' team roles and can cause unintended behavior.
 
 ## See also
 

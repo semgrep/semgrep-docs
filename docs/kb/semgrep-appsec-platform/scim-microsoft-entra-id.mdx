@@ -239,7 +239,7 @@ Create one group per role suffix (`[team:manager]`, `[team:member]`, `[team:read
 
 - You can assign a user to multiple role-suffixed groups for the same team. Semgrep assigns the highest-privilege team role among those groups (**Manager**, then **Member**, then **Read-only**).
 - To lower a user's team role, remove them from the higher-privilege group.
-- Changing the role suffix in a group name, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
+- Don't rename the role suffix in a group name. Changing the suffix, such as `[team:manager]` to `[team:readonly]`, isn't supported. It doesn't update members' team roles and can cause unintended behavior.
 - Apply rename and delete operations to all role-suffixed groups for that team.
 
 ### Add or remove team members
@@ -273,7 +273,7 @@ On the same **Members** page, select the user and click **Remove** in the top me
 
 ### Rename a SCIM-managed team
 
-If you have multiple role-suffixed groups for one team, update the team name consistently across all of them. Changing the role suffix, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
+If you have multiple role-suffixed groups for one team, update the team name consistently across all of them. Don't rename the role suffix. Changing the suffix, such as `[team:manager]` to `[team:readonly]`, isn't supported. It doesn't update members' team roles and can cause unintended behavior.
 
 <Steps>
 <Step>
@@ -292,17 +292,20 @@ Under **General settings**, edit **Group name**, then click **Save**.
 
 ### Delete a SCIM-managed team
 
-Removing the group's assignment from the Semgrep application also removes the corresponding Semgrep team.
+Semgrep doesn't delete the team until you remove all role-suffixed groups that back it. Deleting only one of those groups removes or demotes that group's members. Team deletion can take longer than a minute, especially for large teams.
 
 <Steps>
 <Step>
 Open your Semgrep enterprise application and go to **Users and groups**.
 </Step>
 <Step>
-Select the group you want to remove, then click **Remove assignment**.
+Select a role-suffixed group for the team you want to remove, then click **Remove assignment**.
 </Step>
 <Step>
 Click **Yes** in the confirmation dialog.
+</Step>
+<Step>
+Repeat for every remaining role-suffixed group for that team.
 </Step>
 </Steps>
 
@@ -324,8 +327,9 @@ For shared SCIM limitations, see [Limitations](/deployment/scim#limitations). En
 - Assign users to the SSO connection before the SCIM app. In a multi-app setup, Entra ID admins can assign directory users to the SCIM app even if they're not assigned to the corresponding SSO connection. Those users can't sign in through SSO.
 - Disable social auth when using SCIM. If social auth (GitHub or GitLab) remains enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
 - If a user belongs to multiple role-suffixed groups for the same team, Semgrep assigns the highest-privilege team role among those groups. The user remains on the team until you remove them from all of those groups.
-- Renaming or deleting only one role-suffixed group renames or deletes the Semgrep team and leaves other role-type groups in Entra ID unmapped. Always update all role types together.
-- Changing the role suffix in a group name, such as `[team:manager]` to `[team:readonly]`, doesn't update members' team roles.
+- Renaming only one role-suffixed group renames the Semgrep team and leaves other role-type groups in Entra ID unmapped. Always update all role types together.
+- Semgrep doesn't delete a team until all role-suffixed groups that back it are deleted. Deleting one group removes or demotes that group's members. Team deletion can take longer than a minute, especially for large teams.
+- Don't rename the role suffix in a group name. Changing the suffix, such as `[team:manager]` to `[team:readonly]`, isn't supported. It doesn't update members' team roles and can cause unintended behavior.
 
 ## See also
 
