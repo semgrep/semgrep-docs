@@ -162,6 +162,8 @@ Agentic
 Sendgrid
 [Ss]everities
 Servlets
+SHA
+SHAs
 SLA
 SLAs
 Snyk
