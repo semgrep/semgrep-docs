@@ -41,7 +41,9 @@ Semgrep discourages sharing app or API tokens across a team because:
 
 * Revoking a shared token affects every user who depends on it.
 * Shared credentials are rate-limited as a single user, which can throttle scans when many developers run Guardian concurrently.
-* An API token in `settings.yml` is only used when no OAuth session exists in `guardian.yml`. Prefer OAuth for enterprise rollouts.
+* An API token in `settings.yml` is only used when no OAuth session exists in `guardian.yml`. Prefer OAuth for enterprise deployments.
+
+Prefer OAuth. When developers cannot complete a browser sign-in, deploy Guardian with a read-only token. Semgrep supports this shared credential on Semgrep Enterprise. For more information, see [Deploy with a read-only token](/semgrep-guardian/enterprise-deployment#deploy-with-a-read-only-token-semgrep-enterprise-only).
 
 ## Related pages
 

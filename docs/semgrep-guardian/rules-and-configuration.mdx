@@ -20,6 +20,10 @@ Guardian's hooks run a fixed ruleset rather than reading your Policies configura
 If you require custom rules, see Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack) for assistance.
 </Warning>
 
+## Coverage in the guardian-default ruleset
+
+The `guardian-default` ruleset is based on [`p/default`](https://semgrep.dev/p/default). Semgrep includes a rule only when the agent can apply a fix or a sanitizer. Rules that lack a reliable fix can cause the agent to rewrite code incorrectly, so Semgrep omits them.
+
 ## What Guardian scans for
 
 Guardian scans generated files using Semgrep Code, Supply Chain, and Secrets, so findings can cover:
