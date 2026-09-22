@@ -56,9 +56,9 @@ The Semgrep command line tool supports a `.semgrepignore` file that follows `.gi
 
 In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](/ignoring-files-folders-code).
 
-## Connect to Semgrep Registry through a proxy
+## Connect to Semgrep Registry and other endpoints through a proxy
 
-Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
+Semgrep uses the Python3 `requests` library and OCaml's `cohttp`. Both support proxy settings using the following standard environment variables:
 
 ```bash
 export HTTP_PROXY="HTTP_PROXY_URL"
@@ -73,6 +73,8 @@ export HTTP_PROXY="http://10.10.1.10:3128"
 
 export HTTPS_PROXY="http://10.10.1.10:1080"
 ```
+
+If the proxy environment variables are set but empty, Semgrep treats them as unset and makes direct HTTP requests. If a valid proxy is missing a protocol, Semgrep attempts to add one.
 
 ## Exit codes
 
