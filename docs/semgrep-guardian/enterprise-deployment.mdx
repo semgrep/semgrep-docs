@@ -12,7 +12,7 @@ For individual developer setup, see the [Quickstart](/semgrep-guardian/quickstar
 
 Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet deployments.
 
-When developers cannot sign in individually, deploy Guardian with a read-only token. This requires Semgrep Enterprise. For more information, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only).
+Prefer OAuth, including when you deploy through an MDM platform. When developers cannot complete a browser sign-in, deploy Guardian with a read-only token. This requires Semgrep Enterprise. For more information, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only).
 
 ## Prerequisites
 
@@ -209,11 +209,15 @@ These templates enable the plugin only. To deploy a read-only token, add `SEMGRE
 
 * Test the deployment on a single machine before pushing to the whole fleet.
 * After deploying, confirm that Guardian loaded by running `claude mcp get plugin:semgrep:guardian` and confirming it reports as connected.
-* Each developer signs in to Semgrep once Guardian is installed, unless you deploy a read-only token. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
+* Each developer signs in to Semgrep once Guardian is installed. Deploy a read-only token when developers cannot complete a browser sign-in. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
 ## Deploy with a read-only token (Semgrep Enterprise only)
 
-Use a read-only API token when developers cannot complete a browser sign-in, such as on a managed fleet where you provision credentials through your MDM platform.
+Prefer OAuth, including when you deploy through an MDM platform. Use a read-only API token when developers cannot complete a browser sign-in.
+
+<Warning>
+Every developer in the deployment uses the same read-only token. To replace a compromised token, or to revoke access, deploy a new token first, then revoke the previous one. With OAuth, you can revoke access for an individual developer.
+</Warning>
 
 <Steps>
   <Step title="Create a read-only token">
