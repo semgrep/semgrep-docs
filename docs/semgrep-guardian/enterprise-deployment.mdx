@@ -220,11 +220,11 @@ Use a read-only API token when developers cannot complete a browser sign-in, suc
     Sign in to Semgrep and go to [**Settings > Tokens**](https://semgrep.dev/orgs/-/settings/tokens/api), then set the token scope to read-only. For more information, see [Access tokens](/deployment/tokens#create-an-api-token).
   </Step>
   <Step title="Confirm that the token is read-only">
-    Run a command that requires write access, and confirm that it fails:
+    On a machine with the Semgrep CLI installed, run the following command and confirm that it fails:
 
     <pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">READ_ONLY_TOKEN</span> semgrep ci</code></pre>
 
-    `semgrep ci` uploads findings to Semgrep AppSec Platform, so the command fails with a read-only token. If the command succeeds, return to the previous step and create a token with the read-only scope.
+    `semgrep ci` runs on your machine and sends findings to Semgrep AppSec Platform. A read-only token cannot send findings, so the command fails. If the command succeeds, return to the previous step and create a token with the read-only scope.
   </Step>
   <Step title="Set the environment variables on each developer machine">
     Set these environment variables:
