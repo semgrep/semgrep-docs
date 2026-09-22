@@ -1168,7 +1168,7 @@
     },
     {
       "source": "/api-reference/MiscService",
-      "destination": "/api-reference/v1/miscservice/ping"
+      "destination": "/api-reference/v1/Introduction"
     },
     {
       "source": "/api-reference/PoliciesService",
@@ -1209,10 +1209,6 @@
     {
       "source": "/api-reference/findingsservice/:slug*",
       "destination": "/api-reference/v1/findingsservice/:slug*"
-    },
-    {
-      "source": "/api-reference/miscservice/:slug*",
-      "destination": "/api-reference/v1/miscservice/:slug*"
     },
     {
       "source": "/api-reference/policiesservice/:slug*",

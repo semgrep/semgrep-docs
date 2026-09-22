@@ -162,6 +162,8 @@ Agentic
 Sendgrid
 [Ss]everities
 Servlets
+SHA
+SHAs
 SLA
 SLAs
 Snyk
@@ -177,6 +179,7 @@ subpages
 [Ss]ubteams
 superceded
 
+Tree-sitter
 [Tt]imeframe
 tokenizes
 [Tt]ooltip
