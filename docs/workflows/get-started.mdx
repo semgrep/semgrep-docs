@@ -58,6 +58,8 @@ After the run completes, review the results in Semgrep AppSec Platform to see th
 
 Agentic Workflows produces [issues](/workflows/overview#how-agentic-workflows-work): deduplicated results you review in Semgrep AppSec Platform. Issues are separate from Semgrep Code, Semgrep Supply Chain, and Secrets findings. Actions taken on an Agentic Workflows issue do not change the status of a related finding from another Semgrep product.
 
+**Workflow jobs** and **Workflow issues** lists, including groups and counts, show only jobs and issues for projects or repositories you can access. On deployments that use [Teams](/deployment/teams/overview), ticket creation follows the same scope as triage.
+
 To review issues for a project:
 
 1. In Semgrep AppSec Platform, go to **Projects**.
@@ -70,6 +72,15 @@ To review issues across your organization:
 3. Select an issue to open its **Details** page and review the evidence, affected repository and code, workflow run, and issue status.
 
 You can triage an issue from the dropdown on the issues list or from the drop-down menu next to the issue title on the **Details** page.
+
+### Export issues
+
+
+On **Workflows > Issues**, click the **<Icon icon="download" iconType="regular"/> icon** near **Group and sort** to export issues to a **CSV** file.
+
+Exports respect the filters and sorting applied on the page, and are limited to 10,000 issues at a time. If more than 10,000 issues match your filters, narrow the filters until export is available.
+
+You can also export issues through the experimental [Issues export API](/api-reference/v2/issuesservice/export-issues). See [API access](#api-access).
 
 ### Notifications and integrations
 

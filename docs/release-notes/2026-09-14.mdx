@@ -1,0 +1,36 @@
+---
+title: "Week of September 14, 2026"
+description: "Updates made to Semgrep during the week of September 14-20, 2026."
+sidebarTitle: "Week of September 14, 2026"
+---
+
+## 🛡️ Semgrep Guardian
+
+### Added
+
+- [Semgrep Guardian](/semgrep-guardian/overview) now reports status in your AI coding agent. It confirms when it is set up and running, summarizes what was scanned and what was found when the agent finishes a turn, and shows sign-in requirements and server errors.
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- You can [export Agentic Workflows issues as CSV](/workflows/get-started#export-issues) from the **Issues** page and through the public API.
+- When you view an older [Agentic Workflows](/workflows/overview) run, Semgrep now shows a banner that links to the newest run of the same workflow on that branch.
+
+### Fixed
+
+- Fixed an issue where an [Agentic Workflows](/workflows/overview) issue could show code snippets and links from the wrong repository in the same deployment.
+- Fixed an issue where scheduled [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) scans used the source code manager default branch instead of the branch configured for [Semgrep Managed Scans](/deployment/managed-scanning/overview). AI-powered detection now uses the configured branches, falling back to the project primary branch when needed.
+
+## 🌐 Semgrep AppSec Platform
+
+### Fixed
+
+- Fixed an issue where [Autofix](/semgrep-code/triage-remediation/autofix) reported a missing AWS Bedrock provider when [Semgrep Multimodal](/semgrep-multimodal/overview) was disabled. The message now refers to the Semgrep Multimodal setting and directs you to **Settings**.
+- Fixed an issue where branch checks failed for deployments connected through the [Semgrep Network Broker](/semgrep-ci/network-broker) or a private-link gateway when the branch name contained a slash.
+
+## ⛓️ Semgrep Supply Chain
+
+### Changed
+
+- Improved the performance of scan configuration requests.
