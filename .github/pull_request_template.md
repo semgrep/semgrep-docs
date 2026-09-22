@@ -1,10 +1,21 @@
-### Thanks for improving Semgrep Docs
+### Summary
 
-Please ensure:
+<!-- Briefly describe what changed and why. Link any related Linear issues, product specs, or Slack threads. -->
 
-- [ ] A subject matter expert reviews the content
-- [ ] A technical writer reviews the PR
-- [ ] This change has no security implications or else you have pinged the security team
-- [ ] Any redirects are in `docs/docs.json` if URLs changed
-- [ ] If you edited `docs/extensions/pre-commit.md.template.mdx`, CI regenerates `pre-commit.mdx` on this PR (no manual `run-build-scripts` needed)
-- [ ] Check the **Mintlify** bot preview link on this PR (requires PR to `main`)
+### Review checklist
+
+#### Required
+
+* [ ] A subject matter expert reviewed the technical content
+* [ ] A technical writer reviewed the PR
+* [ ] I checked the Mintlify preview for this PR (available for PRs targeting `main`)
+* [ ] This change has no security implications, or I requested a review from the Security team
+
+#### If applicable
+
+* [ ] **Moved, renamed, or removed a published page:** I added a redirect in `docs/docs.json`
+* [ ] **Added a page:** I added it under `docs/` and registered it in the `docs/docs.json` navigation
+* [ ] **Renamed a linked heading:** I preserved the previous anchor with `{#previous-slug}` or updated all links to `/path#previous-slug` in this repository
+* [ ] **Edited `docs/extensions/pre-commit.md.template.mdx`:** I confirmed that CI regenerated `pre-commit.mdx`
+
+<!-- CI validates redirects and internal links. -->
