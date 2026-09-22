@@ -232,9 +232,9 @@ Use a read-only API token when developers cannot complete a browser sign-in, suc
     | Variable | Value |
     | :--- | :--- |
     | `SEMGREP_APP_TOKEN` | The read-only token. |
-    | `SEMGREP_GUARDIAN_EMAIL` | The email address of the developer who uses the machine. Semgrep uses this address to attribute Guardian activity to that developer. |
+    | `SEMGREP_GUARDIAN_EMAIL` | The email address of the developer who uses the machine. |
 
-    You deploy the same token to every machine. If you omit `SEMGREP_GUARDIAN_EMAIL`, Semgrep cannot attribute activity to each developer, and per-user metrics are limited.
+    You deploy the same token to every machine. Set `SEMGREP_GUARDIAN_EMAIL` on each machine.
 
     Many MDM platforms provide a payload variable for the assigned user's email address, so you can deploy one profile to the fleet. See your MDM provider's documentation for the variable name.
   </Step>
