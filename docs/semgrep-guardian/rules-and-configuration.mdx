@@ -22,11 +22,11 @@ If you require custom rules, see Semgrep's `#mcp` [Slack community](https://go.s
 
 ## Coverage in the guardian-default ruleset
 
-The `guardian-default` ruleset draws on [`p/default`](https://semgrep.dev/p/default) and favors rules where a fix or a sanitizer is always available for the agent to apply. Rules without a reliable fix can lead an agent to rewrite code incorrectly, so they stay out of the ruleset.
+The `guardian-default` ruleset is based on [`p/default`](https://semgrep.dev/p/default). Semgrep includes a rule only when the agent can apply a fix or a sanitizer. Rules that lack a reliable fix can cause the agent to rewrite code incorrectly, so Semgrep omits them.
 
-Coverage is strongest for Python, Java, JavaScript, and TypeScript. Semgrep recently audited and expanded the ruleset, so if you have run Guardian before, expect more findings than in earlier versions.
+Coverage is strongest for Python, Java, JavaScript, and TypeScript. If you have used an earlier version of Guardian, you may see more findings. The ruleset includes more rules than those versions.
 
-If your agent does something that Guardian does not catch, report it in the `#mcp` [Slack community](https://go.semgrep.dev/slack) so that Semgrep can consider it for coverage.
+If Guardian does not detect an issue that your agent introduces, report it in the `#mcp` [Slack community](https://go.semgrep.dev/slack) so Semgrep can evaluate it for the ruleset.
 
 ## What Guardian scans for
 

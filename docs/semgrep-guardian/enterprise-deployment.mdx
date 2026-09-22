@@ -8,17 +8,17 @@ To deploy Semgrep Guardian organization-wide, configure each developer's coding 
 
 For individual developer setup, see the [Quickstart](/semgrep-guardian/quickstart).
 
-## Before you roll out
+## Before you deploy
 
-Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet rollouts.
+Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet deployments.
 
-If individual logins are not an option for your fleet, you can roll out Guardian with a read-only token instead. This approach requires Semgrep Enterprise. For more information, see [Roll out with a read-only token](#roll-out-with-a-read-only-token-semgrep-enterprise-only).
+When developers cannot sign in individually, deploy Guardian with a read-only token. This requires Semgrep Enterprise. For more information, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only).
 
 ## Prerequisites
 
 - You have a Semgrep account and organization.
 - You are an admin for your coding agent's enterprise controls and your MDM platform, if applicable.
-- Claude Code is the recommended setup for organization-wide rollout.
+- Claude Code is the recommended setup for organization-wide deployment.
 
 ## Option 1: Use your agent's built-in enterprise controls
 
@@ -63,7 +63,7 @@ Many coding agents let you pin an approved marketplace or plugin for your whole 
         * **Default On**: the plugin is installed by default, but developers can opt out.
         * **Required**: the plugin is always installed and cannot be uninstalled.
 
-        For an enforced rollout, choose **Required**.
+        For an enforced deployment, choose **Required**.
       </Step>
       <Step title="Confirm the plugin is connected">
         Open **Customize** in the Cursor sidebar and confirm that the Semgrep plugin appears under the team scope and that its MCP server is toggled on.
@@ -77,7 +77,7 @@ Many coding agents let you pin an approved marketplace or plugin for your whole 
 
 ## Option 2: Deploy through a mobile device management (MDM) platform
 
-Deploy through your MDM platform to scope rollout by device group. These templates configure Claude Code only. To roll out Guardian to Cursor, use [Option 1](#option-1-use-your-agents-built-in-enterprise-controls).
+Deploy through your MDM platform to scope the deployment by device group. These templates configure Claude Code only. To deploy Guardian to Cursor, use [Option 1](#option-1-use-your-agents-built-in-enterprise-controls).
 
 <Warning>
 These are community-maintained templates and may be unsupported or incorrect. You are responsible for verifying the configuration before deploying it to a fleet.
@@ -202,48 +202,46 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
 </Tabs>
 
 <Note>
-These templates only enable the plugin. If you roll out with a read-only token, add `SEMGREP_APP_TOKEN` and `SEMGREP_GUARDIAN_EMAIL` to the same managed settings payload. For the values, see [Roll out with a read-only token](#roll-out-with-a-read-only-token-semgrep-enterprise-only). For the `env` key that contains environment variables, see [Claude Code settings](https://code.claude.com/docs/en/settings).
+These templates enable the plugin only. To deploy a read-only token, add `SEMGREP_APP_TOKEN` and `SEMGREP_GUARDIAN_EMAIL` to the same managed settings payload. For the values, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only). For the `env` key, see [Claude Code settings](https://code.claude.com/docs/en/settings).
 </Note>
 
 ## Deployment recommendations
 
-* Test the rollout on a single machine before pushing to the whole fleet.
+* Test the deployment on a single machine before pushing to the whole fleet.
 * After deploying, confirm that Guardian loaded by running `claude mcp get plugin:semgrep:guardian` and confirming it reports as connected.
-* Users still need to log in to Semgrep once Guardian is installed. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
+* Each developer signs in to Semgrep once Guardian is installed, unless you deploy a read-only token. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
-## Roll out with a read-only token (Semgrep Enterprise only)
+## Deploy with a read-only token (Semgrep Enterprise only)
 
-Read-only API tokens are a supported authorization option for Guardian rollouts. Use one when each developer cannot complete an individual browser login, such as on a managed fleet where you provision credentials through your MDM platform.
-
-To roll out Guardian with a read-only token, follow these steps:
+Use a read-only API token when developers cannot complete a browser sign-in, such as on a managed fleet where you provision credentials through your MDM platform.
 
 <Steps>
   <Step title="Create a read-only token">
     Sign in to Semgrep and go to [**Settings > Tokens**](https://semgrep.dev/orgs/-/settings/tokens/api), then set the token scope to read-only. For more information, see [Access tokens](/deployment/tokens#create-an-api-token).
   </Step>
   <Step title="Confirm that the token is read-only">
-    Run a command that requires write access and confirm that it fails:
+    Run a command that requires write access, and confirm that it fails:
 
     <pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">READ_ONLY_TOKEN</span> semgrep ci</code></pre>
 
-    A read-only token cannot send findings to Semgrep AppSec Platform, so this command must fail. If it succeeds, the token grants more than read access. Return to the previous step and create a token with the read-only scope.
+    `semgrep ci` uploads findings to Semgrep AppSec Platform, so the command fails with a read-only token. If the command succeeds, return to the previous step and create a token with the read-only scope.
   </Step>
   <Step title="Set the environment variables on each developer machine">
-    Configure both of the following environment variables:
+    Set these environment variables:
 
     | Variable | Value |
     | :--- | :--- |
-    | `SEMGREP_APP_TOKEN` | The read-only token you created. |
-    | `SEMGREP_GUARDIAN_EMAIL` | The email address of the developer assigned to the machine. Semgrep uses this address to attribute Guardian activity to an individual user. |
+    | `SEMGREP_APP_TOKEN` | The read-only token. |
+    | `SEMGREP_GUARDIAN_EMAIL` | The email address of the developer who uses the machine. Semgrep uses this address to attribute Guardian activity to that developer. |
 
-    You share one read-only token across your fleet, so omitting `SEMGREP_GUARDIAN_EMAIL` prevents Semgrep from attributing activity to an individual developer, which limits per-user metrics.
+    You deploy the same token to every machine. If you omit `SEMGREP_GUARDIAN_EMAIL`, Semgrep cannot attribute activity to each developer, and per-user metrics are limited.
 
-    Many MDM platforms provide a payload variable that resolves to the assigned user's email address, which lets you deploy a single profile across the fleet. Check your MDM provider's documentation for the variable it supports.
+    Many MDM platforms provide a payload variable for the assigned user's email address, so you can deploy one profile to the fleet. See your MDM provider's documentation for the variable name.
   </Step>
 </Steps>
 
 [Contact Semgrep](/support) if you have questions about which approach fits your organization.
 
-## Get help with a custom rollout
+## Get help with a custom deployment
 
 [Contact Semgrep](/support) or send a message to the [#mcp channel on Slack](https://go.semgrep.dev/slack) if you would like help building something custom for your MDM or agent fleet.
