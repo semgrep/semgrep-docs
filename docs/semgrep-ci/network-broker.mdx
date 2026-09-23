@@ -147,7 +147,7 @@ semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
 
 Note that arrays are replaced, while maps are merged.
 
-The `scms` list in v0.47.0 and later is an exception: it is merged rather than replaced. Entries that share a `type` and `baseUrl` merge the way maps do, so a later file can set `token` or `allowCodeAccess` on an entry an earlier file defined. All other entries are kept.
+The `scms` list in v0.47.0 and later is an exception. The broker matches entries that have the same `type` and `baseUrl` and combines them into one entry. It keeps a key that only one file sets, such as `token`. If both files set the same key, it uses the value from the later file. Entries with a different `type` or `baseUrl` are both kept. A later file does not replace the list.
 
 ### Generate a keypair
 
