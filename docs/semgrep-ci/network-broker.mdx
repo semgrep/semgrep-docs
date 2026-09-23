@@ -81,7 +81,7 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
         baseUrl: YOUR_BASE_URL
 ```
 
-`scms` is a list with one entry for each SCM instance. Each entry sets its own `type`, so you can add several instances of the same SCM. See [Allowlist multiple source code managers with one configuration file](#allowlist-multiple-source-code-managers-with-one-configuration-file).
+`scms` is a list with one entry for each SCM instance. See [Allowlist multiple source code managers with one configuration file](#allowlist-multiple-source-code-managers-with-one-configuration-file).
 
 The SCM-specific keys shown in the other tabs, such as `gitlab`, still work in v0.47.0 and later.
 
@@ -147,7 +147,7 @@ semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
 
 Note that arrays are replaced, while maps are merged.
 
-The `scms` list in v0.47.0 and later is an exception. The broker matches entries that have the same `type` and `baseUrl` and combines them into one entry. It keeps a key that only one file sets, such as `token`. If both files set the same key, it uses the value from the later file. Entries with a different `type` or `baseUrl` are both kept. A later file does not replace the list.
+The `scms` list in v0.47.0 and later is an exception: it is merged rather than replaced. Entries that share a `type` and `baseUrl` merge the way maps do, so a later file can set `token` or `allowCodeAccess` on an entry an earlier file defined. All other entries are kept.
 
 ### Generate a keypair
 
@@ -286,7 +286,7 @@ Note the following behavior:
 
 Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL for Azure DevOps, GitHub, GitLab, or Bitbucket Data Center.
 
-If you use the `scms` key with an SCM list, available in v0.47.0 and later, set each entry's `type` to the key shown in the tab for your SCM: either `azuredevops`, `bitbucket`, `github`, or `gitlab`. Set its `baseUrl` to the base URL value shown in that same tab.
+If you use the `scms` key with an SCM list, available in v0.47.0 and later, set each entry's `type` to `azuredevops`, `bitbucket`, `github`, or `gitlab`, and set its `baseUrl` to that same base URL.
 
 <Tabs>
 <Tab title="Azure DevOps">
@@ -521,7 +521,7 @@ Do not attempt to run multiple instances of Semgrep Network Broker to increase a
 
 ## Allowlist multiple source code managers with one configuration file
 
-It is possible to allow access to multiple source code managers (SCM) within a single configuration file.
+You can allow access to multiple source code managers (SCM) within a single configuration file.
 
 <Tabs>
 <Tab title="v0.47.0 and later">
