@@ -81,7 +81,7 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
         baseUrl: YOUR_BASE_URL
 ```
 
-`scms` is a list with one entry for each SCM instance. See [Allowlist multiple source code managers with one configuration file](#allowlist-multiple-source-code-managers-with-one-configuration-file).
+For more than one SCM instance, see [Allowlist multiple source code managers with one configuration file](#allowlist-multiple-source-code-managers-with-one-configuration-file).
 
 The SCM-specific keys shown in the other tabs, such as `gitlab`, are still supported.
 
@@ -540,7 +540,7 @@ inbound:
       baseUrl: https://GITLAB_BASE_URL/api/v4
 ```
 
-Each entry requires `type` and `baseUrl`. It also accepts `token` and `allowCodeAccess`, which apply only to that entry. The broker allows the same endpoints for each entry that it allows for the matching [SCM-specific key](/semgrep-ci/network-broker#update-the-config-with-your-scm-information).
+Each entry requires `type` and `baseUrl`, and accepts `token` and `allowCodeAccess`. See the [broker README](https://github.com/semgrep/semgrep-network-broker?tab=readme-ov-file) for the endpoints each SCM type allows.
 
 You can use both `scms` and SCM-specific keys, such as `github`, as long as the same instance is not named twice. The broker exits with an error at startup in the following cases:
 
