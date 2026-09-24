@@ -4,9 +4,11 @@ title: "Web API error 404 and token scopes"
 
 If you receive a 404 error from the [Semgrep Web API](/api-reference/v1/Introduction), and you are sure the deployment, API endpoint, and other details are correct, you may be trying to use a token that does not have the **Web API** scope assigned.
 
-Semgrep AppSec Platform supports two primary token scopes: **Agent (CI)** and **Web API**. See [Token scopes](/deployment/tokens#token-scopes) for details of their permissions.
+Semgrep AppSec Platform supports two primary token scopes: **Agent (CI)** and **Web API**. When you create either scope, you can also assign a **read-only** role so the token can call only the read APIs. See [Token scopes](/deployment/tokens#token-scopes) for details of their permissions.
 
 Tokens with only the **Agent (CI)** scope can connect scans with the platform to request rules, send findings, and post PR/MR comments, but they cannot use the Web API. They are intended for use locally or in CI.
+
+A **read-only** Web API token can authenticate to the Web API for read endpoints. It cannot perform write or mutate operations. If you need write access, create a new token with full Web API permission. You cannot change a read-only token's role after creation.
 
 ## Add scopes to a token
 
@@ -25,3 +27,5 @@ You must be an `admin` to perform this operation. Member users cannot access tok
 </Steps>
 
 If the token does not appear in the **API Tokens** section, it is a Member-scoped CLI token whose permissions cannot be escalated. Create a new token on the Settings page instead, and make sure to check the **Web API** box.
+
+If the token is read-only, you cannot escalate it to full Web API access. Create a new token with the scopes you need instead.
