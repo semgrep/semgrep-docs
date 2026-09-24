@@ -17,6 +17,31 @@ are labeled; documentation-only edits are not listed.
   find the feed automatically.
 </Note>
 
+<Update label="September 22, 2026" description="2 breaking · 4 other changes" tags={["Breaking"]} rss={{ title: "Semgrep API v1 — September 22, 2026", description: "2 breaking and 4 other changes across 3 endpoints." }}>
+**Breaking changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="red" size="sm">Removed</Badge> | api path removed without deprecation | <Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/bootstrap-sms-vpc</Badge> |
+| <Badge color="red" size="sm">Removed</Badge> | api path removed without deprecation | <Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/ping</Badge> |
+
+</div>
+
+**Changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="green" size="sm">Added</Badge> | added the new `SCM_TYPE_CODE_STORAGE`, `SCM_TYPE_CURSOR_ORIGIN` enum values to the `findings[].repository.scmType` response property for the response status `200` | <a href="/api-reference/v1/secretsservice/list-secrets" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/secrets</Badge></a> |
+| <Badge color="red" size="sm">Removed</Badge> | removed the schema `protos.openapi.v1.GetBootstrapSmsVpcResponse` | — |
+| <Badge color="red" size="sm">Removed</Badge> | removed the schema `protos.openapi.v1.PingResponse` | — |
+
+</div>
+</Update>
+
 <Update label="August 31, 2026" description="1 breaking · 3 other changes" tags={["Breaking"]} rss={{ title: "Semgrep API v1 — August 31, 2026", description: "1 breaking and 3 other changes across 2 endpoints." }}>
 **Breaking changes**
 
