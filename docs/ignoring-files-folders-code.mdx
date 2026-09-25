@@ -24,6 +24,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 
 * Semgrep's default `.semgrepignore` file
 * Your repository's `.gitignore` file (if it exists)
+  - If a file present in the repository's `.gitignore` is currently committed and tracked, Semgrep will scan that file.
 * For Semgrep AppSec Platform users: each project (repository or subfolder in monorepo) in Semgrep has a list of ignored files and folders in its project details page.
 
 In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
@@ -123,6 +124,7 @@ For Secrets scans, Semgrep ignores both the default and user-defined `.semgrepig
 
 * "Character range" patterns (lines including a collection of characters inside brackets) are unsupported.
 * An `:include ...` directive is added, which allows another file to be included in the ignore pattern list; typically this included file would be the project `.gitignore`. No attempt at cycle detection is made.
+  - If a file is already tracked by Git, including `.gitignore` in `.semgrepignore` does not exclude it, even if the file is listed in `.gitignore`. Add the file directly to `.semgrepignore` instead.
 * Any line that begins with a colon, but not `:include`, raises an error.
 * `\:` is added to escape leading colons.
 
