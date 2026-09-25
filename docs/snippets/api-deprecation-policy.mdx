@@ -21,7 +21,7 @@ Each endpoint's maturity is shown as a badge in the API reference and as a badge
 
 ### What counts as a breaking change
 
-On a stable endpoint, Semgrep does not do any of the following without the full notice period:
+Semgrep considers the following to be breaking changes:
 
 - Remove or rename the endpoint, or change its URL path or HTTP method.
 - Remove or rename a field in a response, whether or not that field is optional.
@@ -29,7 +29,7 @@ On a stable endpoint, Semgrep does not do any of the following without the full 
 - Add a new required request parameter, or make an existing optional one required.
 - Change the meaning of an existing field without changing its name.
 
-Semgrep may make the following changes at any time, so build your integration to tolerate them:
+Semgrep may make the following non-breaking changes at any time, so build your integration to tolerate them:
 
 - Add a new endpoint, or a new optional request parameter.
 - Add a new field to a response. Parse responses so that unrecognized fields are ignored rather than treated as an error.
@@ -39,7 +39,7 @@ Semgrep may make the following changes at any time, so build your integration to
 
 ### Exception: unavoidable urgent changes
 
-If continuing to support an endpoint, field, or other aspect of API behavior would expose customer data, create a security risk, or violate an obligation, Semgrep may make changes with less notice than described above, or in rare cases without notice.
+If Semgrep assesses that continuing to support an endpoint, field, or other aspect of API behavior would expose customer data, create a security risk, or have other serious impacts, Semgrep may make changes with less notice than described above, or in rare cases without notice.
 
 Semgrep will not invoke this exception lightly. When invoked, Semgrep will communicate what changed and why as soon as possible.
 
