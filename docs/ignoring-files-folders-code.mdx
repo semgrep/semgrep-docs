@@ -124,7 +124,7 @@ For Secrets scans, Semgrep ignores both the default and user-defined `.semgrepig
 
 * "Character range" patterns (lines including a collection of characters inside brackets) are unsupported.
 * An `:include ...` directive is added, which allows another file to be included in the ignore pattern list; typically this included file would be the project `.gitignore`. No attempt at cycle detection is made.
-  - If a file that is already committed and tracked is in the project `.gitignore,` including `.gitignore` in `.semgrepignore` will not exclude that file. Add the file directly to the `.semgrepignore` to exclude it.
+  - If a file is already tracked by Git, including `.gitignore` in `.semgrepignore` does not exclude it, even if the file is listed in `.gitignore`. Add the file directly to `.semgrepignore` instead.
 * Any line that begins with a colon, but not `:include`, raises an error.
 * `\:` is added to escape leading colons.
 
