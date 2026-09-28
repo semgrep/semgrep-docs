@@ -1054,6 +1054,7 @@
                   {
                     "group": "2026",
                     "pages": [
+                      "release-notes/2026-09-21",
                       "release-notes/2026-09-14",
                       "release-notes/2026-09-07",
                       "release-notes/2026-08-31",
@@ -1154,7 +1155,7 @@
   "redirects": [
     {
       "source": "/release-notes",
-      "destination": "/release-notes/2026-09-14"
+      "destination": "/release-notes/2026-09-21"
     },
     {
       "source": "/docs/:slug*",
