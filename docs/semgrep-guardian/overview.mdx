@@ -6,7 +6,7 @@ sidebarTitle: Overview
 
 Semgrep Guardian integrates natively with AI coding agents to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets.
 
-When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+When findings are detected, Guardian returns them to the agent, which decides whether to regenerate the code.
 
 ## How Guardian works
 
@@ -15,7 +15,7 @@ Guardian runs at authoring time, on the developer's machine, rather than in CI:
 1. Your coding agent writes or edits a file.
 2. A hook (or an MCP tool call, depending on the integration) triggers a Semgrep scan of what the agent just generated.
 3. If Semgrep returns findings, the agent receives them and is prompted to regenerate the code.
-4. The loop repeats until the scan is clean or you dismiss the findings.
+4. The agent decides whether to regenerate. If it does, the new code is scanned again.
 
 Because the scan happens before the code is committed, Guardian complements rather than replaces your CI and platform scans. For scanning repositories in CI, see [Set up and deploy scans](/deployment/checklist).
 
