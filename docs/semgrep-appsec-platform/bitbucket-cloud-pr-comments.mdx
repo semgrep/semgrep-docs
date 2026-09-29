@@ -53,7 +53,7 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 
 <Steps>
 <Step>
-Create a workspace access token in Bitbucket with **Read** and **Write** permissions for the **Pull requests** scope. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/create-a-workspace-access-token/) in Bitbucket documentation.
+Create a workspace access token in Bitbucket with the `Pull requests: Write` scope. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/create-a-workspace-access-token/) in Bitbucket documentation.
 </Step>
 <Step>
 Add the workspace access token as a workspace variable with the **Secured** option.
@@ -77,7 +77,7 @@ This section helps you to configure PR comments if you do **not** have a Bitbuck
 Fulfill these general steps to create a repository access token:
 <Steps>
 <Step>
-Create a repository access token in Bitbucket with **Read** and **Write** permissions for the **Pull requests** scope. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/create-a-repository-access-token/) in Bitbucket documentation.
+Create a repository access token in Bitbucket with the `Pull requests: Write` scope. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/create-a-repository-access-token/) in Bitbucket documentation.
 </Step>
 <Step>
 Add the repository access token as a repository variable with the **Secured** option.
@@ -122,11 +122,11 @@ Log in to Bitbucket using an account assigned with the **Product Admin** role.
 </Step>
 <Step>
 [Create a workspace access token](https://support.atlassian.com/bitbucket-cloud/workspace-access-tokens/). Ensure that you assign the following scopes to the token:
-   - `webhook (read and write)`
-   - `repository (read and write)`
-   - `pullrequest (read and write)`
-   - `project (admin)`
-   - `account (read)`
+   - `Webhooks: Read and write`
+   - `Repositories: Write`
+   - `Pull requests: Write`
+   - `Projects: Admin`
+   - `Account: Read`
 </Step>
 <Step>
 Return to Semgrep and [<Icon icon="external-link" iconType="solid"/> sign in](https://semgrep.dev/login).
