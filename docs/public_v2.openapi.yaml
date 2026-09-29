@@ -7710,19 +7710,6 @@ components:
                     format: enum
                 note:
                     type: string
-        protos.ai.v1.Codeowner:
-            type: object
-            properties:
-                id:
-                    type: string
-                name:
-                    type: string
-                isTeam:
-                    type: boolean
-                members:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.ai.v1.Codeowner'
         protos.ai.v1.CreateAutofixRequest:
             type: object
             properties: {}
@@ -11654,10 +11641,6 @@ components:
                 refUrl:
                     type: string
                     description: The URL of the specific commit which introduced this issue. Only available when fetching a single issue at a time via the GetIssue RPC.
-                codeowners:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.ai.v1.Codeowner'
                 codeSnippets:
                     type: array
                     items:
