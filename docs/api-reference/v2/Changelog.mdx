@@ -17,6 +17,30 @@ are labeled; documentation-only edits are not listed.
   find the feed automatically.
 </Note>
 
+<Update label="September 29, 2026" description="3 potentially breaking · 1 other change" tags={["Potentially breaking"]} rss={{ title: "Semgrep API v2 — September 29, 2026", description: "3 potentially breaking and 1 other change across 3 endpoints." }}>
+**Potentially breaking changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="red" size="sm">Removed</Badge> | removed the optional property `issues[].issue.codeowners` from the response with the `200` status | <a href="/api-reference/v2/issuesservice/list-issues" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues</Badge></a> |
+| <Badge color="red" size="sm">Removed</Badge> | removed the optional property `codeowners` from the response with the `200` status | <a href="/api-reference/v2/issuesservice/get-issue" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues<wbr/>/v2<wbr/>/&#123;issueId&#125;</Badge></a> |
+| <Badge color="red" size="sm">Removed</Badge> | removed the optional property `findings[].codeowners` from the response with the `200` status | <a href="/api-reference/v2/reportsservice/get-report-findings" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/reporting<wbr/>/&#123;deploymentId&#125;<wbr/>/findings</Badge></a> |
+
+</div>
+
+**Changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="red" size="sm">Removed</Badge> | removed the schema `protos.ai.v1.Codeowner` | — |
+
+</div>
+</Update>
+
 <Update label="September 22, 2026" description="23 breaking · 144 other changes" tags={["Breaking"]} rss={{ title: "Semgrep API v2 — September 22, 2026", description: "23 breaking and 144 other changes across 56 endpoints." }}>
 **Breaking changes**
 
