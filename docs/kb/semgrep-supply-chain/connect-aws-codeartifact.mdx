@@ -1,0 +1,228 @@
+---
+title: Connect an AWS CodeArtifact registry to Semgrep
+description: Give Semgrep read access to a private Maven repository in AWS CodeArtifact by creating an IAM role that Semgrep assumes.
+---
+
+If your Maven or Gradle dependencies live in a private AWS CodeArtifact repository, connect it to Semgrep so [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) can resolve them during [Managed Scans](/deployment/managed-scanning/overview). Semgrep doesn't store AWS keys for CodeArtifact. Instead, you create an IAM role in your AWS account, and Semgrep assumes that role to get short-lived CodeArtifact tokens when it needs them.
+
+## How it works
+
+1. You add the CodeArtifact repository in Semgrep and save it. Semgrep then shows two values: an **External ID** and a **Semgrep role ARN**.
+2. You create an IAM role named `SemgrepCodeArtifactAccess` in your AWS account. Its trust policy allows the Semgrep role ARN to assume it, but only with your External ID.
+3. When a scan needs your packages, Semgrep assumes the role, requests a CodeArtifact authorization token, and uses it to download dependencies. Tokens expire after two hours.
+
+The External ID prevents another Semgrep customer who learns your role ARN from getting Semgrep to access your registry on their behalf. AWS calls this the confused deputy problem. Semgrep generates one External ID per Semgrep organization, and it never changes.
+
+To learn more about External IDs, see AWS's [The confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html) and [Securely using external ID for accessing AWS accounts owned by others](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/).
+
+## Prerequisites
+
+- A Maven repository in AWS CodeArtifact.
+- Permission in your AWS account to create IAM roles and policies.
+
+## Step 1: Find your repository URL
+
+Semgrep needs the repository's Maven endpoint. It looks like this:
+
+```
+https://DOMAIN-ACCOUNT_ID.d.codeartifact.REGION.amazonaws.com/maven/REPOSITORY/
+```
+
+To find it, open the repository in the AWS CodeArtifact console and click **View connection instructions**, or run:
+
+```bash
+aws codeartifact get-repository-endpoint \
+  --domain DOMAIN --domain-owner ACCOUNT_ID --repository REPOSITORY \
+  --format maven --query repositoryEndpoint --output text
+```
+
+## Step 2: Add the registry in Semgrep and save it
+
+Semgrep generates the External ID when you save the registry, so save it before you create the IAM role.
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [**Settings > Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
+</Step>
+<Step>
+Click **Add**, then select **Registry**.
+</Step>
+<Step>
+Enter a **Name**, select **Maven** as the **Package manager**, and paste your repository URL from Step 1.
+</Step>
+<Step>
+Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL.
+</Step>
+<Step>
+In **IAM role ARN**, enter the ARN of the role you'll create in Step 3:
+
+```
+arn:aws:iam::ACCOUNT_ID:role/SemgrepCodeArtifactAccess
+```
+
+The role doesn't need to exist yet. Semgrep doesn't contact AWS when you save.
+
+{/* Screenshot: the registry drawer before saving. Show the URL filled in with a CodeArtifact URL, "AWS CodeArtifact (IAM role)" selected, the IAM role ARN filled in, and the External ID field still empty with its "Generated when you save this registry" placeholder. Blur or use a fake account ID. */}
+</Step>
+<Step>
+Click **Connect**. The drawer stays open and now shows your **External ID** and the **Semgrep role ARN**.
+
+{/* Screenshot: the same drawer right after saving. Show the External ID and Semgrep role ARN fields filled in, with their copy buttons, and the "Add both values to your IAM role's trust policy." note under them. Blur the External ID or use a fake one. */}
+</Step>
+<Step>
+Copy both values. You need them in the next step. You can find them again later by opening the registry from **Settings > Integrations**.
+</Step>
+</Steps>
+
+## Step 3: Create the IAM role in AWS
+
+<Warning>
+Name the role exactly `SemgrepCodeArtifactAccess` and create it at the root path, without a custom path such as `/semgrep/`. Semgrep only assumes roles with this exact name, so a role with any other name fails when a scan runs, even though the registry saves without an error.
+</Warning>
+
+### Trust policy
+
+Replace `SEMGREP_ROLE_ARN` and `EXTERNAL_ID` with the values from Step 2:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "AWS": "SEMGREP_ROLE_ARN" },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": { "sts:ExternalId": "EXTERNAL_ID" }
+      }
+    }
+  ]
+}
+```
+
+<Warning>
+Keep the `sts:ExternalId` condition. AWS only checks the External ID when the trust policy asks for it, and Semgrep can't tell whether your policy does. Without the condition, any Semgrep organization that knows your role ARN could read your registry.
+</Warning>
+
+### Permissions policy
+
+This policy grants read-only access to one repository. Replace `REGION`, `ACCOUNT_ID`, `DOMAIN`, and `REPOSITORY`:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "GetCodeArtifactToken",
+      "Effect": "Allow",
+      "Action": "codeartifact:GetAuthorizationToken",
+      "Resource": "arn:aws:codeartifact:REGION:ACCOUNT_ID:domain/DOMAIN"
+    },
+    {
+      "Sid": "ReadPackages",
+      "Effect": "Allow",
+      "Action": "codeartifact:ReadFromRepository",
+      "Resource": "arn:aws:codeartifact:REGION:ACCOUNT_ID:repository/DOMAIN/REPOSITORY"
+    },
+    {
+      "Sid": "CodeArtifactBearerToken",
+      "Effect": "Allow",
+      "Action": "sts:GetServiceBearerToken",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": { "sts:AWSServiceName": "codeartifact.amazonaws.com" }
+      }
+    }
+  ]
+}
+```
+
+What each permission is for:
+
+| Permission | Why Semgrep needs it |
+| --- | --- |
+| `codeartifact:GetAuthorizationToken` | Semgrep requests a short-lived CodeArtifact token for your domain. This is the only AWS API call Semgrep makes with the role. |
+| `sts:GetServiceBearerToken` | AWS requires it to issue a CodeArtifact token. The condition limits it to CodeArtifact. |
+| `codeartifact:ReadFromRepository` | Maven and Gradle use the token to download packages from your repository URL. |
+
+To give Semgrep access to more repositories in the same domain, add their `repository` ARNs to the `ReadPackages` statement.
+
+### Create the role
+
+<Tabs>
+<Tab title="AWS console">
+<Steps>
+<Step>
+In the IAM console, go to **Roles** and click **Create role**.
+</Step>
+<Step>
+Select **Custom trust policy**, paste the trust policy, and click **Next**.
+</Step>
+<Step>
+Skip adding permissions and click **Next**.
+</Step>
+<Step>
+Enter `SemgrepCodeArtifactAccess` as the **Role name** and click **Create role**.
+</Step>
+<Step>
+Open the new role, click **Add permissions > Create inline policy**, select **JSON**, and paste the permissions policy. Name the policy, for example `SemgrepCodeArtifactRead`, and click **Create policy**.
+</Step>
+</Steps>
+</Tab>
+<Tab title="AWS CLI">
+Save the two policies as `trust-policy.json` and `permissions-policy.json`, then run:
+
+```bash
+aws iam create-role \
+  --role-name SemgrepCodeArtifactAccess \
+  --assume-role-policy-document file://trust-policy.json
+
+aws iam put-role-policy \
+  --role-name SemgrepCodeArtifactAccess \
+  --policy-name SemgrepCodeArtifactRead \
+  --policy-document file://permissions-policy.json
+```
+</Tab>
+</Tabs>
+
+## Step 4: Verify the connection
+
+Run a [Managed Scan](/deployment/managed-scanning/overview) with [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) on a project that depends on a package from your CodeArtifact repository. When the scan finishes, the package appears in the project's dependencies.
+
+If the scan fails with **CodeArtifact registry credentials are unavailable**, see [Troubleshooting](#troubleshooting).
+
+## More than one registry or organization
+
+- **Several repositories in one AWS account**: they all use the same `SemgrepCodeArtifactAccess` role. Add each repository's ARN to `ReadPackages`, and each domain's ARN to `GetCodeArtifactToken` if they're in different domains. Then add each one as a registry in Semgrep with the same role ARN.
+- **Several Semgrep organizations using one AWS account**: each organization has its own External ID. List all of them in the trust policy, for example `"sts:ExternalId": ["EXTERNAL_ID_1", "EXTERNAL_ID_2"]`.
+
+## Troubleshooting
+
+<AccordionGroup>
+<Accordion title="The AWS CodeArtifact (IAM role) option doesn't appear">
+
+The option only appears when the registry URL is a CodeArtifact URL, one that contains `.codeartifact.` and ends in `.amazonaws.com`. Check that you pasted the Maven endpoint from Step 1.
+</Accordion>
+<Accordion title="The External ID field is empty">
+
+Semgrep generates the External ID when you save the registry. Click **Connect** to save it, then copy the value from the drawer.
+
+If you connected the registry before Semgrep started generating External IDs, the field stays empty until you save the registry again. Open the registry in **Settings > Integrations**, enter the role ARN in **IAM role ARN** again, and click **Save changes**. The **Save changes** button stays disabled until you change a field, which is why you need to re-enter the ARN. Then reopen the registry, copy the External ID, and add it to your role's trust policy.
+
+{/* Screenshot (optional): an existing CodeArtifact registry opened for editing, with the IAM role ARN field being re-entered and "Save changes" enabled. */}
+</Accordion>
+<Accordion title="The Semgrep role ARN field is empty">
+
+Contact [Semgrep Support](/support). Your organization's Semgrep role isn't configured yet.
+</Accordion>
+<Accordion title='Scans fail with "CodeArtifact registry credentials are unavailable"'>
+
+Semgrep couldn't get a CodeArtifact token with your role. Check that:
+
+- The role is named exactly `SemgrepCodeArtifactAccess`, at the root path, and the **IAM role ARN** in Semgrep matches it.
+- The trust policy's `Principal` is the **Semgrep role ARN** shown in Semgrep.
+- The trust policy's `sts:ExternalId` matches the **External ID** shown in Semgrep.
+- The permissions policy covers the domain and repository in the registry URL you entered, in the right region and account.
+- The trust policy allows `sts:AssumeRole`. Semgrep doesn't need `sts:TagSession`.
+</Accordion>
+</AccordionGroup>
