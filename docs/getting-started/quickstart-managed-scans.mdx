@@ -21,6 +21,7 @@ You must be an existing [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/) u
  - Hosted GitHub (GitHub.com) and GitHub Enterprise Server plans
  - GitLab Cloud and GitLab self-managed plans and a Premium or Ultimate subscription
  - Azure DevOps Cloud repositories
+ - Cursor Origin repositories (beta)
 
 ## Add projects to Semgrep Managed Scans
 
@@ -90,6 +91,41 @@ You must have admin access to your Bitbucket organization.
 <Steps>
   <Step>
     Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login)
+  </Step>
+  <Step>
+    Navigate to **Projects**, and click **Scan new project > Semgrep Managed Scan**.
+  </Step>
+  <Step>
+    In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.
+  </Step>
+  <Step>
+    Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
+  </Step>
+  <Step>
+    Click **Enable**. You are taken to the **Projects** page as your scans begin.
+  </Step>
+</Steps>
+
+  </Tab>
+
+  <Tab title="Cursor Origin">
+
+### Prerequisites
+
+Cursor Origin support is in **beta**. See [Supported features and beta limitations](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations).
+
+- You must be able to manage source code manager connections in your Semgrep organization.
+- You must be able to install and authorize apps for the Cursor codebase and repositories you want Semgrep to access.
+- Semgrep recommends the shared **Semgrep app**. See [Connect Cursor Origin](/deployment/connect-scm#cursor-origin).
+
+### Add a project
+
+<Steps>
+  <Step>
+    Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+  </Step>
+  <Step>
+    Connect Cursor Origin: go to **Settings > Source code managers > Add > Cursor Origin**, select **Semgrep app**, and authorize the intended Cursor repositories. Alternatively, install the Semgrep app in Cursor first, then complete the connection in Semgrep. See [Connect Cursor Origin](/deployment/connect-scm#cursor-origin).
   </Step>
   <Step>
     Navigate to **Projects**, and click **Scan new project > Semgrep Managed Scan**.

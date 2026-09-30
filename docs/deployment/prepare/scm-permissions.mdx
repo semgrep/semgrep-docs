@@ -44,6 +44,20 @@ The following tables list **SCM roles** and **token or app scopes** required for
 
 </Tab>
 
+<Tab title="Cursor Origin">
+
+Cursor Origin support is in **beta**. Semgrep recommends the shared **Semgrep app**. A customer-managed private app is available for custom setups; contact [Support](/support).
+
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| Connect repositories | User who can manage source code manager connections in Semgrep and install apps for the Cursor codebase | Install the shared Semgrep app in Cursor and select the repositories Semgrep can access. No customer-created app or private key is required for the shared app path. | [Connect Cursor Origin](/deployment/connect-scm#cursor-origin) |
+| Managed Scans | Same as connect repositories | Same Semgrep app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor) |
+| PR comments and scan checks | Same as connect repositories | Same Semgrep app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#pull-request-checks-and-comments) |
+| Triage through PR comments | Not available during the beta | — | — |
+| Autofix | Not available during the beta | — | — |
+
+</Tab>
+
 <Tab title="GitHub Cloud">
 
 Semgrep recommends connecting GitHub with a [private Semgrep GitHub App](#private-github-app-permissions). That is the default install path in Semgrep AppSec Platform. Some organizations instead use a [personal access token (PAT)](#github-personal-access-tokens). The table below covers the GitHub App path. For PAT roles and scopes, see [GitHub personal access tokens](#github-personal-access-tokens).
