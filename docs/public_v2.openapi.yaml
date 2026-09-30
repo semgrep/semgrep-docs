@@ -7989,6 +7989,12 @@ components:
                          enabled entries, so this is always true today; it is published so clients
                          can render a workflow as present-but-unrunnable without a UI change once
                          the endpoint starts surfacing disabled ones.
+                supportsPr:
+                    type: boolean
+                    description: |-
+                        Whether this workflow can be triggered on a pull request. True for
+                         PR-only workflows and for dual-mode workflows that also run on
+                         repositories.
         protos.ai.v1.GetTaskInfoResponse:
             type: object
             properties:
