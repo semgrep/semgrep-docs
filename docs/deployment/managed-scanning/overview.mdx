@@ -33,14 +33,17 @@ Please leave feedback by either contacting your technical account manager (TAM) 
 
 ## Security
 
-Managed Scans require **read access** to your code for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
+Managed Scans require **read access** to the repositories you choose to scan. At the start of each scan, Semgrep clones the repository. When the scan finishes, Semgrep destroys the clone. Semgrep does not keep the clone after the scan.
 
-For GitHub users, access to your code is facilitated by a **private Semgrep GitHub app** that you create and register in your GitHub organization. For GitLab users, access to your code is facilitated by a **personal access token** that you generate and provide to Semgrep. For Cursor Origin users, access is facilitated by the shared **Semgrep app** you install in Cursor, or by a customer-managed private app when your organization uses that path.
+How Semgrep receives that access depends on your source code manager:
 
-- You are in control of the app and can revoke access to repositories at any time.
-- GitHub and Cursor Origin users: you can limit access to specific repositories.
+- **GitHub**: a **private Semgrep GitHub app** that you create and register in your GitHub organization
+- **GitLab**: a **personal access token** that you generate and provide to Semgrep
+- **Cursor Origin**: the shared **Semgrep Cursor Origin app** that you install in Cursor, or a customer-managed private app if your organization uses that path
 
-Managed scans are specifically designed to limit the amount of time that code remains within Semgrep infrastructure.
+You control which repositories Semgrep can access and can revoke access at any time. On GitHub and Cursor Origin, you can also limit the app to selected repositories.
+
+Managed Scans keep code in Semgrep infrastructure only for the duration of the scan.
 
 ### Code security measures
 

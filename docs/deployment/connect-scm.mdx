@@ -301,9 +301,11 @@ Cursor Origin support is in **beta**. Beta features are subject to change with c
 
 Connect repositories hosted in [Cursor Origin](https://cursor.com/docs/origin) (Cursor Codebase) so Semgrep can sync projects, run [Managed Scans](/deployment/managed-scanning/cursor), and post scan checks and finding comments on Cursor pull requests.
 
-Semgrep recommends the shared **Semgrep app**. Semgrep owns that app and its signing credentials. You install it in Cursor, choose which repositories it can access, and connect it to your Semgrep organization. You do not create an app or supply a private key.
+The Semgrep Cursor Origin app is Semgrep's integration on Cursor Origin. It plays a similar role to the Semgrep GitHub App: you install it, choose repositories, and connect it to your Semgrep organization.
 
-"Public" or "shared" describes who can install the app, not repository visibility. You can use the shared Semgrep app with private repositories and restrict it to selected repositories.
+Semgrep recommends the shared **Semgrep Cursor Origin app**. Semgrep owns that app and its signing credentials. You install it in Cursor, choose which repositories it can access, and connect it to your Semgrep organization. You do not create an app or supply a private key.
+
+"Public" or "shared" describes who can install the app, not repository visibility. You can use the shared Semgrep Cursor Origin app with private repositories and restrict it to selected repositories.
 
 A customer-managed **private app** is available when your organization needs a separate app identity and control of the signing-key lifecycle, or for a custom setup coordinated with Semgrep. Contact [Support](/support) for that path. A private app is not required just because your repositories are private.
 
@@ -322,7 +324,10 @@ Optional: If you have created more than one Semgrep account, select the account 
 Go to <Icon icon="gear" iconType="solid"/> **Settings > Source code managers > Add > Cursor Origin**.
 </Step>
 <Step>
-Select **Semgrep app**, then continue to Cursor to authorize the intended Cursor codebase and repositories.
+In the **Connect your Cursor Origin organization** dialog, select **Semgrep app**. Leave **Private app** unselected unless you are working with [Support](/support) on a customer-managed app.
+</Step>
+<Step>
+Click **Connect**. Continue to Cursor to choose a codebase and the repositories Semgrep can access.
 </Step>
 <Step>
 After Cursor redirects you back to Semgrep, click **Test** on the new connection to verify it.
@@ -338,7 +343,7 @@ Cursor Origin is also available when you create a new Semgrep organization durin
 
 <Steps>
 <Step>
-In Cursor, install the Semgrep app for your Cursor codebase. Choose the repositories Semgrep can access, review the permissions, and select **Install** for the intended codebase.
+In Cursor, install the Semgrep Cursor Origin app for your Cursor codebase. Choose the repositories Semgrep can access, review the permissions, and select **Install** for the intended codebase.
 </Step>
 <Step>
 Continue into Semgrep. Existing users sign in. New users select **Sign up here** and create an account. The pending Cursor connection continues after authentication and organization creation.
