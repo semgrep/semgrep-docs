@@ -55,11 +55,7 @@ Click **Add**, then select **Registry**.
 Enter a **Name**, select **Maven / Gradle** as the **Package manager**, and paste your repository URL from Step 1.
 </Step>
 <Step>
-Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL. The **Semgrep role ARN** is filled in already, but **External ID** stays empty until you save.
-
-<Frame caption='Before saving, the External ID field shows "Generated when you save this registry."'>
-![The Connect package registry drawer with a CodeArtifact URL entered, AWS CodeArtifact (IAM role) selected, an empty External ID field, and the Semgrep role ARN filled in](/images/kb/semgrep-supply-chain/connect-aws-codeartifact/registry-before-save.png)
-</Frame>
+Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL. The **Semgrep role ARN** is filled in already, but **External ID** stays empty and shows **Generated when you save this registry** until you save.
 </Step>
 <Step>
 In **IAM role ARN**, enter the ARN of the role you'll create in Step 3:
@@ -72,13 +68,9 @@ The role doesn't need to exist yet. Semgrep doesn't contact AWS when you save.
 </Step>
 <Step>
 Click **Connect**. The drawer stays open, switches to **Edit package manager config**, and now shows your **External ID**.
-
-<Frame caption="After saving, copy the External ID and Semgrep role ARN with the copy buttons. Values are redacted in this example.">
-![The Edit package manager config drawer after saving, with the External ID and Semgrep role ARN fields filled in and copy buttons next to each](/images/kb/semgrep-supply-chain/connect-aws-codeartifact/registry-after-save.png)
-</Frame>
 </Step>
 <Step>
-Copy both values. You need them in the next step. You can find them again later by opening the registry from **Settings > Integrations**.
+Copy the **External ID** and the **Semgrep role ARN** with the copy button next to each field. You need them in the next step. You can find them again later by opening the registry from **Settings > Integrations**.
 </Step>
 </Steps>
 
