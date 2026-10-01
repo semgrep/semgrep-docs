@@ -27,7 +27,7 @@ In the dialog that appears, provide the following information:
 3. The **Authentication method**. If none is required, select **None (public registry)**.
     - **Username and password**: provide the required **Username** and **Password**.
     - **API token**: provide the required token value.
-    - **AWS CodeArtifact (IAM role)**: provide the ARN of an IAM role that Semgrep assumes. This option appears when you enter an AWS CodeArtifact Maven URL, needs setup in your AWS account first, and is used by Dynamic Dependency Resolution. See [Connect an AWS CodeArtifact registry to Semgrep](/kb/semgrep-supply-chain/connect-aws-codeartifact).
+    - **AWS CodeArtifact (IAM role)**: provide the ARN of an IAM role that Semgrep assumes. This option appears when you enter an AWS CodeArtifact Maven URL, needs setup in your AWS account first, and is used by Dynamic Dependency Resolution. This option is in beta: contact [Semgrep Support](/support) to enable it. See [Connect an AWS CodeArtifact registry to Semgrep](/kb/semgrep-supply-chain/connect-aws-codeartifact).
 </Step>
 <Step>
 Optional: if your registry is only accessible from your private network, select **Use network broker for registry access**. This option requires a [Semgrep Network Broker](/semgrep-ci/network-broker) deployed within your network.

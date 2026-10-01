@@ -5,6 +5,10 @@ description: Give Semgrep read access to a private Maven repository in AWS CodeA
 
 If your Maven or Gradle dependencies live in a private AWS CodeArtifact repository, connect it to Semgrep so [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) can resolve them during [Managed Scans](/deployment/managed-scanning/overview). Semgrep doesn't store AWS keys for CodeArtifact. Instead, you create an IAM role in your AWS account, and Semgrep assumes that role to get short-lived CodeArtifact tokens when it needs them.
 
+<Note>
+AWS CodeArtifact support is in beta. To enable it for your organization, contact [Semgrep Support](/support).
+</Note>
+
 ## How it works
 
 1. You add the CodeArtifact repository in Semgrep and save it. Semgrep shows a **Semgrep role ARN**, and generates an **External ID** when you save.
@@ -205,7 +209,7 @@ If the scan fails with **CodeArtifact registry credentials are unavailable**, se
 <AccordionGroup>
 <Accordion title="The AWS CodeArtifact (IAM role) option doesn't appear">
 
-The option only appears when the registry URL is a CodeArtifact URL, one that contains `.codeartifact.` and ends in `.amazonaws.com`. Check that you pasted the Maven endpoint from Step 1.
+The option only appears when the registry URL is a CodeArtifact URL, one that contains `.codeartifact.` and ends in `.amazonaws.com`. Check that you pasted the Maven endpoint from Step 1. If the URL is correct and the option still doesn't appear, CodeArtifact support isn't enabled for your organization yet. Contact [Semgrep Support](/support) to enable it.
 </Accordion>
 <Accordion title="The External ID field is empty">
 
