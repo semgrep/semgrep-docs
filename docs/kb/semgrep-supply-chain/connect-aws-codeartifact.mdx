@@ -7,7 +7,7 @@ If your Maven or Gradle dependencies live in a private AWS CodeArtifact reposito
 
 ## How it works
 
-1. You add the CodeArtifact repository in Semgrep and save it. Semgrep then shows two values: an **External ID** and a **Semgrep role ARN**.
+1. You add the CodeArtifact repository in Semgrep and save it. Semgrep shows a **Semgrep role ARN**, and generates an **External ID** when you save.
 2. You create an IAM role named `SemgrepCodeArtifactAccess` in your AWS account. Its trust policy allows the Semgrep role ARN to assume it, but only with your External ID.
 3. When a scan needs your packages, Semgrep assumes the role, requests a CodeArtifact authorization token, and uses it to download dependencies. Tokens expire after two hours.
 
@@ -48,10 +48,14 @@ Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platfor
 Click **Add**, then select **Registry**.
 </Step>
 <Step>
-Enter a **Name**, select **Maven** as the **Package manager**, and paste your repository URL from Step 1.
+Enter a **Name**, select **Maven / Gradle** as the **Package manager**, and paste your repository URL from Step 1.
 </Step>
 <Step>
-Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL.
+Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL. The **Semgrep role ARN** is filled in already, but **External ID** stays empty until you save.
+
+<Frame caption='Before saving, the External ID field shows "Generated when you save this registry."'>
+![The Connect package registry drawer with a CodeArtifact URL entered, AWS CodeArtifact (IAM role) selected, an empty External ID field, and the Semgrep role ARN filled in](/images/kb/semgrep-supply-chain/connect-aws-codeartifact/registry-before-save.png)
+</Frame>
 </Step>
 <Step>
 In **IAM role ARN**, enter the ARN of the role you'll create in Step 3:
@@ -61,13 +65,13 @@ arn:aws:iam::ACCOUNT_ID:role/SemgrepCodeArtifactAccess
 ```
 
 The role doesn't need to exist yet. Semgrep doesn't contact AWS when you save.
-
-{/* Screenshot: the registry drawer before saving. Show the URL filled in with a CodeArtifact URL, "AWS CodeArtifact (IAM role)" selected, the IAM role ARN filled in, and the External ID field still empty with its "Generated when you save this registry" placeholder. Blur or use a fake account ID. */}
 </Step>
 <Step>
-Click **Connect**. The drawer stays open and now shows your **External ID** and the **Semgrep role ARN**.
+Click **Connect**. The drawer stays open, switches to **Edit package manager config**, and now shows your **External ID**.
 
-{/* Screenshot: the same drawer right after saving. Show the External ID and Semgrep role ARN fields filled in, with their copy buttons, and the "Add both values to your IAM role's trust policy." note under them. Blur the External ID or use a fake one. */}
+<Frame caption="After saving, copy the External ID and Semgrep role ARN with the copy buttons. Values are redacted in this example.">
+![The Edit package manager config drawer after saving, with the External ID and Semgrep role ARN fields filled in and copy buttons next to each](/images/kb/semgrep-supply-chain/connect-aws-codeartifact/registry-after-save.png)
+</Frame>
 </Step>
 <Step>
 Copy both values. You need them in the next step. You can find them again later by opening the registry from **Settings > Integrations**.
@@ -208,8 +212,6 @@ The option only appears when the registry URL is a CodeArtifact URL, one that co
 Semgrep generates the External ID when you save the registry. Click **Connect** to save it, then copy the value from the drawer.
 
 If you connected the registry before Semgrep started generating External IDs, the field stays empty until you save the registry again. Open the registry in **Settings > Integrations**, enter the role ARN in **IAM role ARN** again, and click **Save changes**. The **Save changes** button stays disabled until you change a field, which is why you need to re-enter the ARN. Then reopen the registry, copy the External ID, and add it to your role's trust policy.
-
-{/* Screenshot (optional): an existing CodeArtifact registry opened for editing, with the IAM role ARN field being re-entered and "Save changes" enabled. */}
 </Accordion>
 <Accordion title="The Semgrep role ARN field is empty">
 
