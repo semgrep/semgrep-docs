@@ -32,6 +32,14 @@ description: "Semgrep supports the following source code managers (SCM) and plan
 
 [Autofix](/semgrep-code/triage-remediation/autofix) is supported on all source code managers in the table above at supported plan tiers (see footnotes † and *). To use Autofix through the [Semgrep Network Broker](/semgrep-ci/network-broker), upgrade to Network Broker 0.45.2 or later and set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. Older broker versions return a 403 allowlist error. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
 
+## Recommended GitLab version
+
+For GitLab Self-Managed, Semgrep recommends **GitLab 16.5 or later** for integrations that use unified diffs, including inline merge request comments from [Semgrep Agentic Workflows](/workflows/overview).
+
+GitLab introduced unified diff API support in version 16.5. The [`unidiff` option](https://docs.gitlab.com/api/repositories/#compare-branches-tags-or-commits) provides the file headers Semgrep needs to associate added lines with a file. On older versions, workflow issues may appear in merge request summary comments instead of inline comments.
+
+This recommendation concerns unified diff compatibility. Other GitLab features have the plan and permission requirements listed above. When choosing a version to run, use a release that GitLab currently maintains, as described in its [release and maintenance policy](https://docs.gitlab.com/policy/maintenance/).
+
 ## Access limitations
 
 You may need to add [Semgrep's IP addresses](/deployment/prepare/network-access#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker), if any of the following conditions apply:
