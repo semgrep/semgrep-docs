@@ -1,6 +1,6 @@
 ---
 title: "Why did the comments on a PR or MR not appear inline?"
-description: "When Semgrep comments on PR or MR findings, the comments are usually posted on the line of code where the finding is identified (inline). However, there are two common reasons why comments may not appear inline."
+description: "When Semgrep comments on PR or MR findings, the comments are usually posted on the line of code where the finding is identified (inline). However, comments may appear as summary comments instead for several common reasons."
 ---
 
 ## Avoiding excessive inline comments
@@ -16,6 +16,10 @@ GitHub only allows PR comments to be posted on lines of code that are shown in t
 ### GitLab MRs
 
 GitLab allows comments to be posted on lines of code outside the default file-diff view, but the comments don't appear in the file-diff (Changes) view. However, they do appear as diff-related comments on the Overview.
+
+## GitLab Self-Managed version
+
+For GitLab Self-Managed, Semgrep recommends **GitLab 16.5 or later** for integrations that use unified diffs, including inline merge request comments from [Semgrep Agentic Workflows](/workflows/overview). On older versions, workflow issues may appear in merge request summary comments instead of inline comments. See [Recommended GitLab version](/getting-started/scm-support#recommended-gitlab-version).
 
 ## Additional references
 

@@ -15,6 +15,7 @@ This page explains how to run Semgrep Agentic Workflows and review issues. For c
 - Your organization must use [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/) with a paid subscription.
 - You must be an organization [Admin](/deployment/teams/overview#roles-and-access). During the beta, only Admins can start Agentic Workflows runs.
 - Semgrep AppSec Platform must be [connected to a supported source code manager](/getting-started/scm-support) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze. See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You **do not** need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run Agentic Workflows.
+- For GitLab Self-Managed, Semgrep recommends [GitLab 16.5 or later](/getting-started/scm-support#recommended-gitlab-version) for inline merge request comments from Agentic Workflows. On older versions, workflow issues may appear in summary comments instead of inline comments.
 - Your organization must allow AI features to run in Semgrep-managed infrastructure:
   - You must have enabled [Semgrep Multimodal](/semgrep-multimodal/getting-started#enable-multimodal) for your organization.
   - You must have enabled [AI-powered scans](/deployment/add-ai-to-scans#enable-or-disable-ai-powered-detection) for your organization.
