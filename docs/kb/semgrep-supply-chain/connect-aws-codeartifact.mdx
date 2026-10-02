@@ -6,7 +6,7 @@ description: Give Semgrep read access to a private Maven repository in AWS CodeA
 If your Maven or Gradle dependencies live in a private AWS CodeArtifact repository, connect it to Semgrep so [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) can resolve them during [Managed Scans](/deployment/managed-scanning/overview). Semgrep doesn't store AWS keys for CodeArtifact. Instead, you create an IAM role in your AWS account, and Semgrep assumes that role to get short-lived CodeArtifact tokens when it needs them.
 
 <Note>
-AWS CodeArtifact support is in beta. To enable it for your organization, contact [Semgrep Support](/support).
+AWS CodeArtifact support is in private beta. To enable it for your organization, contact [Semgrep Support](/support).
 </Note>
 
 ## How it works
@@ -17,7 +17,7 @@ AWS CodeArtifact support is in beta. To enable it for your organization, contact
 
 The External ID prevents another Semgrep customer who learns your role ARN from getting Semgrep to access your registry on their behalf. AWS calls this the confused deputy problem. Semgrep generates one External ID per Semgrep organization, and it never changes.
 
-To learn more about External IDs, see AWS's [The confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html) and [Securely using external ID for accessing AWS accounts owned by others](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/).
+To learn more about External IDs, see [The confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html) and [Securely using external ID for accessing AWS accounts owned by others](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) in the AWS documentation.
 
 ## Prerequisites
 
@@ -49,16 +49,30 @@ Semgrep generates the External ID when you save the registry, so save it before 
 Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [**Settings > Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 </Step>
 <Step>
-Click **Add**, then select **Registry**.
+Click **Add**, then select **Registry**. The **Connect package registry** drawer opens.
 </Step>
 <Step>
-Enter a **Name**, select **Maven / Gradle** as the **Package manager**, and paste your repository URL from Step 1.
+Fill in the registry details:
+
+1. **Name**: a display name for this registry in the Semgrep UI.
+2. **Package manager**: select **Maven / Gradle**.
+3. **URL**: paste your repository URL from Step 1. It must start with `https://`.
+4. Optional: select a **Repository type** if the repository serves only release artifacts, only snapshot artifacts, or both.
+5. Optional: select **Use network broker for registry access** if the registry is reachable only from a private network. This requires a [Semgrep Network Broker](/semgrep-ci/network-broker). See [Connect a private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry) for details.
 </Step>
 <Step>
-Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL. The **Semgrep role ARN** is filled in already, but **External ID** stays empty and shows **Generated when you save this registry** until you save.
+Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL. The other methods on the form are **Username and password**, **API token**, and **None (public registry)**. Semgrep doesn't support token authentication for Maven repositories.
+
+When you select **AWS CodeArtifact (IAM role)**, Semgrep shows three fields:
+
+- **IAM role ARN**: the ARN of the role you create in Step 3. The form notes that the role must be named exactly `SemgrepCodeArtifactAccess`.
+- **External ID**: read-only. Before you save, it shows **Generated when you save this registry.**
+- **Semgrep role ARN**: read-only and already filled in. Semgrep uses this principal in your role's trust policy.
+
+A note under these fields tells you to add both the External ID and Semgrep role ARN to your IAM role's trust policy.
 </Step>
 <Step>
-In **IAM role ARN**, enter the ARN of the role you'll create in Step 3:
+In **IAM role ARN**, enter the ARN of the role you create in Step 3:
 
 ```
 arn:aws:iam::ACCOUNT_ID:role/SemgrepCodeArtifactAccess
@@ -77,13 +91,14 @@ Copy the **External ID** and the **Semgrep role ARN** with the copy button next 
 ## Step 3: Create the IAM role in AWS
 
 <Warning>
-Name the role exactly `SemgrepCodeArtifactAccess` and create it at the root path, without a custom path such as `/semgrep/`. Semgrep only assumes roles with this exact name, so a role with any other name fails when a scan runs, even though the registry saves without an error.
+Name the role exactly `SemgrepCodeArtifactAccess` and create it at the root path. Don't use a custom path such as `/semgrep/`. Semgrep only assumes roles with this exact name, so a role with any other name fails when a scan runs, even though the registry saves without an error.
 </Warning>
 
 ### Trust policy
 
 Replace `SEMGREP_ROLE_ARN` and `EXTERNAL_ID` with the values from Step 2:
 
+{/* vale off */}
 ```json
 {
   "Version": "2012-10-17",
@@ -99,6 +114,7 @@ Replace `SEMGREP_ROLE_ARN` and `EXTERNAL_ID` with the values from Step 2:
   ]
 }
 ```
+{/* vale on */}
 
 <Warning>
 Keep the `sts:ExternalId` condition. AWS only checks the External ID when the trust policy asks for it, and Semgrep can't tell whether your policy does. Without the condition, any Semgrep organization that knows your role ARN could read your registry.
@@ -108,6 +124,7 @@ Keep the `sts:ExternalId` condition. AWS only checks the External ID when the tr
 
 This policy grants read-only access to one repository. Replace `REGION`, `ACCOUNT_ID`, `DOMAIN`, and `REPOSITORY`:
 
+{/* vale off */}
 ```json
 {
   "Version": "2012-10-17",
@@ -136,6 +153,7 @@ This policy grants read-only access to one repository. Replace `REGION`, `ACCOUN
   ]
 }
 ```
+{/* vale on */}
 
 What each permission is for:
 
@@ -165,7 +183,7 @@ Skip adding permissions and click **Next**.
 Enter `SemgrepCodeArtifactAccess` as the **Role name** and click **Create role**.
 </Step>
 <Step>
-Open the new role, click **Add permissions > Create inline policy**, select **JSON**, and paste the permissions policy. Name the policy, for example `SemgrepCodeArtifactRead`, and click **Create policy**.
+Open the new role, click **Add permissions > Create inline policy**, select **JSON**, and paste the permissions policy. Name the policy—for example, `SemgrepCodeArtifactRead`—and click **Create policy**.
 </Step>
 </Steps>
 </Tab>
@@ -194,14 +212,14 @@ If the scan fails with **CodeArtifact registry credentials are unavailable**, se
 ## More than one registry or organization
 
 - **Several repositories in one AWS account**: they all use the same `SemgrepCodeArtifactAccess` role. Add each repository's ARN to `ReadPackages`, and each domain's ARN to `GetCodeArtifactToken` if they're in different domains. Then add each one as a registry in Semgrep with the same role ARN.
-- **Several Semgrep organizations using one AWS account**: each organization has its own External ID. List all of them in the trust policy, for example `"sts:ExternalId": ["EXTERNAL_ID_1", "EXTERNAL_ID_2"]`.
+- **Several Semgrep organizations using one AWS account**: each organization has its own External ID. List all of them in the trust policy—for example, `"sts:ExternalId": ["EXTERNAL_ID_1", "EXTERNAL_ID_2"]`.
 
 ## Troubleshooting
 
 <AccordionGroup>
 <Accordion title="The AWS CodeArtifact (IAM role) option doesn't appear">
 
-The option only appears when the registry URL is a CodeArtifact URL, one that contains `.codeartifact.` and ends in `.amazonaws.com`. Check that you pasted the Maven endpoint from Step 1. If the URL is correct and the option still doesn't appear, CodeArtifact support isn't enabled for your organization yet. Contact [Semgrep Support](/support) to enable it.
+The option only appears when the registry URL is a CodeArtifact URL: one that contains `.codeartifact.` and ends in `.amazonaws.com`. Check that you pasted the Maven endpoint from Step 1. If the URL is correct and the option still doesn't appear, CodeArtifact support isn't enabled for your organization yet. Contact [Semgrep Support](/support) to enable it.
 </Accordion>
 <Accordion title="The External ID field is empty">
 
