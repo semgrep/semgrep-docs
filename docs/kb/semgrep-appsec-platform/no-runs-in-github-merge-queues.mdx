@@ -14,29 +14,33 @@ Managed Scans do not run in merge queues, so the required Semgrep check never pa
 
 Semgrep doesn't run in merge queues because:
 
-- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merge.
+- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merged.
 - Full scans take a long time, significantly delaying merges for larger repositories.
 
 ## Workaround
 
-To keep Semgrep required for pull requests without blocking merge queues, define two separate [GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rulesets):
+To keep Semgrep required for pull requests without blocking merge queues, edit your current [GitHub ruleset](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rulesets):
 
-1. **Pull request ruleset for the main branch**: requires the Semgrep check to pass before merging
-2. **Merge queue ruleset for the main branch**: does **not** require the Semgrep check. Instead, this uses a placeholder check that runs on `merge_group`.
-
-### Define your rulesets
+### Edit your ruleset
 
 <Steps>
    <Step>
    Go to your GitHub repository.
    </Step>
    <Step>
-   Go to **Setting > Code and automation > Rules > Rulesets**.
+   Go to **Settings > Rulesets > Rulesets**.
    </Step>
    <Step>
-   Configure your rulesets:
-      - **PR**: requires the Semgrep check to pass before merging.
-      - **Queue**: does **not** require the Semgrep check
+   Look for the option *Require status checks to pass*. 
+   </Step>
+   <Step>
+   Look for the check *semgrep-cloud-platform/scan*.
+   </Step>
+   <Step>
+   Click on the source and select *Any source*.
+    <Frame>
+    ![image info](/images/kb/semgrep-ci/semgrep-appsec-platform/no-runs-in-github-merge-queues/any-source.png)
+    </Frame>
    </Step>
 </Steps>
 
@@ -50,8 +54,6 @@ name: Semgrep - merge queue placeholder
 
 on:
    merge_group: {}
-   workflow_dispatch: {}
-   pull_request: {}
 
 jobs:
    semgrep-mq-placeholder:
@@ -62,6 +64,4 @@ jobs:
          - run: echo "OK – Semgrep already ran on the PR; MQ can proceed."
 ```
 
-## Example walkthrough
-
-Watch this [Loom recording](https://www.loom.com/share/57e7288e1c5b4b22b6386e5c49953381) to see a walkthrough of the workaround.
+With that, Semgrep will run diff scans for the pull request and will unblock the merge queue pipelines.
