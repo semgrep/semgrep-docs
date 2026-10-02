@@ -183,7 +183,7 @@ Skip adding permissions and click **Next**.
 Enter `SemgrepCodeArtifactAccess` as the **Role name** and click **Create role**.
 </Step>
 <Step>
-Open the new role, click **Add permissions > Create inline policy**, select **JSON**, and paste the permissions policy. Name the policy—for example, `SemgrepCodeArtifactRead`—and click **Create policy**.
+Open the new role, click **Add permissions > Create inline policy**, select **JSON**, and paste the permissions policy. Name the policy, for example `SemgrepCodeArtifactRead`, and click **Create policy**.
 </Step>
 </Steps>
 </Tab>
@@ -212,7 +212,7 @@ If the scan fails with **CodeArtifact registry credentials are unavailable**, se
 ## More than one registry or organization
 
 - **Several repositories in one AWS account**: they all use the same `SemgrepCodeArtifactAccess` role. Add each repository's ARN to `ReadPackages`, and each domain's ARN to `GetCodeArtifactToken` if they're in different domains. Then add each one as a registry in Semgrep with the same role ARN.
-- **Several Semgrep organizations using one AWS account**: each organization has its own External ID. List all of them in the trust policy—for example, `"sts:ExternalId": ["EXTERNAL_ID_1", "EXTERNAL_ID_2"]`.
+- **Several Semgrep organizations using one AWS account**: each organization has its own External ID. List all of them in the trust policy, for example `"sts:ExternalId": ["EXTERNAL_ID_1", "EXTERNAL_ID_2"]`.
 
 ## Troubleshooting
 
