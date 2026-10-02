@@ -1,0 +1,41 @@
+---
+title: "Week of September 21, 2026"
+description: "Updates made to Semgrep during the week of September 21-27, 2026."
+sidebarTitle: "Week of September 21, 2026"
+---
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- [SCIM provisioning](/deployment/scim) is now in public beta. Set up SCIM at **Settings > Access > Login methods** to provision users and groups from your identity provider, including Okta and Microsoft Entra ID. Groups can assign deployment roles and, with [Teams (beta)](/deployment/teams/overview), manage Semgrep teams. Available to organizations on the default tenant with SSO configured; not yet available for single-tenant deployments.
+- Redesigned **Settings > Billing**. You can select any combination of products and purchase them in a single checkout with one invoice.
+
+### Fixed
+
+- Fixed an issue where a [Jira](/semgrep-appsec-platform/jira) integration whose credentials had been revoked could not be reconnected.
+- Fixed an issue where [repository sync](/deployment/connect-scm) repeatedly synced the same repositories and skipped the rest.
+- Fixed an issue where editing project tags at the same time could fail or drop tags. Concurrent edits are now applied correctly.
+- Fixed an issue where editing a GitLab merge request's metadata, such as its reviewers or title, triggered a [diff-aware scan](/deployment/customize-ci-jobs#set-up-diff-aware-scans). Marking a merge request as ready no longer starts a diff-aware scan, matching the GitHub behavior.
+- Fixed several issues that could leave an organization on the wrong plan or unable to use AI-powered features after a billing or credit change.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- Semgrep now shows active or recent Supply Chain incidents at the top of the [Advisories](/semgrep-supply-chain/advisories) page. When an advisory is associated with an incident, the advisory **Details** page names the incident and links to its dependencies and related blog post when available.
+
+## 🤖 Semgrep Multimodal
+
+### Fixed
+
+- Fixed an issue where Semgrep did not retry updating an [Agentic Workflows](/workflows/overview) commit status after a temporary source code manager failure.
+
+## 📝 Documentation and knowledge base
+
+### Added
+
+- Added documentation for [SCIM provisioning](/deployment/scim).
+- Added knowledge base articles for setting up SCIM with [Okta](/kb/semgrep-appsec-platform/scim-okta) and [Microsoft Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id).
+- Added the API deprecation policy for [v1](/api-reference/v1/Deprecation-Policy) and [v2](/api-reference/v2/Deprecation-Policy).
+- Added API changelog pages for [v1](/api-reference/v1/Changelog) and [v2](/api-reference/v2/Changelog).
