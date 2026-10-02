@@ -1,9 +1,9 @@
 ---
 title: Connect an AWS CodeArtifact registry to Semgrep
-description: Give Semgrep read access to a private Maven repository in AWS CodeArtifact by creating an IAM role that Semgrep assumes.
+description: Give Semgrep read access to a private Maven, npm, or PyPI repository in AWS CodeArtifact by creating an IAM role that Semgrep assumes.
 ---
 
-If your Maven or Gradle dependencies live in a private AWS CodeArtifact repository, connect it to Semgrep so [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) can resolve them during [Managed Scans](/deployment/managed-scanning/overview). Semgrep doesn't store AWS keys for CodeArtifact. Instead, you create an IAM role in your AWS account, and Semgrep assumes that role to get short-lived CodeArtifact tokens when it needs them.
+If your dependencies live in a private AWS CodeArtifact repository, connect it to Semgrep so Semgrep can download them when it needs to, for example during [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) in [Managed Scans](/deployment/managed-scanning/overview). Semgrep doesn't store AWS keys for CodeArtifact. Instead, you create an IAM role in your AWS account, and Semgrep assumes that role to get short-lived CodeArtifact tokens when it needs them.
 
 <Note>
 AWS CodeArtifact support is in beta. To enable it for your organization, contact [Semgrep Support](/support).
@@ -21,15 +21,17 @@ To learn more about External IDs, see AWS's [The confused deputy problem](https:
 
 ## Prerequisites
 
-- A Maven repository in AWS CodeArtifact.
+- A Maven, npm, or PyPI repository in AWS CodeArtifact.
 - Permission in your AWS account to create IAM roles and policies.
 
 ## Step 1: Find your repository URL
 
-Semgrep needs the repository's Maven endpoint. It looks like this:
+Semgrep needs the repository's endpoint for your package manager. It looks like this:
 
 ```
-https://DOMAIN-ACCOUNT_ID.d.codeartifact.REGION.amazonaws.com/maven/REPOSITORY/
+Maven / Gradle: https://DOMAIN-ACCOUNT_ID.d.codeartifact.REGION.amazonaws.com/maven/REPOSITORY/
+npm:            https://DOMAIN-ACCOUNT_ID.d.codeartifact.REGION.amazonaws.com/npm/REPOSITORY/
+PyPI:           https://DOMAIN-ACCOUNT_ID.d.codeartifact.REGION.amazonaws.com/pypi/REPOSITORY/simple/
 ```
 
 To find it, open the repository in the AWS CodeArtifact console and click **View connection instructions**, or run:
@@ -37,8 +39,10 @@ To find it, open the repository in the AWS CodeArtifact console and click **View
 ```bash
 aws codeartifact get-repository-endpoint \
   --domain DOMAIN --domain-owner ACCOUNT_ID --repository REPOSITORY \
-  --format maven --query repositoryEndpoint --output text
+  --format FORMAT --query repositoryEndpoint --output text
 ```
+
+Replace `FORMAT` with `maven`, `npm`, or `pypi`. For PyPI, add `simple/` to the end of the URL the command returns.
 
 ## Step 2: Add the registry in Semgrep and save it
 
@@ -52,7 +56,7 @@ Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platfor
 Click **Add**, then select **Registry**.
 </Step>
 <Step>
-Enter a **Name**, select **Maven / Gradle** as the **Package manager**, and paste your repository URL from Step 1.
+Enter a **Name**, select your **Package manager** (**Maven / Gradle**, **npm**, or **PyPI**), and paste your repository URL from Step 1.
 </Step>
 <Step>
 Under **Authentication method**, select **AWS CodeArtifact (IAM role)**. This option appears only after you enter a CodeArtifact URL. The **Semgrep role ARN** is filled in already, but **External ID** stays empty and shows **Generated when you save this registry** until you save.
@@ -143,7 +147,7 @@ What each permission is for:
 | --- | --- |
 | `codeartifact:GetAuthorizationToken` | Semgrep requests a short-lived CodeArtifact token for your domain. This is the only AWS API call Semgrep makes with the role. |
 | `sts:GetServiceBearerToken` | AWS requires it to issue a CodeArtifact token. The condition limits it to CodeArtifact. |
-| `codeartifact:ReadFromRepository` | Maven and Gradle use the token to download packages from your repository URL. |
+| `codeartifact:ReadFromRepository` | Semgrep uses the token to download packages from your repository URL, the same way Maven, npm, or pip would. |
 
 To give Semgrep access to more repositories in the same domain, add their `repository` ARNs to the `ReadPackages` statement.
 
@@ -201,7 +205,7 @@ If the scan fails with **CodeArtifact registry credentials are unavailable**, se
 <AccordionGroup>
 <Accordion title="The AWS CodeArtifact (IAM role) option doesn't appear">
 
-The option only appears when the registry URL is a CodeArtifact URL, one that contains `.codeartifact.` and ends in `.amazonaws.com`. Check that you pasted the Maven endpoint from Step 1. If the URL is correct and the option still doesn't appear, CodeArtifact support isn't enabled for your organization yet. Contact [Semgrep Support](/support) to enable it.
+The option only appears when the registry URL is a CodeArtifact URL, one that contains `.codeartifact.` and ends in `.amazonaws.com`. Check that you pasted the endpoint from Step 1. If the URL is correct and the option still doesn't appear, CodeArtifact support isn't enabled for your organization yet. Contact [Semgrep Support](/support) to enable it.
 </Accordion>
 <Accordion title="The External ID field is empty">
 
