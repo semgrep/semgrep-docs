@@ -55,7 +55,7 @@ Building context for Semgrep Multimodal requires additional Bitbucket permission
 
 - `Projects: Read`
 - `Repositories: Read`
-- `Pull requests: Read & Write`
+- `Pull requests: Write`
 - `Webhooks: Read and write`
 
 You can provide this token to Semgrep by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs).
@@ -134,7 +134,7 @@ After enabling Semgrep Multimodal, you can configure the [AI provider](https://s
 
 <Tab title="GitLab">
 
-To build context for Semgrep Multimodal, you must provide either a [project access token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) with the **API scope**.
+To build context for Semgrep Multimodal, you must provide either a [project access token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) with the `api` scope.
 
 * You can revoke [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#revoke-a-project-access-token) or [personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#revoke-a-personal-access-token) at any time.
 * Semgrep Multimodal only accesses source code repositories (projects) on a file-by-file basis; it does not need or request org-level access to your codebase.

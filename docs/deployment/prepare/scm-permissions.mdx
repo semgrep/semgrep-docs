@@ -25,8 +25,8 @@ The following tables list **SCM roles** and **token or app scopes** required for
 | :--- | :--- | :--- | :--- |
 | PR comments | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> Required for triage through PR comments. | <ul><li>**Full access** during setup/triage-webhook enablement</li><li>After configuration:<ul><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul></li></ul> | [Azure PR comments](/semgrep-appsec-platform/azure-pr-comments) |
 | Managed Scans | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> | <ul><li>**Full access** on the PAT during setup</li><li>`Code: Read`</li><li>`Code: Status`</li><li>`Member Entitlement Management: Read`</li><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul> | [Azure Managed Scans](/deployment/managed-scanning/azure#prerequisites-and-permissions) |
-| Code access | User who can update the SCM connection token | Connection PAT scopes: <ul><li>`Code: Read`</li><li>`Code: Write`</li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
-| Autofix | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> | Connection PAT scopes: <ul><li>`Code: Read`</li><li>`Code: Write`</li><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
+| Code access | User who can update the SCM connection token | Connection PAT scopes: <ul><li>`Code: Read`</li><li>`Code: Read & write`</li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Autofix | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> | Connection PAT scopes: <ul><li>`Code: Read & write`</li><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
 
 </Tab>
 
@@ -34,12 +34,12 @@ The following tables list **SCM roles** and **token or app scopes** required for
 
 | Feature | Role | Scopes | Configure |
 | :--- | :--- | :--- | :--- |
-| PR comments (Cloud) | User who can create workspace or repository variables. Workspace path requires Bitbucket Cloud Premium. | <ul><li>Workspace access token: `Pull requests (read and write)`</li><li>Repository access token: `Pull requests (read and write)`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
-| Triage through PR comments (Cloud) | **Product Admin**. Requires **Bitbucket Cloud Premium** and a workspace access token. | <ul><li>`webhook (read and write)`</li><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li><li>`project (admin)`</li><li>`account (read)`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
-| Managed Scans (Cloud) | **Product Admin** | <ul><li>`webhook (read and write)`</li><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li><li>`project (admin)`</li><li>`account (read)`</li></ul> | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-cloud) |
+| PR comments (Cloud) | User who can create workspace or repository variables. Workspace path requires Bitbucket Cloud Premium. | <ul><li>Workspace access token: `Pull requests: Write`</li><li>Repository access token: `Pull requests: Write`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
+| Triage through PR comments (Cloud) | **Product Admin**. Requires **Bitbucket Cloud Premium** and a workspace access token. | <ul><li>`Webhooks: Read and write`</li><li>`Repositories: Write`</li><li>`Pull requests: Write`</li><li>`Projects: Admin`</li><li>`Account: Read`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
+| Managed Scans (Cloud) | **Product Admin** | <ul><li>`Webhooks: Read and write`</li><li>`Repositories: Write`</li><li>`Pull requests: Write`</li><li>`Projects: Admin`</li><li>`Account: Read`</li></ul> | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-cloud) |
 | Managed Scans (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-data-center) |
-| Code access | User who can update the SCM connection token | Connection token scopes (colon notation): <ul><li>Cloud:<ul><li>`repository:read`</li><li>`pullrequest:read`</li><li>`repository:write`</li><li>`pullrequest:write`</li></ul></li><li>Data Center:<ul><li>`repository:read`</li><li>`repository:write`</li></ul></li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
-| Autofix (Cloud) | **Product Admin**. Requires **Bitbucket Cloud Premium** and a workspace access token. | <ul><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
+| Code access | User who can update the SCM connection token | Connection token scopes: <ul><li>Cloud:<ul><li>`Repositories: Read`</li><li>`Pull requests: Read`</li><li>`Repositories: Write`</li><li>`Pull requests: Write`</li></ul></li><li>Data Center: HTTP access token with repository read or write access</li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Autofix (Cloud) | **Product Admin**. Requires **Bitbucket Cloud Premium** and a workspace access token. | <ul><li>`Repositories: Write`</li><li>`Pull requests: Write`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
 | Autofix (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions and repository write access | [Autofix](/semgrep-code/triage-remediation/autofix) |
 
 </Tab>
@@ -52,9 +52,9 @@ Semgrep recommends connecting GitHub with a [private Semgrep GitHub App](#privat
 | :--- | :--- | :--- | :--- |
 | Sign in and connect repositories | Org member who can install GitHub Apps on the organization | Private Semgrep GitHub App installation. See [GitHub App permissions](#github-app-permissions). | <ul><li>[Connect a source code manager](/deployment/connect-scm)</li><li>[Create an account](/deployment/create-account-and-orgs)</li></ul> |
 | Create CI jobs in bulk | Org member who can install GitHub Apps | Same as the private Semgrep GitHub App permissions for repository onboarding | [Connect a source code manager](/deployment/connect-scm) |
-| PR comments | Org member who can configure the Semgrep GitHub App on target repositories | <ul><li>`actions (read and write)`</li><li>`pull requests (read and write)`</li><li>`secrets (read and write)`</li><li>`security events (read and write)`</li><li>`workflows (read and write)`</li></ul> | [GitHub PR comments](/semgrep-appsec-platform/github-pr-comments) |
+| PR comments | Org member who can configure the Semgrep GitHub App on target repositories | <ul><li>`Actions: Read and write`</li><li>`Pull requests: Read and write`</li><li>`Secrets: Read and write`</li><li>`Security events: Read and write`</li><li>`Workflows: Read and write`</li></ul> | [GitHub PR comments](/semgrep-appsec-platform/github-pr-comments) |
 | Managed Scans and AI-assisted features | Org member who can install GitHub Apps | Private Semgrep GitHub App with `Contents: Read` and permissions listed in [Private GitHub App permissions](#private-github-app-permissions) | <ul><li>[GitHub Managed Scans](/deployment/managed-scanning/github)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li></ul> |
-| Autofix | Org member who can install GitHub Apps | Private Semgrep GitHub App repository permissions: <ul><li>`Contents: Read`</li><li>`Contents: Write`</li><li>`Metadata: Read`</li><li>`Pull requests: Write`</li></ul> See [Autofix permissions and API usage](#autofix-github-permissions). | <ul><li>[Autofix](/semgrep-code/triage-remediation/autofix)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access)</li></ul> |
+| Autofix | Org member who can install GitHub Apps | Private Semgrep GitHub App repository permissions: <ul><li>`Contents: Read and write`</li><li>`Metadata: Read`</li><li>`Pull requests: Read and write`</li></ul> See [Autofix permissions and API usage](#autofix-github-permissions). | <ul><li>[Autofix](/semgrep-code/triage-remediation/autofix)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access)</li></ul> |
 
 </Tab>
 
@@ -152,7 +152,7 @@ During the connection process, your organization creates a private GitHub App fr
 - [Semgrep Multimodal](/semgrep-multimodal/overview) and other AI-assisted features
 - [Semgrep Code Autofix](/semgrep-code/triage-remediation/autofix)
 
-Managed Scans and Multimodal need **Contents: Read**. Autofix needs **Contents: Read and write** and **Pull requests: Write**. For roles and scopes by feature, see the GitHub Cloud rows in [Permissions](#permissions). To grant or update Contents access, see [Grant code access](/semgrep-appsec-platform/scm-code-access).
+Managed Scans and Multimodal need **Contents: Read**. Autofix needs **Contents: Read and write** and **Pull requests: Read and write**. For roles and scopes by feature, see the GitHub Cloud rows in [Permissions](#permissions). To grant or update Contents access, see [Grant code access](/semgrep-appsec-platform/scm-code-access).
 
 <Accordion title="Click to review how Semgrep AppSec Platform uses private GitHub App permissions.">
 
@@ -197,10 +197,10 @@ Autofix uses your **private Semgrep GitHub App** with the permissions below. Use
 
 | GitHub App permission | Why Autofix needs it |
 | :--- | :--- |
-| **Contents: Read** | Clone the repository over HTTPS using Git (shallow, single-branch) so Semgrep can analyze the code and generate a fix. |
-| **Contents: Write** | Push the Autofix branch back to the repository over HTTPS using Git. |
+| **Contents: Read** | Clone the repository over HTTPS using Git (shallow, single-branch) so Semgrep can analyze the code and generate a fix. Included when you set Contents to **Read and write**. |
+| **Contents: Read and write** | Push the Autofix branch back to the repository over HTTPS using Git. |
 | **Metadata: Read** | Read repository metadata, including the default branch, using `GET /repos/{owner}/{repo}`. |
-| **Pull requests: Write** | Open a **draft** PR using `POST /repos/{owner}/{repo}/pulls`. |
+| **Pull requests: Read and write** | Open a **draft** PR using `POST /repos/{owner}/{repo}/pulls`. |
 
 ##### How repository contents are accessed
 
