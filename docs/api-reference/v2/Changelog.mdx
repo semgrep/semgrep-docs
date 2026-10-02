@@ -17,6 +17,24 @@ are labeled; documentation-only edits are not listed.
   find the feed automatically.
 </Note>
 
+<Update label="October 2, 2026" description="9 changes" tags={["Non-breaking"]} rss={{ title: "Semgrep API v2 — October 2, 2026", description: "9 changes across 7 endpoints." }}>
+**Changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `issues[].issue.exceptionRequest.reviewerNote` to the response with the `200` status | <a href="/api-reference/v2/issuesservice/list-issues" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `exceptionRequest.reviewerNote` to the response with the `200` status | <a href="/api-reference/v2/issuesservice/get-issue" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues<wbr/>/v2<wbr/>/&#123;issueId&#125;</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `packageManagerConfigsWithCredentials[].config.basePath` to the response with the `200` status | <a href="/api-reference/v2/smspackagemanagerconfigservice/list-package-manager-auth-configs" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/packagemanagerauthconfigs</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the new optional request property `packageManagerConfigForInsert.config.basePath` | <a href="/api-reference/v2/smspackagemanagerconfigservice/update-package-manager-auth-config" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="yellow" size="sm">PATCH /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/packagemanagerauthconfigs<wbr/>/&#123;packageManagerConfigId&#125;</Badge></a><br/><a href="/api-reference/v2/smspackagemanagerconfigservice/create-package-manager-auth-config" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/packagemanagerauthconfigs</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `packageManagerConfig.basePath` to the response with the `200` status | <a href="/api-reference/v2/smspackagemanagerconfigservice/update-package-manager-auth-config" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="yellow" size="sm">PATCH /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/packagemanagerauthconfigs<wbr/>/&#123;packageManagerConfigId&#125;</Badge></a><br/><a href="/api-reference/v2/smspackagemanagerconfigservice/create-package-manager-auth-config" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/packagemanagerauthconfigs</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `findings[].exceptionRequest.reviewerNote` to the response with the `200` status | <a href="/api-reference/v2/reportsservice/get-report-findings" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/reporting<wbr/>/&#123;deploymentId&#125;<wbr/>/findings</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the new `AUTOFIX_ERROR_TYPE_PERMISSION_DENIED` enum value to the `errors[].errorType` response property for the response status `200` | <a href="/api-reference/v2/autofixservice/create-autofix" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues<wbr/>/&#123;issueId&#125;<wbr/>/autofix</Badge></a> |
+
+</div>
+</Update>
+
 <Update label="September 30, 2026" description="1 change" tags={["Non-breaking"]} rss={{ title: "Semgrep API v2 — September 30, 2026", description: "1 change across 1 endpoint." }}>
 **Changes**
 
