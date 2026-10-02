@@ -7628,6 +7628,7 @@ components:
                         - AUTOFIX_ERROR_TYPE_IN_FLIGHT_FIX_PENDING
                         - AUTOFIX_ERROR_TYPE_NO_RECOMMENDED_UPGRADE
                         - AUTOFIX_ERROR_TYPE_INVALID_ISSUE_STATE
+                        - AUTOFIX_ERROR_TYPE_PERMISSION_DENIED
                     type: string
                     description: |+
                         The type of error that occurred during Autofix job creation.
@@ -7646,6 +7647,7 @@ components:
                         | AUTOFIX_ERROR_TYPE_IN_FLIGHT_FIX_PENDING | An Autofix job is already in progress for this issue. Please wait for it to complete before retrying. |
                         | AUTOFIX_ERROR_TYPE_NO_RECOMMENDED_UPGRADE | No recommended upgrade version is available for this dependency (SCA only). |
                         | AUTOFIX_ERROR_TYPE_INVALID_ISSUE_STATE | The issue is in a state that does not support Autofix (for example, already fixed or ignored). |
+                        | AUTOFIX_ERROR_TYPE_PERMISSION_DENIED | The caller does not have permission to open Autofix PRs for this issue. |
 
                     format: enum
                 message:
@@ -11784,6 +11786,9 @@ components:
                 reviewerName:
                     type: string
                     description: Display name of the reviewer, when known. Also only populated when `exceptionState` is APPROVED or REJECTED.
+                reviewerNote:
+                    type: string
+                    description: Note the reviewer left with their decision, as recorded on the review.
                 requestId:
                     type: string
                     description: Unique identifier for this exception request.
@@ -19014,7 +19019,7 @@ components:
                         - REGISTRY_TYPE_MALWARE_FIREWALL
                     type: string
                     description: |+
-                        How this registry entry is used. Unset is treated as REGISTRY_TYPE_PACKAGE_MANAGER_AUTH. For REGISTRY_TYPE_MALWARE_FIREWALL entries, `url` holds a host pattern (host[:port], optional leading `*.` wildcard) instead of a URL, and ecosystem/credentials must not be set.
+                        How this registry entry is used. Unset is treated as REGISTRY_TYPE_PACKAGE_MANAGER_AUTH. For REGISTRY_TYPE_MALWARE_FIREWALL entries, `url` holds a host pattern (host[:port], optional leading `*.` wildcard) instead of a URL, `ecosystem` is required and must be one of pypi, npm, maven, cargo, or gomod, `base_path` is optional, and credentials must not be set.
 
                         | value | description |
                         |-------|---------------|
@@ -19022,6 +19027,10 @@ components:
                         | REGISTRY_TYPE_MALWARE_FIREWALL |  |
 
                     format: enum
+                basePath:
+                    example: /artifactory/api/npm/npm-virtual
+                    type: string
+                    description: 'Only for REGISTRY_TYPE_MALWARE_FIREWALL entries: the path prefix the registry is served under, normalized to a leading slash and no trailing slash. Empty means the registry root. Ignored for other registry types.'
             description: |-
                 Represents properties of the PackageManagerConfig model
                  without the credentials
