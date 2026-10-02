@@ -16,10 +16,10 @@ Linking a source code manager provides the following benefits:
 - For GitHub users:
     - Provides Semgrep access to post PR or MR comments.
     - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
-- Allows you to scan and manage your Azure DevOps and Bitbucket projects in Semgrep AppSec Platform.
+- Allows you to scan and manage your Azure DevOps, Bitbucket, and Cursor Origin projects in Semgrep AppSec Platform.
 - Allows the Semgrep platform to generate hyperlinks to code in findings.
 
-If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Azure DevOps and Bitbucket, though you will need to use a separate SSO provider to manage the authentication of your users in such cases.
+If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Azure DevOps, Bitbucket, and Cursor Origin, though you will need to use a separate SSO provider to manage the authentication of your users in such cases.
 
 The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single tenant by the service provider.
 
@@ -289,6 +289,77 @@ The GitLab groups are now listed under **Source code managers**. Click **Test** 
 You have successfully connected an org in Semgrep AppSec Platform with an organization in your source code management tool.
 
 </Tab>
+<Tab title="Cursor Origin">
+
+<div id="cursor-origin" />
+
+### Cursor Origin
+
+<Note>
+Cursor Origin support is in **beta**. Beta features are subject to change with continued internal benchmarking and customer feedback. See [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations) for current limits.
+</Note>
+
+Connect repositories hosted in [Cursor Origin](https://cursor.com/docs/origin) (Cursor Codebase) so Semgrep can sync projects, run [Managed Scans](/deployment/managed-scanning/cursor), and post scan checks and finding comments on Cursor pull requests.
+
+The Semgrep Cursor Origin app is Semgrep's integration on Cursor Origin. It plays a similar role to the Semgrep GitHub App: you install it, choose repositories, and connect it to your Semgrep organization.
+
+Semgrep recommends the shared **Semgrep Cursor Origin app**. Semgrep owns that app and its signing credentials. You install it in Cursor, choose which repositories it can access, and connect it to your Semgrep organization. You do not create an app or supply a private key.
+
+"Public" or "shared" describes who can install the app, not repository visibility. You can use the shared Semgrep Cursor Origin app with private repositories and restrict it to selected repositories.
+
+A customer-managed **private app** is available when your organization needs a separate app identity and control of the signing-key lifecycle, or for a custom setup coordinated with Semgrep. Contact [Support](/support) for that path. A private app is not required just because your repositories are private.
+
+You can start the connection in Semgrep or in Cursor. Both paths require Cursor consent bound to the Semgrep organization you select.
+
+#### Start in Semgrep
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.
+</Step>
+<Step>
+Go to <Icon icon="gear" iconType="solid"/> **Settings > Source code managers > Add > Cursor Origin**.
+</Step>
+<Step>
+In the **Connect your Cursor Origin organization** dialog, select **Semgrep app**. Leave **Private app** unselected unless you are working with [Support](/support) on a customer-managed app.
+</Step>
+<Step>
+Click **Connect**. Continue to Cursor to choose a codebase and the repositories Semgrep can access.
+</Step>
+<Step>
+After Cursor redirects you back to Semgrep, click **Test** on the new connection to verify it.
+</Step>
+<Step>
+Confirm that repository sync has completed, then enable [Managed Scans](/deployment/managed-scanning/cursor) for the repositories you want to scan.
+</Step>
+</Steps>
+
+Cursor Origin is also available when you create a new Semgrep organization during onboarding.
+
+#### Start in Cursor
+
+<Steps>
+<Step>
+In Cursor, install the Semgrep Cursor Origin app for your Cursor codebase. Choose the repositories Semgrep can access, review the permissions, and select **Install** for the intended codebase.
+</Step>
+<Step>
+Continue into Semgrep. Existing users sign in. New users select **Sign up here** and create an account. The pending Cursor connection continues after authentication and organization creation.
+</Step>
+<Step>
+Select the destination Semgrep organization, then continue to Cursor Origin to confirm repository access for that organization.
+</Step>
+<Step>
+After you return to Semgrep, click **Test** on the connection, confirm repository sync, and enable [Managed Scans](/deployment/managed-scanning/cursor).
+</Step>
+</Steps>
+
+If authorization expires or the callback fails, restart **Connect** in the same browser and complete Cursor consent for the intended Semgrep organization.
+
+</Tab>
+
 </Tabs>
 
 ## Connect to on-premise orgs and projects
