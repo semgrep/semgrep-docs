@@ -8,20 +8,22 @@ Your merge queue pipelines can become blocked if you:
 - Use GitHub merge queues to automate pull request merges
 - Have made the Semgrep scan a required check
 
-Managed Scans do not run in merge queues, so the required Semgrep check never passes, preventing merges.
+Managed Scans don't run in merge queues, so the required Semgrep check never passes, preventing merges.
 
 ## Why Semgrep doesn't run in merge queues
 
 Semgrep doesn't run in merge queues because:
 
-- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merged.
+- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merge.
 - Full scans take a long time, significantly delaying merges for larger repositories.
 
-## Workaround
+## Keep Semgrep required without blocking merge queues
 
-To keep Semgrep required for pull requests without blocking merge queues, edit your current [GitHub ruleset](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rulesets):
+Create or edit a [GitHub ruleset](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rulesets) so the Semgrep check accepts results from any source. Then add a placeholder workflow that passes on merge queue events.
 
-### Edit your ruleset
+### Create or edit your ruleset
+
+For steps to create a ruleset, see [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) in the GitHub documentation.
 
 <Steps>
    <Step>
@@ -31,16 +33,13 @@ To keep Semgrep required for pull requests without blocking merge queues, edit y
    Go to **Settings > Rulesets > Rulesets**.
    </Step>
    <Step>
-   Look for the option *Require status checks to pass*. 
+   Create a new ruleset, or open an existing ruleset that requires status checks.
    </Step>
    <Step>
-   Look for the check *semgrep-cloud-platform/scan*.
+   Under **Require status checks to pass**, add or find the check **semgrep-cloud-platform/scan**.
    </Step>
    <Step>
-   Click on the source and select *Any source*.
-    <Frame>
-    ![image info](/images/kb/semgrep-ci/semgrep-appsec-platform/no-runs-in-github-merge-queues.png)
-    </Frame>
+   Next to **semgrep-cloud-platform/scan**, open the source menu and select **Any source**. This lets both Managed Scans on pull requests and the placeholder workflow on merge queue events satisfy the required check.
    </Step>
 </Steps>
 
@@ -64,4 +63,4 @@ jobs:
          - run: echo "OK – Semgrep already ran on the PR; MQ can proceed."
 ```
 
-With that, Semgrep will run diff scans for the pull request and will unblock the merge queue pipelines.
+Semgrep runs diff-aware scans on the pull request, and the merge queue isn't blocked.
