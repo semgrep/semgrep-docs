@@ -66,27 +66,12 @@ Many coding agents let you pin an approved marketplace or plugin for your whole 
 
         `sparse_paths` keeps the clone small enough to finish within Codex's marketplace timeout. If your Agent Security defaults don't accept marketplace and plugin settings, deploy the same configuration through [MDM](#option-2-deploy-through-a-mobile-device-management-mdm-platform) instead.
       </Step>
-      <Step title="Optional: Restrict marketplace sources">
-        To allow only approved plugin marketplaces, add the following to your Agent Security requirements:
-
-        ```toml
-        [marketplaces]
-        restrict_to_allowed_sources = true
-
-        [marketplaces.allowed_sources.semgrep_guardian]
-        source = "git"
-        url = "https://github.com/semgrep/guardian.git"
-        ref = "main"
-        ```
-
-        This blocks every marketplace that isn't listed, including OpenAI's curated plugins. To keep those, add an `openai_curated` source for `https://github.com/openai/plugins.git`. See [Restrict plugin marketplace sources](https://developers.openai.com/codex/enterprise/managed-configuration).
-      </Step>
       <Step title="Confirm the plugin is installed">
         Ask developers to restart Codex, then run `codex plugin list --json` and confirm the `semgrep` plugin is listed.
       </Step>
     </Steps>
 
-    Configuration defaults aren't enforced: developers can still turn the plugin off. Requirements are enforced, but they control which marketplaces developers can use, not which plugins are on. These settings reach developers who sign in to Codex with your ChatGPT workspace. For more information, see [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration).
+    Configuration defaults aren't enforced: developers can still turn the plugin off. These settings reach developers who sign in to Codex with your ChatGPT workspace. For more information, see [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration).
 
   </Tab>
   <Tab title="Cursor">
