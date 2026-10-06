@@ -10,7 +10,8 @@ Which rules Guardian scans with depends on how it runs scans, and this differs b
 | :--- | :--- | :--- |
 | **Claude Code, remote plugin** (default, recommended) | Guardian hooks | Fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset |
 | **Claude Code, local plugin** | Guardian hooks, local CLI | Rules enabled in your organization's Policies |
-| **All other coding agents** (Cursor, Codex, GitHub Copilot, VS Code, Devin, Kiro, other MCP clients) | `semgrep_scan` through the Semgrep MCP server | Rules enabled in your organization's Policies |
+| **Codex, Guardian plugin** (recommended) | Guardian hooks | Rules enabled in your organization's Policies |
+| **All other coding agents** (Cursor, GitHub Copilot, VS Code, Devin, Kiro, other MCP clients) | `semgrep_scan` through the Semgrep MCP server | Rules enabled in your organization's Policies |
 
 <Warning>
 **If you use the recommended Claude Code remote plugin, your Policies do not apply.**
