@@ -307,7 +307,10 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
 </Tabs>
 
 <Note>
-These templates enable the plugin only. Deploying a read-only token through MDM is currently supported for Claude Code only. To deploy one, add `SEMGREP_APP_TOKEN` and `SEMGREP_GUARDIAN_EMAIL` to the same managed settings payload. For the values, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only). For the `env` key, see [Claude Code settings](https://code.claude.com/docs/en/settings).
+These templates enable the plugin only. To deploy a read-only token, set `SEMGREP_APP_TOKEN` and `SEMGREP_GUARDIAN_EMAIL`. For the values, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only).
+
+* **Claude Code:** add both variables to the same managed settings payload under the `env` key. See [Claude Code settings](https://code.claude.com/docs/en/settings).
+* **Codex:** set both as environment variables on each developer machine. Guardian passes them to the plugin.
 </Note>
 
 ## Deployment recommendations
@@ -317,8 +320,6 @@ These templates enable the plugin only. Deploying a read-only token through MDM 
 * Each developer signs in to Semgrep once Guardian is installed. Deploy a read-only token when developers cannot complete a browser sign-in. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
 ## Deploy with a read-only token (Semgrep Enterprise only)
-
-Read-only token deployment is currently supported for Claude Code only.
 
 Prefer OAuth, including when you deploy through an MDM platform. Use a read-only API token when developers cannot complete a browser sign-in.
 
