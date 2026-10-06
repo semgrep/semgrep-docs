@@ -18,7 +18,7 @@ Prefer OAuth, including when you deploy through an MDM platform. When developers
 
 - You have a Semgrep account and organization.
 - You are an admin for your coding agent's enterprise controls and your MDM platform, if applicable.
-- Claude Code is the recommended setup for organization-wide deployment.
+- Claude Code and Codex are the recommended setups for organization-wide deployment.
 
 ## Option 1: Use your agent's built-in enterprise controls
 
@@ -45,6 +45,48 @@ Many coding agents let you pin an approved marketplace or plugin for your whole 
     </Steps>
 
     Guardian is published to the Claude official marketplace (`claude-plugins-official`), so the payload only needs to enable the plugin. There's no separate marketplace to declare. See [Require marketplaces for your team](https://code.claude.com/docs/en/plugin-marketplaces#require-marketplaces-for-your-team) for more information.
+
+  </Tab>
+  <Tab title="Codex">
+
+    <Steps>
+      <Step title="Add the Guardian marketplace to your configuration defaults">
+        In the ChatGPT Admin Console, open [Agent Security](https://developers.openai.com/codex/enterprise/agent-security) and add the following to your Codex configuration defaults. It adds the Semgrep marketplace and enables the Guardian plugin:
+
+        ```toml
+        [marketplaces.semgrep-marketplace]
+        source_type = "git"
+        source = "https://github.com/semgrep/guardian.git"
+        ref = "main"
+        sparse_paths = [".claude-plugin", "plugin"]
+
+        [plugins."semgrep@semgrep-marketplace"]
+        enabled = true
+        ```
+
+        `sparse_paths` keeps the clone small enough to finish within Codex's marketplace timeout. If your Agent Security defaults don't accept marketplace and plugin settings, deploy the same configuration through [MDM](#option-2-deploy-through-a-mobile-device-management-mdm-platform) instead.
+      </Step>
+      <Step title="Optional: Restrict marketplace sources">
+        To allow only approved plugin marketplaces, add the following to your Agent Security requirements:
+
+        ```toml
+        [marketplaces]
+        restrict_to_allowed_sources = true
+
+        [marketplaces.allowed_sources.semgrep_guardian]
+        source = "git"
+        url = "https://github.com/semgrep/guardian.git"
+        ref = "main"
+        ```
+
+        This blocks every marketplace that isn't listed, including OpenAI's curated plugins. To keep those, add an `openai_curated` source for `https://github.com/openai/plugins.git`. See [Restrict plugin marketplace sources](https://developers.openai.com/codex/enterprise/managed-configuration).
+      </Step>
+      <Step title="Confirm the plugin is installed">
+        Ask developers to restart Codex, then run `codex plugin list --json` and confirm the `semgrep` plugin is listed.
+      </Step>
+    </Steps>
+
+    Guardian isn't listed in OpenAI's public plugin directory, so the configuration declares the Semgrep marketplace as well as enabling the plugin. Configuration defaults aren't enforced: developers can still turn the plugin off. Requirements are enforced, but they control which marketplaces developers can use, not which plugins are on. These settings reach developers who sign in to Codex with your ChatGPT workspace. For more information, see [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration).
 
   </Tab>
   <Tab title="Cursor">
@@ -290,6 +332,8 @@ These templates enable the plugin only. Deploying a read-only token through MDM 
 * Each developer signs in to Semgrep once Guardian is installed. Deploy a read-only token when developers cannot complete a browser sign-in. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
 ## Deploy with a read-only token (Semgrep Enterprise only)
+
+Read-only token deployment is currently supported for Claude Code only.
 
 Prefer OAuth, including when you deploy through an MDM platform. Use a read-only API token when developers cannot complete a browser sign-in.
 
