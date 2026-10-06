@@ -18,13 +18,11 @@ You need:
 - Permission to manage source code manager connections in your Semgrep organization.
 - Permission in Cursor to install apps and select the repositories Semgrep can access.
 
-See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for roles and scopes.
+See [SCM permissions](/deployment/prepare/scm-permissions#cursor-origin) for roles and scopes.
 
-The Semgrep Cursor Origin app is Semgrep's integration on Cursor Origin. It plays a similar role to the Semgrep GitHub App: you install it, choose repositories, and connect it to your Semgrep organization.
+Semgrep connects to Cursor Origin through an app you install in Cursor. That integration plays a similar role to the Semgrep GitHub App: you install it, choose repositories, and connect it to your Semgrep organization.
 
-Semgrep recommends connecting repositories through the shared **Semgrep Cursor Origin app**. You do not need to create an app or provide a private key, including for private repositories.
-
-Use a customer-managed private app only if your organization requires a separate app identity or control over the signing key. Contact [Semgrep Support](/support) to use this configuration.
+Semgrep recommends the **Semgrep app**, which uses the public Semgrep Cursor Origin app. For when to use **Semgrep app** versus **Private app**, see [Choose an app type](/deployment/connect-scm#choose-an-app-type).
 
 ## Connect Cursor Origin
 
@@ -97,7 +95,7 @@ During the beta, triage by responding to PR comments and Autofix pull requests a
 
 ### Change repository access
 
-To limit which repositories Semgrep can access without disconnecting Cursor Origin, update the Semgrep Cursor Origin app installation in Cursor and select only the intended repositories. Then click **Sync projects** in Semgrep AppSec Platform.
+To limit which repositories Semgrep can access without disconnecting Cursor Origin, update the app installation in Cursor and select only the intended repositories. Then click **Sync projects** in Semgrep AppSec Platform.
 
 ### Disconnect Cursor Origin
 
@@ -144,7 +142,7 @@ Return to **Projects**, then click **Sync projects**.
 Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
 </Step>
 <Step>
-If repositories are still missing, open the Semgrep Cursor Origin app installation in Cursor and confirm Semgrep has access to those repositories. Then sync again in Semgrep.
+If repositories are still missing, open the app installation in Cursor and confirm Semgrep has access to those repositories. Then sync again in Semgrep.
 </Step>
 </Steps>
 

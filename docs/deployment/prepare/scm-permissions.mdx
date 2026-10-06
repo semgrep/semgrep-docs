@@ -46,13 +46,15 @@ The following tables list **SCM roles** and **token or app scopes** required for
 
 <Tab title="Cursor Origin">
 
-Cursor Origin support is in **beta**. Semgrep recommends the shared **Semgrep Cursor Origin app**. A customer-managed private app is available for custom setups; contact [Support](/support).
+<div id="cursor-origin" />
+
+Cursor Origin support is in **beta**. Semgrep recommends the **Semgrep app**, which uses the public Semgrep Cursor Origin app. A **Private app** (customer-managed private app) is available if your organization needs a separate app identity or control over the app's signing key. Contact [Support](/support).
 
 | Feature | Role | Scopes | Configure |
 | :--- | :--- | :--- | :--- |
-| Connect repositories | User who can manage source code manager connections in Semgrep and install apps for the Cursor codebase | Install the shared Semgrep Cursor Origin app in Cursor and select the repositories Semgrep can access. No customer-created app or private key is required for the shared app path. | [Connect Cursor Origin](/deployment/connect-scm#cursor-origin) |
-| Managed Scans | Same as connect repositories | Same Semgrep Cursor Origin app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor) |
-| PR comments and scan checks | Same as connect repositories | Same Semgrep Cursor Origin app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#pull-request-checks-and-comments) |
+| Connect repositories | User who can manage source code manager connections in Semgrep and install apps for the Cursor codebase | Install the public Semgrep Cursor Origin app (**Semgrep app**) in Cursor and select the repositories Semgrep can access. | [Connect Cursor Origin](/deployment/connect-scm#cursor-origin) |
+| Managed Scans | Same as connect repositories | Same Cursor Origin app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor) |
+| PR comments and scan checks | Same as connect repositories | Same Cursor Origin app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#pull-request-checks-and-comments) |
 | Triage through PR comments | Not available during the beta | — | — |
 | Autofix | Not available during the beta | — | — |
 
