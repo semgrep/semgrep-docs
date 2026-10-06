@@ -77,7 +77,7 @@ Many coding agents let you pin an approved marketplace or plugin for your whole 
 
 ## Option 2: Deploy through a mobile device management (MDM) platform
 
-Deploy through your MDM platform to scope the deployment by device group. These templates configure Claude Code only. To deploy Guardian to Cursor, use [Option 1](#option-1-use-your-agents-built-in-enterprise-controls).
+Deploy through your MDM platform to scope the deployment by device group. The Jamf template configures Claude Code only; the Iru (Kandji) templates cover Claude Code and Codex. To deploy Guardian to Cursor, use [Option 1](#option-1-use-your-agents-built-in-enterprise-controls).
 
 <Warning>
 These are community-maintained templates and may be unsupported or incorrect. You are responsible for verifying the configuration before deploying it to a fleet.
@@ -123,7 +123,9 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
 
     <Steps>
       <Step title="Create the configuration profile">
-        Save the following as `semgrep-guardian.mobileconfig`, then replace the placeholder values: set `PayloadIdentifier` and `PayloadOrganization` to match your organization, and generate a fresh `PayloadUUID` for both the profile and the payload it contains.
+        Save the profile for your coding agent, then replace the placeholder values: set each `PayloadIdentifier` and `PayloadOrganization` to match your organization, and replace `REPLACE-WITH-PROFILE-UUID` and `REPLACE-WITH-PAYLOAD-UUID` with two different UUIDs, for example from running `uuidgen` twice. To deploy Guardian to both Claude Code and Codex, create both profiles.
+
+        For Claude Code, save the following as `semgrep-guardian.mobileconfig`:
 
         <Accordion title="semgrep-guardian.mobileconfig">
           ```xml semgrep-guardian.mobileconfig
@@ -144,7 +146,7 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
           	<key>PayloadType</key>
           	<string>Configuration</string>
           	<key>PayloadUUID</key>
-          	<string>DA9306A3-D913-47D0-95D9-0594D39CFE76</string>
+          	<string>REPLACE-WITH-PROFILE-UUID</string>
           	<key>PayloadVersion</key>
           	<integer>1</integer>
           	<key>PayloadContent</key>
@@ -153,11 +155,11 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
           			<key>PayloadDisplayName</key>
           			<string>Claude Code Marketplace Settings</string>
           			<key>PayloadIdentifier</key>
-          			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+          			<string>com.yourorg.claudecode.guardian.managed-settings</string>
           			<key>PayloadType</key>
           			<string>com.apple.ManagedClient.preferences</string>
           			<key>PayloadUUID</key>
-          			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+          			<string>REPLACE-WITH-PAYLOAD-UUID</string>
           			<key>PayloadVersion</key>
           			<integer>1</integer>
           			<key>PayloadContent</key>
@@ -186,12 +188,88 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
           </plist>
           ```
         </Accordion>
+
+        For Codex, save the following as `semgrep-guardian-codex.mobileconfig`. The base64 string in `config_toml_base64` encodes the Codex configuration shown in the comment above it.
+
+        <Accordion title="semgrep-guardian-codex.mobileconfig">
+          ```xml semgrep-guardian-codex.mobileconfig
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+          	<key>PayloadDisplayName</key>
+          	<string>Codex – Semgrep Guardian Plugin Settings</string>
+          	<key>PayloadDescription</key>
+          	<string>Adds the Semgrep Guardian marketplace (semgrep/guardian) to Codex and enables the Guardian plugin.</string>
+          	<key>PayloadIdentifier</key>
+          	<string>com.yourorg.codex.guardian</string>
+          	<key>PayloadOrganization</key>
+          	<string>yourorg</string>
+          	<key>PayloadScope</key>
+          	<string>System</string>
+          	<key>PayloadType</key>
+          	<string>Configuration</string>
+          	<key>PayloadUUID</key>
+          	<string>REPLACE-WITH-PROFILE-UUID</string>
+          	<key>PayloadVersion</key>
+          	<integer>1</integer>
+          	<key>PayloadContent</key>
+          	<array>
+          		<dict>
+          			<key>PayloadDisplayName</key>
+          			<string>Codex Managed Configuration</string>
+          			<key>PayloadIdentifier</key>
+          			<string>com.yourorg.codex.guardian.managed-config</string>
+          			<key>PayloadType</key>
+          			<string>com.apple.ManagedClient.preferences</string>
+          			<key>PayloadUUID</key>
+          			<string>REPLACE-WITH-PAYLOAD-UUID</string>
+          			<key>PayloadVersion</key>
+          			<integer>1</integer>
+          			<key>PayloadContent</key>
+          			<dict>
+          				<key>com.openai.codex</key>
+          				<dict>
+          					<key>Forced</key>
+          					<array>
+          						<dict>
+          							<key>mcx_preference_settings</key>
+          							<dict>
+          								<!--
+          								sparse_paths keeps Codex on a blobless sparse clone: a full clone of
+          								semgrep/guardian (every release's binaries in history) exceeds Codex's
+          								30s marketplace git timeout.
+
+          								Base64 (no line wrapping) of this TOML, which Codex reads as managed defaults:
+
+          								[marketplaces.semgrep-marketplace]
+          								source_type = "git"
+          								source = "https://github.com/semgrep/guardian.git"
+          								ref = "main"
+          								sparse_paths = [".claude-plugin", "plugin"]
+
+          								[plugins."semgrep@semgrep-marketplace"]
+          								enabled = true
+          								-->
+          								<key>config_toml_base64</key>
+          								<string>W21hcmtldHBsYWNlcy5zZW1ncmVwLW1hcmtldHBsYWNlXQpzb3VyY2VfdHlwZSA9ICJnaXQiCnNvdXJjZSA9ICJodHRwczovL2dpdGh1Yi5jb20vc2VtZ3JlcC9ndWFyZGlhbi5naXQiCnJlZiA9ICJtYWluIgpzcGFyc2VfcGF0aHMgPSBbIi5jbGF1ZGUtcGx1Z2luIiwgInBsdWdpbiJdCgpbcGx1Z2lucy4ic2VtZ3JlcEBzZW1ncmVwLW1hcmtldHBsYWNlIl0KZW5hYmxlZCA9IHRydWUK</string>
+          							</dict>
+          						</dict>
+          					</array>
+          				</dict>
+          			</dict>
+          		</dict>
+          	</array>
+          </dict>
+          </plist>
+          ```
+        </Accordion>
       </Step>
       <Step title="Upload it as a Custom Profile">
-        Go to **Library > Add Library Item > Custom Profile** and upload the file.
+        Go to **Library > Add Library Item > Custom Profile** and upload the file. Upload each profile as its own Custom Profile.
       </Step>
       <Step title="Name the profile">
-        Name the profile `Semgrep Guardian - Managed Settings`.
+        Name the profile `Semgrep Guardian - Managed Settings`, or `Semgrep Guardian - Codex Managed Settings` for the Codex profile.
       </Step>
       <Step title="Assign and save">
         Assign the profile to your blueprint as needed, then save.
@@ -202,13 +280,13 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
 </Tabs>
 
 <Note>
-These templates enable the plugin only. To deploy a read-only token, add `SEMGREP_APP_TOKEN` and `SEMGREP_GUARDIAN_EMAIL` to the same managed settings payload. For the values, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only). For the `env` key, see [Claude Code settings](https://code.claude.com/docs/en/settings).
+These templates enable the plugin only. Deploying a read-only token through MDM is currently supported for Claude Code only. To deploy one, add `SEMGREP_APP_TOKEN` and `SEMGREP_GUARDIAN_EMAIL` to the same managed settings payload. For the values, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only). For the `env` key, see [Claude Code settings](https://code.claude.com/docs/en/settings).
 </Note>
 
 ## Deployment recommendations
 
 * Test the deployment on a single machine before pushing to the whole fleet.
-* After deploying, confirm that Guardian loaded by running `claude mcp get plugin:semgrep:guardian` and confirming it reports as connected.
+* After deploying, confirm that Guardian loaded. In Claude Code, run `claude mcp get plugin:semgrep:guardian` and confirm it reports as connected. In Codex, run `codex plugin list --json` and confirm the `semgrep` plugin is listed.
 * Each developer signs in to Semgrep once Guardian is installed. Deploy a read-only token when developers cannot complete a browser sign-in. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
 ## Deploy with a read-only token (Semgrep Enterprise only)
