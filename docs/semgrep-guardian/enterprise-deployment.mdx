@@ -10,14 +10,14 @@ For individual developer setup, see the [Quickstart](/semgrep-guardian/quickstar
 
 ## Before you deploy
 
-Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet deployments.
+Each developer still signs in to Semgrep individually after Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet deployments.
 
-Prefer OAuth, including when you deploy through an MDM platform. When developers cannot complete a browser sign-in, deploy Guardian with a read-only token. This requires Semgrep Enterprise. For more information, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only).
+Prefer OAuth, including when you deploy through an MDM platform. When developers can't complete a browser sign-in, deploy Guardian with a read-only token. This requires Semgrep Enterprise. For more information, see [Deploy with a read-only token](#deploy-with-a-read-only-token-semgrep-enterprise-only).
 
 ## Prerequisites
 
 - You have a Semgrep account and organization.
-- You are an admin for your coding agent's enterprise controls and your MDM platform, if applicable.
+- You're an admin for your coding agent's enterprise controls and your MDM platform, if applicable.
 - Claude Code and Codex are the recommended setups for organization-wide deployment.
 
 ## Option 1: Use your agent's built-in enterprise controls
@@ -51,7 +51,7 @@ Many coding agents let you pin an approved marketplace or plugin for your whole 
 
     <Steps>
       <Step title="Add the Guardian marketplace to your configuration defaults">
-        In the ChatGPT Admin Console, open [Agent Security](https://developers.openai.com/codex/enterprise/agent-security) and add the following to your Codex configuration defaults. It adds the Semgrep marketplace and enables the Guardian plugin:
+        In the **ChatGPT Admin Console**, open **[Agent Security](https://developers.openai.com/codex/enterprise/agent-security)**. Add the following to your Codex configuration defaults to include the Semgrep marketplace and enable the Guardian plugin:
 
         ```toml
         [marketplaces.semgrep-marketplace]
@@ -64,7 +64,7 @@ Many coding agents let you pin an approved marketplace or plugin for your whole 
         enabled = true
         ```
 
-        `sparse_paths` keeps the clone small enough to finish within Codex's marketplace timeout. If your Agent Security defaults don't accept marketplace and plugin settings, deploy the same configuration through [MDM](#option-2-deploy-through-a-mobile-device-management-mdm-platform) instead.
+        `sparse_paths` keeps the clone small enough to finish within Codex's marketplace timeout. If your **Agent Security** defaults don't accept marketplace and plugin settings, deploy the same configuration through [MDM](#option-2-deploy-through-a-mobile-device-management-mdm-platform) instead.
       </Step>
       <Step title="Confirm the plugin is installed">
         Run `codex plugin list --json` and confirm the `semgrep` plugin is listed.
@@ -150,7 +150,7 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
 
     <Steps>
       <Step title="Create the configuration profile">
-        Save the profile for your coding agent, then replace the placeholder values: set each `PayloadIdentifier` and `PayloadOrganization` to match your organization, and replace `REPLACE-WITH-PROFILE-UUID` and `REPLACE-WITH-PAYLOAD-UUID` with two different UUIDs, for example from running `uuidgen` twice. To deploy Guardian to both Claude Code and Codex, create both profiles.
+        Save the profile for your coding agent, then replace the placeholder values: set each `PayloadIdentifier` and `PayloadOrganization` to match your organization, and replace `REPLACE-WITH-PROFILE-UUID` and `REPLACE-WITH-PAYLOAD-UUID` with two different UUIDs, for example, from running `uuidgen` twice. To deploy Guardian to both Claude Code and Codex, create both profiles.
 
         For Claude Code, save the following as `semgrep-guardian-claude.mobileconfig`:
 
@@ -216,7 +216,7 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
           ```
         </Accordion>
 
-        For Codex, save the following as `semgrep-guardian-codex.mobileconfig`. The base64 string in `config_toml_base64` encodes the Codex configuration shown in the comment above it.
+        For Codex, save the following as `semgrep-guardian-codex.mobileconfig`. The base64 string in `config_toml_base64` encodes the Codex configuration shown in the preceding comment.
 
         <Accordion title="semgrep-guardian-codex.mobileconfig">
           ```xml semgrep-guardian-codex.mobileconfig
@@ -317,11 +317,11 @@ These templates enable the plugin only. To deploy a read-only token, set `SEMGRE
 
 * Test the deployment on a single machine before pushing to the whole fleet.
 * After deploying, confirm that Guardian loaded. In Claude Code, run `claude mcp get plugin:semgrep:guardian` and confirm it reports as connected. In Codex, run `codex plugin list --json` and confirm the `semgrep` plugin is listed.
-* Each developer signs in to Semgrep once Guardian is installed. Deploy a read-only token when developers cannot complete a browser sign-in. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
+* Each developer signs in to Semgrep after Guardian is installed. Deploy a read-only token when developers can't complete a browser sign-in. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
 ## Deploy with a read-only token (Semgrep Enterprise only)
 
-Prefer OAuth, including when you deploy through an MDM platform. Use a read-only API token when developers cannot complete a browser sign-in.
+Prefer OAuth, including when you deploy through an MDM platform. Use a read-only API token when developers can't complete a browser sign-in.
 
 <Warning>
 Every developer in the deployment uses the same read-only token. To replace a compromised token, or to revoke access, deploy a new token first, then revoke the previous one. With OAuth, you can revoke access for an individual developer.
@@ -336,7 +336,7 @@ Every developer in the deployment uses the same read-only token. To replace a co
 
     <pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">READ_ONLY_TOKEN</span> semgrep ci</code></pre>
 
-    `semgrep ci` runs on your machine and sends findings to Semgrep AppSec Platform. A read-only token cannot send findings, so the command fails. If the command succeeds, return to the previous step and create a token with the read-only scope.
+    `semgrep ci` runs on your machine and sends findings to Semgrep AppSec Platform. A read-only token can't send findings, so the command fails. If the command succeeds, return to the previous step and create a token with the read-only scope.
   </Step>
   <Step title="Set the environment variables on each developer machine">
     Set these environment variables:

@@ -13,9 +13,9 @@ Which rules Guardian scans with depends on how it runs scans, and this differs b
 | **All other coding agents** (Cursor, GitHub Copilot, VS Code, Devin, Kiro, other MCP clients) | `semgrep_scan` through the Semgrep MCP server | Rules enabled in your organization's Policies |
 
 <Warning>
-**If you use the recommended Claude Code or Codex plugin, your Policies do not apply.**
+**If you use the recommended Claude Code or Codex plugin, your Policies don't apply.**
 
-Guardian's hooks run a fixed ruleset rather than reading your Policies configuration. If you have tuned your Policies and expect those rules to run in Claude Code or Codex, they will not, and Guardian may appear to miss findings that a CI or platform scan reports.
+Guardian's hooks run a fixed ruleset rather than reading your Policies configuration. If you've tuned your Policies and expect those rules to run in Claude Code or Codex, those rules don't run, and Guardian might appear to miss findings that a CI or platform scan reports.
 
 If you require custom rules, see Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack) for assistance.
 </Warning>
