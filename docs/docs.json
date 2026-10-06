@@ -99,6 +99,7 @@
                         "pages": [
                           "deployment/managed-scanning/azure",
                           "deployment/managed-scanning/bitbucket",
+                          "deployment/managed-scanning/cursor",
                           "deployment/managed-scanning/github",
                           "deployment/managed-scanning/gitlab"
                         ]

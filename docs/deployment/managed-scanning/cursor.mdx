@@ -1,0 +1,161 @@
+---
+title: "Add Cursor Origin repositories to Semgrep Managed Scans"
+sidebarTitle: "Cursor Origin"
+description: "Add Cursor Origin repositories to your Semgrep organization without adding or changing CI workflows through Managed Scans."
+---
+Semgrep syncs the repositories you authorize and runs <Tooltip tip="A scan of the entire codebase or Git repository in its current state. Full scans are typically performed on trunk or mainline branches, such as main." cta="See full definition." href="/semgrep-code/glossary#full-scan">full</Tooltip> and <Tooltip tip="A scan that shows only findings caused by changes in files starting from a specific Git baseline. Diff-aware scans are typically performed on feature branches when a pull request or merge request is opened." cta="See full definition." href="/semgrep-code/glossary#diff-aware-scan">diff-aware</Tooltip> scans. It then posts scan checks and finding comments on Cursor pull requests.
+
+<Note>
+Cursor Origin support is in beta. Beta features are subject to change with continued internal benchmarking and customer feedback. Cursor Origin does not yet offer full feature parity with other source code managers. See [Supported features and beta limitations](#supported-features-and-beta-limitations).
+</Note>
+
+
+
+## Before you begin
+
+You need:
+
+- Permission to manage source code manager connections in your Semgrep organization.
+- Permission in Cursor to install apps and select the repositories Semgrep can access.
+
+See [SCM permissions](/deployment/prepare/scm-permissions#cursor-origin) for roles and scopes.
+
+Semgrep connects to Cursor Origin through an app you install in Cursor. That integration plays a similar role to the Semgrep GitHub App: you install it, choose repositories, and connect it to your Semgrep organization.
+
+Semgrep recommends the **Semgrep app**, which uses the public Semgrep Cursor Origin app. For when to use **Semgrep app** versus **Private app**, see [Choose an app type](/deployment/connect-scm#choose-an-app-type).
+
+## Connect Cursor Origin
+
+If Cursor Origin is not already connected, follow [Connect a source code manager](/deployment/connect-scm#cursor-origin). You can use either the Semgrep-first or Cursor-first flow.
+
+## Add repositories to Managed Scans
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Click **Scan new project > Semgrep Managed Scan**.
+</Step>
+<Step>
+On the **Enable Managed Scans for repos** page, select the Cursor Origin repositories you want to add.<br/><br/>
+   i. Optional: If you do not see the repository you want to add, click **Sync projects**. If the repository does not appear after syncing, see [Repositories do not appear](#repositories-do-not-appear).
+</Step>
+<Step>
+Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
+</Step>
+<Step>
+Optional: Disable PR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
+</Step>
+<Step>
+Click **Enable**.
+</Step>
+</Steps>
+
+You have finished setting up a Semgrep Managed Scan.
+
+### What happens next
+
+- After enabling Managed Scans, Semgrep performs a full scan on the selected repositories in batches.
+- Each repository you add becomes a <Tooltip tip="A repository or codebase that you have added to Semgrep AppSec Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">project</Tooltip> in Semgrep AppSec Platform containing its findings, scan history, and scan metadata.
+- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned.
+
+## Manage scans and projects
+
+After you enable Managed Scans, Cursor Origin projects use the same controls as other source code managers. To open a project's settings, go to **Projects**, find the project, and click **Details > Settings**. From there, you can:
+
+- Run a full scan
+- Turn diff-aware PR scans on or off
+- Turn **Managed full scans** or **Managed diff scans** off for that project
+- Delete the project
+
+See [Semgrep Managed Scans](/deployment/managed-scanning/overview) for how Managed Scans schedule full and diff-aware scans.
+
+## Pull request checks and comments
+
+When Managed Scans run on a Cursor pull request, Semgrep can post a scan check and finding comments on that PR. A failing Semgrep check blocks merging only if Cursor requires that check.
+
+To receive PR comments:
+
+<Steps>
+<Step>
+Connect Cursor Origin and [add the repository to Managed Scans](#add-repositories-to-managed-scans), including PR (diff-aware) scans.
+</Step>
+<Step>
+Configure your <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action performed by Semgrep when it detects a finding can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding." cta="See full definition." href="/semgrep-code/glossary#policy">remediation policies</Tooltip> in [Unified policies](/semgrep-appsec-platform/unified-policies/overview) to leave PR comments for the findings you want developers to see.
+</Step>
+<Step>
+Open or update a pull request in Cursor Origin. After the Managed Scan finishes, review the Semgrep check and any finding comments on the PR.
+</Step>
+</Steps>
+
+During the beta, triage by responding to PR comments and Autofix pull requests are not available for Cursor Origin.
+
+## Manage repository access
+
+### Change repository access
+
+To limit which repositories Semgrep can access without disconnecting Cursor Origin:
+
+<Steps>
+<Step>
+In Cursor, update the app installation and select only the repositories Semgrep should access.
+</Step>
+<Step>
+In Semgrep AppSec Platform, go to **Projects** and click **Sync projects**.
+</Step>
+</Steps>
+
+### Disconnect Cursor Origin
+
+To remove the Cursor Origin connection from Semgrep:
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="gear" iconType="solid"/> **Settings > Source code managers**.
+</Step>
+<Step>
+On the Cursor Origin entry you want to remove, click **Remove app**, then click **Remove** to confirm.
+</Step>
+</Steps>
+
+## Supported features and beta limitations
+
+| Available during beta | Not yet available |
+| :--- | :--- |
+| Repository sync | Triage through PR comments |
+| Full Managed Scans | Autofix pull requests |
+| PR-triggered scans | Network Broker and dedicated-tenant network coverage |
+| PR checks and finding comments | Agentic Workflows jobs |
+
+Feature coverage is still expanding; some capabilities available on GitHub, GitLab, Bitbucket, or Azure DevOps are not available for Cursor Origin yet.
+
+## Troubleshoot
+
+### Repositories do not appear
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="gear" iconType="solid"/> **Settings > Source code managers**.
+</Step>
+<Step>
+Confirm that your Cursor Origin connection shows a healthy status. Click **Test** if needed.
+</Step>
+<Step>
+Return to **Projects**, then click **Sync projects**.
+</Step>
+<Step>
+Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
+</Step>
+<Step>
+If repositories are still missing, open the app installation in Cursor and confirm Semgrep has access to those repositories. Then sync again in Semgrep.
+</Step>
+</Steps>
+
+### Other issues
+
+| Symptom | What to try |
+| :--- | :--- |
+| Cursor Origin option is missing in Semgrep | Confirm you are signed in to the intended Semgrep organization and that you can manage source code manager connections. |
+| Authorization or callback fails | Restart **Connect** in the same browser and complete Cursor consent for the intended Semgrep organization. |
+| No PR check or comment | Confirm Managed Scans and PR scans are enabled for the project, open or update a PR, and allow time for the scan to finish. Capture the PR URL and head SHA if you contact [Support](/support). |
