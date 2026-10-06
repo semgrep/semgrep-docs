@@ -15,11 +15,11 @@ Semgrep Managed Scans require one of the following plans:
 
 You must provide a Bitbucket [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) to Semgrep, which can be created by a user with the `Product Admin` role. Once you have Semgrep Managed Scans fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
 
-- `webhook (read and write)`
-- `repository (read and write)`
-- `pullrequest (read and write)`
-- `project (admin)`
-- `account (read)`
+- `Webhooks: Read and write`
+- `Repositories: Write`
+- `Pull requests: Write`
+- `Projects: Admin`
+- `Account: Read`
 
 Webhook permissions are required to support diff-aware scans.
 

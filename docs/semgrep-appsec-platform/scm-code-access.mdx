@@ -13,9 +13,9 @@ The following table shows the minimum scopes required for each SCM. For GitHub p
 
 | SCM | Read access scope | Write access scope |
 | :--- | :--- | :--- |
-| Azure DevOps | `Code (read)` | `Code (read and write)` |
-| Bitbucket Cloud | `repository:read`<br />`pullrequest:read` | `repository:write`<br />`pullrequest:write` |
-| Bitbucket Data Center | `repository:read` | `repository:write` |
+| Azure DevOps | `Code: Read` | `Code: Read & write` |
+| Bitbucket Cloud | `Repositories: Read`<br />`Pull requests: Read` | `Repositories: Write`<br />`Pull requests: Write` |
+| Bitbucket Data Center | Repository read access | Repository write access |
 | GitHub.com and GitHub Enterprise Server | `Contents: Read` | `Contents: Read and write`<br />`Pull requests: Read and write` |
 | GitLab and GitLab Self-Managed | `read_repository` | `write_repository` |
 
@@ -178,7 +178,7 @@ Navigate to the Azure DevOps access token settings page: <code>https://dev.azure
 Click **New token** to open the **Create a new personal access token** dialog.
 </Step>
 <Step>
-Assign the **Code (read and write)** scope to the token. This scope includes read access and the ability to create and manage PRs. For read-only code access, assign **Code (read)** instead.
+Assign the `Code: Read & write` scope to the token. This scope includes read access and the ability to create and manage PRs. For read-only code access, assign `Code: Read` instead.
 
 Also assign [any other scopes your deployment needs](/deployment/managed-scanning/azure#prerequisites-and-permissions), such as those listed in the **Autofix** row of [SCM permissions](/deployment/prepare/scm-permissions).
 </Step>
@@ -222,7 +222,7 @@ Create a new access token.
 </Step>
 <Step>
 {/* vale off */}
-Assign the `repository:read`, `pullrequest:read`, `repository:write`, and `pullrequest:write` scopes to the token, along with [any other scopes your deployment needs](/deployment/managed-scanning/bitbucket#bitbucket-cloud).
+Assign the `Repositories: Write` and `Pull requests: Write` scopes to the token, along with [any other scopes your deployment needs](/deployment/managed-scanning/bitbucket#bitbucket-cloud). For read-only code access, assign `Repositories: Read` and `Pull requests: Read` instead.
 {/* vale on */}
 </Step>
 <Step>
