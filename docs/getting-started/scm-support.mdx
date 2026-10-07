@@ -60,11 +60,11 @@ These columns cover the following plans:
 
 ## Minimum versions for self-hosted SCMs
 
-Semgrep relies on APIs that these versions introduced. Earlier versions aren't supported.
+Semgrep doesn't support versions older than the minimum.
 
 | SCM | Minimum version | Recommended version |
 | :--- | :--- | :--- |
-| GitHub Enterprise Server | 3.9 | — |
+| GitHub Enterprise Server | 3.9 | 3.10, for fine-grained personal access tokens |
 | GitLab Self-Managed | 15.5 | 16.5, for [inline MR comments](#recommended-gitlab-version) |
 | Bitbucket Data Center | 8.8 | 8.18, so Autofix can open draft PRs |
 
