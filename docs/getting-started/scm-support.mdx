@@ -17,21 +17,21 @@ These columns cover the following plans:
 
 <div className="scm-support-matrix">
 
-| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Azure DevOps Server<a href="#note-azure-devops-server" title="Semgrep can't connect to Azure DevOps Server">‖</a></span> | <span>Cursor Origin<a href="#note-cursor-origin-beta" title="Cursor Origin support is in beta">§</a></span> |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Sending findings to Semgrep AppSec Platform | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Links from findings to source code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Default branch identification | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Pull request comments | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Triage through PR or MR comments | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ❌ |
-| Semgrep Managed Scans | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
-| Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
-| Generic secrets (requires Semgrep Multimodal) | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
-| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ❌ |
-| Query console | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Semgrep Network Broker | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | <a href="#note-gitlab-inline-comments" title="Inline MR comments require GitLab 16.5 or later">✅‡</a> | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Cursor Origin<a href="#note-cursor-origin-beta" title="Cursor Origin support is in beta">§</a></span> |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Sending findings to Semgrep AppSec Platform | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Links from findings to source code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Default branch identification | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pull request comments | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Triage through PR or MR comments | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ |
+| Semgrep Managed Scans | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ |
+| Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ |
+| Generic secrets (requires Semgrep Multimodal) | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ |
+| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ |
+| Query console | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Semgrep Network Broker | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | <a href="#note-gitlab-inline-comments" title="Inline MR comments require GitLab 16.5 or later">✅‡</a> | ✅ | ✅ | ✅ | ❌ |
 
 </div>
 
@@ -50,12 +50,6 @@ These columns cover the following plans:
 <div id="note-gitlab-inline-comments">
 
 <strong>‡</strong>Inline MR comments from Agentic Workflows require GitLab 16.5 or later. See [Recommended GitLab version](#recommended-gitlab-version).
-
-</div>
-
-<div id="note-azure-devops-server">
-
-<strong>‖</strong>Semgrep can't connect to Azure DevOps Server.
 
 </div>
 
