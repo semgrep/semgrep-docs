@@ -101,9 +101,10 @@ h1 {
     text-decoration: none !important;
 }
 
-/* Footnote targets of the matrix's ⚠️ links: clear the sticky header and mark
+/* Notes that the SCM support tables link to: clear the sticky header and mark
    the note the reader just jumped to. */
-[id^="note-"] {
+[id^="note-"],
+#recommended-gitlab-version {
     scroll-margin-top: 8rem;
     margin-block: 1rem;
     padding: 0.25rem 0.5rem;
@@ -111,10 +112,12 @@ h1 {
     border-radius: 6px;
 }
 
-[id^="note-"] > p {
+[id^="note-"] > p,
+#recommended-gitlab-version > p {
     margin: 0;
 }
 
-[id^="note-"]:target {
+[id^="note-"]:target,
+#recommended-gitlab-version:target {
     background-color: rgba(202, 138, 4, 0.14);
 }
