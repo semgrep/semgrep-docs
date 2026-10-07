@@ -16,7 +16,7 @@ When using Semgrep AI features:
 1. Relevant data, including portions of source code, is sent outside your repository to AI subprocessors for analysis. Semgrep supports AI subprocessors from the following model vendors:
     - OpenAI (default)
     - Amazon Bedrock (default)
-    - Cloudflare (experimental features)
+    - Cloudflare Workers AI (default; organizations on the [minimal data retention policy](#minimal-data-retention-policy-optional) can enable it manually)
     - Amazon Bedrock BYO IAM role (not available for AI-powered detection scans)
     - Azure OpenAI (BYOK; not available for AI-powered detection scans)
     - Google Gemini (BYOK; not available for AI-powered detection scans)
@@ -40,6 +40,8 @@ Semgrep **does not** intentionally send personal data to AI subprocessors.
 ## Data retention and storage by Semgrep's AI vendors
 
 All Semgrep AI subprocessors operate under **zero data retention** agreements by default. Under the zero data retention agreements, AI subprocessors do not retain or use your data to train their models.
+
+For Cloudflare Workers AI, Semgrep uses only models hosted on Cloudflare's own infrastructure. Under the zero data retention agreement, Cloudflare does not retain prompts or responses or use them to train models. Semgrep does not route these requests to external model hosting providers through Cloudflare.
 
 Semgrep maintains Data Protection Agreements (DPAs) with all AI subprocessors. Customers can request these through the Semgrep [trust portal](https://trust.semgrep.dev/). Alternatively, contact your Semgrep account manager to request copies of these DPAs.
 
@@ -74,7 +76,7 @@ Data stored may include:
 - Uploaded context documentation
 - Scan reports, including metadata such as file names and, in some cases, code snippets
 
-Uploaded context documentation, scan reports, workflow job reports, and derived context about the source code are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused in future scans. 
+Uploaded context documentation, scan reports, workflow job reports, and derived context about the source code are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused in future scans.
 
 Source data is retained for up to 6 months unless otherwise noted. Semgrep will provide at least 30 days’ notice before making changes to retention policies.
 
@@ -104,17 +106,19 @@ AI responses are still stored as required to provide functionality.
 
 <Note>
 Organizations enrolled in the minimal data retention policy can run [Semgrep Agentic Workflows](/workflows/overview).
+
+Cloudflare Workers AI is not enabled by default for organizations enrolled in the minimal data retention policy. An admin can enable it in the AI provider settings.
 </Note>
 
-> **When should I use this?**  
+> **When should I use this?**
 > Use this policy if your organization requires stricter data handling controls and reduced persistence of code and prompts within Semgrep systems, where possible.
 
 ### Key differences from default behavior
 
 When the minimal data retention policy is enabled:
 
-- AI prompts and code are **not logged or captured** by observability tools  
-- Stored data is limited to what is strictly required to provide functionality  
+- AI prompts and code are **not logged or captured** by observability tools
+- Stored data is limited to what is strictly required to provide functionality
 
 The table below compares default data handling with the minimal data retention policy. All stored data is handled by Semgrep or Semgrep-managed systems, not its AI vendors.
 
