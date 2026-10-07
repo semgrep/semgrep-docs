@@ -424,11 +424,13 @@ components:
         rule:
           $ref: '#/components/schemas/protos.openapi.v1.FindingRule'
         rule_message:
+          deprecated: true
           description: Deprecated in favor of rule.message. Rule message at the time
             of finding identification. Older findings may not have a value for this
             field
           type: string
         rule_name:
+          deprecated: true
           description: Deprecated in favor of rule.name
           example: ai.detection.idor
           type: string
@@ -2336,12 +2338,14 @@ components:
         rule:
           $ref: '#/components/schemas/protos.openapi.v1.FindingRule'
         rule_message:
+          deprecated: true
           description: Deprecated in favor of rule.message. Rule message at the time
             of finding identification. Older findings may not have a value for this
             field
           example: null
           type: string
         rule_name:
+          deprecated: true
           description: Deprecated in favor of rule.name
           example: typescript.react.security.audit.react-no-refs.react-no-refs
           type: string
@@ -2579,12 +2583,14 @@ components:
         rule:
           $ref: '#/components/schemas/protos.openapi.v1.FindingRule'
         rule_message:
+          deprecated: true
           description: Deprecated in favor of rule.message. Rule message at the time
             of finding identification. Older findings may not have a value for this
             field
           example: null
           type: string
         rule_name:
+          deprecated: true
           description: Deprecated in favor of rule.name
           example: typescript.react.security.audit.react-no-refs.react-no-refs
           type: string
@@ -3194,6 +3200,7 @@ components:
           description: Filter by path to the lockfile (e.g. `foo/bar/package-lock.json`).
           type: string
         name:
+          deprecated: true
           description: Deprecated - use package_filters instead. Filter by dependency
             name (e.g. lodash).
           type: string
@@ -3240,6 +3247,7 @@ components:
             type: string
           type: array
         version:
+          deprecated: true
           description: Deprecated - use package_filters instead. Filter by dependency
             version (e.g. 1.0.1).
           type: string
