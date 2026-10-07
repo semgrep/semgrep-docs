@@ -11,36 +11,32 @@ These columns cover multiple plans:
 - **GitLab Self-Managed**: Free, Premium, and Ultimate
 - **Bitbucket Cloud**: Free, Standard, and Premium
 
-✅ Supported. ❌ Not supported. ⚠️ Supported only on some plans or versions; see the version shown or the note marked next to it.
+✅ Supported. ❌ Not supported. ⚠️ Supported only on some plans; select it to see which.
 
 <div className="scm-support-matrix">
 
-| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Azure DevOps Server</span> | <span>Cursor Origin<a href="#note-cursor-origin-beta" title="Cursor Origin support is in beta">§</a></span> |
+| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Azure DevOps Server<a href="#note-azure-devops-server" title="Semgrep can't connect to Azure DevOps Server">‖</a></span> | <span>Cursor Origin<a href="#note-cursor-origin-beta" title="Cursor Origin support is in beta">§</a></span> |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-data-center-version" title="Requires Bitbucket Data Center 8.8 or later">⚠️&nbsp;8.8+</a> | ✅ | ❌ | ✅ |
+| Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | Sending findings to Semgrep AppSec Platform | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Links from findings to source code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | Default branch identification | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | Pull request comments | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Triage through PR or MR comments | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | <a href="#note-bitbucket-data-center-version" title="Requires Bitbucket Data Center 8.8 or later">⚠️&nbsp;8.8+</a> | ✅ | ❌ | ❌ |
+| Triage through PR or MR comments | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ❌ |
 | Semgrep Managed Scans | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
 | Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
 | Generic secrets (requires Semgrep Multimodal) | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
-| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ | ❌ |
-| Query console | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Semgrep Network Broker | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | <a href="#note-gitlab-inline-comments" title="Inline MR comments require GitLab 16.5 or later">✅‡</a> | ✅ | ✅ | ✅ | ✅ | ❌ |
-
-</div>
-
-<div id="note-bitbucket-data-center-version">
-
-Diff-aware scans and triage through PR comments require Bitbucket Data Center version 8.8 or later.
+| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ❌ |
+| Supply Chain Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ❌ | ✅ | ❌ | ❌ |
+| Query console | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Semgrep Network Broker | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | <a href="#note-gitlab-inline-comments" title="Inline MR comments require GitLab 16.5 or later">✅‡</a> | ✅ | ✅ | ✅ | ❌ | ❌ |
 
 </div>
 
 <div id="note-bitbucket-cloud-premium">
 
-<strong>†</strong>Semgrep Multimodal, Managed Scans, and Autofix on Bitbucket Cloud require a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/), which is only available on **Bitbucket Cloud Premium**. Managed Scans and triage through PR comments also require workspace-level webhooks, which are not available on Bitbucket Cloud Free or Standard.
+<strong>†</strong>Semgrep Multimodal, Managed Scans, Autofix, and Supply Chain Autofix on Bitbucket Cloud require a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/), which is only available on **Bitbucket Cloud Premium**. Managed Scans and triage through PR comments also require workspace-level webhooks, which are not available on Bitbucket Cloud Free or Standard.
 
 </div>
 
@@ -56,13 +52,29 @@ Diff-aware scans and triage through PR comments require Bitbucket Data Center ve
 
 </div>
 
+<div id="note-azure-devops-server">
+
+<strong>‖</strong>Semgrep can't connect to Azure DevOps Server.
+
+</div>
+
 <div id="note-cursor-origin-beta">
 
 <strong>§</strong>Cursor Origin support is in beta. Feature parity with other SCMs is incomplete during the beta. See [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations).
 
 </div>
 
-[Autofix](/semgrep-code/triage-remediation/autofix) is supported on all source code managers in the table above at supported plan tiers (see footnotes † and *). To use Autofix through the [Semgrep Network Broker](/semgrep-ci/network-broker), upgrade to Network Broker 0.45.2 or later and set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. Older broker versions return a 403 allowlist error. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
+To use [Autofix](/semgrep-code/triage-remediation/autofix) or [Supply Chain Autofix](/semgrep-supply-chain/autofix) through the [Semgrep Network Broker](/semgrep-ci/network-broker), upgrade to Network Broker 0.45.2 or later and set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. Older broker versions return a 403 allowlist error. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
+
+## Minimum versions for self-hosted SCMs
+
+Semgrep relies on APIs that these versions introduced. Earlier versions aren't supported.
+
+| SCM | Minimum version | Recommended version |
+| :--- | :--- | :--- |
+| GitHub Enterprise Server | 3.9 | — |
+| GitLab Self-Managed | 15.5 | 16.5, for [inline MR comments](#recommended-gitlab-version) |
+| Bitbucket Data Center | 8.8 | 8.18, so Autofix can open draft PRs |
 
 ## Recommended GitLab version
 
