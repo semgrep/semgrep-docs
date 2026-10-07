@@ -6342,11 +6342,13 @@ paths:
                 - name: dependencyFilter.name
                   in: query
                   description: Deprecated - use package_filters instead. Filter by dependency name (e.g. lodash).
+                  deprecated: true
                   schema:
                     type: string
                 - name: dependencyFilter.version
                   in: query
                   description: Deprecated - use package_filters instead. Filter by dependency version (e.g. 1.0.1).
+                  deprecated: true
                   schema:
                     type: string
                 - name: dependencyFilter.repositoryId
@@ -9269,6 +9271,143 @@ components:
                         $ref: '#/components/schemas/protos.automations.v1.Automation'
                 cursor:
                     type: string
+        protos.brio_issues.v1.BrioIssueSummary:
+            type: object
+            properties:
+                id:
+                    type: string
+                title:
+                    type: string
+                filePath:
+                    type: string
+                repositoryId:
+                    type: string
+                repositoryName:
+                    type: string
+                severity:
+                    type: integer
+                    description: |-
+                        Severity on the duplo index scale (10=low, 20=medium, 30=high, 40=critical),
+                         i.e. duplo.v1.types_pb2.Severity; see BrioIssueFilters.severities.
+                    format: int32
+                lastDetectedAt:
+                    type: string
+                    format: date-time
+                createdAt:
+                    type: string
+                    format: date-time
+                domain:
+                    type: string
+                cwe:
+                    type: array
+                    items:
+                        type: string
+                owasp:
+                    type: array
+                    items:
+                        type: string
+                workflowIds:
+                    type: array
+                    items:
+                        type: string
+                detectionState:
+                    type: string
+                    description: |-
+                        Detection state on recent runs (duplo filters.detection_state), e.g.
+                         "detected" / "not_detected". Empty reads as "detected" (freshly indexed).
+                triageState:
+                    type: string
+                    description: |-
+                        Triage decision (duplo filters.triage_state), e.g. "untriaged" / "ignored".
+                         Reuses the TriageBrioIssues vocabulary; maps to BrioTriageState on the FE.
+                projectionTags:
+                    type: array
+                    items:
+                        type: string
+                    description: |-
+                        Namespaced keyword tags Brio projected from the finding payload, verbatim
+                         `type.field:value` — e.g. "secrets.secret_type:aws". Does not overlap the
+                         typed attributes below.
+                projectedAttributes:
+                    allOf:
+                        - $ref: '#/components/schemas/protos.brio_issues.v1.ProjectedAttributes'
+                    description: Set when the issue carries a projection served by a typed field.
+                autotriage:
+                    allOf:
+                        - $ref: '#/components/schemas/protos.ai.v1.Autotriage'
+                    description: |-
+                        Autotriage verdict and reason from the live V1 row. Absent for native Brio
+                         issues (which have no V1 row) and for issues where feedback suppresses the
+                         verdict (all feedback ratings bad). Serves both halves of the list-card
+                         annotation without waiting for the derived Brio table (DUP-707).
+                isSemgrepArchived:
+                    type: boolean
+                    description: |-
+                        Repository archival state, for the FE archived badge. Semgrep-side
+                         archival only applies when appex.has_archived_projects is on for the
+                         deployment; SCM-side archival is unconditional. See the FE
+                         repoArchivedChecks.ts for how the two combine.
+                isScmArchived:
+                    type: boolean
+                exceptionRequestState:
+                    enum:
+                        - FINDING_EXCEPTION_REQUEST_STATE_REQUESTED
+                        - FINDING_EXCEPTION_REQUEST_STATE_APPROVED
+                        - FINDING_EXCEPTION_REQUEST_STATE_REJECTED
+                    type: string
+                    description: |+
+                        The exception request state from Brio's current issue actions. The list
+                         uses this lightweight state to decide whether to load request metadata.
+
+                        | value | description |
+                        |-------|---------------|
+                        | FINDING_EXCEPTION_REQUEST_STATE_REQUESTED |  |
+                        | FINDING_EXCEPTION_REQUEST_STATE_APPROVED |  |
+                        | FINDING_EXCEPTION_REQUEST_STATE_REJECTED |  |
+
+                    format: enum
+        protos.brio_issues.v1.ProjectedAttributes:
+            type: object
+            properties:
+                secrets:
+                    $ref: '#/components/schemas/protos.brio_issues.v1.SecretsAttributes'
+            description: |-
+                The typed half of projection_tags: every field is one namespace's attributes,
+                 filled from the `<namespace>.<field name>` tags Brio projects onto an issue.
+                 This message is the registry — a tag whose namespace and field both name
+                 something here is served here and dropped from projection_tags, so serving a
+                 new namespace is its submessage and nothing else.
+        protos.brio_issues.v1.SecretsAttributes:
+            type: object
+            properties:
+                validationState:
+                    type: string
+                    description: |-
+                        The validator's verdict — e.g. "CONFIRMED_VALID", "CONFIRMED_INVALID",
+                         "VALIDATION_ERROR", "NO_VALIDATOR". A string, not an enum: Brio writes
+                         values verbatim, so one added before the next Brio release survives rather
+                         than reading as UNSPECIFIED.
+                secretType:
+                    type: array
+                    items:
+                        type: string
+                    description: Secret types from rule metadata. Open vocabulary, written verbatim.
+                historicalCommit:
+                    type: array
+                    items:
+                        type: string
+                    description: |-
+                        Commit SHAs the secret was detected at. Empty when every detection was at
+                         the scanned ref's head.
+                isHistorical:
+                    type: boolean
+                    description: |-
+                        Whether any detection was at an older commit, which Brio derives from
+                         historical_commit to back a filter.
+            description: |-
+                Secrets attributes, filled from Brio's `secrets.*` projection tags. Repeated
+                 where Brio unions the projection across the issue's findings, singular where
+                 it keeps the latest.
         protos.cloud_context.v1.CloudContext:
             type: object
             properties:
@@ -9677,6 +9816,26 @@ components:
                 mdr_enabled:
                     readOnly: true
                     type: boolean
+                providerSelectionMode:
+                    enum:
+                        - AI_PROVIDER_SELECTION_MODE_AUTOMATIC
+                        - AI_PROVIDER_SELECTION_MODE_MANUAL
+                    type: string
+                    description: |+
+                        How the deployment's AI providers are chosen. In automatic mode, `allowed_providers` follows `automaticProviders` and any providers sent with the request are ignored. Omit it to keep the current mode; a deployment that has never set a mode uses manual selection.
+
+                        | value | description |
+                        |-------|---------------|
+                        | AI_PROVIDER_SELECTION_MODE_AUTOMATIC | Semgrep chooses the deployment's providers from its Semgrep-managed providers, and keeps them current as that list changes. |
+                        | AI_PROVIDER_SELECTION_MODE_MANUAL | The deployment uses the providers it has chosen, including any it connected with its own API keys. |
+
+                    format: enum
+                automaticProviders:
+                    readOnly: true
+                    type: array
+                    items:
+                        type: string
+                    description: The Semgrep-managed providers that automatic mode uses for this deployment.
         protos.deployment.v1.CreateDeploymentRequest:
             type: object
             properties:
@@ -9767,6 +9926,7 @@ components:
                 secrets:
                     $ref: '#/components/schemas/protos.deployment.v1.SecretsProductConfig'
                 approversTag:
+                    deprecated: true
                     type: string
                     description: |-
                         optional tag for approvers on responses to PR/MR comments when developers
@@ -9820,6 +9980,7 @@ components:
                     type: string
                     format: date-time
                 groups:
+                    deprecated: true
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.deployment.v1.GroupWithRole'
@@ -10052,6 +10213,7 @@ components:
                 secrets:
                     $ref: '#/components/schemas/protos.deployment.v1.SecretsProductConfig'
                 approversTag:
+                    deprecated: true
                     type: string
                     description: |-
                         optional tag for approvers on responses to PR/MR comments when developers
@@ -10089,6 +10251,7 @@ components:
                 ai_detection:
                     $ref: '#/components/schemas/protos.deployment.v1.SastAiDetectionConfig'
                 triagePermission:
+                    deprecated: true
                     enum:
                         - TRIAGE_PERMISSION_IGNORE
                         - TRIAGE_PERMISSION_REQUEST
@@ -10119,6 +10282,7 @@ components:
                 upgradeGuidanceEnabled:
                     type: boolean
                 triagePermission:
+                    deprecated: true
                     enum:
                         - TRIAGE_PERMISSION_IGNORE
                         - TRIAGE_PERMISSION_REQUEST
@@ -10159,6 +10323,7 @@ components:
                 generic_secrets:
                     $ref: '#/components/schemas/protos.deployment.v1.SecretsGenericSecretsConfig'
                 triagePermission:
+                    deprecated: true
                     enum:
                         - TRIAGE_PERMISSION_IGNORE
                         - TRIAGE_PERMISSION_REQUEST
@@ -11082,6 +11247,7 @@ components:
                     type: string
                     description: Specifies the deployment to which the issues belong.
                 issueType:
+                    deprecated: true
                     enum:
                         - ISSUE_TYPE_SAST
                         - ISSUE_TYPE_SCA
@@ -11172,6 +11338,7 @@ components:
                     type: string
                     description: Specifies the deployment to which the issues belong.
                 issueType:
+                    deprecated: true
                     enum:
                         - ISSUE_TYPE_SAST
                         - ISSUE_TYPE_SCA
@@ -11229,11 +11396,13 @@ components:
             type: object
             properties:
                 repoNames:
+                    deprecated: true
                     type: array
                     items:
                         type: string
                     description: Applies to all issue types. Deprecated, migrate to repos
                 repoTags:
+                    deprecated: true
                     type: array
                     items:
                         type: string
@@ -11254,6 +11423,7 @@ components:
                         type: string
                     description: Applies to SAST issues only.
                 ruleNames:
+                    deprecated: true
                     type: array
                     items:
                         type: string
@@ -11462,6 +11632,7 @@ components:
                     type: string
                     description: The URL to the specific line of code causing this issue
                 codeSnippet:
+                    deprecated: true
                     type: string
                     description: The code snippet causing this issue. Only available when fetching a single issue at a time via the GetIssue RPC. Deprecated in favor of `codeSnippets` for multi-file support.
                 dataflowTrace:
@@ -11670,6 +11841,7 @@ components:
                     type: string
                     description: 'AI Detection only: LLM-generated description of the vulnerability''s impact. Only available when fetching a single issue at a time via the GetIssue RPC.'
                 aiExploitConditions:
+                    deprecated: true
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.ai.v1.ExploitCondition'
@@ -12189,6 +12361,7 @@ components:
                         type: string
                     description: Filters issues whose autotriage tag matches one of the specified values. Applies to all issue types.
                 status:
+                    deprecated: true
                     enum:
                         - ISSUE_STATUS_FIXED
                         - ISSUE_STATUS_MUTED
@@ -12243,6 +12416,7 @@ components:
                         type: string
                     description: Filter issues which belong to a repo assigned to one of the specified teams. Applies to all issue types.
                 actions:
+                    deprecated: true
                     enum:
                         - MODE_MONITOR
                         - MODE_COMMENT
@@ -12698,6 +12872,7 @@ components:
                         | DEPLOYMENT_STATUS_NOT_DEPLOYED |  |
 
                 upgradeGuidance:
+                    deprecated: true
                     enum:
                         - BREAKING_CHANGE_TYPE_PARAMETER_CHANGE
                         - BREAKING_CHANGE_TYPE_FUNCTION_OR_CLASS_REMOVAL
@@ -12898,6 +13073,7 @@ components:
                     type: string
                     description: Specifies the deployment to which the issues belong.
                 issueType:
+                    deprecated: true
                     enum:
                         - ISSUE_TYPE_SAST
                         - ISSUE_TYPE_SCA
@@ -13116,6 +13292,7 @@ components:
                     type: string
                     description: Specifies the deployment to which the issues belong.
                 issueType:
+                    deprecated: true
                     enum:
                         - ISSUE_TYPE_SAST
                         - ISSUE_TYPE_SCA
@@ -13257,6 +13434,7 @@ components:
                 aiSilencedCount:
                     type: string
                 allReviewThreadIds:
+                    deprecated: true
                     type: array
                     items:
                         type: string
@@ -13525,6 +13703,7 @@ components:
                     type: string
                     description: Specifies the deployment to which the findings belong.
                 issueType:
+                    deprecated: true
                     enum:
                         - ISSUE_TYPE_SAST
                         - ISSUE_TYPE_SCA
@@ -15482,6 +15661,7 @@ components:
                     type: boolean
                     description: filter repos by if they have SMS set up, whether or not it is currently enabled
                 isScmRepository:
+                    deprecated: true
                     type: boolean
                     description: filter repos to only show repos that represent an SCM repository
                 invertSearch:
@@ -15583,6 +15763,7 @@ components:
                     type: string
                     description: The unique identifier of the first scan of this repository, if it exists
                 isArchived:
+                    deprecated: true
                     type: boolean
                     description: 'Deprecated: use is_scm_archived instead.'
                 isDisconnected:
@@ -15599,6 +15780,7 @@ components:
                     type: boolean
                     description: Whether or not the repository seems set up for Semgrep scanning of some kind
                 scmLastSyncedAt:
+                    deprecated: true
                     type: number
                     description: 'Deprecated: no longer populated'
                     format: float
@@ -15647,6 +15829,7 @@ components:
 
                     format: enum
                 defaultBranch:
+                    deprecated: true
                     type: string
                     description: 'The name of the default branch (Deprecated: this has been replaced with default_ref_info)'
                 refs:
@@ -15679,6 +15862,7 @@ components:
                         - $ref: '#/components/schemas/protos.projects.v1.ScaInfo'
                     description: information specific to Supply Chain
                 linkedRepos:
+                    deprecated: true
                     type: array
                     items:
                         type: string
@@ -15716,6 +15900,7 @@ components:
 
                     format: enum
                 repositoryScmLinkId:
+                    deprecated: true
                     type: string
                     description: The unique id of the SCM repository in Semgrep
                 tokenScopes:
@@ -16066,18 +16251,23 @@ components:
                     items:
                         $ref: '#/components/schemas/protos.reporting.v1.GetFindingsActivityReportResponse_Bucket'
                 totalNew:
+                    deprecated: true
                     type: integer
                     format: int64
                 totalFixed:
+                    deprecated: true
                     type: integer
                     format: int64
                 totalIgnored:
+                    deprecated: true
                     type: integer
                     format: int64
                 totalNetNew:
+                    deprecated: true
                     type: integer
                     format: int32
                 totalProvisionallyIgnored:
+                    deprecated: true
                     type: integer
                     format: int64
                 thisPeriod:
@@ -16176,15 +16366,19 @@ components:
             type: object
             properties:
                 allFindings:
+                    deprecated: true
                     type: integer
                     format: int64
                 possiblyExploitable:
+                    deprecated: true
                     type: integer
                     format: int64
                 internetExposed:
+                    deprecated: true
                     type: integer
                     format: int64
                 priorityFindings:
+                    deprecated: true
                     type: integer
                     format: int64
                 byProduct:
@@ -16510,6 +16704,16 @@ components:
                 totalSecrets:
                     type: integer
                     format: int64
+                brioFindings:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.brio_issues.v1.BrioIssueSummary'
+                    description: |-
+                        The Brio-served half of the same segment. Brio issues are a separate id
+                         space from `findings` and carry a different shape, so they ride alongside
+                         rather than being flattened into issues.v1.Issue — which is built from the
+                         V1 Postgres row and has no Brio equivalent for most of its fields. A
+                         mid-rollout deployment returns both lists populated; `total` counts both.
         protos.reporting.v1.GetReportRequest:
             type: object
             properties:
@@ -16603,6 +16807,7 @@ components:
                         | FINDING_SEVERITY_CRITICAL |  |
 
                 projects:
+                    deprecated: true
                     type: array
                     items:
                         type: string
@@ -17031,9 +17236,11 @@ components:
             type: object
             properties:
                 name:
+                    deprecated: true
                     type: string
                     description: Deprecated - use package_filters instead. Filter by dependency name (e.g. lodash).
                 version:
+                    deprecated: true
                     type: string
                     description: Deprecated - use package_filters instead. Filter by dependency version (e.g. 1.0.1).
                 repositoryId:
