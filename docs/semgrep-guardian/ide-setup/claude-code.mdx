@@ -4,9 +4,9 @@ description: Install Semgrep Guardian in Claude Code using the remote plugin (re
 sidebarTitle: Claude Code
 ---
 
-Integrate Semgrep Guardian with Claude Code for scans of AI-generated code via [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins).
+Integrate Semgrep Guardian with Claude Code for scans of AI-generated code through [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins).
 
-**Claude Code is the recommended Guardian setup.** The remote plugin uses Semgrep's hosted server and OAuth, so you do not need to install the Semgrep CLI locally.
+**Claude Code is a recommended Guardian setup**, alongside [Codex](/semgrep-guardian/ide-setup/codex). The remote plugin uses Semgrep's hosted server and OAuth, so you don't need to install the Semgrep CLI locally.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Install the Guardian plugin from the Claude Marketplace:
 claude plugin install semgrep@claude-plugins-official
 ```
 
-Start a new Claude Code session (`claude`) to log in to Semgrep.
+Start a new Claude Code session (`claude`) to sign in to Semgrep.
 
 The plugin registers a post-tool hook so Claude Code scans every file it writes.
 
@@ -65,13 +65,13 @@ The remote server is the recommended default. If you need to run Semgrep locally
 
 ## What rules does this setup use?
 
-* **Remote plugin (default):** scans with the fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset. Rules enabled in your organization's Policies do **not** apply.
+* **Remote plugin (default):** scans with the fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset. Rules enabled in your organization's Policies don't apply.
 * **Local plugin:** scans with the rules enabled for your Semgrep organization through your Policies.
 
-See [Rules and configuration](/semgrep-guardian/rules-and-configuration) for details.
+See [Rules and configuration](/semgrep-guardian/rules-and-configuration) for more information.
 
 ## Next steps
 
-* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for OAuth credentials and organization-wide rollout
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for OAuth credentials and organization-wide deployment
 * [Semgrep Guardian overview](/semgrep-guardian/overview)
 * [Rules and configuration](/semgrep-guardian/rules-and-configuration)

@@ -23,18 +23,18 @@ Because the scan happens before the code is committed, Guardian complements rath
 
 Guardian has two materially different integration paths. Which one you use changes how you authenticate, whether you need a local Semgrep CLI, and which rules Guardian scans with:
 
-* **Claude Code with the remote plugin (recommended).** Uses Semgrep's hosted remote server and authenticates through OAuth. No local Semgrep CLI required.
+* **Claude Code or Codex with the Guardian plugin (recommended).** Uses Semgrep's hosted remote server and authenticates through OAuth. No local Semgrep CLI required.
 * **All other agents, and the local Claude Code plugin.** Runs Semgrep through a locally installed CLI.
 
-See [Choose your setup](/semgrep-guardian/choose-your-setup) for a full comparison, or go straight to the [Quickstart](/semgrep-guardian/quickstart) if you use Claude Code.
+See [Choose your setup](/semgrep-guardian/choose-your-setup) for a full comparison, or go straight to the [Quickstart](/semgrep-guardian/quickstart) if you use Claude Code or Codex.
 
-These paths do not scan with the same rules. The recommended remote plugin runs a fixed ruleset and does **not** apply your organization's Policies; the local CLI integrations do. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
+These paths don't scan with the same rules. The recommended Claude Code and Codex plugins run a fixed ruleset and don't apply your organization's Policies. The local CLI integrations do. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
 
 ## Next steps
 
 <CardGroup cols={2}>
   <Card title="Quickstart" icon="rocket" href="/semgrep-guardian/quickstart">
-    Set up Guardian with Claude Code in a few minutes.
+    Set up Guardian with Claude Code or Codex in a few minutes.
   </Card>
   <Card title="Choose your setup" icon="code-branch" href="/semgrep-guardian/choose-your-setup">
     Compare the remote and local CLI paths before you install.
