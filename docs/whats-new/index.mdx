@@ -4,7 +4,17 @@ description: "Highlights of new Semgrep product features shipped each week."
 rss: true
 ---
 
-Curated feature highlights from recent Semgrep releases. For the complete list of changes, see the [full release notes](/release-notes/2026-09-21).
+Curated feature highlights from recent Semgrep releases. For the complete list of changes, see the [full release notes](/release-notes/2026-09-28).
+
+<Update label="Week of September 28, 2026">
+## [Week of September 28, 2026](/release-notes/2026-09-28)
+
+- **[Cursor Origin](/deployment/managed-scanning/cursor) support is in public beta**: Connect Cursor Origin to Semgrep, sync repositories, run [Managed Scans](/deployment/managed-scanning/cursor), and see scan checks and finding comments directly in Cursor pull requests. Set up the connection from Semgrep onboarding or the Cursor app installation flow.
+- **[AWS CodeArtifact](/kb/semgrep-supply-chain/connect-aws-codeartifact) support is in private beta**: Connect a private Maven or Gradle registry so Dynamic Dependency Resolution can resolve packages during Managed Scans. Semgrep assumes an IAM role in your AWS account instead of storing AWS keys. Contact [Semgrep Support](/support) to enable it.
+- **[Semgrep Guardian](/semgrep-guardian/overview) auto-update and SLSA Level 3**: Guardian 2.5.4 and later downloads a new binary as soon as it is released and cryptographically verifies that it was produced by Semgrep's build pipeline. Guardian now meets SLSA Level 3 standards. To opt out of auto-update, set `SEMGREP_GUARDIAN_AUTO_UPDATE=0` or `auto_update: false` in `guardian.yaml`.
+
+**[Read the full release notes →](/release-notes/2026-09-28)**
+</Update>
 
 <Update label="Week of September 21, 2026">
 ## [Week of September 21, 2026](/release-notes/2026-09-21)
