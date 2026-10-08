@@ -13,9 +13,46 @@ Confirm organizational readiness using the [Pre-deployment checklist](/deploymen
 </Note>
 
 
+## Plan scopes for a connection {#plan-scopes}
+
+Each SCM connection in Semgrep stores one credential. Depending on your SCM, that credential may be a personal access token, a group or workspace access token, or a GitHub App installation. Every Semgrep feature you enable on a connection uses that same credential.
+
+A connection needs the combined scopes of every feature you have enabled on it. The setup guide for each feature lists the scopes that feature needs, so a credential you created by following one guide carries the scopes for that feature alone.
+
+### Enable a feature on an existing connection
+
+Enabling a feature in Semgrep does not change the connection's credential. If the credential does not carry the scopes the new feature needs, the feature does not work.
+
+<Steps>
+<Step>
+Find the feature's row in the [Permissions](#permissions) table for your SCM.
+</Step>
+<Step>
+Compare that row against the scopes the connection's credential already carries.
+</Step>
+<Step>
+Add the missing scopes. Where the feature needs a higher level of a scope you already granted, raise it to that level.
+</Step>
+<Step>
+Go to [**Settings > Source code managers**](https://semgrep.dev/orgs/-/settings/source-code), find your connection, and click **Update access token**.
+</Step>
+</Steps>
+
+<Note>
+GitHub App connections grant permissions on the app rather than on a token, but the same rule applies. The app needs the combined permissions of every feature you have enabled. See [GitHub permissions](#github-permissions).
+</Note>
+
+<Note>
+**If you narrow a credential**
+
+Narrow it to the combined scopes of every feature you have enabled, not to the scopes of a single feature.
+</Note>
+
 ## Permissions {#permissions}
 
 The following tables list **SCM roles** and **token or app scopes** required for each Semgrep feature. Unless noted otherwise, **pull request (PR)** or **merge request (MR)** refers to a proposed set of code changes in your SCM. The **Configure** column links to setup guides for each feature. 
+
+Before you narrow a credential, see [Plan scopes for a connection](#plan-scopes).
 
 <Tabs>
 
