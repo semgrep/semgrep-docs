@@ -13,10 +13,12 @@ Cursor Origin support is in beta. Beta features are subject to change with conti
 
 ## Before you begin
 
-You need:
+You need the following:
 
 - Permission to manage source code manager connections in your Semgrep organization.
-- Permission in Cursor to install apps and select the repositories Semgrep can access.
+- The **Codebase Admin** role in Cursor for the codebase that you connect.
+
+To create the connection, sign in to Cursor with the **Codebase Admin** role and complete the install. If you select repositories without that role, Cursor Origin does not appear under **Settings > Source code managers**.
 
 See [SCM permissions](/deployment/prepare/scm-permissions#cursor-origin) for roles and scopes.
 
@@ -126,7 +128,8 @@ On the Cursor Origin entry you want to remove, click **Remove app**, then click 
 | Repository sync | Triage through PR comments |
 | Full Managed Scans | Autofix pull requests |
 | PR-triggered scans | Network Broker and dedicated-tenant network coverage |
-| PR checks and finding comments | Agentic Workflows jobs |
+| PR checks and finding comments | |
+| [Agentic Workflows](/workflows/overview) | |
 
 Feature coverage is still expanding; some capabilities available on GitHub, GitLab, Bitbucket, or Azure DevOps are not available for Cursor Origin yet.
 
@@ -157,5 +160,6 @@ If repositories are still missing, open the app installation in Cursor and confi
 | Symptom | What to try |
 | :--- | :--- |
 | Cursor Origin option is missing in Semgrep | Confirm you are signed in to the intended Semgrep organization and that you can manage source code manager connections. |
+| Cursor Origin missing from **Source code managers** after you select repositories | In Cursor, confirm that you have the **Codebase Admin** role for that codebase. Cursor lets you start the install without that role. Semgrep creates the connection after you complete the install with the **Codebase Admin** role. |
 | Authorization or callback fails | Restart **Connect** in the same browser and complete Cursor consent for the intended Semgrep organization. |
 | No PR check or comment | Confirm Managed Scans and PR scans are enabled for the project, open or update a PR, and allow time for the scan to finish. Capture the PR URL and head SHA if you contact [Support](/support). |
