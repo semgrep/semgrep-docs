@@ -53,3 +53,68 @@ h1 {
        paths, which `pre` would not. */
     white-space: pre-line;
 }
+
+/* SCM support matrix: slant the SCM names so each check-mark column only needs
+   to be as wide as its symbol. The labels are positioned out of flow so they
+   don't set the column width, and the last labels run past the final column
+   into the space the capped feature column leaves free. Mintlify puts
+   min-width: 150px on every td, hence !important. */
+.scm-support-matrix table {
+    width: auto !important;
+    min-width: 0 !important;
+}
+
+.scm-support-matrix th:first-child,
+.scm-support-matrix td:first-child {
+    vertical-align: bottom;
+    width: 12rem;
+    min-width: 10rem !important;
+}
+
+.scm-support-matrix td:first-child {
+    vertical-align: middle;
+}
+
+.scm-support-matrix th:not(:first-child) {
+    position: relative;
+    height: 10rem;
+    min-width: 2.75rem;
+    padding: 0 !important;
+    white-space: nowrap;
+}
+
+.scm-support-matrix th:not(:first-child) > span {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 50%;
+    transform-origin: left bottom;
+    transform: rotate(-45deg);
+}
+
+.scm-support-matrix td:not(:first-child) {
+    min-width: 0 !important;
+    white-space: nowrap;
+}
+
+.scm-support-matrix a {
+    border-bottom: none !important;
+    text-decoration: none !important;
+}
+
+/* Footnote targets of the matrix's ⚠️ links: clear the sticky header and mark
+   the note the reader just jumped to. */
+[id^="note-"] {
+    scroll-margin-top: 8rem;
+    margin-block: 1rem;
+    padding: 0.25rem 0.5rem;
+    margin-inline: -0.5rem;
+    border-radius: 6px;
+}
+
+[id^="note-"] > p {
+    margin: 0;
+}
+
+[id^="note-"]:target {
+    background-color: rgba(202, 138, 4, 0.14);
+}

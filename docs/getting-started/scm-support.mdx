@@ -4,32 +4,63 @@ sidebarTitle: "Supported SCMs"
 description: "Semgrep supports the following source code managers (SCM) and plans to varying degrees. Please review the information for your specific SCM and plan to see what Semgrep features are available to you."
 ---
 
-| Plan | Unsupported Semgrep features |
-| :--- | :--- |
-| Azure DevOps Cloud | <ul><li>Query console</li></ul> |
-| Azure DevOps Server | <ul><li>Semgrep Multimodal</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Free | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Autofix†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Standard | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Autofix†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Premium | <ul><li>Query console</li></ul> |
-| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans and triage through PR comments require Bitbucket Data Center version 8.8 or later.</li></ul> |
-| Cursor Origin (beta) | <ul><li>Triage through PR comments</li><li>Autofix</li><li>Semgrep Network Broker</li><li>Semgrep Agentic Workflows</li><li>Feature parity with other SCMs is incomplete during the beta. See [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations).</li></ul> |
-| GitHub Free | - |
-| GitHub Pro | - |
-| GitHub Team | - |
-| GitHub Enterprise Cloud | - |
-| GitHub Enterprise Server | - |
-| GitLab Free | <ul><li>Semgrep Managed Scans*</li><li>Triage through MR comments*</li><li>Query console</li></ul> |
-| GitLab Premium | <ul><li>Query console</li></ul> |
-| GitLab Ultimate | <ul><li>Query console</li></ul> |
-| GitLab Dedicated / Dedicated for Government | <ul><li>Query console</li></ul> |
-| GitLab Self-Managed Free | <ul><li>Semgrep Managed Scans*</li><li>Query console</li><li>Inline MR comments from Agentic Workflows require GitLab 16.5 or later.</li></ul> |
-| GitLab Self-Managed Premium | <ul><li>Query console</li><li>Inline MR comments from Agentic Workflows require GitLab 16.5 or later.</li></ul> |
-| GitLab Self-Managed Ultimate | <ul><li>Query console</li><li>Inline MR comments from Agentic Workflows require GitLab 16.5 or later.</li></ul> |
+These columns cover multiple plans:
 
+- **GitHub**: Free, Pro, Team, and Enterprise Cloud
+- **GitLab**: Free, Premium, Ultimate, and GitLab Dedicated / Dedicated for Government
+- **GitLab Self-Managed**: Free, Premium, and Ultimate
+- **Bitbucket Cloud**: Free, Standard, and Premium
+
+✅ Supported. ❌ Not supported. ⚠️ Supported only on some plans or versions; see the version shown or the note marked next to it.
+
+<div className="scm-support-matrix">
+
+| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Azure DevOps Server</span> | <span>Cursor Origin<a href="#note-cursor-origin-beta" title="Cursor Origin support is in beta">§</a></span> |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-data-center-version" title="Requires Bitbucket Data Center 8.8 or later">⚠️&nbsp;8.8+</a> | ✅ | ❌ | ✅ |
+| Sending findings to Semgrep AppSec Platform | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Default branch identification | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Pull request comments | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Triage through PR or MR comments | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | <a href="#note-bitbucket-data-center-version" title="Requires Bitbucket Data Center 8.8 or later">⚠️&nbsp;8.8+</a> | ✅ | ❌ | ❌ |
+| Semgrep Managed Scans | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
+| Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
+| Generic secrets (requires Semgrep Multimodal) | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ | ✅ |
+| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ | ❌ |
+| Query console | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Semgrep Network Broker | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | <a href="#note-gitlab-inline-comments" title="Inline MR comments require GitLab 16.5 or later">✅‡</a> | ✅ | ✅ | ✅ | ✅ | ❌ |
+
+</div>
+
+<div id="note-bitbucket-data-center-version">
+
+Diff-aware scans and triage through PR comments require Bitbucket Data Center version 8.8 or later.
+
+</div>
+
+<div id="note-bitbucket-cloud-premium">
 
 <strong>†</strong>Semgrep Multimodal, Managed Scans, and Autofix on Bitbucket Cloud require a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/), which is only available on **Bitbucket Cloud Premium**. Managed Scans and triage through PR comments also require workspace-level webhooks, which are not available on Bitbucket Cloud Free or Standard.
 
+</div>
+
+<div id="note-gitlab-free">
+
 <strong>*</strong>Semgrep Managed Scans and triage through MR comments require access to group webhooks, which is unavailable to GitLab Free users.
+
+</div>
+
+<div id="note-gitlab-inline-comments">
+
+<strong>‡</strong>Inline MR comments from Agentic Workflows require GitLab 16.5 or later. See [Recommended GitLab version](#recommended-gitlab-version).
+
+</div>
+
+<div id="note-cursor-origin-beta">
+
+<strong>§</strong>Cursor Origin support is in beta. Feature parity with other SCMs is incomplete during the beta. See [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations).
+
+</div>
 
 [Autofix](/semgrep-code/triage-remediation/autofix) is supported on all source code managers in the table above at supported plan tiers (see footnotes † and *). To use Autofix through the [Semgrep Network Broker](/semgrep-ci/network-broker), upgrade to Network Broker 0.45.2 or later and set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. Older broker versions return a 403 allowlist error. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
 
