@@ -17,6 +17,19 @@ are labeled; documentation-only edits are not listed.
   find the feed automatically.
 </Note>
 
+<Update label="October 9, 2026" description="2 changes" tags={["Non-breaking"]} rss={{ title: "Semgrep API v1 — October 9, 2026", description: "2 changes across 1 endpoint." }}>
+**Changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `repositorySummaries[].isScmArchived` to the response with the `200` status | <a href="/api-reference/v1/supplychainservice/list-repositories-with-dependencies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/dependencies<wbr/>/repositories</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `repositorySummaries[].isSemgrepArchived` to the response with the `200` status | <a href="/api-reference/v1/supplychainservice/list-repositories-with-dependencies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/dependencies<wbr/>/repositories</Badge></a> |
+
+</div>
+</Update>
+
 <Update label="October 7, 2026" description="12 changes" tags={["Non-breaking"]} rss={{ title: "Semgrep API v1 — October 7, 2026", description: "12 changes across 4 endpoints." }}>
 **Changes**
 
