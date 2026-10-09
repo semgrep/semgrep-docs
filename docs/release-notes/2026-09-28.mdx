@@ -1,0 +1,67 @@
+---
+title: "Week of September 28, 2026"
+description: "Updates made to Semgrep during the week of September 28-October 4, 2026."
+sidebarTitle: "Week of September 28, 2026"
+---
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- [Cursor Origin](/deployment/managed-scanning/cursor) support is now in **public beta**. You can connect Cursor Origin to Semgrep, sync repositories, run [Managed Scans](/deployment/managed-scanning/cursor), and see scan checks and finding comments directly in Cursor pull requests. Set up the connection from Semgrep onboarding or the Cursor app installation flow.
+- Added an `scms` configuration field to [Semgrep Network Broker](/semgrep-ci/network-broker#create-the-config-file). Organizations that run multiple source code manager instances of the same type (GitHub, GitLab, Bitbucket, or Azure DevOps) and keep those instances off the public internet can list each instance in `scms` instead of maintaining a long custom allowlist per instance, and still keep endpoint-level protection. Per-SCM keys remain supported. This requires Network Broker v0.47.0 or later.
+
+### Changed
+
+- Deployment tag API endpoints now require tag-specific API permissions. A token that can manage projects is no longer enough. Use a token with tag read permission to get, list, or find tags, and tag write permission to update or delete them.
+
+### Fixed
+
+- Fixed an issue where repeated query parameters on v1 API endpoints were URL-decoded twice, so filters such as `repos` did not match repository names containing encoded characters, including Azure DevOps repositories with spaces in their names. Affected requests returned no findings, and a repository-filtered bulk triage could apply to a different repository.
+- Fixed an issue with permission detection for Azure DevOps and Bitbucket Data Center integrations. Previously, when Semgrep tested whether the token had write access, an HTTP 403 response was treated as success, so later [Autofix](/semgrep-code/triage-remediation/autofix) actions failed. Semgrep now treats HTTP 403 as a lack of write access, so you can update the token before Autofix runs.
+- Fixed an issue where a [Network Broker](/semgrep-ci/network-broker) allowlist refusal appeared as a source code manager permission error, so the error appeared to be about the token rather than the broker configuration.
+- Fixed an issue with Semgrep Code findings that are automatically triaged. Previously, when Autotriage moved a finding to **Provisionally ignored**, [Unified Policies](/semgrep-appsec-platform/unified-policies/overview) blocking rules applied only during the first scan of a pull request or merge request. On any later scan, those findings were not blocked. Policy-based blocking actions are now applied on every scan.
+
+## 💻 Semgrep Code
+
+### Fixed
+
+- Fixed an issue where `semgrep-core` occasionally hung when it exited on Windows.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- [AWS CodeArtifact](/kb/semgrep-supply-chain/connect-aws-codeartifact) support is now in **private beta**. You can connect a private Maven or Gradle registry so [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) can resolve packages during [Managed Scans](/deployment/managed-scanning/overview). Semgrep assumes an IAM role in your AWS account instead of storing AWS keys. Contact [Semgrep Support](/support) to enable it for your organization.
+
+### Changed
+
+- Read-only API tokens can now call the v1 Supply Chain dependency and [SBOM](/semgrep-supply-chain/sbom) export endpoints. These endpoints previously required an admin-only scope. A token returns only the repositories its owner can access.
+
+## 🤖 Semgrep Multimodal
+
+### Changed
+
+- Running AI analysis or opening an [Autofix](/semgrep-code/triage-remediation/autofix) pull request now requires triage permission, because they spend the organization's AI credits and can write to its source code manager. Read-only users receive an explanatory error.
+
+## 🛡️ Semgrep Guardian
+
+### Changed
+
+- [Semgrep Guardian](/semgrep-guardian/overview) 2.5.4 and later now checks for updates and downloads a new binary as soon as it is released, rather than waiting for the coding agent to re-index the repository, which previously added up to a week of unpredictable delay. Guardian verifies that the new version works before switching to it. To opt out, set `SEMGREP_GUARDIAN_AUTO_UPDATE=0` or `auto_update: false` in `guardian.yaml`.
+- Semgrep Guardian now meets SLSA Level 3 standards and cryptographically verifies that a downloaded binary was produced by Semgrep's build pipeline. Binaries are signed with a pipeline-only key, and Guardian rejects any binary that is not signed with that key. You can validate which commit a binary was built from and which pipeline built it.
+
+## 📝 Documentation and knowledge base
+
+### Added
+
+- Added documentation for [adding Cursor Origin repositories to Managed Scans](/deployment/managed-scanning/cursor).
+- Added documentation for [connecting an AWS CodeArtifact registry](/kb/semgrep-supply-chain/connect-aws-codeartifact) to Semgrep Supply Chain.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of September 28-October 4, 2026:
+
+<CardGroup>
+  <Card title="1.178.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.178.0" horizontal />
+</CardGroup>
