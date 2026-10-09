@@ -17,6 +17,25 @@ are labeled; documentation-only edits are not listed.
   find the feed automatically.
 </Note>
 
+<Update label="October 9, 2026" description="10 changes" tags={["Non-breaking"]} rss={{ title: "Semgrep API v2 — October 9, 2026", description: "10 changes across 6 endpoints." }}>
+**Changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="green" size="sm">Added</Badge> | endpoint added | <a href="/api-reference/v2/scansservice/list-scan-subproject-stats" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/scans<wbr/>/&#123;scanId&#125;<wbr/>/subproject-stats</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `instances[].integrationId` to the response with the `200` status | <a href="/api-reference/v2/externalticketingservice/get-external-ticketing-instances" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/notifications<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/ticketing<wbr/>/v2</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `repositorySummaries[].isScmArchived` to the response with the `200` status | <a href="/api-reference/v2/supplychain2service/list-repositories-with-dependencies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/sca<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/repositories</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `repositorySummaries[].isSemgrepArchived` to the response with the `200` status | <a href="/api-reference/v2/supplychain2service/list-repositories-with-dependencies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/sca<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/repositories</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `projects[].isScmArchived` to the response with the `200` status | <a href="/api-reference/v2/projectsservice/list-projects" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v2<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/projects<wbr/>/list</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `projects[].isSemgrepArchived` to the response with the `200` status | <a href="/api-reference/v2/projectsservice/list-projects" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v2<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/projects<wbr/>/list</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `project.isScmArchived` to the response with the `200` status | <a href="/api-reference/v2/projectsservice/delete-project" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="red" size="sm">DELETE /api<wbr/>/v2<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/projects<wbr/>/&#123;projectId&#125;</Badge></a><br/><a href="/api-reference/v2/projectsservice/get-project" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v2<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/projects<wbr/>/&#123;projectId&#125;</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | added the optional property `project.isSemgrepArchived` to the response with the `200` status | <a href="/api-reference/v2/projectsservice/delete-project" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="red" size="sm">DELETE /api<wbr/>/v2<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/projects<wbr/>/&#123;projectId&#125;</Badge></a><br/><a href="/api-reference/v2/projectsservice/get-project" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v2<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/projects<wbr/>/&#123;projectId&#125;</Badge></a> |
+
+</div>
+</Update>
+
 <Update label="October 7, 2026" description="106 changes" tags={["Non-breaking"]} rss={{ title: "Semgrep API v2 — October 7, 2026", description: "106 changes across 36 endpoints." }}>
 **Changes**
 
