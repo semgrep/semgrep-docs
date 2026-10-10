@@ -9,7 +9,8 @@ description: "Semgrep supports the following source code managers (SCM) and plan
 These columns cover the following plans:
 
 - **GitHub**: Free, Pro, Team, and Enterprise Cloud, including Enterprise Cloud with data residency
-- **GitLab**: GitLab.com (Free, Premium, and Ultimate), GitLab Dedicated, and GitLab Dedicated for Government
+- **GitLab**: Free, Premium, and Ultimate on GitLab.com
+- **GitLab Dedicated**: GitLab Dedicated and GitLab Dedicated for Government
 - **GitLab Self-Managed**: Free, Premium, and Ultimate
 - **Bitbucket Cloud**: Free, Standard, and Premium
 
@@ -17,20 +18,20 @@ These columns cover the following plans:
 
 <div className="scm-support-matrix">
 
-| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Cursor Origin (beta)</span> |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Sending findings to Semgrep AppSec Platform | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Default branch identification | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Pull request comments | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Triage through PR or MR comments | ✅ | ✅ | <a href="#gitlab" title="Not available on GitLab Free">✅*</a> | <a href="#gitlab-self-managed" title="Not available on GitLab Free">✅*</a> | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ❌ |
-| Semgrep Managed Scans | ✅ | ✅ | <a href="#gitlab" title="Not available on GitLab Free">✅*</a> | <a href="#gitlab-self-managed" title="Not available on GitLab Free">✅*</a> | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
-| Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
-| Generic secrets | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
-| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ❌ |
-| Code search | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Semgrep Network Broker | N/A | ✅ | N/A | ✅ | N/A | ✅ | N/A | ❌ |
-| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Dedicated</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Cursor Origin (beta)</span> |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Sending findings to Semgrep AppSec Platform | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Default branch identification | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pull request comments | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Triage through PR or MR comments | ✅ | ✅ | <a href="#gitlab" title="Not available on GitLab Free">✅*</a> | ✅ | <a href="#gitlab-self-managed" title="Not available on GitLab Free">✅*</a> | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ❌ |
+| Semgrep Managed Scans | ✅ | ✅ | <a href="#gitlab" title="Not available on GitLab Free">✅*</a> | ✅ | <a href="#gitlab-self-managed" title="Not available on GitLab Free">✅*</a> | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
+| Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
+| Generic secrets | ✅ | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
+| Autofix | ✅ | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ❌ |
+| Code search | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Semgrep Network Broker | N/A | ✅ | N/A | ✅ | ✅ | N/A | ✅ | N/A | ❌ |
+| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 
 </div>
 
