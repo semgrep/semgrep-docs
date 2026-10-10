@@ -96,28 +96,17 @@ h1 {
     white-space: nowrap;
 }
 
+/* Wrap the legend only between entries. */
+.scm-legend-entry {
+    white-space: nowrap;
+}
+
 .scm-support-matrix a {
     border-bottom: none !important;
     text-decoration: none !important;
 }
 
-/* Notes that the SCM support tables link to: clear the sticky header and mark
-   the note the reader just jumped to. */
-[id^="note-"],
+/* Other pages link to this anchor: clear the sticky header. */
 #recommended-gitlab-version {
     scroll-margin-top: 8rem;
-    margin-block: 1rem;
-    padding: 0.25rem 0.5rem;
-    margin-inline: -0.5rem;
-    border-radius: 6px;
-}
-
-[id^="note-"] > p,
-#recommended-gitlab-version > p {
-    margin: 0;
-}
-
-[id^="note-"]:target,
-#recommended-gitlab-version:target {
-    background-color: rgba(202, 138, 4, 0.14);
 }

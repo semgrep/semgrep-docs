@@ -13,54 +13,24 @@ These columns cover the following plans:
 - **GitLab Self-Managed**: Free, Premium, and Ultimate
 - **Bitbucket Cloud**: Free, Standard, and Premium
 
-✅ Supported &nbsp;·&nbsp; ❌ Not supported &nbsp;·&nbsp; ⚠️ Certain plans (see below)
+<span className="scm-legend-entry">✅ Supported</span> &nbsp;·&nbsp; <span className="scm-legend-entry">✅* [Supported on some SCM plans](#feature-requirements-by-scm)</span> &nbsp;·&nbsp; <span className="scm-legend-entry">❌ Not supported</span> &nbsp;·&nbsp; <span className="scm-legend-entry">N/A Not applicable</span>
 
 <div className="scm-support-matrix">
 
-| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Cursor Origin<a href="#note-cursor-origin-beta" title="Cursor Origin support is in beta">§</a></span> |
+| Feature | <span>GitHub</span> | <span>GitHub Enterprise Server</span> | <span>GitLab</span> | <span>GitLab Self-Managed</span> | <span>Bitbucket Cloud</span> | <span>Bitbucket Data Center</span> | <span>Azure DevOps Cloud</span> | <span>Cursor Origin (beta)</span> |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Diff-aware scans | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Sending findings to Semgrep AppSec Platform | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Default branch identification | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Pull request comments | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Triage through PR or MR comments | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ |
-| Semgrep Managed Scans | ✅ | ✅ | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-gitlab-free" title="Not available on GitLab Free">⚠️*</a> | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ |
-| Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ |
-| Generic secrets | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ✅ |
-| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#note-bitbucket-cloud-premium" title="Requires Bitbucket Cloud Premium">⚠️†</a> | ✅ | ✅ | ❌ |
-| Code search | <a href="#note-github-data-residency" title="Not available on Enterprise Cloud with data residency">✅‖</a> | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Triage through PR or MR comments | ✅ | ✅ | <a href="#gitlab" title="Not available on GitLab Free">✅*</a> | <a href="#gitlab-self-managed" title="Not available on GitLab Free">✅*</a> | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ❌ |
+| Semgrep Managed Scans | ✅ | ✅ | <a href="#gitlab" title="Not available on GitLab Free">✅*</a> | <a href="#gitlab-self-managed" title="Not available on GitLab Free">✅*</a> | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
+| Semgrep Multimodal | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
+| Generic secrets | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ✅ |
+| Autofix | ✅ | ✅ | ✅ | ✅ | <a href="#bitbucket-cloud" title="Requires Bitbucket Cloud Premium">✅*</a> | ✅ | ✅ | ❌ |
+| Code search | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Semgrep Network Broker | N/A | ✅ | N/A | ✅ | N/A | ✅ | N/A | ❌ |
-| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | <a href="#note-gitlab-inline-comments" title="Inline MR comments require GitLab 16.5 or later">✅‡</a> | ✅ | ✅ | ✅ | ❌ |
-
-</div>
-
-<div id="note-bitbucket-cloud-premium">
-
-<strong>†</strong>Semgrep Multimodal, Managed Scans, and Autofix on Bitbucket Cloud require a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/), which is only available on **Bitbucket Cloud Premium**. Managed Scans and triage through PR comments also require workspace-level webhooks, which are not available on Bitbucket Cloud Free or Standard.
-
-</div>
-
-<div id="note-gitlab-free">
-
-<strong>*</strong>Semgrep Managed Scans and triage through MR comments require access to group webhooks, which is unavailable to GitLab Free users.
-
-</div>
-
-<div id="note-gitlab-inline-comments">
-
-<strong>‡</strong>Inline MR comments from Agentic Workflows require GitLab 16.5 or later. See [Recommended GitLab version](#recommended-gitlab-version).
-
-</div>
-
-<div id="note-cursor-origin-beta">
-
-<strong>§</strong>Cursor Origin support is in beta. Feature parity with other SCMs is incomplete during the beta. See [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations).
-
-</div>
-
-<div id="note-github-data-residency">
-
-<strong>‖</strong>Code search is not available on GitHub Enterprise Cloud with data residency.
+| Semgrep Agentic Workflows | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 
 </div>
 
@@ -74,11 +44,29 @@ Semgrep doesn't support versions earlier than the minimum.
 | GitLab Self-Managed | 15.5 |
 | Bitbucket Data Center | 8.8 |
 
-<div id="recommended-gitlab-version">
+## Feature requirements by SCM
 
-GitLab 16.5 added the [`unidiff` option](https://docs.gitlab.com/api/repositories/#compare-branches-tags-or-commits), which gives Semgrep the file headers it needs to place inline merge request comments from [Semgrep Agentic Workflows](/workflows/overview). On older versions, workflow issues appear in the merge request summary comment instead.
+### GitHub
 
-</div>
+- Code search isn't available on GitHub Enterprise Cloud with data residency.
+
+### GitLab
+
+- Semgrep Managed Scans and triage through MR comments require group webhooks, which aren't available on GitLab Free.
+
+### GitLab Self-Managed
+
+- Semgrep Managed Scans and triage through MR comments require group webhooks, which aren't available on GitLab Free.
+- <span id="recommended-gitlab-version"></span>Inline MR comments from [Semgrep Agentic Workflows](/workflows/overview) require GitLab 16.5 or later. GitLab 16.5 added the [`unidiff` option](https://docs.gitlab.com/api/repositories/#compare-branches-tags-or-commits), which gives Semgrep the file headers it needs to place inline comments. On older versions, workflow issues appear in the merge request summary comment instead.
+
+### Bitbucket Cloud
+
+- Semgrep Multimodal, generic secrets, Managed Scans, and Autofix require a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/), which is only available on Bitbucket Cloud Premium.
+- Managed Scans and triage through PR comments also require workspace-level webhooks, which aren't available on Bitbucket Cloud Free or Standard.
+
+### Cursor Origin
+
+- Cursor Origin support is in beta. Feature parity with other SCMs is incomplete during the beta. See [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations).
 
 ## Access limitations
 
