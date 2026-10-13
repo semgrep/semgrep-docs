@@ -180,11 +180,39 @@ Only users assigned the `admin` role in Semgrep can activate suggested memories.
 
 ## Select your AI provider
 
-By default, Semgrep Multimodal uses OpenAI and Amazon Bedrock with Semgrep's API keys.
+Semgrep evaluates available models from multiple providers and selects the most performant option for each Multimodal feature, based on the providers enabled for your organization. [Autofix](/semgrep-code/triage-remediation/autofix) requires Amazon Bedrock. If Bedrock is disabled, Autofix does not run.
 
-Semgrep evaluates available models from multiple providers and selects the most performant option for each Multimodal feature, based on the providers enabled for your organization. Keep both OpenAI and Amazon Bedrock enabled. [Autofix](/semgrep-code/triage-remediation/autofix) requires Amazon Bedrock. If Bedrock is disabled, Autofix does not run. Enabling additional model providers can further improve performance for other Multimodal features.
+To choose how Semgrep selects providers:
 
-You can also use your own API keys or accounts for the following providers:
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+</Step>
+<Step>
+Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI providers**.
+</Step>
+<Step>
+Select **Automatic** or **Manual**, then click **Save**.
+</Step>
+</Steps>
+
+### Automatic
+
+Automatic is the default. Multimodal uses Semgrep-managed providers with Semgrep's API keys, all under [zero data retention agreements](/semgrep-multimodal/privacy). Semgrep keeps this list up to date. It currently includes:
+
+- OpenAI
+- Amazon Bedrock
+- Cloudflare Workers AI
+
+Organizations on the [minimal data retention policy](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional) get OpenAI and Amazon Bedrock only.
+
+### Manual
+
+Manual lets you pick providers yourself and use your own API keys. Manual requires a plan that includes bring your own key (BYOK). Organizations that already use Manual keep it.
+
+In Manual, select the providers you want. Each feature uses the enabled providers it supports. Cloudflare Workers AI can't be the only enabled provider.
+
+The following providers can use your own API keys or accounts. Anthropic is available only with your own API key.
 
 <Tabs>
 
@@ -192,21 +220,7 @@ You can also use your own API keys or accounts for the following providers:
 
 ### OpenAI API with your own key
 
-If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
-
-<Steps>
-<Step>
-Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-</Step>
-<Step>
-Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-</Step>
-<Step>
-Select **Your OpenAI API key**, and provide your API key.
-</Step>
-</Steps>
-
-Click **Save** to proceed.
+Under **OpenAI account**, select **Your key**, then paste your OpenAI API key.
 
 By switching from Semgrep's key to your key, note that you lose access to the following:
 
@@ -219,24 +233,14 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 
 ### Your own Amazon Bedrock account
 
-If you want to keep all data within your AWS account, you can use your own Amazon Bedrock instance:
+To keep all data within your AWS account, under **AWS account**, select **Your account**, then choose an **Auth method**:
 
-<Steps>
-<Step>
-Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [ <Icon icon="gear"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-</Step>
-<Step>
-Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-</Step>
-<Step>
-Select **Amazon Bedrock** then **Your AWS account**.
-</Step>
-<Step>
-Provide your AWS IAM role details.
-</Step>
-</Steps>
+- **IAM role assumption**: Enter your **Role ARN** and click **Save**. Semgrep generates an **External ID** and shows its **Semgrep principal ARN**. Add both values to your role's trust policy, then click **Verify**.
+- **Access keys**: Enter your **AWS access key ID** and **AWS secret access key**.
 
-Note that the IAM role that is being used must have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset.
+Select your **AWS region**, then click **Save**.
+
+The IAM role or user must have the **AmazonBedrockLimitedAccess** AWS IAM permissions preset.
 
 Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARNs `anthropic.claude-sonnet-4-6` and `anthropic.claude-haiku-4-5-20251001-v1:0`.
 
@@ -260,84 +264,48 @@ Since Semgrep does not use AWS cross-region inference profiles, the models Multi
 
 ### Azure OpenAI
 
-To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key for your model from Azure, then provide it to Semgrep.
+1. In Azure OpenAI Studio, go to **Deployments**, select your deployment, and copy the **Target URI** and **API key** from **Endpoint**.
+2. In Semgrep, under **OpenAI account**, select **Azure OpenAI**.
+3. Paste the **Target URI** into **Azure OpenAI endpoint**. It must include the full path and API version query parameter:
 
-1. To retrieve the endpoint URL and API key from Azure:
-   1. Log in to Azure OpenAI Studio.
-   2. Navigate to **Deployments**, and select the deployment you want to use.
-   3. In **Endpoint**, find and copy both the **Target URI** and the **API key**. You will provide both values to Semgrep.
-2. To configure Semgrep to use Azure OpenAI:
-   1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/>**Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-   2. Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-   3. Select **Azure OpenAI**.
-   4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**. The endpoint must include the full path and API version query parameter. The expected format is:
+   `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/DEPLOYMENT_NAME/chat/completions?api-version=API_VERSION`
 
-      `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/DEPLOYMENT_NAME/chat/completions?api-version=API_VERSION`
-
-   5. Paste the API key you copied from Azure into **Your Azure OpenAI API key**.
-   6. Click **Save** to proceed.
+4. Paste the API key into **Azure OpenAI API key**.
+5. In **Base model**, enter the model ID your deployment runs, such as `gpt-5.6-luna`.
+6. Click **Save**.
 
 <Warning>
 If Semgrep cannot save your endpoint and API key, confirm that the endpoint includes both `/openai/deployments/DEPLOYMENT_NAME/chat/completions` and the `?api-version=` query parameter. Pasting only the base resource URL (for example, `https://my-resource.openai.azure.com`) fails with a missing configuration error.
 </Warning>
 
 <Note>
-Semgrep supports one Azure OpenAI deployment at a time. Because each Azure deployment serves a single model, that model is used for all Semgrep Multimodal features, including noise filtering. If you want a different model, deploy it in Azure and then repeat the steps above with its Target URI and API key, which replaces your existing configuration.
+Semgrep supports one Azure OpenAI deployment at a time. Because each Azure deployment serves a single model, that model is used for all Semgrep Multimodal features, including noise filtering. To use a different model, deploy it in Azure and repeat these steps, which replaces your existing configuration.
 </Note>
-
-Azure OpenAI is not available for [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) or [Agentic Workflows](/workflows/overview). Those features require a Semgrep-managed OpenAI or Amazon Bedrock provider.
 
 </Tab>
 <Tab title="Google Gemini">
 
 ### Google Gemini
 
-To use Google Gemini with Semgrep Multimodal:
+Select **Google Gemini**, paste your key into **Gemini API key**, and click **Save**.
 
-<Steps>
-<Step>
-Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-</Step>
-<Step>
-Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-</Step>
-<Step>
-Select **Google Gemini**.
-</Step>
-<Step>
-Paste in your API key.
-</Step>
-<Step>
-Click **Save** to proceed.
-</Step>
-</Steps>
-
-> Semgrep Multimodal only supports Google Gemini with Google AI Studio, not Vertex AI.
+Semgrep Multimodal only supports Google Gemini with Google AI Studio, not Vertex AI.
 
 </Tab>
 <Tab title="xAI">
 
 ### xAI
 
-To use xAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
+Select **xAI**, enter your **xAI API key** and **xAI endpoint** (for example, `https://api.x.ai/v1`), and click **Save**.
 
-<Steps>
-<Step>
-Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-</Step>
-<Step>
-Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-</Step>
-<Step>
-Select **xAI**.
-</Step>
-<Step>
-Paste in your API key and API endpoint.
-</Step>
-<Step>
-Click **Save** to proceed.
-</Step>
-</Steps>
+</Tab>
+<Tab title="Anthropic">
+
+### Anthropic
+
+Select **Anthropic**, paste your key into **Anthropic API key**, and click **Save**. Multimodal uses `claude-sonnet-4-6`.
 
 </Tab>
 </Tabs>
+
+[AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) and [Agentic Workflows](/workflows/overview) only use Semgrep-managed OpenAI or Amazon Bedrock. Providers that use your own key, and Cloudflare Workers AI, are not used for those features.
