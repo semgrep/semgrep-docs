@@ -3406,6 +3406,12 @@ components:
           description: ID of repository.
           format: int64
           type: integer
+        isScmArchived:
+          description: True if the repository is archived in its source code manager.
+          type: boolean
+        isSemgrepArchived:
+          description: True if the repository is archived in Semgrep.
+          type: boolean
         name:
           description: Name of repository.
           type: string

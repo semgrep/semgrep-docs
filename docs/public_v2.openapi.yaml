@@ -5070,6 +5070,57 @@ paths:
                 metadata:
                     tag: "Beta"
                 content: "<Note>This endpoint is in **beta**. It may still change before it reaches general availability.</Note>"
+    /api/deployments/{deploymentId}/scans/{scanId}/subproject-stats:
+        get:
+            tags:
+                - ScansService
+            summary: List scan subproject stats
+            description: List dependency resolution statistics for the specified scan, including unresolved reasons and full error messages. Requires scan-read and findings-read permissions, and findings-read access to the scan's project. Results follow the recorded subproject order. Returns 404 when the scan does not exist or the caller cannot access it. `availability` distinguishes a scan that recorded no subproject statistics from one that recorded zero subprojects. Storage failures return 503.
+            operationId: ScansService_ListScanSubprojectStats
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    type: string
+                    description: The unique numerical identifier of the deployment containing the scan.
+                    format: int64
+                - name: scanId
+                  in: path
+                  required: true
+                  schema:
+                    example: "12345"
+                    type: string
+                    description: The unique numerical identifier of the scan to inspect.
+                    format: int64
+                - name: cursor
+                  in: query
+                  schema:
+                    type: string
+                    description: The nextCursor from the previous page. Omit for the first page.
+                - name: limit
+                  in: query
+                  schema:
+                    example: 100
+                    type: integer
+                    description: Maximum subprojects per page. Defaults to 100; must be between 1 and 500.
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.scan.v2.ListScanSubprojectStatsResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v2/deployments/{deploymentId}/projects/{projectId}/scans/list:
         post:
             tags:
@@ -16142,6 +16193,14 @@ components:
                         | SCM_TYPE_CODE_STORAGE | Code Storage |
 
                     format: enum
+                isSemgrepArchived:
+                    example: false
+                    type: boolean
+                    description: Whether this project has been archived in Semgrep.
+                isScmArchived:
+                    example: false
+                    type: boolean
+                    description: Whether this project's repository has been archived in the source code manager (SCM).
         protos.projects.v2.ProjectsFilter:
             title: Projects Filter
             type: object
@@ -17841,6 +17900,12 @@ components:
                     description: |-
                         True if the repository has been scanned with the `hasPathToTransitivityInScans` feature flag
                          which means it will have dependency graph data in DGraph available to query
+                isSemgrepArchived:
+                    type: boolean
+                    description: True if the repository is archived in Semgrep.
+                isScmArchived:
+                    type: boolean
+                    description: True if the repository is archived in its source code manager.
         protos.sca.v1.SbomFormatVersion:
             type: object
             properties:
@@ -17972,6 +18037,32 @@ components:
             properties:
                 scan:
                     $ref: '#/components/schemas/protos.scan.v2.Scan'
+        protos.scan.v2.ListScanSubprojectStatsResponse:
+            type: object
+            properties:
+                subprojects:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.scan.v2.ScanSubprojectStats'
+                    description: Subproject statistics for this page of the requested scan.
+                nextCursor:
+                    type: string
+                    description: Cursor for the next page. Absent on the last page.
+                availability:
+                    example: SUBPROJECT_STATS_AVAILABILITY_RECORDED
+                    enum:
+                        - SUBPROJECT_STATS_AVAILABILITY_RECORDED
+                        - SUBPROJECT_STATS_AVAILABILITY_NOT_RECORDED
+                    type: string
+                    description: |+
+                        Whether the scan recorded subproject statistics. When NOT_RECORDED, subprojects is empty because there is no evidence, not because the scan found no subprojects.
+
+                        | value | description |
+                        |-------|---------------|
+                        | SUBPROJECT_STATS_AVAILABILITY_RECORDED | The scan recorded subproject statistics. The list may be empty if the scan found no subprojects. |
+                        | SUBPROJECT_STATS_AVAILABILITY_NOT_RECORDED | The scan has no recorded subproject statistics, for example because it did not finish or did not run Supply Chain. |
+
+                    format: enum
         protos.scan.v2.ListScansFilters:
             title: List Scans Filter
             type: object
@@ -18259,6 +18350,59 @@ components:
                         | PRODUCT_AI_SAST |  |
 
             description: A scan of a project.
+        protos.scan.v2.ScanDependencyResolutionStats:
+            type: object
+            properties:
+                resolutionMethod:
+                    example: LockfileParsing
+                    type: string
+                    description: Method used to resolve dependencies, such as LockfileParsing, DynamicResolution, or SbomParsing.
+                dependencyCount:
+                    example: 42
+                    type: integer
+                    description: Number of resolved dependencies.
+                    format: int64
+                ecosystem:
+                    example: maven
+                    enum:
+                        - no_package_manager
+                        - npm
+                        - pypi
+                        - gomod
+                        - cargo
+                        - maven
+                        - gem
+                        - composer
+                        - nuget
+                        - pub
+                        - swiftpm
+                        - hex
+                        - cocoapods
+                        - mix
+                        - opam
+                    type: string
+                    description: |+
+                        Package ecosystem of the resolved dependencies.
+
+                        | value | description |
+                        |-------|---------------|
+                        | no_package_manager |  |
+                        | npm |  |
+                        | pypi |  |
+                        | gomod |  |
+                        | cargo |  |
+                        | maven |  |
+                        | gem |  |
+                        | composer |  |
+                        | nuget |  |
+                        | pub |  |
+                        | swiftpm |  |
+                        | hex |  |
+                        | cocoapods |  |
+                        | mix |  |
+                        | opam |  |
+
+                    format: enum
         protos.scan.v2.ScanDurationRange:
             title: Scan Duration Range
             type: object
@@ -18299,6 +18443,46 @@ components:
                     description: The number of secrets findings in the scan
                     format: int64
             description: The number of findings in a scan by product
+        protos.scan.v2.ScanSubprojectStats:
+            type: object
+            properties:
+                subprojectId:
+                    example: backend/pom.xml
+                    type: string
+                    description: Identifier of the subproject within this scan.
+                dependencySourcePaths:
+                    example: ["backend/pom.xml"]
+                    type: array
+                    items:
+                        type: string
+                    description: Paths of manifest and lockfiles that define this subproject, relative to the project root.
+                resolvedStats:
+                    $ref: '#/components/schemas/protos.scan.v2.ScanDependencyResolutionStats'
+                unresolvedReason:
+                    example: UNRESOLVED_REASON_DISABLED
+                    enum:
+                        - UNRESOLVED_REASON_FAILED
+                        - UNRESOLVED_REASON_SKIPPED
+                        - UNRESOLVED_REASON_UNSUPPORTED
+                        - UNRESOLVED_REASON_DISABLED
+                    type: string
+                    description: |+
+                        Why dependency resolution did not produce a result. Absent for resolved subprojects.
+
+                        | value | description |
+                        |-------|---------------|
+                        | UNRESOLVED_REASON_FAILED |  |
+                        | UNRESOLVED_REASON_SKIPPED |  |
+                        | UNRESOLVED_REASON_UNSUPPORTED |  |
+                        | UNRESOLVED_REASON_DISABLED |  |
+
+                    format: enum
+                errorMessages:
+                    example: ["Resolution error in pom.xml: MissingRequirement: mvn"]
+                    type: array
+                    items:
+                        type: string
+                    description: Full dependency parsing and resolution errors, including resolution commands and build output. Treat these messages as project data.
         protos.scm.v1.AddAdoScmProjectRequest:
             type: object
             properties:
@@ -19662,6 +19846,9 @@ components:
                     description: |-
                         The Jira transition fired when a finding reaches the fixed state. Read from
                          the nango_ticketing_instance.config column, not Nango metadata.
+                integrationId:
+                    type: string
+                    description: The integration instance id.
         protos.ticketing.v2.UnlinkTicketRequest:
             type: object
             properties:
