@@ -1203,8 +1203,8 @@ paths:
         post:
             tags:
                 - EditorService
-            summary: Run pattern
-            description: Execute a Semgrep pattern against target code and return the results
+            summary: Validate a rule against example code
+            description: Execute a Semgrep pattern or YAML rule against supplied target code. Include positive ruleid and negative ok test annotations to validate examples. Inspect semgrep_result for execution errors and test_result for individual test outcomes; HTTP success alone does not mean the rule or examples passed. This runs on the hosted playground, not in the caller's local repository.
             operationId: EditorService_RunPattern
             requestBody:
                 content:
@@ -5249,7 +5249,7 @@ paths:
             tags:
                 - SemgrepWorkflowsService
             summary: Get workflow job overview
-            description: Returns run-level metadata and a registry-derived step skeleton for a workflow job, without listing run artifacts — a fast first paint. Pair with GetWorkflowJobGraph to stream live step/task status separately.
+            description: Returns run-level metadata and a registry-derived step skeleton for a workflow job, without listing run artifacts — a fast first paint. Pair with GetWorkflowJobGraph to stream live step/task status separately. To fetch issues associated with the job, call PublicIssuesService_ListIssues with the same deploymentId and body.filters.workflowJobIds set to an array containing the jobId. Follow the returned cursor to fetch all issue pages.
             operationId: GetSemgrepAgenticWorkflowJobOverview
             parameters:
                 - name: deploymentId
@@ -5319,7 +5319,7 @@ paths:
             tags:
                 - SemgrepWorkflowsService
             summary: List workflow jobs
-            description: Lists workflow jobs for a deployment, with support for filtering, sorting, and cursor-based pagination.
+            description: Lists workflow jobs for a deployment, with support for filtering, sorting, and cursor-based pagination. To fetch issues associated with a job, call PublicIssuesService_ListIssues with the same deploymentId and body.filters.workflowJobIds set to an array containing the jobId. Follow the returned cursor to fetch all issue pages.
             operationId: ListSemgrepAgenticWorkflowJobs
             parameters:
                 - name: deploymentId
@@ -5357,7 +5357,7 @@ paths:
             tags:
                 - SemgrepWorkflowsService
             summary: Trigger a workflow run
-            description: Submits a workflow job for a deployment.
+            description: Submits a workflow job for a deployment. To fetch issues associated with the job, call PublicIssuesService_ListIssues with the same deploymentId and body.filters.workflowJobIds set to an array containing the returned jobId.
             operationId: TriggerSemgrepAgenticWorkflow
             parameters:
                 - name: deploymentId
@@ -9831,6 +9831,13 @@ components:
                 scans_suspended_by:
                     type: integer
                     format: int64
+        protos.deployment.v1.AdminSmsProductConfig:
+            type: object
+            properties:
+                custom_validator_hosts:
+                    type: array
+                    items:
+                        type: string
         protos.deployment.v1.AiAutofixConfig:
             type: object
             properties:
@@ -9887,6 +9894,10 @@ components:
                     items:
                         type: string
                     description: The Semgrep-managed providers that automatic mode uses for this deployment.
+                manualProviderSelectionAvailable:
+                    readOnly: true
+                    type: boolean
+                    description: Whether the deployment can use manual mode to choose its own providers. Manual mode requires the bring your own API key feature, unless the deployment already uses manual mode.
         protos.deployment.v1.CreateDeploymentRequest:
             type: object
             properties:
@@ -9928,6 +9939,8 @@ components:
                     $ref: '#/components/schemas/protos.deployment.v1.AdminProductConfig'
                 engine:
                     $ref: '#/components/schemas/protos.deployment.v1.AdminEngineConfig'
+                smsProduct:
+                    $ref: '#/components/schemas/protos.deployment.v1.AdminSmsProductConfig'
             description: Admin product configuration types
         protos.deployment.v1.DeploymentFeatures:
             type: object
@@ -10391,6 +10404,14 @@ components:
                         | TRIAGE_PERMISSION_NONE |  |
 
                     format: enum
+                custom_validators_available:
+                    readOnly: true
+                    type: boolean
+                custom_validator_hosts:
+                    readOnly: true
+                    type: array
+                    items:
+                        type: string
         protos.deployment.v1.SecretsValidationStatePolicyConfig:
             type: object
             properties:
