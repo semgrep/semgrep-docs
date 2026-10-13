@@ -242,7 +242,7 @@ Select your **AWS region**, then click **Save**.
 
 The IAM role or user must have the **AmazonBedrockLimitedAccess** AWS IAM permissions preset.
 
-Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARNs `anthropic.claude-sonnet-4-6` and `anthropic.claude-haiku-4-5-20251001-v1:0`.
+Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal uses `claude-sonnet-4-6`, `claude-opus-5-5`, `claude-sonnet-5-5`, and `claude-haiku-5-5`.
 
 #### Supported AWS regions
 
@@ -303,7 +303,7 @@ Select **xAI**, enter your **xAI API key** and **xAI endpoint** (for example, `h
 
 ### Anthropic
 
-Select **Anthropic**, paste your key into **Anthropic API key**, and click **Save**. Multimodal uses `claude-sonnet-4-6`.
+Select **Anthropic**, paste your key into **Anthropic API key**, and click **Save**. Multimodal uses `claude-sonnet-4-6`, `claude-opus-5-5`, `claude-sonnet-5-5`, and `claude-haiku-5-5`, so your key needs access to all of them.
 
 </Tab>
 </Tabs>
