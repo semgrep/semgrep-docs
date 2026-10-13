@@ -27,7 +27,7 @@ Languages are arranged by feature completeness from most to least. If applicable
 | Terraform | **Generally available**<br />• Cross-function dataflow analysis<br />• Community rules | N/a |
 | Generic | **Generally available** | N/a |
 | JSON | **Generally available** | N/a |
-| Elixir | **Generally available** | **Beta** |
+| Elixir | **Generally available** | **Beta**<br />• Hex. Both `mix.exs` and `mix.lock` must be present<br />• No reachability analysis<br />• No license detection<br />• No scanning without lockfiles |
 | APEX | **Beta** | -- |
 | Dart | **Experimental** | **Beta** |
 
@@ -62,6 +62,7 @@ Language maturity levels differ from feature and product maturity levels.
 * See [Feature definitions](/references/feature-definitions) for analysis terminology definitions used on this document.
 * See [Package manager support](/semgrep-supply-chain/requirements-and-feature-support) for Supply Chain dependency metadata support.
 * See [Supply Chain feature support](/semgrep-supply-chain/requirements-and-feature-support) for Supply Chain feature coverage by language.
+* Semgrep doesn't support Visual Basic .NET. Supply Chain can match vulnerable NuGet package versions when a `packages.lock.json` file is present, but reachability results for those findings aren't reliable.
 
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
