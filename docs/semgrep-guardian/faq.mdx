@@ -1,0 +1,197 @@
+---
+title: "Semgrep Guardian FAQ"
+description: "Answers to common questions about Semgrep Guardian, including setup, rules, sign-in, team deployment, and the free trial."
+sidebarTitle: "FAQ"
+keywords: ["Semgrep Guardian", "FAQ", "free trial"]
+---
+
+## Free trial
+
+<AccordionGroup>
+  <Accordion title="How do I start the free trial?">
+
+    Install the plugin, sign in, and Guardian checks the next file your agent writes. No credit card is required. The trial is 30 days.
+
+    Claude Code and Codex are the recommended setups. Follow the [Quickstart](/semgrep-guardian/quickstart).
+
+  </Accordion>
+  <Accordion title="What does the trial cost when it ends?">
+
+    After 30 days, Guardian is $10 per seat per month for individuals and teams of any size. The bundle with Semgrep Code is $40 per seat per month. There is also an enterprise option.
+
+  </Accordion>
+  <Accordion title="What do I need installed first?">
+
+    Install the coding agent first. For the recommended setups, that is Claude Code (`claude` command) or the Codex CLI (`codex` command). You also need a Semgrep account, which you can create when you sign in.
+
+    Other coding agents are supported too. See [Choose your setup](/semgrep-guardian/choose-your-setup).
+
+    On Windows, [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) is required. Native Windows is unsupported.
+
+  </Accordion>
+  <Accordion title="Do I need to install the Semgrep CLI for the trial?">
+
+    No, if you use the Claude Code or Codex plugin. Both use Semgrep's hosted scanner and sign in through the browser. Install the CLI only for other coding agents, or for the local Claude Code plugin. See [Choose your setup](/semgrep-guardian/choose-your-setup).
+
+  </Accordion>
+  <Accordion title="How do I know Guardian is running?">
+
+    In Claude Code, start a new session after installing the plugin. You're prompted to sign in, and the plugin scans each file Claude Code writes. You can also run `claude mcp get plugin:semgrep:guardian` and confirm it reports as connected.
+
+    In Codex, start a new session and sign in. Ask Codex who you are logged in as in Semgrep Guardian. You can also run `codex plugin list --json` and confirm the `semgrep` plugin is listed.
+
+    When a scan finds something, Guardian returns the findings to the agent. See the [Quickstart](/semgrep-guardian/quickstart).
+
+  </Accordion>
+  <Accordion title="Why do I have to approve hooks in Codex?">
+
+    Review and trust Guardian's hooks in Codex to enable scans after file writes.
+
+  </Accordion>
+  <Accordion title="What if I'm not signed in?">
+
+    Sign in once in the browser. Semgrep refreshes access tokens after that.
+
+    In Codex, ask the agent to log in to Semgrep Guardian. In Claude Code, start a new session and complete the sign-in prompt. See [Authentication](/semgrep-guardian/authentication).
+
+  </Accordion>
+</AccordionGroup>
+
+## How Guardian works
+
+<AccordionGroup>
+  <Accordion title="What does Semgrep Guardian do?">
+
+    Guardian scans files an AI coding agent writes, before that code is committed. It scans with Semgrep Code, Supply Chain, and Secrets to catch vulnerable code patterns, vulnerable dependencies, and hardcoded secrets. See the [overview](/semgrep-guardian/overview) and [Rules and configuration](/semgrep-guardian/rules-and-configuration).
+
+  </Accordion>
+  <Accordion title="When does a scan run?">
+
+    A hook, or an MCP tool call, scans what the agent just wrote or edited. The scan runs on the developer's machine at authoring time, not in CI.
+
+  </Accordion>
+  <Accordion title="Does Guardian rewrite the code?">
+
+    No. Guardian returns findings to the agent. The agent decides whether to regenerate the code. If it does, the new code is scanned again.
+
+  </Accordion>
+  <Accordion title="Does Guardian replace scans in CI?">
+
+    No. CI and platform scans still run on push, pull request, or a schedule, and they enforce your Policies. Keep running Semgrep in CI. See [Set up and deploy scans](/deployment/checklist).
+
+  </Accordion>
+  <Accordion title="Is Guardian the same as the Malware Firewall?">
+
+    No. Guardian scans code an agent generates before it is committed. The [Semgrep Malware Firewall](/semgrep-supply-chain/malware-firewall) blocks malicious packages when developers install dependencies. After Guardian is installed, developers can run `/install-mfw` in the agent to install the Malware Firewall.
+
+    <Note>
+    The Malware Firewall is in private beta. It requires a macOS or Linux terminal or shell.
+    </Note>
+
+  </Accordion>
+</AccordionGroup>
+
+## Setup
+
+<AccordionGroup>
+  <Accordion title="Which coding agents does Guardian support?">
+
+    Claude Code and Codex are the recommended setups. Guardian also supports Cursor, GitHub Copilot, VS Code, Devin (Windsurf), Kiro, and other MCP-compatible agents. See [Choose your setup](/semgrep-guardian/choose-your-setup).
+
+  </Accordion>
+  <Accordion title="What's the difference between the two setup paths?">
+
+    The Claude Code and Codex plugins use Semgrep's hosted server, sign in through OAuth, and don't need a local CLI. Other agents, and the local Claude Code plugin, run Semgrep through a CLI you install and sign in with `semgrep login`.
+
+    The paths also use different rules. See the next section.
+
+  </Accordion>
+  <Accordion title="How do I install Guardian in Claude Code?">
+
+    Install `semgrep@claude-plugins-official`, then start a new session and sign in. Commands are in the [Quickstart](/semgrep-guardian/quickstart). For the local plugin, see [Claude Code setup](/semgrep-guardian/ide-setup/claude-code).
+
+  </Accordion>
+  <Accordion title="How do I install Guardian in Codex?">
+
+    Add the Semgrep marketplace, install `semgrep@semgrep-marketplace`, start a new session, and sign in. Commands are in the [Quickstart](/semgrep-guardian/quickstart).
+
+  </Accordion>
+  <Accordion title="How do I install Guardian in Cursor or another agent?">
+
+    Install and sign in to the [Semgrep CLI](/semgrep-guardian/install-cli) first, then follow the page for your agent under [Choose your setup](/semgrep-guardian/choose-your-setup).
+
+  </Accordion>
+</AccordionGroup>
+
+## Rules and findings
+
+<AccordionGroup>
+  <Accordion title="Does Guardian use my organization's Policies?">
+
+    Not on the recommended Claude Code or Codex plugin. Those hooks run the fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset.
+
+    The local Claude Code plugin and every other agent scan with the rules enabled in your organization's Policies. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
+
+  </Accordion>
+  <Accordion title="What does the guardian-default ruleset include?">
+
+    It is based on [`p/default`](https://semgrep.dev/p/default). Semgrep includes a rule only when the agent can apply a fix or a sanitizer. Rules without a reliable fix are left out, because they can cause the agent to rewrite code incorrectly.
+
+  </Accordion>
+  <Accordion title="Why did CI report an issue that Guardian missed?">
+
+    On the Claude Code and Codex plugins, Guardian doesn't read your Policies. A rule you enabled for CI may not be in `guardian-default`. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
+
+  </Accordion>
+</AccordionGroup>
+
+## Sign-in
+
+<AccordionGroup>
+  <Accordion title="How does sign-in work?">
+
+    With Claude Code or Codex, each developer completes a one-time browser sign-in. Semgrep refreshes access tokens automatically. Other agents use `semgrep login`. See [Authentication](/semgrep-guardian/authentication).
+
+  </Accordion>
+  <Accordion title="Where are credentials stored?">
+
+    OAuth credentials for the Claude Code and Codex plugins are stored in `~/.semgrep/guardian.yml`. CLI credentials from `semgrep login` are stored in `~/.semgrep/settings.yml`.
+
+    If `guardian.yml` has an OAuth session, Guardian uses it instead of an API token in `settings.yml`.
+
+  </Accordion>
+  <Accordion title="Why are scans running under a different account?">
+
+    An existing OAuth session in `guardian.yml` takes precedence over CLI credentials in `settings.yml`. Check which file has the active credentials. Use `semgrep logout` to remove CLI credentials from `settings.yml`. See [Authentication](/semgrep-guardian/authentication).
+
+  </Accordion>
+  <Accordion title="Can the team share one API token?">
+
+    Shared tokens and service accounts are not recommended. Each developer should sign in individually. A shared token is rate-limited as a single user, which can throttle scans when many developers run Guardian concurrently. Revoking a shared token affects every user who depends on it.
+
+    When developers can't complete a browser sign-in, Semgrep Enterprise can deploy a read-only token. See [Enterprise deployment](/semgrep-guardian/enterprise-deployment#deploy-with-a-read-only-token-semgrep-enterprise-only).
+
+  </Accordion>
+</AccordionGroup>
+
+## Roll out to a team
+
+<AccordionGroup>
+  <Accordion title="Can I install Guardian for developers instead of asking each person to do it?">
+
+    Yes. Enable the plugin through your coding agent's enterprise controls, or deploy it with mobile device management (MDM). Each developer still signs in after the plugin is installed.
+
+    Codex configuration defaults aren't enforced, so developers can still turn the plugin off. See [Enterprise deployment](/semgrep-guardian/enterprise-deployment).
+
+  </Accordion>
+  <Accordion title="What if developers can't sign in through a browser?">
+
+    Prefer OAuth when they can. On Semgrep Enterprise, you can deploy a read-only token with `SEMGREP_APP_TOKEN` and set `SEMGREP_GUARDIAN_EMAIL` to that developer's email. See [Deploy with a read-only token](/semgrep-guardian/enterprise-deployment#deploy-with-a-read-only-token-semgrep-enterprise-only).
+
+  </Accordion>
+  <Accordion title="Where do I get help?">
+
+    Ask in Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack). For deployment questions, see [Support](/support).
+
+  </Accordion>
+</AccordionGroup>

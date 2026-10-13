@@ -81,6 +81,7 @@ Jenkinsfile
 Jira
 JSON
 [Kk]eypair
+Kiro
 
 Laravel
 LLM
