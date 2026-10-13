@@ -50,9 +50,11 @@ The following tables list **SCM roles** and **token or app scopes** required for
 
 Cursor Origin support is in **beta**. Semgrep recommends the **Semgrep app**, which uses the public Semgrep Cursor Origin app. A **Private app** (customer-managed private app) is available if your organization needs a separate app identity or control over the app's signing key. Contact [Support](/support).
 
+You must have the **Codebase Admin** role in Cursor for the codebase. Semgrep creates the connection after you complete the install with that role.
+
 | Feature | Role | Scopes | Configure |
 | :--- | :--- | :--- | :--- |
-| Connect repositories | User who can manage source code manager connections in Semgrep and install apps for the Cursor codebase | Install the public Semgrep Cursor Origin app (**Semgrep app**) in Cursor and select the repositories Semgrep can access. | [Connect Cursor Origin](/deployment/connect-scm#cursor-origin) |
+| Connect repositories | <ul><li>Permission to manage source code manager connections in Semgrep</li><li>**Codebase Admin** in Cursor for the codebase</li></ul> | Install the public Semgrep Cursor Origin app (**Semgrep app**) in Cursor and select the repositories Semgrep can access. | [Connect Cursor Origin](/deployment/connect-scm#cursor-origin) |
 | Managed Scans | Same as connect repositories | Same Cursor Origin app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor) |
 | PR comments and scan checks | Same as connect repositories | Same Cursor Origin app installation and repository selection | [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#pull-request-checks-and-comments) |
 | Triage through PR comments | Not available during the beta | — | — |

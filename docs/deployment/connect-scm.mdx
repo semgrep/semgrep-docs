@@ -303,6 +303,10 @@ Connect repositories hosted in [Cursor Origin](https://cursor.com/docs/origin) (
 
 Semgrep connects to Cursor Origin through an app you install in Cursor. That integration plays a similar role to the Semgrep GitHub App: you install it, choose repositories, and connect it to your Semgrep organization.
 
+<Info>
+To create the connection, sign in to Cursor with the **Codebase Admin** role for the codebase and complete the install. If you select repositories without that role, Cursor Origin does not appear under **Settings > Source code managers**.
+</Info>
+
 ### Choose an app type {#choose-an-app-type}
 
 In Semgrep AppSec Platform, choose one of the following connection options:
@@ -332,7 +336,7 @@ Go to <Icon icon="gear" iconType="solid"/> **Settings > Source code managers > A
 In the **Connect your Cursor Origin organization** dialog, select **Semgrep app**. Select **Private app** only if [Support](/support) is helping you set up a customer-managed private app.
 </Step>
 <Step>
-Click **Connect**. Continue to Cursor to choose a codebase and the repositories Semgrep can access.
+Click **Connect**. On the Cursor page, sign in with the **Codebase Admin** role, and then select a codebase and the repositories that Semgrep can access.
 </Step>
 <Step>
 After Cursor redirects you back to Semgrep, click **Test** on the new connection to verify it.
@@ -348,7 +352,7 @@ Cursor Origin is also available when you create a new Semgrep organization durin
 
 <Steps>
 <Step>
-In Cursor, install the public Semgrep Cursor Origin app for your Cursor codebase. Choose the repositories Semgrep can access, review the permissions, and select **Install** for the intended codebase.
+In Cursor, sign in with the **Codebase Admin** role for your codebase. Install the public Semgrep Cursor Origin app, select the repositories that Semgrep can access, review the permissions, and then select **Install**.
 </Step>
 <Step>
 Continue into Semgrep. Existing users sign in. New users select **Sign up here** and create an account. The pending Cursor connection continues after authentication and organization creation.
