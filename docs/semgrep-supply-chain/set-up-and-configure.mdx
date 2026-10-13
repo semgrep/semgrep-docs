@@ -105,7 +105,7 @@ Dynamic Dependency Resolution supports these package managers:
 
 - Maven and Gradle in CI, in the CLI, and on Managed Scans
 - pip `setup.py` projects only in CI and the CLI
-- NuGet for C# only in CI and the CLI
+- NuGet for C#: `packages.lock.json` on Managed Scans. `.csproj` files only in your own CI or on a local machine, with `semgrep ci --allow-local-builds`
 
 ### CLI scans, including self-managed CI systems
 
@@ -117,11 +117,11 @@ Dynamic Dependency Resolution supports these package managers:
     ```console
     semgrep ci --allow-local-builds
     ```
-    For existing CI jobs, you might have to edit your configuration file to include this flag. The flag allows Semgrep to build the project, if needed, to dynamically resolve dependencies. Semgrep reads the `pom.xml`, `build.gradle`, or `.csproj` file to determine which dependencies the project uses.
+    For existing CI jobs, you might have to edit your configuration file to include this flag. The flag allows Semgrep to build the project, if needed, to dynamically resolve dependencies. Semgrep uses the `pom.xml`, `build.gradle`, or `.csproj` manifest to determine which dependencies the project uses. Run this command in your own CI system or on a local machine.
 
 ### Semgrep Managed Scans
 
-Managed Scans supports Dynamic Dependency Resolution only for Maven and Gradle. To resolve NuGet dependencies for C# on Managed Scans, you must commit a `packages.lock.json` lockfile. You can resolve C# dependencies without a lockfile [only in CI and the CLI](#cli-scans-including-self-managed-ci-systems).
+For C# (NuGet), Managed Scans requires a `packages.lock.json` lockfile. A `.csproj` file alone isn't enough. In your own CI or on a local machine, `.csproj` files are enough when you run [`semgrep ci --allow-local-builds`](#cli-scans-including-self-managed-ci-systems). Managed Scans supports Dynamic Dependency Resolution only for Maven and Gradle.
 
 <Steps>
 <Step>

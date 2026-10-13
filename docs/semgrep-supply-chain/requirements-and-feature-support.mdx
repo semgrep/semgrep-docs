@@ -26,9 +26,9 @@ The following table lists all Semgrep-supported package managers for each langua
 <tr>
    <td>C#</td>
    <td>NuGet</td>
-   <td><code>packages.lock.json</code> <b>or</b> <br /><code>.csproj</code> through <a
+   <td><code>packages.lock.json</code> on Managed Scans, <b>or</b> <br /><code>.csproj</code> through <a
    href="/docs/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta">Dynamic
-   Dependency Resolution</a>, only in CI and the CLI.</td>
+   Dependency Resolution</a> in your own CI or on a local machine, with <code>semgrep ci --allow-local-builds</code>.</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -171,7 +171,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>C#</td>
 <td align="center">✅</td>
-<td align="center">✅<br /> CI and CLI only</td>
+<td align="center">✅<br /><code>.csproj</code> in your own CI or on a local machine, with <code>--allow-local-builds</code><br />Not supported on Managed Scans</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
