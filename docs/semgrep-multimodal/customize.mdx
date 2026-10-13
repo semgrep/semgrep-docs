@@ -198,7 +198,7 @@ Select **Automatic** or **Manual**, then click **Save**.
 
 ### Automatic
 
-Automatic is the default. Multimodal uses Semgrep-managed providers with Semgrep's API keys, all under [zero data retention agreements](/semgrep-multimodal/privacy). Semgrep keeps this list up to date. It currently includes:
+**Automatic** is the default. Semgrep manages the AI providers and API keys under [zero data retention agreements](/semgrep-multimodal/privacy). Semgrep keeps the provider list up to date. It currently includes:
 
 - OpenAI
 - Amazon Bedrock
@@ -208,7 +208,7 @@ Organizations on the [minimal data retention policy](/semgrep-multimodal/privacy
 
 ### Manual
 
-Manual lets you pick providers yourself and use your own API keys. Manual requires a plan that includes bring your own key (BYOK). Organizations that already use Manual keep it.
+**Manual** lets you choose your own AI providers and API keys. It requires a Semgrep subscription plan that includes bring your own key (BYOK). Organizations that already use **Manual** can keep using it.
 
 In Manual, select the providers you want. Each feature uses the enabled providers it supports. Cloudflare Workers AI can't be the only enabled provider.
 
@@ -279,7 +279,7 @@ If Semgrep cannot save your endpoint and API key, confirm that the endpoint incl
 </Warning>
 
 <Note>
-Semgrep supports one Azure OpenAI deployment at a time. Because each Azure deployment serves a single model, that model is used for all Semgrep Multimodal features, including noise filtering. To use a different model, deploy it in Azure and repeat these steps, which replaces your existing configuration.
+Semgrep supports one Azure OpenAI deployment at a time. Because each Azure deployment serves a single model, Semgrep uses that model for all Multimodal features, including noise filtering. To use a different model, deploy it in Azure and repeat these steps to replace your existing configuration.
 </Note>
 
 </Tab>
