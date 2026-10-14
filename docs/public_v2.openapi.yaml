@@ -8793,6 +8793,8 @@ components:
                 repoScmType:
                     type: string
                     description: SCM provider of the repository (e.g. "github", "gitlab").
+                workflowRevision:
+                    $ref: '#/components/schemas/protos.ai.v1.WorkflowRevisionMetadata'
         protos.ai.v1.WorkflowJobSummary:
             type: object
             properties:
@@ -8866,6 +8868,29 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.ai.v1.WorkflowFinding'
+        protos.ai.v1.WorkflowRevisionMetadata:
+            type: object
+            properties:
+                workflowSourceRef:
+                    type: string
+                workflowSourceSha:
+                    type: string
+                artifactId:
+                    type: string
+                registrationId:
+                    type: string
+                targetEnvironment:
+                    type: string
+                templateName:
+                    type: string
+                readyAt:
+                    type: string
+                    format: date-time
+                templateFingerprint:
+                    type: string
+                networkPolicyFingerprint:
+                    type: string
+            description: Revision source and registration provenance for a workflow job.
         protos.ai.v1.WorkflowStepGraph:
             type: object
             properties:
