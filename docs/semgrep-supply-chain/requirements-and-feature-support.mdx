@@ -133,8 +133,7 @@ The following table lists all Semgrep-supported package managers for each langua
 </div>
 
 _<strong>†</strong>Supply Chain can treat `requirements.txt` as a lockfile with Pip-compiled output and fully pinned dependencies or as a manifest file with more flexible specifiers. If your `requirements.txt` file doesn't use pinned dependencies exclusively, use the [`--allow-local-builds` flag](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) when invoking your scan. This ensures that the dependencies using non-exact version specifiers, such as `>=`, `>`, `~=`, are included in the dependency graph. Otherwise, Semgrep ingests only pinned (`==`) dependencies._<br /><br />
-_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_<br /><br />
-_Semgrep doesn't support Visual Basic .NET. Supply Chain can match vulnerable NuGet package versions when a `packages.lock.json` file is present, but reachability results for those findings aren't reliable._<br />
+_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_
 
 ## Feature availability
 

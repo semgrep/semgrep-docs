@@ -40,10 +40,6 @@ Semgrep Supply Chain supports NuGet projects. The required dependency file and s
 | Managed Scans | A committed `packages.lock.json` file. A `.csproj` file alone isn't enough. | Enable Semgrep Managed Scans for the repository. |
 | Your own CI or local machine | A `.csproj` file. [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) works with or without a `packages.lock.json` file. | Run `semgrep ci --allow-local-builds`. |
 
-### Visual Basic .NET
-
-Semgrep doesn't support Visual Basic .NET. Semgrep Supply Chain can perform basic vulnerable-version matching for NuGet dependencies when the repository contains a `packages.lock.json` file. Reachability results for those findings aren't reliable, so Semgrep doesn't recommend using reachability analysis for Visual Basic .NET projects.
-
 ### Analyses and features
 
 The following analyses and features are available for C#:
