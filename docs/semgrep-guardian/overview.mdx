@@ -19,6 +19,16 @@ Guardian runs at authoring time, on the developer's machine, rather than in CI:
 
 Because the scan happens before the code is committed, Guardian complements rather than replaces your CI and platform scans. For scanning repositories in CI, see [Set up and deploy scans](/deployment/checklist).
 
+## LLM token usage
+
+Semgrep runs Guardian scans, so scanning itself uses none of your LLM tokens. Your agent only uses tokens when Guardian returns a finding: the finding is added to the agent's context, and the agent may regenerate the affected code.
+
+* **Most scans cost nothing.** When a scan finds no issues, nothing is sent back to the agent and your token usage doesn't change.
+* **Findings add a small cost.** When Guardian does return a finding, the agent reads it and may rewrite the code. In Semgrep's testing, this adds less than 1% to overall token usage.
+* **Every setup path works the same way.** Token usage is the same whether Guardian scans with the remote server or a local Semgrep CLI, and for every supported agent.
+
+To estimate token usage for your organization before a full rollout, ask your Semgrep account team about a proof of value (POV).
+
 ## Two setup paths
 
 Guardian has two materially different integration paths. Which one you use changes how you authenticate, whether you need a local Semgrep CLI, and which rules Guardian scans with:
