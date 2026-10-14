@@ -25,7 +25,7 @@ Semgrep performs full scans on a weekly basis and diff-aware scans when you crea
 <Note>
 **INFO**
 
-- To receive Supply Chain findings, you must have a supported manifest file or lockfile in your repository. Managed Scans does **not** support generation of these files. For C#, commit a `packages.lock.json` lockfile. A `.csproj` file alone isn't enough.
+- To receive Supply Chain findings, you must have a supported manifest file or lockfile in your repository. Managed Scans does **not** support generation of these files.
 - For existing Semgrep projects, custom `semgrep.yml` configurations are not copied or detected when you use Managed Scans. If you have additional build steps when scanning, use [Semgrep in CI instead](/deployment/add-semgrep-to-ci).
 </Note>
 
