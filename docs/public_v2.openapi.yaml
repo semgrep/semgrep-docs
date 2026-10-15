@@ -1894,6 +1894,54 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/deployments/{deploymentId}/issues/{issueId}/related-issues:
+        get:
+            tags:
+                - IssuesService
+            summary: List related issues
+            description: List non-removed issues in the same project with the same match based ID, excluding the requested issue. Results are ordered by issue ID.
+            operationId: IssuesService_ListRelatedIssues
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                    description: The deployment ID.
+                    format: int64
+                - name: issueId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                    description: The issue ID.
+                    format: int64
+                - name: cursor
+                  in: query
+                  description: Opaque cursor from the previous response. Omit to request the first page.
+                  schema:
+                    type: string
+                - name: limit
+                  in: query
+                  description: Maximum number of related issues to return. Defaults to 100; must be between 1 and 100.
+                  schema:
+                    type: integer
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.v1.ListRelatedIssuesResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/issues/{deploymentId}/counts:
         post:
             tags:
@@ -11745,10 +11793,13 @@ components:
                         $ref: '#/components/schemas/protos.issues.v1.Issue_ActivityHistoryEvent'
                     description: A chronologically-ordered list of events related to this issue (status change, ai tags, triage events). Always populated by the GetIssue RPC; populated by ListIssues only when `includeActivityHistory` is true.
                 relatedIssues:
+                    deprecated: true
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.issues.v1.Issue_RelatedIssue'
-                    description: A list of related issues (with the same match based ID). Only available when fetching a single issue at a time via the GetIssue RPC.
+                    description: |-
+                        Deprecated. Returns up to 100 related issues per issue.
+                         Use GET /api/deployments/{deployment_id}/issues/{issue_id}/related-issues for paginated results.
                 remediation:
                     allOf:
                         - $ref: '#/components/schemas/protos.ai.v1.Remediation'
@@ -12173,6 +12224,7 @@ components:
             properties:
                 id:
                     type: string
+                    format: int64
                 ref:
                     type: string
                 pullRequestId:
@@ -13546,6 +13598,16 @@ components:
                     type: boolean
                 threadId:
                     type: string
+        protos.issues.v1.ListRelatedIssuesResponse:
+            type: object
+            properties:
+                relatedIssues:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.issues.v1.Issue_RelatedIssue'
+                nextCursor:
+                    type: string
+                    description: Present only when another page is available.
         protos.issues.v1.RepositoryRefFilterItemGroup_RepoRef:
             type: object
             properties:

@@ -17,6 +17,24 @@ are labeled; documentation-only edits are not listed.
   find the feed automatically.
 </Note>
 
+<Update label="October 15, 2026" description="7 changes" tags={["Non-breaking"]} rss={{ title: "Semgrep API v2 — October 15, 2026", description: "7 changes across 4 endpoints." }}>
+**Changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="yellow" size="sm">Deprecated</Badge> | response property `issues[].issue.relatedIssues` deprecated | <a href="/api-reference/v2/issuesservice/list-issues" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues</Badge></a> |
+| <Badge color="orange" size="sm">Changed</Badge> | the `issues[].issue.relatedIssues[].id` response's property `format` was narrowed from `none` to `int64` for status `200` | <a href="/api-reference/v2/issuesservice/list-issues" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues</Badge></a> |
+| <Badge color="yellow" size="sm">Deprecated</Badge> | response property `relatedIssues` deprecated | <a href="/api-reference/v2/issuesservice/get-issue" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues<wbr/>/v2<wbr/>/&#123;issueId&#125;</Badge></a> |
+| <Badge color="orange" size="sm">Changed</Badge> | the `relatedIssues[].id` response's property `format` was narrowed from `none` to `int64` for status `200` | <a href="/api-reference/v2/issuesservice/get-issue" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/agent<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues<wbr/>/v2<wbr/>/&#123;issueId&#125;</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | endpoint added | <a href="/api-reference/v2/issuesservice/list-related-issues" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/issues<wbr/>/&#123;issueId&#125;<wbr/>/related-issues</Badge></a> |
+| <Badge color="yellow" size="sm">Deprecated</Badge> | response property `findings[].relatedIssues` deprecated | <a href="/api-reference/v2/reportsservice/get-report-findings" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/reporting<wbr/>/&#123;deploymentId&#125;<wbr/>/findings</Badge></a> |
+| <Badge color="orange" size="sm">Changed</Badge> | the `findings[].relatedIssues[].id` response's property `format` was narrowed from `none` to `int64` for status `200` | <a href="/api-reference/v2/reportsservice/get-report-findings" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/reporting<wbr/>/&#123;deploymentId&#125;<wbr/>/findings</Badge></a> |
+
+</div>
+</Update>
+
 <Update label="October 14, 2026" description="1 change" tags={["Non-breaking"]} rss={{ title: "Semgrep API v2 — October 14, 2026", description: "1 change across 1 endpoint." }}>
 **Changes**
 
