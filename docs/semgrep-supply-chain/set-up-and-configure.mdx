@@ -105,7 +105,7 @@ Dynamic Dependency Resolution supports these package managers:
 
 - Maven and Gradle in CI, in the CLI, and on Managed Scans
 - pip `setup.py` projects only in CI and the CLI
-- NuGet for C# in your own CI or on a local machine, using `.csproj`, with or without `packages.lock.json`. Managed Scans requires `packages.lock.json` and doesn't support Dynamic Dependency Resolution for NuGet.
+- NuGet for C#: `.csproj` in your own CI or on a local machine when `packages.lock.json` isn't present. If both files exist, Semgrep uses the lockfile. Managed Scans requires `packages.lock.json` and doesn't support Dynamic Dependency Resolution for NuGet.
 
 ### CLI scans, including self-managed CI systems
 
@@ -121,7 +121,7 @@ Dynamic Dependency Resolution supports these package managers:
 
 ### Semgrep Managed Scans
 
-For C# (NuGet), Managed Scans requires a `packages.lock.json` lockfile and doesn't support Dynamic Dependency Resolution. In your own CI or on a local machine, Dynamic Dependency Resolution uses a `.csproj` file, with or without `packages.lock.json`. Managed Scans supports Dynamic Dependency Resolution only for Maven and Gradle.
+For C# (NuGet), Semgrep resolves dependencies from `packages.lock.json` on Managed Scans, in your own CI, and on a local machine. If the project doesn't contain `packages.lock.json`, Dynamic Dependency Resolution uses a `.csproj` file in your own CI or on a local machine. If both files exist, Semgrep uses the lockfile. Managed Scans doesn't support Dynamic Dependency Resolution for NuGet. Managed Scans supports Dynamic Dependency Resolution only for Maven and Gradle.
 
 <Steps>
 <Step>
