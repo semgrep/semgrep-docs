@@ -96,29 +96,27 @@ keywords: ["Semgrep Guardian", "FAQ", "free trial"]
 <AccordionGroup>
   <Accordion title="Which coding agents does Guardian support?">
 
-    Claude Code and Codex are the recommended setups. Guardian also supports Cursor, GitHub Copilot, VS Code, Devin (Windsurf), Kiro, and other MCP-compatible agents. See [Choose your setup](/semgrep-guardian/choose-your-setup).
+    Claude Code and Codex are the recommended setups. Other agents are supported too. See [Choose your setup](/semgrep-guardian/choose-your-setup).
 
   </Accordion>
   <Accordion title="What's the difference between the two setup paths?">
 
-    The Claude Code and Codex plugins use Semgrep's hosted server. You sign in or sign up for Semgrep through OAuth, and you don't need a local CLI. Other agents, and the local Claude Code plugin, run Semgrep through a CLI you install, then sign in or sign up for Semgrep with `semgrep login`.
-
-    The paths also use different rules. See the next section.
+    The paths differ in how you sign in or sign up for Semgrep, whether you need a local CLI, and which rules run. See [Choose your setup](/semgrep-guardian/choose-your-setup).
 
   </Accordion>
   <Accordion title="How do I install Guardian in Claude Code?">
 
-    Install `semgrep@claude-plugins-official`, then start a new session and sign in or sign up for Semgrep. Commands are in the [Quickstart](/semgrep-guardian/quickstart). For the local plugin, see [Claude Code setup](/semgrep-guardian/ide-setup/claude-code).
+    Follow the [Quickstart](/semgrep-guardian/quickstart). For the local plugin, see [Claude Code setup](/semgrep-guardian/ide-setup/claude-code).
 
   </Accordion>
   <Accordion title="How do I install Guardian in Codex?">
 
-    Add the Semgrep marketplace, install `semgrep@semgrep-marketplace`, start a new session, and sign in or sign up for Semgrep. Commands are in the [Quickstart](/semgrep-guardian/quickstart).
+    Follow the [Quickstart](/semgrep-guardian/quickstart).
 
   </Accordion>
   <Accordion title="How do I install Guardian in Cursor or another agent?">
 
-    Install the [Semgrep CLI](/semgrep-guardian/install-cli) and sign in or sign up for Semgrep first, then follow the page for your agent under [Choose your setup](/semgrep-guardian/choose-your-setup).
+    Follow the page for your agent under [Choose your setup](/semgrep-guardian/choose-your-setup).
 
   </Accordion>
 </AccordionGroup>
@@ -128,19 +126,17 @@ keywords: ["Semgrep Guardian", "FAQ", "free trial"]
 <AccordionGroup>
   <Accordion title="Does Guardian use my organization's Policies?">
 
-    Not on the recommended Claude Code or Codex plugin. Those hooks run the fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset.
-
-    The local Claude Code plugin and every other agent scan with the rules enabled in your organization's Policies. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
+    It depends on the setup. The recommended plugins don't. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
 
   </Accordion>
   <Accordion title="What does the guardian-default ruleset include?">
 
-    It is based on [`p/default`](https://semgrep.dev/p/default). Semgrep includes a rule only when the agent can apply a fix or a sanitizer. Rules without a reliable fix are left out, because they can cause the agent to rewrite code incorrectly.
+    See [Rules and configuration](/semgrep-guardian/rules-and-configuration) for which rules that ruleset includes and why some are left out.
 
   </Accordion>
   <Accordion title="Why did CI report an issue that Guardian missed?">
 
-    On the Claude Code and Codex plugins, Guardian doesn't read your Policies. A rule you enabled for CI may not be in `guardian-default`. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
+    A CI scan can use rules the recommended plugins don't run. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
 
   </Accordion>
 </AccordionGroup>
@@ -150,26 +146,22 @@ keywords: ["Semgrep Guardian", "FAQ", "free trial"]
 <AccordionGroup>
   <Accordion title="How does sign-in work?">
 
-    With Claude Code or Codex, each developer signs in or signs up for Semgrep once in the browser. Semgrep refreshes access tokens after that. Other agents use `semgrep login`, which is also where a new user creates an account. See [Authentication](/semgrep-guardian/authentication).
+    Claude Code and Codex use a one-time browser sign-in or sign-up. Other agents use the CLI. See [Authentication](/semgrep-guardian/authentication).
 
   </Accordion>
   <Accordion title="Where are credentials stored?">
 
-    OAuth credentials for the Claude Code and Codex plugins are stored in `~/.semgrep/guardian.yml`. CLI credentials from `semgrep login` are stored in `~/.semgrep/settings.yml`.
-
-    If `guardian.yml` has an OAuth session, Guardian uses it instead of an API token in `settings.yml`.
+    Where credentials are stored depends on how you signed in. See [Authentication](/semgrep-guardian/authentication).
 
   </Accordion>
   <Accordion title="Why are scans running under a different account?">
 
-    An existing OAuth session in `guardian.yml` takes precedence over CLI credentials in `settings.yml`. Check which file has the active credentials. Use `semgrep logout` to remove CLI credentials from `settings.yml`. See [Authentication](/semgrep-guardian/authentication).
+    An existing sign-in can take precedence over another. See [Authentication](/semgrep-guardian/authentication).
 
   </Accordion>
   <Accordion title="Can the team share one API token?">
 
-    Shared tokens and service accounts are not recommended. Each developer should sign in or sign up for Semgrep individually. A shared token is rate-limited as a single user, which can throttle scans when many developers run Guardian concurrently. Revoking a shared token affects every user who depends on it.
-
-    When developers can't sign in or sign up for Semgrep in the browser, Semgrep Enterprise can deploy a read-only token. See [Enterprise deployment](/semgrep-guardian/enterprise-deployment#deploy-with-a-read-only-token-semgrep-enterprise-only).
+    Shared tokens aren't recommended. See [Authentication](/semgrep-guardian/authentication). When a browser sign-in or sign-up isn't possible, see [Enterprise deployment](/semgrep-guardian/enterprise-deployment).
 
   </Accordion>
 </AccordionGroup>
@@ -179,14 +171,12 @@ keywords: ["Semgrep Guardian", "FAQ", "free trial"]
 <AccordionGroup>
   <Accordion title="Can I install Guardian for developers instead of asking each person to do it?">
 
-    Yes. Enable the plugin through your coding agent's enterprise controls, or deploy it with mobile device management (MDM). Each developer still signs in or signs up for Semgrep after the plugin is installed.
-
-    Codex configuration defaults aren't enforced, so developers can still turn the plugin off. See [Enterprise deployment](/semgrep-guardian/enterprise-deployment).
+    Yes. Each developer still signs in or signs up for Semgrep after the plugin is installed. See [Enterprise deployment](/semgrep-guardian/enterprise-deployment).
 
   </Accordion>
   <Accordion title="What if developers can't sign in or sign up for Semgrep through a browser?">
 
-    Prefer OAuth when they can. On Semgrep Enterprise, you can deploy a read-only token with `SEMGREP_APP_TOKEN` and set `SEMGREP_GUARDIAN_EMAIL` to that developer's email. See [Deploy with a read-only token](/semgrep-guardian/enterprise-deployment#deploy-with-a-read-only-token-semgrep-enterprise-only).
+    Semgrep Enterprise has an option for that case. See [Enterprise deployment](/semgrep-guardian/enterprise-deployment).
 
   </Accordion>
   <Accordion title="Where do I get help?">
