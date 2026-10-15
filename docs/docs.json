@@ -465,7 +465,8 @@
           {
             "group": "Using Semgrep Guardian",
             "pages": [
-              "semgrep-guardian/rules-and-configuration"
+              "semgrep-guardian/rules-and-configuration",
+              "semgrep-guardian/pricing-and-cost"
             ]
           },
           {

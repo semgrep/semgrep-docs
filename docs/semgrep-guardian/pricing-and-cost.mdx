@@ -1,0 +1,27 @@
+---
+title: "Semgrep Guardian pricing and cost"
+description: "How Semgrep Guardian is licensed, how scans consume Semgrep credits, and how Guardian affects your coding agent's LLM token usage."
+sidebarTitle: Pricing and cost
+---
+
+Using Guardian has three costs to consider: the Guardian license, the Semgrep credits each scan consumes, and the LLM tokens your coding agent uses to act on findings.
+
+## Licensing
+
+Guardian is licensed per developer and costs $10 per developer per month. See [Semgrep pricing](https://semgrep.dev/pricing) for more details.
+
+## Semgrep credits
+
+Every Guardian scan costs Semgrep credits. The number of credits is dynamic and depends on the type of underlying detection used for the scan.
+
+For how credits are allocated, purchased, and tracked, see [Usage and billing](/usage-and-billing/overview#ai-credits).
+
+## LLM token usage
+
+Semgrep runs Guardian scans, so scanning itself uses none of your LLM tokens. Your agent only uses tokens when Guardian returns a finding: the finding is added to the agent's context, and the agent may regenerate the affected code.
+
+* **Most scans add no tokens.** When a scan finds no issues, nothing is sent back to the agent and your token usage doesn't change.
+* **Findings add a small cost.** When Guardian does return a finding, the agent reads it and may rewrite the code. In Semgrep's testing, this adds less than 1% to overall token usage.
+* **Every setup path works the same way.** Token usage is the same whether Guardian scans with the remote server or a local Semgrep CLI, and for every supported agent.
+
+To estimate token usage for your organization before a full rollout, ask your Semgrep account team about a proof of value (POV).
