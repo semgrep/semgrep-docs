@@ -250,6 +250,8 @@ Once saved, Semgrep has code access to your Bitbucket Cloud repositories.
 
 Bitbucket Data Center HTTP access tokens can be created for a user, project, or repository. Create the token at the narrowest level that includes the repositories Semgrep scans.
 
+Autofix requires a personal (user) HTTP access token. Bitbucket Data Center doesn't let project or repository tokens commit file changes, so Autofix can't open PRs with them.
+
 Branch permissions can restrict who can push or merge code. If you grant write access for features such as Autofix PRs, ensure that the HTTP access token can push branches and create PRs into the target branch.
 
 <Steps>

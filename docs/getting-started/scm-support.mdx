@@ -65,6 +65,10 @@ Semgrep doesn't support versions earlier than the minimum.
 - Semgrep Multimodal, generic secrets, Managed Scans, and Autofix require a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/), which is only available on Bitbucket Cloud Premium.
 - Managed Scans and triage through PR comments also require workspace-level webhooks, which aren't available on Bitbucket Cloud Free or Standard.
 
+### Bitbucket Data Center
+
+- Autofix requires a personal HTTP access token. Bitbucket Data Center doesn't let project or repository tokens commit file changes, so Autofix can't open PRs with them.
+
 ### Cursor Origin
 
 - Cursor Origin support is in beta. Feature parity with other SCMs is incomplete during the beta. See [Cursor Origin Managed Scans](/deployment/managed-scanning/cursor#supported-features-and-beta-limitations).
