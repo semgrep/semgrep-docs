@@ -23,7 +23,8 @@ Select a finding.
 </Step>
 <Step>
 Click **Fix** > **Open Autofix PR**.
-  * If Autofix is unavailable, **Open Autofix PR** does not appear in the **Fix** menu, or Semgrep shows a modal with setup instructions instead of opening the PR. See [When Supply Chain Autofix is available](#when-supply-chain-autofix-is-available).
+  * If Autofix is unavailable for the finding, **Open Autofix PR** is disabled. Hover over it to see why. See [When Supply Chain Autofix is available](#when-supply-chain-autofix-is-available).
+  * If an Autofix PR or MR already exists for the finding, the menu shows **View Autofix PR** instead.
 </Step>
 </Steps>
 
@@ -38,16 +39,29 @@ To use Supply Chain Autofix, you must meet the following requirements:
 - [Enable Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure).
 - Run a full scan on a connected repository.
 - The project uses a supported ecosystem: JavaScript or Python.
-- The finding has a fixed version to upgrade to.
+- The vulnerable package is a direct dependency. Autofix does not support transitive dependencies.
+- The finding is open and has a fixed version to upgrade to.
+- If [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance) has analyzed the upgrade, it did not find dependency conflicts or build errors. See [How Upgrade Guidance results affect Autofix](#how-upgrade-guidance-results-affect-autofix).
 
 ### Repository requirements
 
-- Semgrep needs **Contents: Read and write** access to the repository so it can push a branch and open a PR or MR. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
+- The repository is connected to a source code manager and is not archived.
+- Semgrep has code access to the repository and the following write permissions, so that it can push a branch and open a PR or MR. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
+  - GitHub: **Contents: Read and write** and **Pull requests: Read and write**
+  - GitLab: write access to the repository and to merge requests
+- You have permission to triage findings in the repository.
 
 ### Environment-specific requirements
 
 - If Semgrep connects to your SCM through the [Semgrep Network Broker](/semgrep-ci/network-broker), upgrade to Network Broker 0.45.2 or later and set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. Older broker versions return a 403 allowlist error. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
 - If the dependency is in a private registry, [connect the registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
+
+### How Upgrade Guidance results affect Autofix
+
+You don't need Upgrade Guidance to use Autofix. If Upgrade Guidance has analyzed the upgrade, its result affects Autofix as follows:
+
+- **The upgrade isn't possible**: if the package manager reports dependency conflicts or build errors for the upgrade, Autofix is unavailable. Review the upgrade guidance on the finding for details.
+- **Semgrep can't determine whether the upgrade is safe**: you can still open an Autofix PR or MR from the **Fix** menu, but Semgrep warns that the change may introduce breaking changes. The Autofix button in the upgrade guidance section of the finding isn't shown.
 
 ## What the PR or MR contains
 
@@ -69,8 +83,8 @@ For upgrade analysis without opening a PR or MR, see [Upgrade Guidance (beta)](/
 
 ## Troubleshooting
 
-If Autofix is unavailable, **Open Autofix PR** does not appear in the **Fix** menu, or Semgrep shows a modal with setup instructions instead of opening the PR.
+If Autofix is unavailable for a finding, **Open Autofix PR** is disabled in the **Fix** menu.
 
-- If **Open Autofix PR** does not appear, review the [project requirements](#project-requirements).
-- If Semgrep shows a modal with setup instructions instead of opening the PR, review the [repository requirements](#repository-requirements) and [environment-specific requirements](#environment-specific-requirements).
-- Common configuration issues include missing [**Contents: Read and write**](/semgrep-appsec-platform/scm-code-access) access, a Network Broker older than 0.45.2 or `allowCodeAccess` left at `false`, and a [private registry](/kb/semgrep-supply-chain/connect-a-private-registry) that is not connected to Semgrep.
+- Hover over **Open Autofix PR** to see why it's disabled, then review the [project requirements](#project-requirements).
+- If **Open Autofix PR** shows **View instructions to enable**, Semgrep is missing repository permissions. Click it to see the setup instructions, and review the [repository requirements](#repository-requirements) and [environment-specific requirements](#environment-specific-requirements).
+- Common configuration issues include missing [**Contents: Read and write**](/semgrep-appsec-platform/scm-code-access) or **Pull requests: Read and write** access, a Network Broker older than 0.45.2 or `allowCodeAccess` left at `false`, and a [private registry](/kb/semgrep-supply-chain/connect-a-private-registry) that is not connected to Semgrep.
