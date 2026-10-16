@@ -26,7 +26,9 @@ The following table lists all Semgrep-supported package managers for each langua
 <tr>
    <td>C#</td>
    <td>NuGet</td>
-   <td><code>.csproj</code></td>
+   <td><code>packages.lock.json</code> on Managed Scans, in your own CI, and on a local machine. Without <code>packages.lock.json</code>, <a
+   href="/docs/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta">Dynamic
+   Dependency Resolution</a> uses <code>.csproj</code> in your own CI or on a local machine. If both files exist, Semgrep uses the lockfile. Managed Scans doesn't support Dynamic Dependency Resolution for NuGet.</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -119,7 +121,7 @@ The following table lists all Semgrep-supported package managers for each langua
 <tr>
    <td>Elixir</td>
    <td>Hex</td>
-   <td><code>mix.lock</code></td>
+   <td><code>mix.exs</code> and <code>mix.lock</code>. Both files must be present.</td>
 </tr>
 <tr>
    <td>PHP</td>
@@ -131,7 +133,7 @@ The following table lists all Semgrep-supported package managers for each langua
 </div>
 
 _<strong>†</strong>Supply Chain can treat `requirements.txt` as a lockfile with Pip-compiled output and fully pinned dependencies or as a manifest file with more flexible specifiers. If your `requirements.txt` file doesn't use pinned dependencies exclusively, use the [`--allow-local-builds` flag](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) when invoking your scan. This ensures that the dependencies using non-exact version specifiers, such as `>=`, `>`, `~=`, are included in the dependency graph. Otherwise, Semgrep ingests only pinned (`==`) dependencies._<br /><br />
-_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_<br />
+_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_
 
 ## Feature availability
 
@@ -169,7 +171,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>C#</td>
 <td align="center">✅</td>
-<td align="center">✅<br /> CI and CLI only</td>
+<td align="center">✅<br /><code>.csproj</code> in your own CI or on a local machine when <code>packages.lock.json</code> isn't present. If both files exist, Semgrep uses the lockfile.<br />Not supported on Managed Scans</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>

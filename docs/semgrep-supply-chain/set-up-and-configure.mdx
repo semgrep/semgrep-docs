@@ -101,16 +101,27 @@ This feature is currently in beta. Please contact [Semgrep Support](/support) fo
 
 Supply Chain can use **Dynamic Dependency Resolution** to scan projects without lockfiles or with incomplete lockfiles.
 
+Dynamic Dependency Resolution supports these package managers:
+
+- Maven and Gradle in CI, in the CLI, and on Managed Scans
+- pip `setup.py` projects only in CI and the CLI
+- NuGet for C#: `.csproj` in your own CI or on a local machine when `packages.lock.json` isn't present. If both files exist, Semgrep uses the lockfile. Managed Scans requires `packages.lock.json` and doesn't support Dynamic Dependency Resolution for NuGet.
+
 ### CLI scans, including self-managed CI systems
 
-1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as a compatible JDK and Maven, or Python and pip. You control which JDK is available, so projects that require Java versions below 11 can still use Dynamic Dependency Resolution in your own environment.
+1. Install the build tools for your package manager in the environment where you run Semgrep:
+    - For Maven or Gradle, install a compatible Java Development Kit (JDK) and Maven or Gradle. You choose the JDK in this environment, so you can use Dynamic Dependency Resolution for Java versions below 11.
+    - For pip, install Python and pip.
+    - For NuGet, install the .NET SDK. Use this resolution for C# only in CI and the CLI.
 2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag to enable Semgrep to invoke package managers on the system:
     ```console
     semgrep ci --allow-local-builds
     ```
-    For existing CI jobs, you might have to edit your configuration file to include this flag. The flag allows Semgrep to build the project, if needed, to dynamically resolve dependencies. Semgrep uses the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
+    For existing CI jobs, you might have to edit your configuration file to include this flag. The flag allows Semgrep to build the project, if needed, to dynamically resolve dependencies. Semgrep uses the `pom.xml`, `build.gradle`, or `.csproj` manifest to determine which dependencies the project uses. Run this command in your own CI system or on a local machine.
 
 ### Semgrep Managed Scans
+
+For C# (NuGet), Semgrep resolves dependencies from `packages.lock.json` on Managed Scans, in your own CI, and on a local machine. If the project doesn't contain `packages.lock.json`, Dynamic Dependency Resolution uses a `.csproj` file in your own CI or on a local machine. If both files exist, Semgrep uses the lockfile. Managed Scans doesn't support Dynamic Dependency Resolution for NuGet. Managed Scans supports Dynamic Dependency Resolution only for Maven and Gradle.
 
 <Steps>
 <Step>

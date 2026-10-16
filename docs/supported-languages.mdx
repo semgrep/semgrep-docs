@@ -10,7 +10,7 @@ Languages are arranged by feature completeness from most to least. If applicable
 
 | **Languages** | **Semgrep Code**<br />Supports 35+ languages | **Semgrep Supply Chain**<br />Supports 14 languages |
 | --- | --- | --- |
-| [C#](/languages/csharp) | **Generally available**<br />• Cross-file dataflow analysis<br />• Supports up to C# 13<br />• 170+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
+| [C#](/languages/csharp) | **Generally available**<br />• Cross-file dataflow analysis<br />• Supports up to C# 13<br />• 170+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies<br />• Managed Scans requires `packages.lock.json` and doesn't support Dynamic Dependency Resolution. See [C# support](/languages/csharp#nuget-support). |
 | [Go](/languages/go) | **Generally available**<br />• Cross-file dataflow analysis<br />• 80+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
 | [Java](/languages/java) | **Generally available**<br />• Cross-file dataflow analysis<br />• Framework-specific control flow analysis<br />• 190+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses |
 | [JavaScript](/languages/javascript) | **Generally available**<br />• Cross-file dataflow analysis<br />• Framework-specific control flow analysis<br />• 250+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
@@ -27,7 +27,7 @@ Languages are arranged by feature completeness from most to least. If applicable
 | Terraform | **Generally available**<br />• Cross-function dataflow analysis<br />• Community rules | N/a |
 | Generic | **Generally available** | N/a |
 | JSON | **Generally available** | N/a |
-| Elixir | **Generally available** | **Beta** |
+| Elixir | **Generally available** | **Beta**<br />• Hex. Both `mix.exs` and `mix.lock` must be present<br />• No reachability analysis<br />• No license detection<br />• Requires a lockfile |
 | APEX | **Beta** | -- |
 | Dart | **Experimental** | **Beta** |
 

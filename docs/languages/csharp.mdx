@@ -31,11 +31,16 @@ Some examples of rules include:
 
 Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
 
-### Supported package managers
+### NuGet support
 
-Semgrep supports the following C# package manager:
+Semgrep Supply Chain supports only NuGet projects.
 
-- NuGet
+
+If your project contains a `packages.lock.json` file, Semgrep resolves dependencies from it, whether you scan using **Semgrep Managed Scans**, your own **CI**, or a **local machine**.
+
+If your project doesn't contain a `packages.lock.json` file, you can use [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) with a `.csproj` file by running `semgrep ci --allow-local-builds`. If both files exist, Semgrep uses the lockfile.
+
+Dynamic Dependency Resolution for NuGet is supported only in your own CI or on a local machine. **Semgrep Managed Scans does not support dynamic dependency resolution**.
 
 ### Analyses and features
 
@@ -56,12 +61,6 @@ Semgrep is able to detect malicious dependencies in your projects and in pull re
 **SBOM generation**
 
 Semgrep enables you to generate a software bill of materials (SBOM) to assess your third-party dependencies and comply with auditing procedures. Semgrep Supply Chain (SSC) can generate an SBOM for each repository you have added to Semgrep AppSec Platform.
-
-<Tip>
-**NO NEED FOR LOCKFILES**
-
-C# projects can be scanned **without** the need for lockfiles. See [Dynamic Dependency Resolution (beta)](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta).
-</Tip>
 
 ## C# support in Semgrep CE
 
