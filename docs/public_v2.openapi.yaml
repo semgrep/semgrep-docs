@@ -1864,7 +1864,12 @@ paths:
             tags:
                 - IssuesService
             summary: List issues
-            description: List an organization's recent issues with filtering, sorting, and pagination
+            description: |-
+                List a deployment's recent issues with filtering, sorting, and cursor pagination.
+
+                Set `limit` to control the number of issues returned per page. Defaults to the maximum of 3000.
+
+                To fetch the next page of results set `cursor` to the `cursor` value from the previous page. Once no `cursor` is returned you have reached the end of the list.
             operationId: IssuesService_ListIssues
             parameters:
                 - name: deploymentId
