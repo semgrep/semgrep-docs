@@ -59,7 +59,7 @@ A sunset response looks like this:
 ```http
 HTTP/1.1 410 Gone
 Content-Type: application/json
-Deprecation: Tue, 01 Sep 2026 00:00:00 GMT
+Deprecation: @1788220800
 Sunset: Mon, 01 Mar 2027 00:00:00 GMT
 Link: </api/v2/issues>; rel="successor-version"
 
@@ -70,8 +70,8 @@ Link: </api/v2/issues>; rel="successor-version"
 
 | Field | Meaning |
 | --- | --- |
-| `Deprecation` | The date the deprecation became public, as an HTTP date. This is when the notice period started. |
-| `Sunset` | The date the endpoint stopped serving data, as an HTTP date, per [RFC 8594](https://www.rfc-editor.org/rfc/rfc8594). |
+| `Deprecation` | The date the deprecation became public, as a structured-field date per [RFC 9745](https://www.rfc-editor.org/rfc/rfc9745): `@` followed by Unix seconds. In this example, `@1788220800` is September 1, 2026, 00:00 UTC. This is when the notice period started. |
+| `Sunset` | The date the endpoint stopped serving data, as an HTTP date, per [RFC 8594](https://www.rfc-editor.org/rfc/rfc8594). It uses a different date format from `Deprecation` because RFC 8594 predates the structured-field date type. |
 | `Link` | The replacement endpoint, with the relation `successor-version`. Parse this rather than the `error` string when you need to route to the replacement automatically. |
 | `error` | A human-readable explanation. Its wording is not stable, so don't match on it. |
 
